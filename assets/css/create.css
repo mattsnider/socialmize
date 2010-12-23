@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) 2007, Matt Snider, LLC. All rights reserved.
+ * version: 1.0.0
+ */
+
+#create h3 {
+    margin-top: 0;
+}
+
+#create select {
+    width: 30.7em;
+}
+
+#create input.txt {
+    margin-bottom: 1em;
+    width: 30em;
+}
+
+#create label {
+    display: block;
+    padding-bottom: 0.2em;
+}
+
+#create fieldset {
+    padding-left: 12em;
+}
+
+#create div.buttons {
+    padding-top: 2em;
+    width: 34.5em;
+}

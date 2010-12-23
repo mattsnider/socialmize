@@ -1,0 +1,52 @@
+/** @group checkboxes */
+
+.list {
+}
+
+.list .filter {
+
+}
+
+.list .filter input.txt {
+	margin-right: 2em;
+	width: 38em;
+}
+
+.list .filter label {
+	display: block;
+}
+
+.list ul {
+	border: 1px solid #333;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+	height: 21em;
+	margin-bottom: 0;
+	margin-left: 0;
+	overflow: auto;
+}
+
+.list li input {
+	margin-left: 0.5em;
+}
+
+.list li label {
+	display: inline;
+	padding-left: 0.75em;
+}
+
+.list .links {
+	height: 1.8em;
+	padding-top: 0;
+	width: 61.5em;
+}
+
+.list .links .previous {
+	float: left;
+}
+
+.list .links .next {
+	float: right;
+}
+
+/** @end */

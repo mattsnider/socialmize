@@ -1,0 +1,76 @@
+/* @group steps */
+
+.yui3-macprefradio {
+	height: 6em;
+	margin-bottom: 0.4em;
+}
+
+.yui3-macprefradio .yui3-macprefradio-button {
+	background-color: #FFF;
+	border: 1px solid #999;
+	float: left;
+	line-height: 3em;
+	border-radius: 6px;
+	text-align: center;
+}
+
+.yui3-macprefradio .yui3-macprefradio-button span {
+	font-size: 150%;
+}
+
+.yui3-macprefradio .checked,
+.yui3-macprefradio .done {
+	background-color: #DAF4DC;
+	border-color: #7DC67D;
+}
+
+.yui3-macprefradio .checked {
+	font-weight: bold;
+}
+
+.yui3-macprefradio .disabled {
+	background-color: #DAF4DC;
+	opacity: .5;
+	filter:alpha(opacity=50);
+}
+
+.yui3-macprefradio .yui3-macprefradio-center {
+	border-left: none;
+	-webkit-border-radius: 0;
+	-khtml-border-radius: 0;
+	-moz-border-radius: 0;
+	-o-border-radius: 0;
+	border-radius: 0;
+}
+
+.yui3-macprefradio .yui3-macprefradio-left {
+	-webkit-border-top-left-radius: 6px;
+	-khtml-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-o-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+}
+
+.yui3-macprefradio .yui3-macprefradio-right {
+	-webkit-border-top-right-radius: 6px;
+	-khtml-border-top-right-radius: 6px;
+	-moz-border-radius-topright: 6px;
+	-o-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+/* @end */
+
+/* @group page */
+
+#main-content {
+	border: 1px solid #999;
+	padding-bottom: 1em;
+	padding-top: 1em;
+}
+
+#main-content form.profile-edit {
+	margin: 0 1em;
+}
+
+/* @end */

@@ -1,0 +1,14 @@
+Core.Constants={};
+Core.Constants.html={};
+Core.Constants.html.klass={};
+Core.Constants.html.klass.PROJECT_NAME='project';
+Core.Constants.html.id={};
+Core.Constants.html.id.PROJECT_NAME='project';
+Core.Constants.query={};
+Core.Constants.query.key={};
+Core.Constants.query.key.USERNAME='username';
+Core.Constants.query.key.EMAIL='email';
+Core.Constants.query.key.PASSWORD='password';
+Core.Constants.session={};
+Core.Constants.session.key={};
+Core.Constants.session.key.USER='user';

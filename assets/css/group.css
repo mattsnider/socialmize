@@ -1,0 +1,57 @@
+html #content .content {
+	padding: 0;
+}
+
+.column-two .column-left {
+    margin-left: 0.5em;
+    width: 45.5em;
+}
+
+.column-two .column-right {
+	width: 20em;
+}
+
+/* @group Friend Table */
+
+.friend-tbl div.image {
+    margin: 0.25em 0.8em 0 0;
+}
+
+.friend-tbl img {
+    width: 4.5em;
+}
+
+.friend-tbl div.text {
+    width: 5em;
+}
+
+/* @end Friend Table */
+
+html .info {
+	margin: 1em 0 0;
+}
+
+.profile .related {
+	padding: 1em 0.8em;
+}
+
+.profile .related li {
+	padding: 0 0 0.5em;
+}
+
+.profile .related small {
+	color: #999;
+}
+
+div#wall-list {
+	margin-top: 1em;
+}
+
+div#profile-admins.panel ul {
+    margin: 0;
+}
+
+div#profile-admins.panel ul li {
+    list-style-type: circle;
+	list-style-position: inside;
+}

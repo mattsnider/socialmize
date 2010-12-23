@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+		"http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+<!--
+     This is a basic Studs/Struts configuration file with an example
+     welcome action/page and other commented sample elements.
+-->
+<struts-config>
+
+	<!-- database configuration -->
+	<data-sources>
+		<data-source type="horizon.sql.BasicDataSource">
+			<set-property
+					property="description"
+					value="Primary data source for localhost database"/>
+			<set-property
+					property="driverClassName"
+					value="horizon.sql.drivers.MySQLDriver"/>
+			<set-property
+					property="username"
+					value="root"/>
+			<set-property
+					property="password"
+					value="purpose"/>
+			<set-property
+					property="url"
+					value="mysql://localhost/cameleon"/>
+		</data-source>
+	</data-sources>
+
+	<form-beans>
+		<!-- sample form bean descriptor for an ActionForm
+        <form-bean
+            name="inputForm"
+            type="app.InputForm"/>
+    	-->
+	</form-beans>
+
+	<global-exceptions>
+		<!-- sample exception handler
+        <exception
+            key="expired.password"
+            type="app.ExpiredPasswordException"
+            path="/changePassword.jsp"/>
+        -->
+	</global-exceptions>
+
+	<global-forwards>
+		<!-- Default forward to "welcome" action -->
+		<forward name="error" path="/home.action" redirect="true"/>
+		<forward name="failure" path="/pages/error.jsp"/>
+		<forward name="forward" path="/pages/forward.jsp"/>
+		<forward name="home" path="/home.action"/>
+		<forward name="json" path="/pages/json.jsp"/>
+		<forward name="profile" path="/profile.action"/>
+		<forward name="terms" path="/terms.action"/>
+		<forward name="unauthorized" path="/pages/errors/unauthorized.jsp"/>
+		<forward name="wall" path="/wall.action"/>
+		<forward name="welcome" path="/login.action"/>
+		<forward name="xml" path="/pages/xml.jsp"/>
+	</global-forwards>
+
+	<action-mappings>
+
+		<action path="/download" type="project.action.ControllerDownload">
+			<forward name="success" path="/pages/download.jsp"/>
+		</action>
+
+		<action path="/admin" type="project.action.admin.ControllerAdminView">
+			<forward name="success" path="/pages/admin/home.jsp"/>
+		</action>
+
+		<action path="/adminSubmit" type="project.action.admin.ControllerAdminSubmit"/>
+
+		<action path="/privacy" forward="/edit.action?task=access#access"/>
+
+		<!-- Page Actions -->
+
+		<action path="/account" type="project.action.page.ControllerSearchableViewEdit">
+			<forward name="success" path="/pages/profile/edit.jsp"/>
+		</action>
+
+		<action path="/about" type="project.action.page.ControllerAboutView">
+			<forward name="success" path="/pages/about.jsp"/>
+		</action>
+
+		<action path="/confirm" type="project.action.page.ControllerConfirmView">
+			<forward name="success" path="/pages/confirm.jsp"/>
+		</action>
+
+		<action path="/create" type="project.action.page.ControllerCreateSearchableView">
+			<forward name="success" path="/pages/createSearchable.jsp"/>
+		</action>
+
+		<action path="/faq" type="project.action.page.ControllerFaqView">
+			<forward name="success" path="/pages/faq.jsp"/>
+		</action>
+
+		<action path="/edit" type="project.action.page.ControllerSearchableViewEdit">
+			<forward name="success" path="/pages/profile/edit.jsp"/>
+		</action>
+
+		<action path="/editprofile" type="project.action.page.ControllerProfileViewEdit">
+			<forward name="success" path="/pages/profile/editprofile.jsp"/>
+		</action>
+
+		<action path="/friends" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/groups" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/home" type="project.action.page.ControllerHomeView">
+			<forward name="success" path="/pages/home.jsp"/>
+		</action>
+
+		<action path="/invite" type="project.action.page.ControllerInviteView">
+			<forward name="success" path="/pages/invite.jsp"/>
+		</action>
+
+		<action path="/login" type="project.action.page.ControllerLoginView">
+			<forward name="login" path="/pages/login.jsp"/>
+		</action>
+
+		<action path="/manage" type="project.action.page.ControllerManageSearchableView">
+			<forward name="success" path="/pages/manage.jsp"/>
+		</action>
+
+		<action path="/members" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/message" type="project.action.page.ControllerMessageView">
+			<forward name="success" path="/pages/message.jsp"/>
+		</action>
+
+		<action path="/mailbox" type="project.action.page.ControllerMessageViewList">
+			<forward name="success" path="/pages/mailbox.jsp"/>
+		</action>
+
+		<action path="/messageBoardView" type="project.action.page.ControllerMessageBoardView">
+			<forward name="success" path="/pages/messageBoardView.jsp"/>
+		</action>
+
+		<action path="/messageBoardList" type="project.action.page.ControllerMessageBoardViewList">
+			<forward name="success" path="/pages/messageBoardList.jsp"/>
+		</action>
+
+		<action path="/mygroups" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/mynetworks" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/network" type="project.action.admin.ControllerNetworkView">
+			<forward name="success" path="/pages/admin/network.jsp"/>
+		</action>
+
+		<action path="/networks" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/profile" type="project.action.page.ControllerProfileView">
+			<forward name="success" path="/pages/profile.jsp"/>
+		</action>
+
+		<action path="/profileWidgetField" type="project.action.admin.ControllerProfileWidgetFieldView">
+			<forward name="success" path="/pages/admin/profileWidgetFieldPage.jsp"/>
+		</action>
+
+		<action path="/profileWidget" type="project.action.admin.ControllerProfileWidgetView">
+			<forward name="success" path="/pages/admin/profileWidgetPage.jsp"/>
+		</action>
+
+		<action path="/subnetworks" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/activateUser" type="project.action.page.ControllerActivateUserView">
+			<forward name="activateUser" path="/pages/activateUser.jsp"/>
+		</action>
+
+		<action path="/recoverPassword" type="project.action.page.ControllerRecoverPasswordView">
+			<forward name="recoverPassword" path="/pages/recoverPassword.jsp"/>
+		</action>
+
+		<action path="/search" type="project.action.page.ControllerSearchView">
+			<forward name="success" path="/pages/search.jsp"/>
+		</action>
+
+		<action path="/searchResult" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/users" type="project.action.page.ControllerSearchViewList">
+			<forward name="success" path="/pages/searchResult.jsp"/>
+		</action>
+
+		<action path="/wall" type="project.action.page.ControllerWallViewList">
+			<forward name="success" path="/pages/wall.jsp"/>
+		</action>
+
+		<action path="/writeMessage" type="project.action.page.ControllerMessageCreateView">
+			<forward name="success" path="/pages/createMessage.jsp"/>
+		</action>
+
+
+		<!-- Submit Actions -->
+
+		<action path="/confirmMember" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/createMessage" type="project.action.submit.ControllerMessageUpdate"/>
+
+		<action path="/createSearchable" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/createSearchableFriend" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/deactivateSearchable" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/deleteMember" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/deleteMessage" type="project.action.submit.ControllerMessageUpdate"/>
+
+		<action path="/deleteNotification" type="project.action.submit.ControllerNotificationUpdate"/>
+
+		<action path="/deleteSearchable" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/joinSearchable" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/leaveSearchable" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/profileSubmit" type="project.action.submit.ControllerProfileSubmit"/>
+
+		<action path="/submitManage" type="project.action.submit.ControllerManageSubmit"/>
+
+		<action path="/createMessage" type="project.action.submit.ControllerMessageUpdate">
+			<forward name="cancel" path="/mailbox.action" redirect="true"/>
+			<forward name="out" path="/mailbox.action?out=T" redirect="true"/>
+			<forward name="in" path="/mailbox.action" redirect="true"/>
+		</action>
+
+		<action path="/submitMessageBoard" type="project.action.submit.ControllerMessageBoardSubmit"/>
+
+		<action path="/submitUser" type="project.action.submit.ControllerUserSubmit"/>
+
+		<action path="/submitWall" type="project.action.submit.ControllerWallSubmit"/>
+
+		<action path="/updateRegistrationTask" type="project.action.admin.ControllerAdminSubmit"/>
+
+		<action path="/updateRegistrationTaskOrder" type="project.action.admin.ControllerAdminSubmit"/>
+
+		<action path="/updateSearchableAccess" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/updateSearchableAdmins" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/updateSearchableEmail" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/updateSearchableFeatures" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/updateSearchableMembers" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/updateSearchableName" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/updateSearchableNotification" type="project.action.submit.ControllerSearchableUpdate"/>
+
+		<action path="/updateUserPassword" type="project.action.submit.ControllerUserUpdate"/>
+
+		<action path="/updateSearchablePortrait" type="project.action.submit.ControllerUserUpdate"/>
+
+
+		<!-- JSON Actions -->
+
+		<action path="/readSearchables" type="project.action.json.ControllerSearchablesRead"/>
+
+
+		<!-- Other Actions -->
+
+		<action path="/adminAjaxView" type="project.action.admin.ControllerAdminAjaxView">
+			<forward name="success" path="/pages/admin/ajax/adminAjaxWrapper.jsp"/>
+		</action>
+
+		<action path="/test" type="project.action.ControllerTest">
+			<forward name="success" path="/pages/test.jsp"/>
+		</action>
+
+		<action path="/printPHPConstants" type="project.action.bin.ControllerRunScript">
+			<forward name="printPHPConstants" path="/pages/bin/printPHPConstants.jsp"/>
+		</action>
+
+		<action path="/autocomplete" type="project.action.ControllerGetAutocomplete">
+			<forward name="success" path="/pages/ajax/autocomplete.jsp"/>
+		</action>
+
+		<action path="/forum" type="project.action.ControllerForumList">
+			<forward name="success" path="/pages/forum.jsp"/>
+		</action>
+
+		<action path="/getProfileWidget" type="project.action.admin.ControllerProfileWidgetView">
+			<forward name="success" path="/pages/admin/ajax/profileWidgetAjax.jsp"/>
+		</action>
+
+		<action path="/getProfileWidgetField" type="project.action.admin.ControllerProfileWidgetFieldView">
+			<forward name="success" path="/pages/admin/ajax/profileWidgetFieldAjax.jsp"/>
+		</action>
+
+		<action path="/loginSubmit" type="project.action.submit.ControllerUserLoginSubmit">
+			<forward name="invalid" path="/pages/login.jsp"/>
+		</action>
+
+		<action path="/logout" type="project.action.submit.ControllerUserLogoutSubmit">
+			<forward name="invalid" path="/pages/login.jsp"/>
+		</action>
+
+
+		<!-- Start RegistrationTask Actions -->
+
+		<action path="/registration_view_tos" type="project.action.module.registrationTask.ControllerTermsView">
+			<forward name="success" path="/pages/module/registrationTask/tos.jsp"/>
+		</action>
+
+		<action path="/registration_update_tos" type="project.action.module.registrationTask.ControllerTermsSubmit"/>
+
+		<action path="/registration_view_required" type="project.action.module.registrationTask.ControllerRequiredView">
+			<forward name="success" path="/pages/module/registrationTask/required.jsp"/>
+		</action>
+
+		<action path="/registration_update_required" type="project.action.module.registrationTask.ControllerRequiredSubmit"/>
+
+		<action path="/registration_view_payment" type="project.action.module.registrationTask.ControllerPaymentView">
+			<forward name="success" path="/pages/module/registrationTask/payment.jsp"/>
+		</action>
+
+		<action path="/registration_update_payment" type="project.action.module.registrationTask.ControllerPaymentSubmit"/>
+
+		<action path="/registration_view_join" type="project.action.module.registrationTask.ControllerJoinView">
+			<forward name="success" path="/pages/module/registrationTask/join.jsp"/>
+		</action>
+
+		<action path="/registration_update_join" type="project.action.module.registrationTask.ControllerJoinSubmit"/>
+
+		<!-- End RegistrationTask Actions -->
+
+		<!-- sample input and input submit actions
+
+        <action
+            path="/Input"
+            type="org.apache.struts.actions.ForwardAction"
+            parameter="/pages/Input.jsp"/>
+
+        <action
+            path="/InputSubmit"
+            type="app.InputAction"
+            name="inputForm"
+            scope="request"
+            validate="true"
+            input="/pages/Input.jsp"/>
+
+            <action
+                path="/edit*"
+                type="app.Edit{1}Action"
+                name="inputForm"
+                scope="request"
+                validate="true"
+                input="/pages/Edit{1}.jsp"/>
+
+    		-->
+	</action-mappings>
+
+	<controller locale="false" inputForward="true"/>
+
+	<message-resources parameter="/WEB-INF/messages.properties"/>
+
+</struts-config>

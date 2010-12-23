@@ -1,0 +1,177 @@
+/* CSS Document */
+
+/* @group Layout */
+
+#mask {
+	filter: alpha(opacity=50);
+	zoom: 1;
+}
+
+/* @end Layout */
+
+html #header .title {
+	filter: alpha(opacity=75); /* IE <=6 */
+	zoom: 1; /* IE 7 */
+}
+
+ul.bar-admin {
+	background-position: bottom left;
+	background-repeat: no-repeat;
+	background-image: url(../images/bg/bar-admin.gif);
+	height: 1.8em;
+}
+
+/* Fixes header elements not aligning with top of the cell, adjust anytime the sidebar increases beyond the height of the content */
+/*
+html #content .content
+{
+width				: 64.9em;
+}
+
+html #header .content
+{
+width				: 64.9em;
+}
+*/
+
+* html .card .matte .portrait img
+{
+width				: 10em;
+}
+
+html .bug
+{
+	zoom					: 1;
+}
+
+* html .btn
+{
+border-style		: solid;
+border-top-width	: 1px;
+border-left-width	: 1px;
+border-bottom-width	: 1px;
+border-right-width	: 1px;
+border-top-color	: #CC9966;
+border-left-color	: #CC9966;
+border-bottom-color	: #0e1f5b;
+border-right-color	: #0e1f5b;
+background-color	: #900;
+color				: #FFFFFF;
+font-size			: 1.1em;
+font-family			: "lucida grande", tahoma, verdana, arial, sans-serif;
+}
+
+/* Hides from IE-mac \*/
+* html .clearfix{ height: 1%; }
+.clearfix{ display: block; }
+/* End hide from IE-mac */
+
+
+* html .info-box
+{
+	height				: 1%;
+}
+
+* html .info-subheader div.edit,
+* html .info-header div.edit
+{
+	margin-top			: -1.75em;
+}
+
+* html #qsearch input {
+	width				: 11em !important;
+}
+
+* html div#filter input#q.input-search
+{
+	width				: 11em;
+}
+
+
+/* ----- |  users/profile  | ----- */
+
+* html .profile-user div#column_right
+{
+width				: 38em;
+}
+
+* html .tbl-profile
+{
+width				: 38em;
+}
+
+
+/* ----- |  tabs  | ----- */
+
+* html #tabs div
+{
+margin				: 0 0.25em;
+}
+
+
+/* ----- |  misc  | ----- */
+
+html .dialog_container .message_portrait img
+{
+height				: 50;
+}
+
+
+/**
+ * @group search results
+ */
+
+#browseGroup form input.input-search {
+    width: 12.5em;
+}
+
+/**
+ * @end
+ */
+
+
+/**
+ * @group message board
+ */
+
+div#messageBoardList form fieldset select {
+    margin-bottom: 0.16em;
+}
+
+/**
+ * @end
+ */
+
+
+/**
+ * @group tabs
+ */
+
+#search-form-advanced dd.filter {
+    margin-left: 0.7em;
+}
+
+#search-form-advanced dd.filter select {
+    width: 8.8em;
+}
+
+/**
+ * @end
+ */
+
+
+/**
+ * @group tabs
+ */
+
+.tabs {
+    padding-bottom: 0.2em;
+}
+
+div.tabs ul li {
+    padding: 0;
+}
+
+/**
+ * @end
+ */

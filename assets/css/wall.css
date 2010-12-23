@@ -1,0 +1,257 @@
+/* CSS Document */
+
+.nav a {
+    font-variant:small-caps;
+}
+
+/* @group Wall.action */
+
+#wallInlineEdit {
+    padding: 0 0 0.8em;
+}
+
+#wallInlineEdit .content {
+    padding: 1em;
+}
+
+#wallInlineEdit textarea {
+    height: 5em;
+    width: 47.25em;
+}
+
+#wallInlineEdit .actions {
+    padding: 0.2em 0 0;
+}
+
+#wallInlineEdit .buttons {
+    text-align: left;
+}
+
+#wallInlineEdit .buttons input {
+    float: left;
+    width: 7em;
+}
+
+/* @end Wall.action */
+
+
+/* @group Wall content */
+
+.wall-list {
+    padding: 0;
+}
+
+.wall-list dl {
+    margin: 0;
+}
+
+.wall-list dt,
+.wall-list dd {
+    float: left;
+    padding-top: 1em;
+}
+
+.wall-list dt {
+    clear: left;
+}
+
+.wall-list dd {
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 0.5em;
+    width: 32.3em;
+}
+
+.wall-list dd div.wall-header p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.wall-list dd div.wall-header small {
+    margin-top: -0.5em;
+}
+
+.wall-list dd p {
+    margin: 0 0 0.5em;
+}
+
+#wall-form p.error {
+	font-size: 8pt;
+	width: 56.45em
+}
+
+/* @end Wall content */
+
+
+/* @group messageBoardList.action */
+
+#messageBoardList form fieldset {
+    background-color: #F9F9F9;
+    border: 1px solid #DDDDDD;
+    border-top: none;
+}
+
+#messageBoardList h2 {
+    margin: 0 0.8123em;
+}
+
+#messageBoardList form fieldset {
+    margin: 0 1em;
+    padding: 1em;
+}
+
+#messageBoardList form fieldset span {
+    font-size: 10pt;
+}
+
+#messageBoardList div.center {
+	margin-bottom: -0.5em;
+    padding-top: 1em;
+	text-align:center;
+}
+
+#messageBoardList form fieldset select,
+#messageBoardList form fieldset input {
+    margin-left: 0.75em;
+}
+
+#messageBoardList form fieldset input.txt {
+    width: 14.5em
+}
+
+#messageBoardList form fieldset select {
+    margin-bottom: -0.1em;
+    width: 9em;
+}
+
+#messageBoardList div.messages dd {
+    border-bottom: 1px solid #830A04;
+    width: 50.3em;
+}
+
+#messageBoardList div.messages dd div.wall-header {
+    border-bottom: 1px solid #EFEFEF;
+    border-top: 1px solid #830A04;
+}
+
+#messageBoardList div.messages dd div.wall-header h5 {
+    border-bottom: 1px solid #EFEFEF;
+    color: #830A04;
+    padding: 0.5em 0;
+}
+
+#messageBoardList div.messages dd div.wall-header p {
+    float: right;
+    font-weight: normal;
+    text-align: right;
+}
+
+#messageBoardList div.messages dd div.wall-header a,
+#messageBoardList div.messages dd div.wall-header p {
+    font-size: 8pt;
+}
+
+#messageBoardList div.messages dd ul.actions {
+    border-top: 1px dashed #EEE;
+    padding: 0.25em 0;
+}
+
+#messageBoardList div.messages dd ul.actions li {
+    clear: none;
+    float: left;
+    margin-right: 0.5em;
+}
+
+/* @end messageBoardList.action */
+
+
+
+/* @group messageBoardView.action */
+
+#messageBoardView h3 {
+    margin-top: 0;
+}
+
+#messageBoardView input.txt {
+    margin-bottom: 1em;
+}
+
+#messageBoardView input.txt,
+#messageBoardView textarea {
+    width: 38.5em;
+}
+
+#messageBoardView textarea {
+    height: 10em;
+}
+
+#messageBoardView label {
+    display: block;
+}
+
+#messageBoardView fieldset {
+    padding-left: 4em;
+}
+
+#messageBoardView div.buttons {
+    width: 52.8em;
+}
+
+#messageBoardView div.colInfo {
+    float: right;
+    width: 17.6em;
+}
+
+#messageBoardView div.colInfo div.actions {
+    margin: 0.4em 1.6em;
+}
+
+#messageBoardView div.colMessage h3 {
+    margin: 1.13em;
+}
+
+#messageBoardView div.colMessage div.body {
+    font-size: 10pt;
+    margin: 1.2em;
+}
+
+#messageBoardView div.colMessage div.actions {
+    margin: 1.6em;
+}
+
+#messageBoardView div.colInfo a,
+#messageBoardView div.colInfo small {
+    clear: left;
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0.1em;
+}
+
+#messageBoardView div.colInfo ul.actions {
+    padding: 0.5em 0;
+}
+
+#messageBoardView div.colInfo ul.actions a {
+    float: none;
+}
+
+#messageBoardView div.colInfo img {
+    clear: left;
+    display: block;
+}
+
+#messageBoardView div.colMessage {
+    float: left;
+    width: 44.2em;
+}
+
+#messageBoardView div.colMessage ul.actions {
+    clear: left;
+}
+
+#messageBoardView h5 {
+    border-bottom: 1px solid #B9C4DA;
+    margin-bottom: 0.25em;
+}
+
+/* @end messageBoardView.action */

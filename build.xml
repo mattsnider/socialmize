@@ -1,0 +1,149 @@
+<?xml version="1.0" standalone="yes"?>
+<!--
+    Copyright 2009 Matt Snider, LLC. All rights reserved.
+-->
+<project basedir="." default="package">
+
+	<!-- makes all environment variables accessable from within this ant script using the .env prefix -->
+	<property environment="env"/>
+
+    <!-- file locations -->
+	<property name="builddir" value="${basedir}/../core/build/"/>
+	<property name="jsdir" value="${basedir}/assets/js/"/>
+	<property name="cssdir" value="${basedir}/assets/css/"/>
+
+    <!-- location of the YUI compressor relative to the base dir -->
+    <property name="yuicompressor" value="${builddir}../bin/yuicompressor-2.4.2.jar"/>
+
+	<!-- if not set in environment (ie. a developer build) this is the default build number -->
+	<property name="env.BUILD_NUMBER" value="dev"/>
+
+    <!-- which tier am I -->
+	<property name="tier" value="web"/>
+
+	<!-- targets -->
+
+	<target name="clean" description="Deletes all the generated artifacts">
+		<subant target="clean">
+			<filelist dir="${builddir}">
+				<file name="../build.xml"/>
+            </filelist>
+        </subant>
+		<delete file="${jsdir}library.js"/>
+		<delete file="${jsdir}library-build.js"/>
+		<delete file="${jsdir}library-min.js"/>
+		<delete file="${cssdir}library.js"/>
+		<delete file="${cssdir}library-build.js"/>
+		<delete file="${cssdir}library-min.js"/>
+	</target>
+
+    <target name="packaged.core" description="Ensures that core is packaged">
+		<subant target="package">
+			<filelist dir="${builddir}">
+				<file name="../build.xml"/>
+            </filelist>
+        </subant>
+    </target>
+
+    <target name="create.consolidate.build.directories">
+		<!-- javascript build directories -->
+		<mkdir dir="${builddir}js"/>
+
+        <!-- css build directories -->
+		<mkdir dir="${builddir}css"/>
+	</target>
+
+    <!-- @start consolidate library.js -->
+    <target name="reconsolidate.library.js.check" depends="packaged.core, create.consolidate.build.directories">
+		<condition property="library.js.uptodate">
+			<uptodate targetfile="${jsdir}library.js">
+				<srcfiles dir="${builddir}js" includes="library.js"/>
+				<srcfiles dir="${jsdir}" includes="project.js"/>
+				<srcfiles dir="${jsdir}" includes="widget/AnimBlind.js"/>
+				<srcfiles dir="${jsdir}" includes="widget/CheckboxList.js"/>
+				<srcfiles dir="${jsdir}" includes="searchResult.js"/>
+			</uptodate>
+		</condition>
+	</target>
+
+	<target name="consolidate.library.js" depends="packaged.core, reconsolidate.library.js.check" unless="library.js.uptodate">
+		<echo message="processing library.js"/>
+
+        <copy file="${builddir}js/library.js" tofile="${jsdir}library-build.js" />
+
+        <concat destfile="${jsdir}library.js">
+			<filelist dir="${jsdir}">
+				<file name="library-build.js"/>
+				<file name="project.js"/>
+				<file name="widget/AnimBlind.js"/>
+				<file name="widget/CheckboxList.js"/>
+				<file name="searchResult.js"/>
+			</filelist>
+		</concat>
+        
+        <delete file="${jsdir}library-build.js" />
+
+        <java jar="${yuicompressor}" fork="true" failonerror="true" output="${jsdir}library-min.js">
+			<arg value="--charset" />
+			<arg value="UTF-8" />
+			<arg value="--line-break" />
+			<arg value="0" />
+			<arg value="${jsdir}library.js" />
+		</java>
+	</target>
+    <!-- @end consolidate library.js -->
+
+    <!-- @start consolidate library.css -->
+    <target name="reconsolidate.library.css.check" depends="packaged.core, create.consolidate.build.directories">
+		<condition property="library.css.uptodate">
+			<uptodate targetfile="${cssdir}library.css">
+				<srcfiles dir="${builddir}css/" includes="library.css"/>
+				<srcfiles dir="${cssdir}" includes="layout.css"/>
+				<srcfiles dir="${cssdir}" includes="default.css"/>
+				<srcfiles dir="${cssdir}" includes="form.css"/>
+				<srcfiles dir="${cssdir}" includes="widget/autocomplete.css"/>
+				<srcfiles dir="${cssdir}" includes="widget/core.css"/>
+				<srcfiles dir="${cssdir}" includes="widget/tab.css"/>
+				<srcfiles dir="${cssdir}" includes="widget/pagination.css"/>
+			</uptodate>
+		</condition>
+	</target>
+
+	<target name="consolidate.library.css" depends="reconsolidate.library.css.check" unless="library.css.uptodate">
+		<echo message="processing library.css"/>
+
+        <copy file="${builddir}css/library.css" tofile="${cssdir}library-build.css" />
+
+        <concat destfile="${cssdir}library.css">
+			<filelist dir="${cssdir}">
+				<file name="library-build.css"/>
+				<file name="layout.css"/>
+				<file name="default.css"/>
+				<file name="form.css"/>
+				<file name="widget/core.css"/>
+				<file name="widget/autocomplete.css"/>
+				<file name="widget/tab.css"/>
+				<file name="widget/pagination.css"/>
+			</filelist>
+		</concat>
+
+        <delete file="${cssdir}library-build.css" />
+
+		<java jar="${yuicompressor}" fork="true" failonerror="true" output="${cssdir}library-min.css">
+			<arg value="--charset" />
+			<arg value="UTF-8" />
+			<arg value="${cssdir}library.css" />
+		</java>
+	</target>
+    <!-- @end consolidate library.css -->
+
+	<target name="package" description="Produce consolidated and compressed JS and CSS files" depends="consolidate.library.js, consolidate.library.css"  unless="js.and.css.uptodate">
+        <!--<copy todir="${basedir}/WebContent/sc/dev000/js/">
+			<fileset file="${builddir}js-consolidated/*.js"/>
+		</copy>
+
+		<copy todir="${basedir}/WebContent/sc/dev000/css/">
+			<fileset file="${builddir}css-consolidated/*.css"/>
+		</copy>-->
+	</target>
+</project>

@@ -1,0 +1,26 @@
+
+/* @group Privacy */
+
+.privacy-title {
+	padding: 0 0 15px;
+}
+
+.privacy-title h3 {
+	font-weight: bold;
+	padding: 0 0 0.2em;
+}
+
+form#form-privacy ol li {
+	width: 52.5em;
+}
+
+form#form-privacy ol li label {
+    float: right;
+    width: 36em;
+}
+
+form#form-privacy ol li input.chkbox {
+    margin-top: 0.5em;
+}
+
+/* @end */

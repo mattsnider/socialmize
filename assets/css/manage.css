@@ -1,0 +1,118 @@
+div.column-two {
+	background-color: #F9F9F9;
+	padding: 0.2em 2% 0.2em 0;
+}
+
+div#subheader h3 {
+    clear: none;
+}
+
+div#subheader div.anchor {
+	float: right;
+	font-size: 1.2em;
+    line-height: 2em;
+	padding-right: 1em;
+}
+
+div#subheader div.anchor a {
+    font-variant: small-caps;
+}
+
+div.column-two div.column-left {
+	background-color: #FFF;
+	border-right: 1px solid #bdc7d8;
+	min-height: 40em;
+	width: 60%;
+}
+
+div.column-two div.column-left ul {
+    margin: 0em 0 0em 0.2em;
+}
+
+div.column-two div.column-left ul li {
+	border-bottom: 1px dashed #bdc7d8;
+	line-height: 1.6em;
+    list-style: none;
+    padding: 0.4em 0.3em;
+}
+
+div.column-two div.column-left ul li a {
+	font-size: 1.1em;
+}
+
+div.column-two div.column-left ul li div {
+	float: right;
+}
+
+div.column-two div.column-right {
+	float: right;
+	width: 35%;
+}
+
+div.column-two div.column-right label {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-left: 20%;
+	text-align: center;
+}
+
+div.column-two div.column-right ul label {
+    margin-left: 0;
+}
+
+form.change {
+	background-color: #F9F9F9;
+	padding: 1em;
+}
+
+form.change  div.buttons {
+	float: right;
+	margin-top: 1em;
+}
+
+form.change ul li {
+	border: none;
+}
+
+form.change ul li label {
+	font-size: 1.2em;
+	line-height: 2em;
+	margin-left: 0;
+	padding-left: 0.25em;
+}
+
+div.column-two div.column-right ul.checklist {
+	background-color: #FFF;
+	border: 1px solid #bdc7d8;
+	height: 20em;
+	margin-left: 5%;
+	margin-top: 1em;
+	overflow-y: scroll;
+	width: 90%;
+}
+
+div.column-two div.column-right ul.checklist li {
+	font-size: 1.2em;
+	padding: 0.3em;
+}
+
+div.column-two div.column-right ul.checklist li input {
+	margin: 0 0.5em;
+}
+
+div.column-two div.column-right div.buttons {
+	padding-left: 5%;
+	padding-top: 2em;
+}
+
+div.column-two div.column-right div.buttons input {
+	padding: 1px 1.5em;
+}
+
+#wallInlineEdit textarea {
+	height: 10em;
+}
+
+form#wall-form {
+    padding: 1em 2em;
+}

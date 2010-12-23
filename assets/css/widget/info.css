@@ -1,0 +1,173 @@
+/*
+Copyright (c) 2008, Matt Snider, LLC. All rights reserved.
+version: 1.0
+*/
+
+/* @group Info */
+
+.info {
+    clear: both;
+	margin: 1.5em 1em 0;
+}
+
+.info h3 {
+    background: #EADFD8 none repeat scroll 0%;
+    border-top: 1px solid #3B5998;
+    padding: 0.2em 0.8em;
+}
+
+.info h4 {
+    background: #EEEEEE none repeat scroll 0%;
+	border-top: 1px solid #CCC;
+	color: #B9C4DA;
+	font-weight: bold;
+	height: 1.4em;
+	padding: 2px 0.5em;
+}
+
+.info h4 a {
+	color: #98593B;
+}
+
+.info h4 span.edit {
+	color: #999;
+	float: right;
+	font-size: 10;
+	padding-left: 0.5em;
+}
+
+.info h4 span.edit a {
+	color: #900;
+}
+
+.info .content {
+	background: #FCFCFC none repeat scroll 0% 50%;
+	border-bottom: 1px solid #EADFD8;
+	border-top: 1px solid #CCCCCC;
+	padding: 0.5em 0;
+}
+
+/* @end Info */
+
+
+/* @group Info Header */
+
+.info-header {
+    background: #EADFD8 none repeat scroll 0%;
+    border-top: 1px solid #98593B;
+    clear: both;
+    color: #98593B;
+    margin: 1.5em 0 0;
+    padding: 0.2em 0.8em;
+}
+
+.info-subheader {
+    background: #eee;
+    border-top: solid 1px #ccc;
+    color: #98593B;
+    font-weight: bold;
+	height: 1.4em;
+    padding: 2px 0.5em;
+}
+
+.info-subheader h6 {
+    color: #666;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+/* @end */
+
+/* @group Info Container */
+
+.info-box {
+    overflow: visible;
+}
+
+.info-box table {
+    margin-left: 1em;
+	margin-top: 1em;
+}
+
+.info-box .label {
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
+.info-box small {
+	display: block;
+	color: #666;
+	margin-top: 0.25em;
+}
+
+.info-box .info-table caption {
+    color: #98593B;
+    font-weight: bold;
+    padding: 0 0 0.2em 0.9em;
+    text-align: left;
+}
+
+.info-table td.label {
+    color: #666;
+    width: 10em;
+}
+
+.info-table td {
+    font-size: 11px;
+    line-height: 1.3em;
+    padding: 1px 0;
+    vertical-align: top;
+}
+
+.info-box h4 {
+    font-size: 1.2em;
+    line-height: 1.5em;
+    margin-top: 1px;
+    padding-right: 0.25em;
+    font-weight: bold;
+}
+
+.info-box:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.info-box ul.alert-list {
+    list-style-type: square;
+    padding-left: 1.5em;
+    padding-top: 0.5em
+}
+
+.info-box ul.alert-list li {
+    font-size: 1.25em;
+    padding: 0.2em 0 0.2em 0;
+}
+
+/* @end */
+
+/* @group Edit Styles */
+
+.witheditlink h4 {
+    float               : left;
+}
+
+div.edit {
+    float: right;
+    padding-left: 0.5em;
+    color: #999;
+}
+
+.info-header div.edit,
+.info-box div.edit {
+    margin-top: -1.5em;
+    padding-top: 0;
+}
+
+.info-subheader div.edit {
+    margin-top: -1em;
+}
+
+/* @end */

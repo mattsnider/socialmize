@@ -1,0 +1,184 @@
+/* @group Bars */
+
+ul.bar
+{
+	height					: 1.8em;
+	padding					: 1em;
+}
+
+ul.bar li
+{
+	float					: left;
+	margin-left				: 0.2em;
+}
+
+ul.bar-admin
+{
+	-moz-border-radius-bottomleft	:6px;
+	-moz-border-radius-bottomright	:6px;
+	background-color		: #830A04;
+	border-color			: -moz-use-text-color #5D6D3C rgb(93, 109, 60);
+	border-style			: none solid solid;
+	border-width			: medium 1px 1px;
+	color					: #FFFFFF;
+	font-family				: verdana, sans-serif;
+	font-size				: 9px;
+	font-size-adjust		: none;
+	font-stretch			: normal;
+	font-style				: normal;
+	font-variant			: normal;
+	font-weight				: bold;
+	line-height				: normal;
+	padding					: 0.5em;
+}
+
+ul.bar-admin .btn
+{
+	background-color		: #FFFFFF;
+	color					: #040A83;
+	font-weight				: bold;
+}
+
+ul.bar-admin li a:hover .btn
+{
+	background-color		: #000;
+	color					: #FFFFFF;
+}
+
+div.bar
+{
+	clear					: both;
+	display					: block;
+}
+
+.bar-footer
+{
+	border-top				: solid 1px #D8DFEA;
+	padding					: 0em 1em;
+}
+
+/* @end */
+
+
+/* @group Pagination */
+
+ul.pagination {
+	float: right;
+}
+
+ul.pagination li {
+	color: #040A83;
+	display: inline;
+	float: left;
+	font-size: 1.1em;
+	line-height: 1.5em;
+	margin-left: 0.2em;
+}
+
+ul.pagination li.sort {
+	padding-right: 0.5em;
+	padding-top: 0.25em;
+}
+
+ul.pagination li.sort,
+ul.pagination li.sort a {
+	border: none!important;
+}
+
+ul.pagination li.sort a img {
+	background-color: #666;
+}
+
+ul.pagination li.sort a:hover img {
+	background-color: #900;
+}
+
+ul.pagination li.sort a:hover {
+	margin-top: 1px;
+}
+
+ul.pagination li.selected a:hover {
+	margin-top: 0;
+}
+
+ul.pagination li.selected a img {
+	background-color: #900;
+}
+
+ul.pagination li a {
+	border-bottom: 2px solid #FFF;
+	color: #3D77CB;
+	display: block;
+	padding: 0.3em 0.3em 0.2em;
+	text-transform: lowercase;
+}
+
+ul.pagination li a:hover {
+	border-bottom: solid 2px #CB773D;
+	text-decoration: none;
+}
+
+ul.pagination li.selected {
+	background: transparent none repeat scroll 0%;
+	border-bottom: solid 2px #040A83;
+	font-size: larger;
+	font-weight: bold;
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+}
+
+.bar-footer ul.pagination li a {
+	border-bottom-color: #FFF;
+	border-top: 2px solid #FFF;
+	padding-bottom: 0.2em;
+	padding-top: 0.3em;
+}
+
+.bar-footer ul.pagination li a:hover {
+	border-bottom-color: #FFF;
+	border-top: 2px solid #CB773D;
+}
+
+.bar-footer ul.pagination li.selected {
+	border-bottom-color: #FFF;
+	border-top: 2px solid #040A83;
+}
+
+/* @end */
+
+
+/* @group Tabs */
+
+div.hd-bar
+{
+	border-bottom		: 1px solid #CCC;
+	font-size			: 12px;
+	height				: 1em;
+	padding				: 0.4em 0.9em;
+}
+
+div.hd-bar div.tabs
+{
+	float				: left;
+}
+
+div.hd-bar div.tabs a
+{
+	color				: #040A83;
+	padding				: 0 5px;
+}
+
+div.hd-bar div.tabs a:hover,
+div.hd-bar div.tabs a.selected
+{
+	background-color	: #040A83;
+	color				: #FFF;
+}
+
+div.hd-bar div.tabs span.pipe
+{
+	color				: #AAA;
+	padding				: 0 7px;
+}
+
+/* @end */

@@ -1,0 +1,47 @@
+
+/* @group Card */
+
+a.card {
+	display: block;
+	font-size: 1.2em;
+	line-height: 1.4em;
+	width: 220;
+}
+
+a.card:hover,
+a.card a:hover {
+	text-decoration: none;
+}
+
+a.card div.matte {
+	background: url(../images/bg/card_bg.gif) no-repeat bottom left;
+}
+
+a.card h3 {
+	background: url(../images/bg/card_bg.gif) no-repeat top left;
+	border-bottom: 1px solid #000;
+	border-top: none;
+	color: #333;
+	font-size: 130%;
+	padding: 0.5em 0.5em 0.1em 1em;
+}
+
+a.card div.matte {
+	padding: 0.5em;
+}
+
+a.card img.thumb {
+	float: left;
+	margin: 2px;
+}
+
+a.card ul {
+	clear: both;
+	margin-top: 0.5em;
+}
+
+a.card ul strong {
+	font-size: 115%;
+}
+
+/* @end Card */

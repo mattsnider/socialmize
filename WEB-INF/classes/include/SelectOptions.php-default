@@ -1,0 +1,764 @@
+<?php
+
+/**
+ * SelectOptions.php is a file containing the options for ProfileWidget slects.
+ *
+ * Long description for file (if any)...
+ *
+ * PHP versions 4 and 5
+ *
+ * LICENSE: This source file is subject to version 3.0 of the PHP license
+ * that is available through the world-wide-web at the following URI:
+ * http://www.php.net/license/3_0.txt.  If you did not receive a copy of
+ * the PHP License and are unable to obtain it through the web, please
+ * send a note to license@php.net so we can mail you a copy immediately.
+ *
+ * @category   CategoryName
+ * @package	PackageName
+ * @author	 Matt Snider <mattsniderppl@gmail.com>
+ * @copyright  2007-2012 Matt Snider, LLC
+ * @license	http://www.php.net/license/3_0.txt  PHP License 3.0
+ * @version	CVS: $Id:$
+ * @since	  File available since release 1.0
+ */
+
+/* --article-type-- */
+
+def('article-type', array(
+	'N' => 'news',
+	'E' => 'event'
+));
+
+/* --end-- */
+
+/* --attend-- */
+
+def('attend', array(
+	1 => 'Undergrad',
+	2 => 'Graduate',
+	3 => 'Post-doc'
+));
+
+/* --end-- */
+
+/* --attend-- */
+
+def('category', array(
+	1 => 'Recreational',
+	2 => 'Advanced',
+	3 => 'Premier'
+));
+
+/* --end-- */
+
+/* --country-- */
+
+def('country', array(
+	229 => 'United States',
+	1 => 'Afghanistan',
+	2 => 'Albania',
+	3 => 'Algeria',
+	4 => 'American Samoa',
+	5 => 'Andorra',
+	6 => 'Angola',
+	7 => 'Anguilla',
+	8 => 'Antarctica',
+	9 => 'Antigua and Barbuda',
+	10 => 'Argentina',
+	11 => 'Armenia',
+	12 => 'Aruba',
+	13 => 'Australia',
+	14 => 'Austria',
+	15 => 'Azerbaijan',
+	16 => 'Azores',
+	17 => 'Bahamas',
+	18 => 'Bahrain',
+	19 => 'Bangladesh',
+	20 => 'Barbados',
+	21 => 'Belarus',
+	22 => 'Belgium',
+	23 => 'Belize',
+	24 => 'Benin',
+	25 => 'Bermuda',
+	26 => 'Bhutan',
+	27 => 'Bolivia',
+	28 => 'Bosnia And Herzegowina',
+	29 => 'Bosnia-Herzegovina',
+	30 => 'Botswana',
+	31 => 'Bouvet Island',
+	32 => 'Brazil',
+	33 => 'British Virgin Islands',
+	34 => 'Brunei Darussalam',
+	35 => 'Bulgaria',
+	36 => 'Burkina Faso',
+	37 => 'Burundi',
+	38 => 'Cambodia',
+	39 => 'Cameroon',
+	40 => 'Canada',
+	41 => 'Cape Verde',
+	42 => 'Cayman Islands',
+	43 => 'Central African Republic',
+	44 => 'Chad',
+	45 => 'Chile',
+	46 => 'China',
+	47 => 'Christmas Island',
+	48 => 'Cocos Islands',
+	49 => 'Colombia',
+	50 => 'Comoros',
+	51 => 'Congo',
+	52 => 'Congo',
+	53 => 'Cook Islands',
+	54 => 'Corsica',
+	55 => 'Costa Rica',
+	56 => 'Cote d` Ivoire',
+	57 => 'Croatia',
+	58 => 'Cuba',
+	59 => 'Cyprus',
+	60 => 'Czech Republic',
+	61 => 'Denmark',
+	62 => 'Djibouti',
+	63 => 'Dominica',
+	64 => 'Dominican Republic',
+	65 => 'East Timor',
+	66 => 'Ecuador',
+	67 => 'Egypt',
+	68 => 'El Salvador',
+	69 => 'Equatorial Guinea',
+	70 => 'Eritrea',
+	71 => 'Estonia',
+	72 => 'Ethiopia',
+	73 => 'Falkland Islands',
+	74 => 'Faroe Islands',
+	75 => 'Fiji',
+	76 => 'Finland',
+	77 => 'France',
+	78 => 'French Guiana',
+	79 => 'French Polynesia',
+	80 => 'Gabon',
+	81 => 'Gambia',
+	82 => 'Georgia',
+	83 => 'Germany',
+	84 => 'Ghana',
+	85 => 'Gibraltar',
+	86 => 'Greece',
+	87 => 'Greenland',
+	88 => 'Grenada',
+	89 => 'Guadeloupe',
+	90 => 'Guam',
+	91 => 'Guatemala',
+	92 => 'Guinea',
+	93 => 'Guinea-Bissau',
+	94 => 'Guyana',
+	95 => 'Haiti',
+	96 => 'Heard &amp; Mc Donald Islands',
+	97 => 'Honduras',
+	98 => 'Hong Kong',
+	99 => 'Hungary',
+	100 => 'Iceland',
+	101 => 'India',
+	102 => 'Indonesia',
+	103 => 'Iran',
+	104 => 'Iraq',
+	105 => 'Ireland',
+	106 => 'Israel',
+	107 => 'Italy',
+	108 => 'Jamaica',
+	109 => 'Japan',
+	110 => 'Jordan',
+	111 => 'Kazakhstan',
+	112 => 'Kenya',
+	113 => 'Kiribati',
+	114 => 'Korea',
+	115 => 'Kuwait',
+	116 => 'Kyrgyzstan',
+	117 => 'Laos',
+	118 => 'Latvia',
+	119 => 'Lebanon',
+	120 => 'Lesotho',
+	121 => 'Liberia',
+	122 => 'Libya',
+	123 => 'Liechtenstein',
+	124 => 'Lithuania',
+	125 => 'Luxembourg',
+	126 => 'Macao',
+	127 => 'Macedonia',
+	128 => 'Madagascar',
+	129 => 'Madeira Islands',
+	130 => 'Malawi',
+	131 => 'Malaysia',
+	132 => 'Maldives',
+	133 => 'Mali',
+	134 => 'Malta',
+	135 => 'Marshall Islands',
+	136 => 'Martinique',
+	137 => 'Mauritania',
+	138 => 'Mauritius',
+	139 => 'Mayotte',
+	140 => 'Mexico',
+	141 => 'Micronesia',
+	142 => 'Moldova',
+	143 => 'Monaco',
+	144 => 'Mongolia',
+	145 => 'Montserrat',
+	146 => 'Morocco',
+	147 => 'Mozambique',
+	148 => 'Myanmar (Burma)',
+	149 => 'Namibia',
+	150 => 'Nauru',
+	151 => 'Nepal',
+	152 => 'Netherlands',
+	153 => 'Netherlands Antilles',
+	154 => 'New Caledonia',
+	155 => 'New Zealand',
+	156 => 'Nicaragua',
+	157 => 'Niger',
+	158 => 'Nigeria',
+	159 => 'Niue',
+	160 => 'Norfolk Island',
+	161 => 'Northern Mariana Islands',
+	162 => 'Norway',
+	163 => 'Oman',
+	164 => 'Pakistan',
+	165 => 'Palau',
+	166 => 'Palestinian Territory',
+	167 => 'Panama',
+	168 => 'Papua New Guinea',
+	169 => 'Paraguay',
+	170 => 'Peru',
+	171 => 'Philippines',
+	172 => 'Pitcairn',
+	173 => 'Poland',
+	174 => 'Portugal',
+	175 => 'Puerto Rico',
+	176 => 'Qatar',
+	177 => 'Reunion',
+	178 => 'Romania',
+	179 => 'Russian Federation',
+	180 => 'Rwanda',
+	181 => 'Saint Kitts And Nevis',
+	182 => 'San Marino',
+	183 => 'Sao Tome and Principe',
+	184 => 'Saudi Arabia',
+	185 => 'Senegal',
+	186 => 'Serbia-Montenegro',
+	187 => 'Seychelles',
+	188 => 'Sierra Leone',
+	189 => 'Singapore',
+	190 => 'Slovak Republic',
+	191 => 'Slovenia',
+	192 => 'Solomon Islands',
+	193 => 'Somalia',
+	194 => 'South Africa',
+	195 => 'South Georgia & The South Sand',
+	196 => 'South Korea',
+	197 => 'Spain',
+	198 => 'Sri Lanka',
+	199 => 'St. Christopher and Nevis',
+	200 => 'St. Helena',
+	201 => 'St. Lucia',
+	202 => 'St. Pierre and Miquelon',
+	203 => 'St. Vincent & the Grenadines',
+	204 => 'Sudan',
+	205 => 'Suriname',
+	206 => 'Svalbard & Jan Mayen Islands',
+	207 => 'Swaziland',
+	208 => 'Sweden',
+	209 => 'Switzerland',
+	210 => 'Syrian Arab Republic',
+	211 => 'Taiwan',
+	212 => 'Tajikistan',
+	213 => 'Tanzania',
+	214 => 'Thailand',
+	215 => 'Togo',
+	216 => 'Tokelau',
+	217 => 'Tonga',
+	218 => 'Trinidad and Tobago',
+	219 => 'Tristan da Cunha',
+	220 => 'Tunisia',
+	221 => 'Turkey',
+	222 => 'Turkmenistan',
+	223 => 'Turks and Caicos Island',
+	224 => 'Tuvalu',
+	225 => 'Uganda',
+	226 => 'Ukraine',
+	227 => 'United Arab Emirates',
+	228 => 'United Kingdom',
+	230 => 'Uruguay',
+	231 => 'Uzbekistan',
+	232 => 'Vanuatu',
+	233 => 'Vatican City',
+	234 => 'Venezuela',
+	235 => 'Vietnam',
+	236 => 'Virgin Islands',
+	237 => 'Wallis and Furuna Islands',
+	238 => 'Western Sahara',
+	239 => 'Western Samoa',
+	240 => 'Yemen',
+	241 => 'Yugoslavia',
+	242 => 'Zaire',
+	243 => 'Zambia',
+	244 => 'Zimbabwe'
+));
+
+/* --end-- */
+
+/* --degree-- */
+
+def('degree', array(
+	1 => 'BA',
+	2 => 'BS',
+	3 => 'MBA',
+	4 => 'MA',
+	5 => 'MD',
+	6 => 'MS',
+	7 => 'PhD',
+	8 => 'PhD/MD',
+	9 => 'Current',
+	10 => 'Other'
+));
+
+/* --end-- */
+
+/* --department-- */
+
+def('department', array(
+	10 => 'Aeronautics and Astronautics',
+	11 => 'Anesthesia',
+	12 => 'Applied Physics',
+	13 => 'Biochemistry',
+	14 => 'Bioengineering',
+	15 => 'Biomedical Ethics',
+	16 => 'Biological Sciences',
+	17 => 'Cardiovascular Medicine',
+	18 => 'Carnegie Institute',
+	19 => 'Chemical Engineering',
+	20 => 'Chemistry',
+	21 => 'Civil and Environmental Engineering',
+	22 => 'Comparative Medicine',
+	23 => 'Computer Science',
+	24 => 'Dermatology',
+	25 => 'Developmental Biology',
+	26 => 'Electrical Engineering',
+	27 => 'Endocrinology',
+	28 => 'Gastroenterology',
+	29 => 'Genetics',
+	30 => 'Geology',
+	31 => 'Gynecology and Obstetrics',
+	32 => 'Health Research & Policy',
+	33 => 'Hematology',
+	34 => 'Immunology',
+	35 => 'Management Science and Engineering',
+	36 => 'Mathematics',
+	37 => 'Materials Science & Engineering',
+	38 => 'Mechanical Engineering',
+	39 => 'Medicine',
+	40 => 'Medical Informatics',
+	41 => 'Microbiology and Immunology',
+	42 => 'Molecular and Cellular Physiology',
+	43 => 'Molecular Pharmacology',
+	44 => 'Music',
+	45 => 'Neurobiology',
+	46 => 'Neurology',
+	47 => 'Neurosurgery',
+	48 => 'Oncology',
+	49 => 'Opthalmology',
+	50 => 'Orthopedic Surgery',
+	51 => 'Otolaryngology',
+	52 => 'Pathology',
+	53 => 'Pediatrics',
+	54 => 'Philosophy',
+	55 => 'Physics',
+	56 => 'Psychiatry',
+	57 => 'Psychology',
+	58 => 'Radiation Oncology',
+	59 => 'Radiology',
+	60 => 'Statistics',
+	61 => 'Structural Biology',
+	62 => 'SUMMIT',
+	63 => 'Surgery',
+	64 => 'Symbolic Systems',
+	65 => 'Urology'
+));
+
+/* --end-- */
+
+
+/* --industry-- */
+
+def('industry', array(
+	10 => 'Academia',
+	11 => 'Accounting',
+	12 => 'Advertising',
+	13 => 'Aerospace',
+	14 => 'Aerospace & Defense',
+	16 => 'Aircraft Development',
+	17 => 'Airline',
+	18 => 'Alcoholic Beverages & Tobacco',
+	19 => 'Apparel & Accessories',
+	20 => 'Apparel & Footwear',
+	21 => 'Automotive',
+	22 => 'Autos & Auto Parts',
+	23 => 'Banking',
+	24 => 'Biomedical Informatics',
+	25 => 'Biotechnology',
+	26 => 'Biotechnology R+D',
+	27 => 'Broadcasting',
+	28 => 'Broadcasting & Cable',
+	29 => 'Brokerage',
+	30 => 'Cable TV',
+	31 => 'Call Centers',
+	32 => 'Chemicals: Basic',
+	33 => 'Chemicals: Specialty',
+	34 => 'Coal Mining',
+	35 => 'Computer',
+	36 => 'Computers: Hardware',
+	37 => 'Computers: Networking',
+	38 => 'Computers: Software',
+	39 => 'Consulting',
+	40 => 'Consumer Products',
+	41 => 'Cosmetics',
+	42 => 'Defense',
+	43 => 'Department Stores',
+	44 => 'Education',
+	45 => 'Electronics: Engineering',
+	46 => 'Electronics: Personal Devices and Handhelds',
+	47 => 'Energy',
+	48 => 'Entertainment & Leisure',
+	49 => 'Environmental & Waste Management',
+	50 => 'Executive Search',
+	51 => 'Financial Services',
+	52 => 'Financial Services: Diversified',
+	53 => 'Food, Beverage & Tobacco',
+	54 => 'Foods & Nonalcoholic Beverages',
+	55 => 'Grocery',
+	56 => 'Healthcare: Drug Discovery R+D',
+	57 => 'Healthcare: Facilities',
+	58 => 'Healthcare: General',
+	59 => 'Healthcare: Managed Care',
+	60 => 'Healthcare: Medical Devices',
+	62 => 'Healthcare: Pharmaceutical R+D',
+	63 => 'Healthcare: Pharmaceuticals',
+	64 => 'Healthcare: Products & Supplies',
+	65 => 'Healthcare: Veterinary',
+	66 => 'Homebuilding',
+	67 => 'Household Durables',
+	68 => 'Household Nondurables',
+	69 => 'Industrial and Analytical Instruments',
+	70 => 'Information Technology',
+	71 => 'Insurance',
+	72 => 'Internet Publishing',
+	73 => 'Investment Banking',
+	74 => 'Investment Services',
+	75 => 'Legal',
+	76 => 'Lodging & Gaming',
+	77 => 'Machinery',
+	78 => 'Manufacturing',
+	79 => 'Metals: Industrial',
+	80 => 'Motion Picture & Video',
+	81 => 'Movies & Home Entertainment',
+	82 => 'Music',
+	83 => 'Natural Gas Distribution',
+	84 => 'Newspaper Publishers',
+	85 => 'Online Auctions',
+	86 => 'Packaging & Containers',
+	87 => 'Paper & Forest Products',
+	88 => 'Pension Funds',
+	89 => 'Private Equity',
+	90 => 'Publishing',
+	92 => 'Real Estate',
+	93 => 'Recreation',
+	94 => 'Restaurants',
+	95 => 'Retail & Wholesale',
+	96 => 'Retailing: General',
+	97 => 'Retailing: Specialty',
+	98 => 'Robotics',
+	99 => 'Savings & Loans',
+	100 => 'Securities & Commodity Exchanges',
+	192 => 'Securities, Mutual Funds, and Commodity Futures Trading',
+	193 => 'Semiconductors',
+	194 => 'Service',
+	195 => 'Shipbuilding & Repair',
+	196 => 'Soap & Detergent',
+	197 => 'Software',
+	198 => 'Sports',
+	199 => 'Supermarkets & Drugstores',
+	200 => 'Technology Development',
+	201 => 'Telecommunications: General',
+	202 => 'Telecommunications: Wireless',
+	203 => 'Telecommunications: Wireline',
+	204 => 'Television',
+	205 => 'Textile',
+	206 => 'Transportation',
+	207 => 'Travel & Tourism',
+	208 => 'Venture Capital',
+	209 => 'Wholesaling',
+	210 => 'Wood Products',
+));
+
+/* --end-- */
+
+/* --month-- */
+
+def('month', array(
+	1 => 'January',
+	2 => 'February',
+	3 => 'March',
+	4 => 'April',
+	5 => 'May',
+	6 => 'June',
+	7 => 'July',
+	8 => 'August',
+	9 => 'September',
+	10 => 'October',
+	11 => 'November',
+	12 => 'December'
+));
+
+/* --end-- */
+
+/* --monthAbr-- */
+
+def('monthAbr', array(
+	1 => 'Jan',
+	2 => 'Feb',
+	3 => 'Mar',
+	4 => 'Apr',
+	5 => 'May',
+	6 => 'Jun',
+	7 => 'Jul',
+	8 => 'Aug',
+	9 => 'Sep',
+	10 => 'Oct',
+	11 => 'Nov',
+	12 => 'Dec'
+));
+
+/* --end-- */
+
+/* --network-- */
+
+def('network', array(
+	0 => 'Everyone',
+	1 => 'Student',
+	2 => 'Faculty',
+	3 => 'Staff',
+	66 => 'Corporate Forum',
+	99 => 'Admin'
+));
+
+/* --end-- */
+
+/* --profileFeatures-- */
+
+def('profileFeatures', array(
+	1 => 'related',
+	2 => 'board',
+	3 => 'wall'
+));
+
+/* --end-- */
+
+/* --size-- */
+
+def('size', array(
+	1 => 'less than 10',
+	2 => 'less than 100',
+	3 => 'less than 1,000',
+	4 => 'less than 10,000',
+	5 => 'more than 10,000'
+));
+
+/* --end-- */
+
+/* --state-- */
+
+def('state', array(
+	1 => 'Alabama',
+	2 => 'Alaska',
+	3 => 'Arizona',
+	4 => 'Arkansas',
+	5 => 'California',
+	6 => 'Colorado',
+	7 => 'Connecticut',
+	8 => 'D.C.',
+	9 => 'Delaware',
+	10 => 'Florida',
+	11 => 'Georgia',
+	12 => 'Hawaii',
+	13 => 'Idaho',
+	14 => 'Illinois',
+	15 => 'Indiana',
+	16 => 'Iowa',
+	17 => 'Kansas',
+	18 => 'Kentucky',
+	19 => 'Louisiana',
+	20 => 'Maine',
+	21 => 'Maryland',
+	22 => 'Massachusetts',
+	23 => 'Michigan',
+	24 => 'Minnesota',
+	25 => 'Mississippi',
+	26 => 'Missouri',
+	27 => 'Montana',
+	28 => 'Nebraska',
+	29 => 'Nevada',
+	30 => 'New Hampshire',
+	31 => 'New Jersey',
+	32 => 'New Mexico',
+	33 => 'New York',
+	34 => 'North Carolina',
+	35 => 'North Dakota',
+	36 => 'Ohio',
+	37 => 'Oklahoma',
+	38 => 'Oregon',
+	39 => 'Pennsylvania',
+	40 => 'Rhode Island',
+	41 => 'South Carolina',
+	42 => 'South Dakota',
+	43 => 'Tennessee',
+	44 => 'Texas',
+	45 => 'Utah',
+	46 => 'Virginia',
+	47 => 'Vermont',
+	48 => 'Washington',
+	49 => 'West Virginia',
+	50 => 'Wisconsin',
+	51 => 'Wyoming'
+));
+
+/* --end-- */
+
+/* --status-- */
+
+def('status', array(
+	1 => 'Private, for profit',
+	2 => 'public',
+	3 => 'Non-profit',
+	4 => 'NGO'
+));
+
+/* --end-- */
+
+/* --title-- */
+
+def('title', array(
+	1 => 'Professor',
+	2 => 'Assistant Professor',
+	3 => 'Associate Professor',
+	4 => 'Postdoc',
+	5 => 'Lab tech',
+	6 => 'Grad student',
+	7 => 'Staff',
+	8 => 'Undergraduate',
+	9 => 'Admin Associate'
+));
+
+/* --end-- */
+
+/* --select-- */
+
+def('select', array(
+	1 => 'value1',
+	4 => 'value4',
+	5 => 'value5a',
+	6 => 'value6',
+	7 => 'jewjewbee'
+));
+
+/* --end-- */
+
+/* --attend-- */
+
+def('play_coed', array(
+	1 => 'Yes',
+	2 => 'No'
+));
+
+/* --end-- */
+
+/* --attend-- */
+
+def('preferred_postions', array(
+	1 => 'Forward',
+	2 => 'Midi',
+	3 => 'Midi outside',
+	4 => 'Defense',
+	5 => 'Sweeper',
+	6 => 'Keeper',
+	7 => 'Anywhere but Keeper',
+	8 => 'Anywhere'
+));
+
+/* --end-- */
+
+/* --attend-- */
+
+def('skill_level', array(
+	1 => 'Beginner',
+	2 => 'Intermediate',
+	3 => 'Intermediate to Advanced',
+	4 => 'Advanced',
+	5 => 'Retired'
+));
+
+/* --end-- */
+
+/* --i_am_over_18-- */
+
+def('i_am_over_18', array());
+
+/* --end-- */
+
+
+/* --free_agent-- */
+
+def('free_agent', array());
+
+/* --end-- */
+
+
+/* --available_days-- */
+
+def('available_days', array());
+
+/* --end-- */
+
+
+/* --current_status-- */
+
+def('current_status', array());
+
+/* --end-- */
+
+
+/* --league-- */
+
+def('league', array());
+
+/* --end-- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --gender-- */
+
+def('gender', array(
+	33 => 'female',
+	32 => 'male',
+	34 => 'other'
+));
+
+/* --end-- */
+
+?>

@@ -1,0 +1,1 @@
+<?php def('profanity', '/\bass\b|\basshole\b|\bcock\b|\bcunt\b|\bdamn\b|\bdamnit\b|\bdammit\b|\bdick\b|\bfuck\b|\bfucker\b|\bmotherfucker\b|\bgoddamn\b|\bnigga\b|\bnigger\b|\bpussy\b|\bshit\b|\bshithead\b/'); ?>

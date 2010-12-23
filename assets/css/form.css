@@ -1,0 +1,262 @@
+/* @group Form */
+
+form fieldset {
+}
+
+form fieldset p {
+	padding-left: 2em;
+}
+
+form fieldset div.buttons {
+	text-align: right;
+}
+
+.error input,
+.error select,
+.error textarea {
+	border-color: #FC0 !important;
+	-webkit-box-shadow: 3px 3px 1px #888;
+	-moz-box-shadow: 3px 3px 1px #888;
+	box-shadow: 3px 3px 1px #888;
+}
+
+textarea,
+.txt,
+input[type="text"],
+input[type="password"],
+input[type~="text"],
+input[type~="password"] {
+	border: 1px solid #444;
+	-webkit-box-shadow: 1px 1px 1px #888;
+	-moz-box-shadow: 1px 1px 1px #888;
+	box-shadow: 1px 1px 1px #888;
+	font-family: Verdana, Tahoma, Arial, sans-serif;
+	font-size: 10pt;
+	line-height: normal;
+	padding: 0.2em;
+}
+
+.readonly {
+	background-color: #CCC;
+	color: #333;
+}
+
+/* Prefered action of a button group */
+input.action {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.btn,
+input[type="reset"],
+input[type="submit"],
+input[type="button"],
+input[type~="submit"],
+input[type~="button"],
+input[type~="reset"] {
+	border: 2px solid #999;
+	border-bottom-color: #5B1F0E;
+	border-right-color: #5B1F0E;
+	background-color: #213e7a;
+	color: #FFF;
+	font: 10pt verdana;
+	margin-right: 0.5em;
+	padding: 0.1em 0.25em;
+    text-align: center;
+}
+
+input.btn:hover {
+	background-color: #000;
+	border: 2px solid #CB773D;
+	border-top-color: #FFF;
+	border-left-color: #FFF;
+}
+
+.btn:active {
+	border: 2px solid #E4E4E4;
+	background-color: #BBB;
+	border-top-color: #333;
+	border-left-color: #333;
+}
+
+input[type~="radio"],
+.chk {
+	border: 0;
+}
+
+.hddn {
+	border: none !important;
+	height: 0 !important;
+	padding: 0 !important;
+	visibility: hidden !important;
+	width: 0 !important;
+}
+
+.input-search {
+	background: white url(images/magglass.png) no-repeat 0.3em 0.4em !important;
+	color: #999;
+	padding-left: 1.7em !important;
+}
+
+select {
+	border: solid 1px #444;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	font-size: 10pt;
+    padding: 0.303em;
+}
+select option {
+	padding-right: 0.5em;
+}
+
+input.disabled,
+input.disabled:hover {
+	background:#EEE;
+	border: 2px solid #C7C7C7;
+	color: #AAA;
+	cursor: default;
+}
+
+.disabled label {
+	cursor: default;
+	opacity: 0.75;
+	filter: alpha(opacity=75);
+}
+
+input.empty,
+textarea.empty {
+	color: #999;
+}
+
+/* @group Form Table */
+
+.frm-tbl {
+	margin: 0 auto;
+}
+
+.frm-tbl td {
+	border: none;
+	margin: 0;
+	padding: 0.3em 1px;
+}
+
+.frm-tbl td.label {
+	color: #999;
+	font-weight: bold;
+	padding-right: 1em;
+}
+
+.frm-tbl tr.tallrow {
+	vertical-align: top;
+}
+
+.frm-btn {
+	clear: both;
+	padding: 2em 0 0;
+	text-align: center;
+}
+
+.frm-btn .btn {
+	margin: 0.2em 0.4em;
+}
+
+/* @end Form Table */
+
+/* @Group Form List */
+
+form fieldset ol li,
+form fieldset ul li {
+	list-style-type: none;
+    padding-top: 0.5em;
+}
+
+form fieldset li label {
+	display: block;
+}
+
+form fieldset li input.txt {
+	width: 15em;
+}
+
+/* @end Form Table */
+
+/* @group Form definition list */
+
+div.buttons,
+form dl {
+	clear: both;
+	margin: 1em auto;
+	width: 48em;
+}
+
+form dl dt {
+    clear: left;
+    float: left;
+	padding: 0 1em 0 0em;
+	text-align: right;
+	width: 8em;
+}
+
+form dl dt label {
+	display: block;
+	padding-top: 0.5em;
+	width: 100%;
+}
+
+form dl dd {
+	float: left;
+	margin: 0 0 1em;
+	width: 39em;
+}
+
+form dl dd span.copy {
+	font-size: 10pt;
+	line-height: 2.25em;
+}
+
+form dl dd.divider {
+    border-top: solid 1px #ccc;
+}
+
+form dl dd select {
+    margin-right: 0.5em;
+	width: 28.3em;
+}
+
+form dd input.txt,
+form dd textarea {
+	overflow: hidden;
+	padding: 0.4em 0 0.4em 0.2em;
+	width: 28em;
+}
+
+form dl dd.buttons {
+	text-align: left;
+}
+
+/* @end Form definition list */
+
+/* @group checkbox list dl */
+
+dl.checkbox-list {
+	margin: 0;
+	width: auto;
+}
+
+.checkbox-list dt,
+.checkbox-list dd {
+	width: auto;
+}
+
+.checkbox-list dt {
+	clear: none;
+	padding: 0 1.5em 0 0.5em;
+}
+
+.checkbox-list dd {
+	margin: 0;
+	padding-top: 0.7em;
+}
+
+/* @end */
+
+/* @end Form */

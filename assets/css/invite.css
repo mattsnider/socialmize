@@ -1,0 +1,40 @@
+div#panel-example.panel ol li {
+	font-size: 12px;
+}
+
+div#panel-example.panel ol li label {
+	width: 5em;
+}
+
+div#panel-example.panel ol li span {
+	display: block;
+	padding-left: 1em;
+	width: 40em;
+}
+
+div#panel-example.panel ol li b {
+	font-weight: normal;
+}
+
+form#form-invite .panel ol {
+	margin-top: 0;
+}
+
+form#form-invite div.buttons {
+	padding-top: 4em;
+}
+
+form#form-invite input.btn {
+	padding: 0.1em 0.75em;
+}
+
+form#form-invite div.buttons,
+form#form-invite input.txt,
+form#form-invite label,
+form#form-invite span,
+form#form-invite textarea {
+	clear: both;
+	display: block;
+	float: none;
+	width: 98%;
+}

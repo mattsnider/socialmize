@@ -1,0 +1,13 @@
+
+/* @group Core */
+
+.note
+{
+	background			: #FFF none repeat scroll 0% 50%;
+	border				: 1px solid #BDC7D8;
+	color				: #444;
+	margin				: 0pt 1em 1em;
+	padding				: 1em;
+}
+
+/* @end */

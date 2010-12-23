@@ -1,0 +1,2 @@
+Administration Response To Request
+Your request for the new ${TYPE} ${NAME} was approved.<br /><br />Check out your ${TYPE} profile. <a href="${PROJECT_URL}/profile.action?key=${KEY}">${PROJECT_URL}/profile.action?key=${KEY}</a>

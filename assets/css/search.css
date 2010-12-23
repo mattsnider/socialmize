@@ -1,0 +1,15 @@
+/*
+ * @group Basic Form
+ */
+
+form#id-form-basic .squareTop {
+	border-top: 1px solid #7687B8;
+}
+
+div.tabs {
+	padding-top:0.5em;
+}
+
+/*
+ * @end
+ */

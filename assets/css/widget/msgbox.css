@@ -1,0 +1,84 @@
+
+/* @group Message Box */
+
+#msgbox {
+margin							: 2em auto;
+width								: 30em;
+border							: solid 10 #D8D9EA;
+}
+
+#msgbox td.msgbox {
+padding-top					: 1em;
+border							: solid 1px #100A63;
+}
+
+#msgbox td td {
+border							: none;
+}
+
+#msgbox td .formtable {
+margin							: 0.25em 0.75em 0;
+}
+
+#msgbox p {
+margin							: 0.75em; 
+text-align					: left !important;
+font-size						: 10pt;
+}
+
+#msgbox h4 {
+text-align					: left;
+border-bottom				: solid 1px #D8D9EA;
+margin							: 0.25em 0.75em;
+padding							: 0 0 2px;
+font-size						: 0.75em;
+}
+
+#msgbox div.date {
+padding-left				: 0.75em;
+color								: #666;
+text-align					: left;
+}
+
+#msgbox div.buttons {
+clear								: both;
+padding							: 0.5em;
+text-align					: right;
+}
+
+#msgbox div.buttons input {
+display							: inline;
+margin-left					: 0.75em;
+}
+
+#msgbox td.msgbox form div#message_image {
+padding-top					: 0.75em;
+float								: left;
+}
+#msgbox div#message_image img {
+margin-left					: 0.5em;
+margin-right				: 0.5em;
+}
+#msgbox div#message_fields {
+padding-top					: 0.75em;
+font-size						: 10pt;
+float								: left;
+}
+#msgbox div#message_fields table {
+width								: auto;
+}
+#msgbox div#message_fields table td {
+text-align					: left;
+padding-bottom			: 0.5em;
+}
+#msgbox div#message_fields table td.label {
+padding-right				: 0.25em;
+color								: #666;
+font-weight					: bold;
+}
+
+#msgbox small {
+color								: gray;
+}
+
+/* @end */

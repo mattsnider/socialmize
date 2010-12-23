@@ -1,0 +1,853 @@
+.advanced #content{
+padding:2em 0
+}
+
+/*  ----------------------------|  NAVIGATION  |----------------------------  */
+
+.bar-nav{
+color:#990000;
+font-weight:bold;
+margin:0 auto;
+padding:3em 0 1.5em 0;
+text-align:center;
+width:49.6em;
+}
+
+.bar-nav a{
+color:#990000;
+font-weight:normal;
+}
+
+.basic_search .bar-nav{
+padding:3em 0 2em 0
+}
+
+/*  ---------------------|  BASIC SEARCH QUERY [OLD]  |---------------------  */
+
+.search .query{
+text-align:center;
+}
+
+.search .search_field{
+margin:0 auto;
+width:50em;
+}
+
+.search .search_field input{
+display:block;
+margin:0;
+width:50em;
+font-size:1.8em;
+}
+
+.search .controls{
+margin:0 auto;
+padding-top:0.5em;
+text-align:left;
+width:50em;
+}
+
+.search .controls label{
+font-weight:normal;
+padding:0;
+}
+
+.search .controls span{
+color:gray;
+font-weight:normal;
+}
+
+.search form select{
+font-weight:normal;
+font-style:normal;
+}
+
+.search option{
+color:black
+}
+
+.search .query .droplists{
+float:left;
+padding-left:0.2em;
+}
+
+.search .query .droplists select{
+margin-left:0.2em; margin-right:0.2em
+}
+.search .query .droplists #sq{
+margin-left:0.2em; width:22.5em;
+}
+
+.search .query .submit_button{
+float:right
+}
+.search .query .submit_button input{
+padding:0.2em 0;
+width:8em;
+}
+
+.search .query .droplists #search_within{
+padding-top:1px;
+}
+
+/*  -----------------------------|  RESULTS  |------------------------------  */
+
+.search #content{
+padding:0
+}
+
+.search #search_results{
+background:#f3f3f3;
+}
+
+.search .column{
+float:left
+}
+
+.search .results{
+padding:1em 1em 0.5em 1em;
+width:60.6em;
+}
+
+.search .filters{
+display:none;
+padding:1em 1em 0 0;
+width:14em;
+}
+
+.search .status{
+margin:0 0 0.5em 0;
+text-align:center;
+}
+
+.search .suggestion{
+background:white;
+border:1px solid #bbb;
+color:#111;
+font-size:1.2em;
+margin:0 0 0.5em 0;
+padding:2em 0.5em;
+text-align:center;
+}
+
+.search .suggestion span{
+color:#111;
+}
+
+.search .disclaimer{
+background:white; 
+border:1px solid #ccc;
+color:gray;
+margin:0 0 0.5em 0;
+padding:5em 3em;
+text-align:center;
+}
+
+/*  ------------------------------|  RESULT  |------------------------------  */
+
+.search .result{
+background:white;
+border:1px solid #ccc;
+padding:0.5em 0.5em 0.4em 0.5em;
+margin-bottom:5px;
+}
+
+.search .result .image{
+border-bottom:1px solid white;
+float:left;
+line-height:1px;
+padding:0 0.9em 0 0;
+text-align:left;
+width:10em;
+}
+
+.search .result .info{
+float:left;
+padding:0;
+width:37.7em;
+}
+
+.search .result .info dl{
+line-height:1.5em
+}
+
+.search .result .info dt{
+color:gray;
+clear:both;
+float:left;
+width:7em;
+}
+
+.search .result .info dd{
+float:left;
+display:inline;
+width:30.7em;
+}
+
+.search .result .info dt.matches{
+padding-top:0
+}
+
+.search .result .info dd.aux{
+margin-left:7em;
+}
+.search .result .info dd.matches{
+padding-bottom:0.5em
+}
+
+.search .result .info dd.matches span{
+margin:0;
+padding:0 0 1px 0;
+background:#fff8cc;
+border-bottom:solid 1px #ffe222;
+}
+
+.search .result .info dd .network_details{
+color:#777;
+}
+
+.search .result .actionspro{
+float:right;
+width:10em;
+}
+
+/*  ---------------------------|  RESULT TABS  |----------------------------  */
+
+.search .summary .tabs{
+float:left; 
+list-style:none;
+margin:0;
+padding:0;
+border-left:1px solid #d8dfea;
+}
+
+.search .summary .tabs li{
+border-right:1px solid #d8dfea; 
+float:left;
+margin:0;
+padding:0.3em 0 0.4em 0;
+} 
+
+.search .summary .tabs li a{
+border-bottom:0.2em solid white; 
+padding:0.3em 0.5em 0.2em 0.5em; 
+font-weight:normal;
+}
+
+.search .summary .tabs li.current a{
+border-bottom:2px solid #6d84b4;
+padding:0.3em 0.5em 0.3em 0.5em;
+font-weight:bold;
+} 
+
+.search .summary .tabs li a:hover{
+background:#ebeff4;
+border-bottom:1px solid #ebeff4;
+padding-bottom:0.3em;
+text-decoration:none;
+}
+
+.search .summary .tabs li.current a:hover{
+background:none;
+border-bottom:2px solid #6d84b4; 
+color:#990000;
+padding:0.3em 0.5em 0.3em 0.5em;
+}
+
+.search .summary .tabs li.empty{
+padding:0.3em 0.5em 0.3em 0.5em;
+color:#ccc;
+}
+
+.search .summary .tabs li.empty a:hover{
+background:none;
+border:none;
+}
+
+
+/*  -------------------------|  CONTROLS & STATS  |-------------------------  */
+
+.search .summary{
+font-weight:normal;
+padding:0;
+}
+
+.search .summary span{
+color:#666;
+font-weight:normal;
+}
+
+.search .summary strong{
+display:block;
+font-weight:bold;
+padding:0.3em 0 0.4em 0;
+}
+
+.search .breakdown{
+margin:0 0 0.5em;
+padding:0;
+}
+
+.search .breakdown .explanation{
+color:#666;
+float:left;
+width:445px;
+}
+
+.search .result_types{
+color:#666;
+float:left;
+width:445px;
+}
+
+.search .result_types strong{
+font-weight:normal;
+}
+
+.search .filter_show{
+text-align:right;
+float:left; float:right;
+width:14em; width:auto;
+}
+
+.search .filter_show a{
+padding-right:1.5em;
+background:url(/images/filter_show.gif) top right no-repeat;
+}
+
+.search .filter_clear{
+width:15em;
+text-align:right;
+padding:0 0 0.5em;
+}
+
+.search .filter_clear a{
+padding-right:1.5em;
+background:url(/images/filter_clear.gif) top right no-repeat;
+}
+
+.search .just_hide a{
+background:url(/images/filter_hide.gif) top right no-repeat;
+}
+
+/*  --------------------------|  FILTER ACTIVE  |---------------------------  */
+
+.search .filters_active .filter_show{
+display:none;
+}
+
+.search .filters_active .filters{
+display:block;
+}
+
+.search .filters_active .results{
+width:44.6em;
+}
+
+.search .filters_active .result .info{
+width:21.8em;
+}
+.search .filters_active .result .info dt{
+width:6em;
+}
+.search .filters_active .result .info dd{
+width:15.8em;
+}
+.search .filters_active .result .info dd.aux{
+margin-left:6em;
+}
+
+
+/*  ------------------------|  FALLBACKS & ERRORS  |------------------------  */
+
+.search .fallback{
+background:white;
+border:1px solid #ccc;
+color:#777;
+font-size:1.2em;
+line-height:1.6em;
+margin:0 0 0.5em;
+padding:12em 2em;
+text-align:center;
+}
+
+.search .fallback span{
+color:#222;
+}
+.search .fallback strong{
+font-weight:normal;
+}
+.search .fallback .suggestion{
+border:0;
+display:inline;
+margin:0;
+padding:0;
+}
+
+.search .search_error{
+padding:6em 5em;
+}
+
+.search #error{
+margin:0;
+}
+
+
+/*  ------------------------|  RESULTS QUERY BAR  |-------------------------  */
+
+.bar-query{
+border-top:1px solid #d8dfea;
+}
+
+.bar-query .query{
+clear:both; padding:4em 0;
+}
+
+.bar-query .pager{
+padding-right:1em
+}
+
+.bar-query .pager a{
+border-top:2px solid white;
+padding-top:1px;
+padding-bottom:0;
+}
+
+.bar-query .pager a:hover{
+border-bottom:2px solid #990000;
+border-top:2px solid #990000;
+}
+
+.bar-query .pager .current a,
+.bar-query .pager .current a:hover{
+border-bottom-color:white;
+border-top:2px solid #990000;
+}
+
+/*  --------------------------|  ADVANCED SEARCH  |-------------------------  */
+
+.advanced .fields{
+margin:0 auto;
+}
+
+.advanced .buttons{
+margin:2em 0 1em;
+text-align:center;
+}
+
+.advanced .column td{
+padding-right:2em;
+height:2.6em;
+}
+
+.advanced .column td.label{
+color:#777;
+padding-right:0.4em;
+font-weight:bold;
+}
+
+.advanced .zip_label{
+padding:0 0.4em 0 0.8em;
+color:#777;
+font-weight:bold;
+}
+
+.advanced .column .select{
+width:15.4em;
+}
+
+.advanced_results_bar{
+background:#f7f7f7;
+border-bottom:1px solid #d8dfea;
+padding:0.7em 10 0.3em 1em;
+}
+
+.advanced_results_bar .criteria_label{
+float:left;
+width:45em;
+}
+
+.advanced_results_bar .edit_search{
+float:right;
+text-align:right;
+width:15em;
+}
+
+.advanced_results_bar .criteria{
+float:left; 
+padding:1px 0.2em 0;
+padding-left:0;
+margin-top:0.5em;
+}
+
+.advanced_results_bar .criterion{
+float:left; 
+padding:0.3em 0.5em;
+border:solid 1px #ccc;
+background:white;
+margin-right:0.5em;
+margin-bottom:0.4em;
+}
+
+.advanced_results_bar .criteria a{
+margin-top:0.4em;
+margin-left:0.2em;
+display:block;
+float:left;
+}
+
+.advanced_results_bar .criterion span{
+color:gray;
+font-weight:bold;
+}
+
+
+/*  -----------------------------|  UBER BAR  |-----------------------------  */
+
+.uber_bar{
+background:#f7f7f7;
+border-bottom:1px solid #d8dfea;
+padding:0.5em 1em 0.5em 1em;
+}
+
+.uber_bar label{
+color:#666;
+font-size:1.1em;
+font-weight:normal;
+}
+
+.uber_bar select{
+font-size:1.1em;
+}
+
+.uber_bar .search_query{
+float:left;
+font-size:1.1em;
+padding:1px 0.5em 0 0;
+}
+
+.uber_bar #q{
+width:14em;
+}
+.uber_bar #q.inputsearch{
+width:14em;
+}
+
+.uber_bar .search_type{
+padding-right:0.5em;
+}
+
+.uber_bar .browse_within{
+color:#666;
+float:left;
+padding:0.3em 0 0.2em 0;
+}
+
+.uber_bar .browse_within select{
+margin:0 0.2em
+}
+
+.uber_bar .primary_network{
+color:#666;
+float:left;
+padding:0.6em 0 0.5em 0
+}
+
+.uber_bar .primary_network strong{
+color:#333;
+}
+
+.uber_bar .alt_option{
+float:right;
+padding-top:0.6em;
+}
+
+.uber_bar #label_filter_n{
+display:block;
+float:left;
+padding:0.5em 0.5em 0 0;
+}
+
+.uber_bar #search_within{
+float:left; 
+padding-top:1px;
+}
+
+.uber_bar #search_within #n_dropdown{
+width:17.6em;
+}
+
+.uber_bar #n_selector{
+float:left;
+padding-top:1px;
+}
+
+.uber_bar #n_selector #sq{
+width:16.8em;
+}
+
+.uber_bar .object_members{
+color:#666; 
+padding:0.5em 0
+}
+
+
+/*  ---------------------------|  BASIC SEARCH  |---------------------------  */
+
+.search .basic_search{
+padding:6em 0 0 0;
+text-align:center;
+}
+
+.search .basic_search .basic_bar{
+margin:0 4em 1em 4em;
+}
+
+.search .basic_search #uq{
+font-size:1.8em;
+width:100%;
+}
+
+.search .basic_search .uber_bar{
+background:#f7f7f7;
+border:1px solid #ddd;
+padding:1em;
+margin:0 auto;
+width:52.2em;
+}
+
+.search .basic_search .bar_header{
+background:#eee;
+border:1px solid #ddd; border-bottom:0;
+color:#333;
+margin:0 auto;
+padding:0.3em 1em;
+text-align:left;
+width:52.2em;
+}
+
+.search .basic_search .uber_bar label{
+color:black;
+} 
+
+.search .basic_search .key_bar{
+display:none; 
+text-align:center;
+clear:both;
+margin:0 auto;
+padding-top:1.5em; 
+width:40em;
+}
+
+.basic_search .key_bar span{
+color:gray;
+}
+
+.basic_search .key_bar label{
+color:black;
+font-weight:normal;
+}
+
+.basic_search .uber_bar #q.inputsearch{
+width:16em;
+}
+
+.basic_search .uber_bar #search_within #n_dropdown{
+width:18.1em;
+}
+
+.basic_search #n_selector #sq{
+width:17.3em;
+}
+
+.basic_search #the_button{
+float:left;
+padding-left:0.5em;
+padding-top:1px;
+}
+
+.basic_search #the_button input{
+padding:0.2em 0.4em
+}
+
+.basic_search .nav_bar{
+padding-bottom:4em;
+}
+
+
+/*  -----------------|  ALTERNATIVE SEARCH MODULE STYLES  |-----------------  */
+
+.search .basic_search .uber_bar{
+border:0;
+border-bottom:1px solid #d8dfea;
+}
+
+.search .basic_search .bar_header{
+background:#d8dfea;
+border:0;
+border-bottom:1px solid #ccc;
+border-top:1px solid #990000;
+color:#990000;
+margin:0 auto;
+padding:0.2em 1em;
+width:52.2em;
+}
+
+
+/*  -----------------------| BASIC SEARCH OPTIONS  |------------------------  */
+
+.search_options{
+margin:0 auto;
+padding:3em 0 3em 2em;
+width:54.2em;
+}
+
+.search_type{
+border-right:1px solid #ddd; 
+float:left;
+margin-right:2.5em;
+padding:0 1em 2em 0;
+text-align:left;
+width:15.8em;
+}
+
+#advanced_search,
+#other_search{
+border:0;
+margin-right:0;
+padding-right:0;
+width:15em;
+}
+
+.search_type h2{
+color:#666; color:#990000; 
+font-weight:bold;
+margin:0;
+padding-bottom:0.2em;
+}
+
+.search_type p{
+margin:0;
+}
+
+.search_type p a{
+display:block;
+margin-top:8px;
+}
+
+.search_type ul{
+color:#990000; 
+list-style:square; 
+margin:0;
+padding:0.8em 0 0 1.5em;
+}
+
+.search_type li{
+margin:0;
+padding:0;
+}
+
+
+/*  -------------------|  OLD CLASSMATE SEARCH RESULTS  |-------------------  */
+
+.uber_bar .school{
+color:gray;
+float:left;
+}
+
+.uber_bar .school strong{
+color:#666;
+}
+.uber_bar .school select{
+margin-left:0.5em;
+}
+
+
+
+
+/*  -------------------------------|  COCO  |-------------------------------  */
+
+#org_selector{
+width:auto;
+}
+
+.classmate .uber_bar,
+.coworker  .uber_bar{
+padding:0.6em 1em 0.5em 1.2em;
+}
+
+.classmate .uber_bar .requery,
+.coworker  .uber_bar .requery{
+color:#666; 
+padding-top:1px;
+float:left;
+width:40em;
+}
+
+.classmate .uber_bar .requery .current,
+.coworker  .uber_bar .requery .current{
+font-weight:bold;
+font-weight:normal;
+}
+
+.classmate .uber_bar .inputsearch,
+.coworker  .uber_bar .inputsearch{
+display:block; 
+float:right;
+margin-right:0;
+width:16em;
+}
+
+.classmate .summary,
+.coworker  .summary{
+padding:0.3em 0 0.4em 0;
+}
+
+.classmate .summary strong,
+.coworker  .summary strong{
+display:inline;
+padding:0;
+}
+
+
+/*  -------------------------|  CLASSMATE SEARCH  |-------------------------  */
+
+.classmate .uber_bar .no_select{
+padding-top:0.5em;
+}
+
+.classmate .uber_bar .requery label{
+color:#444; 
+padding-top:0.2em;
+}
+
+.classmate .uber_bar #college_selector{
+display:inline;
+width:20em;
+} 
+
+.classmate .uber_bar #college_year_select{
+margin-left:0.6em; 
+display:inline;
+width:6.5em;
+}
+
+.classmate .uber_bar .pipe{
+padding:0 0.4em 0 0.6em;
+}
+
+
+/*  -------------------------|  COWORKER SEARCH  |--------------------------  */
+
+.uber_bar .requery .current_company{
+padding-top:0.4em;
+}
+
+.uber_bar .requery .current_company strong{
+color:#333;
+}
+
+.uber_bar .requery label{
+font-weight:normal;
+padding-right:0.2em;
+}

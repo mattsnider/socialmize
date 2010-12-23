@@ -1,0 +1,215 @@
+div#main-content form.borderTop,
+div#main-content .squareTop {
+	border-top: 1px solid #7687B8;
+}
+
+form.profile-edit fieldset dl p label {
+	padding-left: 0.15em;
+}
+
+form.profile-edit fieldset dl dd.daterange p {
+	padding-bottom: 0.2em;
+}
+
+form.profile-edit fieldset dl dd.daterange select {
+	margin-right: 0.4em;
+	width: 6em;
+}
+
+form.profile-edit fieldset dl dd.daterange select.month {
+	width: 4.75em;
+}
+
+form.profile-edit fieldset dl dd.daterange select option {
+}
+
+form.profile-edit fieldset dl dd.daterange span {
+	text-align: left;
+}
+
+form.profile-edit fieldset dl dd.daterange strong {
+	font-size: 1.1em;
+}
+
+form.profile-edit fieldset dl dd.datetime select.day {
+	width: 5em;
+}
+
+form.profile-edit fieldset dl dd.datetime select.month {
+	width: 14.25em;
+}
+
+form.profile-edit fieldset dl dd.datetime select.year {
+	width: 8em;
+}
+
+form.profile-edit fieldset div.panel {
+	background-color: #FFF;
+	margin-right: 4em;
+}
+
+form.profile-edit fieldset div.panel dl dt {
+	width: 5em;
+}
+
+form.profile-edit fieldset div.panel div.buttons input.action {
+	margin-right: 0;
+}
+
+form.profile-edit fieldset div.requiredMessage {
+	clear: both;
+	padding-bottom: 0.5em;
+	padding-left: 13em;
+}
+
+form.profile-edit fieldset div.requiredMessage strong {
+	font-size: small;
+}
+
+/** @group manage */
+
+form#form-email dt,
+form#form-name dt {
+	width: 10em;
+}
+
+form#form-password dt {
+	width: 12.5em;
+}
+
+form#form-notify dt {
+	width: 16em;
+}
+
+form#form-email dd,
+form#form-name dd {
+	width: 37em;
+}
+
+form#form-password dd {
+	width: 34.5em;
+}
+
+form#form-notify dd {
+	line-height: 3em;
+	width: 31em;
+}
+
+form#form-email input.txt,
+form#form-name input.txt {
+	width: 26.5em;
+}
+
+form#form-password input.txt {
+	width: 25em;
+}
+
+/** @end */
+
+/* @group Email & Username */
+
+form#form-email ol li label,
+form#form-name ol li label {
+	text-align: right;
+	width: 20em;
+}
+
+form#form-name span,
+form#form-name label,
+form#form-email span,
+form#form-email label {
+	float: left;
+}
+
+form#form-name ul li {
+	font-size: 10pt;
+	line-height: 1.5em;
+	list-style-type: circle;
+	padding-top: 0;
+}
+
+form#form-email ul {
+	list-style: square;
+	padding: 0.5em 0 1em 1.5em;
+}
+
+/* @end Email */
+
+/* @group Notification & Features */
+
+form#form-notify ol li label {
+	float: left;
+}
+
+form#form-notify ol li label {
+	padding-bottom: 0.5em;
+}
+
+form#form-notify ol li label b {
+	padding-left: 0.5em;
+}
+
+/* @end Notification & Features */
+
+form#form-account a {
+	text-decoration: underline;
+}
+
+/* @group Profile Form */
+
+form.profile-edit {
+	background-color: #F9F9F9;
+	border: 1px solid #DDDDDD;
+	padding: 3em 0 1em 7em;
+	-webkit-border-bottom-left-radius: 10;
+	-khtml-border-radius-bottomleft: 10;
+	-moz-border-radius-bottomleft: 10;
+	border-bottom-left-radius: 10;
+	-webkit-border-bottom-right-radius: 10;
+	-khtml-border-radius-bottomright: 10;
+	-moz-border-radius-bottomright: 10;
+	border-bottom-right-radius: 10;
+
+}
+
+form.profile-edit dl {
+	width: 50em;
+}
+
+form.profile-edit dl dt {
+	width: 10em;
+}
+
+form.profile-edit dl dt label {
+	padding-top: 0.2em;
+}
+
+form.profile-edit fieldset dl p {
+	font-size: 1.2em;
+	padding-left: 0;
+}
+
+form.profile-edit dl dt label small {
+	display: block;
+	margin-top: -0.4em;
+}
+
+form.profile-edit dl dd.multi input {
+	margin-bottom: 0.2em;
+}
+
+form.portrait fieldset dl dd {
+	font-size: 1.2em;
+	width: 42.1667em;
+}
+
+form.portrait fieldset h3 {
+	padding-left: 0;
+}
+
+form.portrait fieldset dl dd img {
+	float: left;
+	margin-right: 1em;
+}
+
+/* @end Profile Form */

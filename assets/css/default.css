@@ -1,0 +1,393 @@
+/** @group Customizable */
+
+label {
+	color: #666;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.date {
+	color: #9F9F9F;
+	font-family: Georgia, Times, Times New Roman, serif;
+	font-style: italic;
+}
+
+body.project a.dark.logout {
+	color: #666
+}
+
+/** @end */
+
+/* @group Clearfix */
+
+a:link,
+a {
+	color: #213e7a;
+	text-decoration: none;
+}
+
+a:hover,
+a:active {
+	color: #2B58AF;
+	text-decoration: underline;
+}
+
+body.project a.dark {
+	color: #333;
+	text-decoration: underline;
+}
+
+body.project a.dark:hover {
+	color: #000;
+}
+
+/** @end */
+
+/* @group Clearfix */
+
+.clearfix:after {
+/* (en) clearfix method for clearing floats */
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+/* (en) essential for Safari browser !! */
+	clear: both;
+	display: block;
+}
+
+div.spacer {
+	clear: both;
+	height: 0.5em;
+	width: 100%;
+}
+
+/* @end */
+
+/** @group Actions */
+
+ul.actions {
+	margin: 0;
+	padding: 0;
+}
+
+ul.actions li,
+ul.actions {
+	list-style: none outside none;
+}
+
+ul.actions a {
+	background: transparent none repeat scroll 0;
+	display: block;
+	font-variant: small-caps;
+	padding: 0.2em 0.3em;
+}
+
+/** @end */
+
+/** @group Messages */
+
+body .message {
+	background: #CFEBF7 url(../images/bg/notice.gif) no-repeat scroll 1em 50%;
+	border: #2580B2 1px solid;
+}
+
+p.error {
+	background-color: #FC0;
+	border: #C90 2px ridge;
+}
+
+p.warning {
+	background-color: #F60;
+	border: #F93 2px ridge;
+}
+
+.warning .date {
+	color: #333;
+}
+
+p.warning,
+p.message,
+p.error {
+	-webkit-box-shadow: 3px 3px 1px #888;
+	-moz-box-shadow: 3px 3px 1px #888;
+	box-shadow: 3px 3px 1px #888;
+	font-size: larger;
+	font-weight: bold;
+	margin: 0.5em 0.2em 0;
+	padding: 0.5em 0.5em 0.5em 2.5em;
+}
+
+/** @end */
+
+/** @group Error Pages */
+
+.errorPage h1 {
+	float: none;
+	width: auto;
+}
+
+.errorPage p {
+	padding: 1em;
+}
+
+/** @end */
+
+/** @group Misc */
+
+.small {
+	font-size: 8pt;
+	line-height: 1.25em;
+}
+
+.column {
+	float: left;
+}
+
+.column-two .column-left,
+.column-two .column-right {
+	float: left;
+}
+
+.fontSize10,
+td.data,
+td.label,
+dt.label {
+	font-size: 10pt;
+}
+
+.noresults {
+	text-align: center;
+}
+
+img.portrait,
+a img.portrait {
+	border: 1px solid #111111;
+	padding: 1px;
+}
+
+.indent {
+	padding-left: 1.25em !important;
+}
+
+ul li.result {
+	list-style: none;
+}
+
+/** @end */
+
+/** @group ColorPicker */
+
+div#layer_ColorPicker {
+	background: #FFF;
+	border: 1px solid #666;
+	padding-bottom: 0.5em;
+	width: 35em;
+}
+
+div#container_ColorPicker div.yui-picker-controls {
+	width: 15em;
+}
+
+div#container_ColorPicker a#yui-picker-controls-label {
+	padding-bottom: 0.5em;
+}
+
+div#layer_ColorPicker div.buttons {
+	height: 2.5em;
+	margin-top: 20em;
+}
+
+div#layer_ColorPicker div.buttons input {
+	float: right;
+}
+
+/** @end */
+
+/** @group Forms */
+
+.panel {
+	background-color: #F9F9F9;
+	border: solid 1px #DDD;
+	margin-bottom: 1.5em;
+	padding: 1em 2em;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+body .squareTop {
+	border-top: none;
+	-webkit-border-top-left-radius: 0;
+	-khtml-border-radius-topleft: 0;
+	-moz-border-radius-topleft: 0;
+	-o-border-radius-topleft: 0;
+	border-top-left-radius: 0;
+	-webkit-border-top-right-radius: 0;
+	-khtml-border-radius-topright: 0;
+	-moz-border-radius-topright: 0;
+	-o-border-radius-topright: 0;
+	border-top-right-radius: 0;
+}
+
+.panel .copy {
+	padding: 0;
+}
+
+.panel .buttons {
+	padding-top: 1em;
+	text-align: right;
+}
+
+.panel .minHeight {
+	height: 15em;
+}
+
+.panel h3,
+.panel h4 {
+	border-bottom: 1px solid #B9C4DA;
+	font-weight: bold;
+	margin: 1em 0 1em;
+	padding: 0 0 0.2em 0;
+}
+
+.panel h4 {
+	padding: 0.2em 0;
+}
+
+.panel p {
+	line-height: 1.4em;
+	margin: 0 0 0.6em;
+}
+
+.panel ol {
+	padding: 1em 0 0.5em;
+}
+
+.panel li.hr,
+.panel li.hr {
+	border-top: 3px double #333;
+	margin-top: 2px;
+	padding-top: 5px;
+}
+
+.panel ul li,
+.panel ol li {
+	clear: both;
+	line-height: 2em;
+	list-style-type: none;
+}
+
+.panel ol li a.help {
+	float: right;
+	margin-right: 1em;
+}
+
+.panel ol li input.chkbox {
+	margin-left: 1em;
+	margin-top: 0.3em;
+}
+
+.panel ol li input.txt {
+	width: 20em;
+}
+
+.panel ol li label,
+.panel ol li span {
+	float: right;
+	line-height: 1.5em;
+	margin-right: 1em;
+	margin-top: 0.2em;
+}
+
+.panel ol li span small {
+	color: #999;
+}
+
+.panel ol li.selected label {
+	color: #000;
+	font-weight: bolder;
+}
+
+.panel ol li.textarea {
+	height: 16.5em;
+}
+
+.panel div.textarea {
+	margin-left: 1em;
+	padding-bottom: 1em;
+}
+
+.panel textarea {
+	height: 14em;
+	width: 27.5em;
+}
+
+.panel div.white {
+	background: #FFF;
+	border: 1px solid #DDD;
+	padding: 0.5em;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.panel div.empty,
+.panel p.empty {
+	background: #F7F7F7 none repeat scroll 0;
+	border: 1px solid #EADFD8;
+	border-top: 1px solid #CCC;
+	color: #666;
+	text-align: center;
+	padding: 1.5em 0;
+}
+
+/* @end */
+
+/* @Group select list */
+
+.message-text {
+	width: 45.691em;
+}
+
+.select-list {
+	border: 1px solid #999;
+	height: 20em;
+	margin-bottom: 1em;
+	overflow-y: scroll;
+}
+
+.select-list ul {
+	margin: 0;
+}
+
+.select-list li {
+	margin-top: 0;
+}
+
+.select-list label {
+	display: inline;
+	padding-left: 0.5em;
+}
+
+/* @end */
+
+/* @group breadcrumb */
+
+.breadcrumb {
+	height: 1.5em;
+}
+
+.breadcrumb a {
+	display: block;
+	float: right;
+}
+
+/* @end */

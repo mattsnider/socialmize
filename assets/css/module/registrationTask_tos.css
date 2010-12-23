@@ -1,0 +1,95 @@
+#gnav .dark {
+	visibility: hidden;
+}
+
+#gnav a.logout {
+	visibility: visible;
+}
+
+blockquote {
+	font-style: italic;
+	margin: 1em .25em;
+}
+
+a {
+	color: #633;
+}
+
+div#main-wrap {
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h1 {
+	font-size: 200%;
+	color: #900;
+	margin: 10px 0 .5em 0;
+	width: 100%
+}
+
+h2 {
+	font-size: 150%;
+}
+
+p {
+	margin: .5em 0;
+}
+
+#sidebar {
+	display: none;
+}
+
+#main #content {
+	width: 100%;
+}
+
+#termsContent {
+	line-height: 1.25em;
+}
+
+#termsContent .termsContent {
+	margin: 0.5em 1.5em;
+	padding: .5em;
+}
+
+#termsContent h2 {
+	margin: 1em 0 0 0;
+}
+
+#termsContent h3 {
+	font-size: 11pt;
+}
+
+#termsContent h3 a {
+	color: #666;
+}
+
+#termsContent li {
+	font-size: 13px;
+	list-style: decimal outside;
+	margin: 0 0 .5em 0;
+}
+
+#termsContent li li {
+	list-style-type: circle;
+}
+
+#termsContent p {
+	margin: 0 0 1em 0;
+	text-align: justify;
+}
+
+#termsContent ul,
+#termsContent ol {
+	margin: 1em 2em;
+}
+
+div.buttons form {
+	display: inline-block;
+	display: -moz-inline-stack;
+	*display: inline;
+	zoom: 1;
+}
+
+div.buttons {
+	text-align: center;
+}

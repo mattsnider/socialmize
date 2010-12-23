@@ -1,0 +1,22 @@
+# fetching a word
+SELECT `DW`.`word`, `DW`.`id` FROM `dictionary_word` AS `DW` WHERE `word` = 'xhtml';
+
+# fetching a stem
+SELECT `DS`.`stem`, `DS`.`id` FROM `dictionary_stem` AS `DS` WHERE `stem` = 'readin';
+
+# fetching a word and id by the stem
+SELECT `DW`.`word`, `DW`.`id` FROM `dictionary_word` AS `DW` LEFT JOIN `dictionary_stem_word` AS `DSW` ON `DSW`.`word_id` = `DW`.`id` LEFT JOIN `dictionary_stem` AS `DS` ON `DSW`.`stem_id` = `DS`.`id` WHERE `stem` = 'html';
+
+# fetching a user by the stem or word
+SELECT `PWDW`.`searchable_id`, COUNT(*) AS `C` FROM `profile_widget_dictionary_word` AS `PWDW` 
+	LEFT JOIN `dictionary_word` AS `DW` ON `PWDW`.`word_id` = `DW`.`id` 
+	LEFT JOIN `dictionary_stem_word` AS `DSW` ON `DSW`.`word_id` = `DW`.`id` 
+	LEFT JOIN `dictionary_stem` AS `DS` ON `DSW`.`stem_id` = `DS`.`id` 
+	WHERE `stem` = 'cali' OR `word` = 'cali' OR `word`='male' OR `stem`='sunn' GROUP BY `PWDW`.`searchable_id` ORDER BY `C` DESC, `PWDW`.`searchable_id` ASC;
+	
+SELECT `PWDW`.`searchable_id`, COUNT(*) AS `C` FROM `profile_widget_dictionary_word` AS `PWDW` 
+	LEFT JOIN `dictionary_word` AS `DW` ON `PWDW`.`word_id` = `DW`.`id` 
+	LEFT JOIN `dictionary_stem_word` AS `DSW` ON `DSW`.`word_id` = `DW`.`id` 
+	LEFT JOIN `dictionary_stem` AS `DS` ON `DSW`.`stem_id` = `DS`.`id` 
+	WHERE `stem`='cali' AND `word`='male' AND `stem`='sunn' AND `word`='cali' AND `stem`='male' AND `word`='sunn' GROUP BY `PWDW`.`searchable_id` ORDER BY `C` DESC, `PWDW`.`searchable_id` ASC;
+	

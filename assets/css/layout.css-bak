@@ -1,0 +1,353 @@
+
+/* @group Layout */
+
+#doc {
+	background: #EEE url(../images/bg/column.gif) 25em 10px repeat-y;
+	margin: 0.5em auto;
+	overflow: hidden;
+	padding: 0.5em;
+	width: 90em;
+}
+
+#header {
+	height: 3em;
+}
+
+#header a.logo img
+{
+	border					: 0px;
+	height					: 6em;
+	margin-left				: 1em;
+	width					: 16.5em;
+}
+
+#sidebar {
+	background: #FFF url(../images/bg/sidebar.gif) 10em -6.2em repeat-y;
+	clear: left;
+	float: left;
+  	margin-right: -91em;
+	width: 100%;
+}
+
+#main {
+	float: left;
+}
+
+#footer {
+	background-color: #FFF;
+	border-top: solid 1px #000;
+	clear: both;
+	line-height: 2em;
+	margin-bottom: -2em;
+	padding-top: 1em;
+	position: relative; /* needs to be positioned to interact with columns */
+	width: 100%;
+}
+
+#content #filter {
+	background: #F7F7F7 none repeat scroll 0%;
+	border-bottom: #DDD solid 1px;
+	height: 3.2em;
+}
+
+#content #filter .content {
+	padding: 0.3em 1em;
+}
+
+#main h2 {
+	background: #FFF none repeat scroll 0%;
+	border-bottom: #DDD solid 1px;
+	clear: both;
+	color: #830A04;
+	font-weight: bold;
+	line-height: 2.1em;
+	margin: 0em;
+	padding: 0.25em 0em 0.25em 1em;
+	text-align: left;
+}
+
+/* class used to specify information about content wrap, such as width when trying to prevent boxing in IE < 6 */
+.content {}
+
+.column-two .column-left,
+.column-two .column-right
+{
+	float					: left;
+}
+
+
+/* @group Header */
+
+#homelink
+{
+	display				: block;
+	background-image	: url(../images/bg/homelink.png);
+	background-repeat	: repeat-y;
+	float				: left;
+	width				: 17em;
+	height				: 3em;
+	max-height			: 50px;
+}
+
+#gnav
+{
+	text-align			: right;
+	float				: right;
+	line-height			: 1.5em;
+	list-style			: none;
+	width				: 40em;
+	margin				: 0px;
+	padding				: 0.25em 0px;
+}
+
+#gnav li
+{
+	display				: inline;
+}
+
+#gnav li img
+{
+	height				: 1.5em;
+	margin-bottom		: -0.4em;
+	margin-right		: 0.5em;
+	width				: 1.5em;
+}
+
+#gnav a
+{
+	color				: #FFF;
+	font-size			: 14px;
+	font-variant		: small-caps;
+	font-weight			: bold;
+	margin				: auto 0px;
+	padding				: 0.2em 0.5em;
+}
+
+#gnav a:hover
+{
+	background-color	: #C96;
+}
+
+/* @end */
+
+
+/* @group Footer */
+
+#footer a
+{
+	padding				: 0.3em 0.5em;
+}
+#footer a:hover
+{
+	color				: #FFF;
+	background			: #000;
+	text-decoration		: none;
+}
+#footer p
+{
+	text-align			: center;
+}
+
+/* @end */
+
+
+/* @group Sidebar */
+
+#sidebar form#qsearch
+{
+	padding-top			: 2em;
+}
+
+#snav
+{
+	margin				: 0.5em 0px;
+	padding				: 0px;
+}
+
+#snav a {
+	border-bottom: solid 1px #EADFD8;
+	clear: both;
+	display: block;
+	float: left;
+	font-size: 1.6em;
+	font-variant: small-caps;
+	margin: 0.625em 0 0 2.5em;
+	padding: 0.25em 0.25em 0;
+	text-decoration: none;
+	width: 9.5em;
+}
+
+#snav a:hover
+{
+	background			: #830A04;
+	color				: #FFF;
+	text-decoration		: none;
+}
+
+#snav a.hasedit
+{
+	width				: 5.781em;
+	margin-left			: 3.125em;
+}
+
+#snav a.edit {
+	clear: none;
+	margin-left: 0em;
+	width: 2.5em;
+}
+
+#snav a.edit i
+{
+	font-style			: normal;
+}
+
+#snav a.l1
+{
+	margin-left			: 3.968em;
+}
+
+#snav a.l2
+{
+	margin-left			: 4.0623em;
+}
+
+#snav a.l3
+{
+	margin-left			: 3.75em;
+}
+
+#snav a.l4
+{
+	margin-left			: 3.594em;
+}
+
+#snav a.l5
+{
+	margin-left			: 3.281em;
+}
+
+#snav a.l6
+{
+	margin-left			: 3.125em;
+}
+
+#snav a.admin
+{
+	margin-bottom		: -1.25em;
+}
+
+#snav a.bug {
+	padding-left: 0;
+	padding-top: 0.75em;
+	width: 10em;
+}
+
+#snav a img {
+	height: 1.5em;
+	margin-right: 0.8em;
+}
+
+#squicklogin
+{
+	margin				: 1.5em 0px 0.75em;
+	padding-right		: 2em;
+}
+
+#squicklogin form
+{
+	display				: block;
+	width				: 12em;
+	margin				: 0em auto;
+}
+
+#squicklogin label
+{
+	display				: block;
+	padding				: 0px 0px 0.2em;
+	margin				: 0px;
+	color				: gray;
+	font-weight			: bold;
+}
+
+#squicklogin .txt
+{
+	width				: 11em;
+}
+
+#qsearch
+{
+	padding-left		: 2.5em;
+}
+
+#qsearch input
+{
+	width				: 12.4em !important;
+}
+
+/* @end */
+
+
+/*  ----------------------|  General & Widget  |----------------------  */
+
+#confirmDialog div.hd,
+#confirmDialog div.bd
+{
+	font-size: 12px;
+}
+
+#message {
+padding				: 0.5em;
+display				: none;
+}
+#message div {
+padding				: 1em;
+background-color	: #E8EBFF;
+border				: 1px solid #103CDD;
+}
+
+#error {
+margin				: 0px 1em 1em;
+padding				: 1em;
+border				: solid 1px #dd3c10;
+background			: #FFFBE8;
+}
+
+#error p {
+margin				: 0.4em 0px 0px;
+}
+
+#error a {
+text-decoration		: none;
+color				: #DD3C10;
+}
+
+/* container for bugs dialog */
+.reportBug
+{
+}
+.reportBug small
+{
+margin-top			: 0.5em;
+display				: block;
+color				: #999;
+}
+.reportBug .label
+{
+margin-top			: 1em;
+}
+
+.status {
+margin				: 0px 1em 1em;
+padding				: 1em;
+border				: solid 1px #FFE222;
+background			: #FFFBE2;
+}
+
+.status h2 {
+font-size			: 1.1em;
+margin				: 0px;
+}
+
+.status p {
+margin				: 0.4em 0px 0px;
+}

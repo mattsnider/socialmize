@@ -1,0 +1,2 @@
+Welcome to ${PROJECT}
+${NAME}<br />Welcome o ${PROJECT}.<br />Go to <a href="${PROJECT_URL}">${PROJECT_URL}</a> to log in.

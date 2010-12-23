@@ -1,0 +1,59 @@
+
+/* @Group Post Styles */
+
+.post {
+	padding: 1em;
+}
+
+.post h3,
+.post div.content {
+	background: #FFF;
+	border: 1px solid #CCC;
+}
+
+div.post h3 {
+	border-bottom: none;
+	margin: 0;
+	padding: 1em;
+	text-decoration: underline;
+}
+
+.post h5 {
+	color: #98593B;
+	display: block;
+	font-size: small;
+}
+
+.post div.content {
+	border-top: none;
+	padding: 2em;
+}
+
+.post div.content ul {
+	list-style: none;
+	margin-top: 0;
+}
+
+.post div.content ul li {
+	border: none;
+	border-top: 1px solid #98593B;
+	margin: 0;
+	padding: 0 0 1.5em;
+	width: auto;
+}
+
+.post div.content .title {
+	background: #F9F9F9;
+	border-bottom: 1px solid #EADFD8;
+	padding: 0.3em 0.5em;
+}
+
+.post div.content .title a {
+	margin-right: 1em;
+}
+
+.post div.content .text {
+	padding: 0.25em;
+}
+
+/* @end Post Styles */

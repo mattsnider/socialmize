@@ -1,0 +1,2 @@
+${GROUP} ${NAME} has Approved Your Request on ${PROJECT}...<br/>
+Your requests for ${GROUP} ${NAME} has been approved on ${PROJECT}.  Please login and update the profile.<br /><br />To update the profile follow the link below:<br /><a href="${PROJECT_URL}/editprofile.action?edit=T&key=${KEY}">${PROJECT_URL}/editprofile.action?edit=T&key=${KEY}</a>

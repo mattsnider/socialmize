@@ -1,0 +1,1 @@
+cat dragdrop-min.js slider-min.js element-beta-min.js colorpicker-min.js > utility.js

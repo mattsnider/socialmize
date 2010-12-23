@@ -1,0 +1,2 @@
+
+<br />Thanks,<br />The ${PROJECT} Team<br /><br />___<br /><br />Want to control which emails you receive from ${PROJECT}? Go to: <a href=${PROJECT_URL}/account.action>${PROJECT_URL}/account.action</a>

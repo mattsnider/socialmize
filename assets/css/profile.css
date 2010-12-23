@@ -1,0 +1,547 @@
+/* @group Profile */
+
+.column-two .column-left {
+/*margin-left: 0.5em;*/
+	width: 20em;
+}
+
+.column-two .column-right {
+/*margin-left: 1.4em;*/
+	float: right;
+	width: 45.5em;
+}
+
+#groupProfile {
+	margin-left: 0.75em;
+}
+
+#profile-information {
+	margin-top: 1em;
+}
+
+.noresults {
+	margin: 0;
+	padding-bottom: 2em;
+	padding-top: 2em;
+}
+
+.profile-widget,
+.profile-form {
+	clear: both;
+	overflow: hidden;
+	width: 41.5em;
+}
+
+.profile-form {
+	border-bottom: 1px double #000;
+	padding-bottom: 1em;
+}
+
+.column-two .column-right div.autocomplete {
+	width: 285px;
+}
+
+h4.toggle-open {
+	background-position: 0 1em;
+}
+
+#profile-basic {
+	margin-bottom: 1em;
+}
+
+div.profile-container {
+	border-bottom: 1px solid #DDD;
+	clear: both;
+	padding-bottom: 0.5em;
+}
+
+div.edit {
+	float: right;
+}
+
+/* @group Widget-Image&Action */
+
+#profileImage {
+	padding-top: 1em;
+}
+
+#profileImage a {
+	font-size: 10px;
+}
+
+#profileImage img.portrait {
+	width: 19.6em;
+}
+
+.profile .actions {
+	background: #FFF none repeat scroll 0;
+}
+
+.profile .actions {
+	clear: left;
+	padding: 0 0 1em;
+}
+
+/* @end */
+
+/* @group Widget-Connection */
+
+#profileConnection a {
+	font-size: 12px;
+	width: 30%;
+}
+
+/* @end */
+
+/* @group Widget-Discussion */
+
+.profile .discussions {
+	padding: 0 0 0.8em;
+}
+
+/* @end */
+
+/* @group Widget-MemberList */
+
+.profile .userTable td {
+	padding: 0 0 0.5em;
+	text-align: center;
+	vertical-align: top;
+	width: 6.5em;
+}
+
+.profile .userTable table {
+	height: 100%;
+}
+
+.profile .userTable table td.thumb img {
+	width: 5em;
+}
+
+/* @end */
+
+/* @group Widget-Administration */
+
+.profile .admins li {
+	color: #98593B;
+	list-style: square outside none;
+	margin: 0 0 0 1.5em;
+}
+
+/* @end */
+
+/* @group Widget-Testimonials */
+
+html .wall-container {
+	border: none;
+	padding: 1em 0.8em 1.5em;
+}
+
+.profile .wall-post .wall-text {
+	width: 26em;
+}
+
+/* @end */
+
+/* @group Widget-MessageBoard */
+
+div#profile-messageBoard h4 {
+	border-top: 1px solid #B9C4DA;
+	padding: 0.4em 0 0;
+}
+
+div#profile-messageBoard .filter {
+	border-bottom: 1px solid #B9C4DA;
+	margin-top: 0.25em;
+	padding: 0.5em 0.25em;
+}
+
+div#profile-messageBoard .filter input {
+	font-size: 9pt;
+	padding-bottom: 0.1em;
+	padding-top: 0.1em;
+}
+
+div#profile-messageBoard .filter input.txt {
+	width: 16.9em;
+}
+
+div#profile-messageBoard .filter input.btn {
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+div#profile-messageBoard table thead td {
+	font-size: 10pt;
+	font-weight: bold;
+	padding-left: 0.25em;
+	padding-top: 0;
+	text-decoration: underline;
+}
+
+div#profile-messageBoard table tfoot td {
+	padding-bottom: 0;
+	text-align: right;
+}
+
+div#profile-messageBoard table tbody td {
+	border-bottom: 1px solid #EEE;
+}
+
+div#profile-messageBoard colgroup col.messageBoardDate {
+	width: 10%;
+}
+
+div#profile-messageBoard colgroup col.messageBoardTitle {
+}
+
+div#profile-messageBoard colgroup col.messageBoardUser {
+	width: 25%;
+}
+
+/* @end */
+
+/* @group Widget-Friends Table */
+
+div.friend-tbl {
+	padding-top: 0.5em;
+}
+
+.friend-tbl div.image {
+	float: left;
+	margin: 0.25em 0.25em 0 0.5em;
+}
+
+.friend-tbl div.text {
+	font-size: 1.2em;
+	height: 3em;
+	line-height: 1.5em;
+	overflow: hidden;
+	width: 4.1667em;
+}
+
+.friend-tbl img {
+	margin-bottom: 0.25em;
+	width: 3.75em;
+}
+
+.morefriends {
+	margin-top: 0.25em;
+}
+
+/* @end */
+
+/* @group Profile Table */
+
+div.panel div.profile-container h4 {
+	float: left;
+	padding-top: 1em;
+	padding-right: 1em;
+	text-decoration: underline;
+}
+
+div.panel div.profile-container div.edit {
+	padding-top: 1em;
+}
+
+div.panel div.profile-container p.empty {
+	clear: both;
+	padding: 1em 0.5em;
+	border: none;
+}
+
+dl.profile-dl {
+	margin: 0;
+	padding-top: 0.5em;
+}
+
+dl.profile-dl dd,
+dl.profile-dl dt {
+	float: left;
+}
+
+dl.profile-dl dt {
+	clear: left;
+	width: 11em;
+}
+
+dl.profile-dl dd {
+	width: 31em;
+}
+
+dl.profile-dl dt label {
+	cursor: auto;
+	padding-right: 1em;
+}
+
+dl.profile-dl dd p {
+	margin: 0;
+}
+
+dl.profile-dl img {
+	width: 100%;
+}
+
+.profile-tbl {
+	clear: both;
+	margin-bottom: 0.5em;
+	width: 100%;
+}
+
+.profile-tbl td {
+	line-height: 1.2em;
+	padding: 1px 0 1px 0;
+	vertical-align: top;
+}
+
+.editor td.label,
+.profile-tbl td.label {
+	padding-right: 2%;
+	text-align: left;
+	width: 26%;
+}
+
+.profile-tbl td.data {
+	width: 68%;
+}
+
+/* @end */
+
+/* @group Panel Settings */
+
+div.panel {
+	padding: 1em;
+}
+
+div.panel h4,
+div.panel h3 {
+	margin: 0;
+}
+
+div.panel h4 {
+	border: none;
+}
+
+div.panel h4 div.edit {
+	padding: 0;
+}
+
+div.profile-container div.edit {
+	display: none;
+}
+
+#profile-information h3 div.edit,
+div.profile-container:hover div.edit {
+	display: block;
+}
+
+/* @end */
+
+/* @group Edit Widget */
+
+.editor {
+	line-height: 1.6em;
+}
+
+.editor td {
+	padding-top: 0.5em;
+}
+
+.editor .textarea {
+	height: 6.75em;
+}
+
+.editor table {
+	clear: both;
+	margin-top: 0.5em;
+	width: 100%;
+}
+
+.editor table tr input.short {
+	width: 5em;
+}
+
+.editor .textarea,
+.editor .txt {
+	width: 23em;
+}
+
+.editor .template {
+	display: none;
+}
+
+.editor td.label {
+	vertical-align: top;
+	text-align: right;
+	padding-right: 1em;
+	padding-top: 0.5em;
+	width: 12.5em;
+}
+
+.editor td.label small {
+	display: block;
+}
+
+.editor select {
+	width: 26em;
+}
+
+.editor tr.ar-link td {
+	text-align: right;
+}
+
+.editor td.options input.txt {
+	width: 15.3em;
+}
+
+.editor td.options div.right {
+	float: right;
+	margin-top: 0.25em;
+}
+
+.editor td.options div.right,
+.editor td.options select {
+	width: 8em;
+}
+
+.editor td.options p {
+	font-size: 1.2em;
+	margin: 0 0 0.4em;
+}
+
+.editor td.options p.copy {
+	font-size: 1em;
+	padding-bottom: 0.5em;
+	padding-left: 1.5em;
+}
+
+.editor td.options p input {
+}
+
+.editor .withActions input {
+	display: inline;
+}
+
+.editor .withActions textarea {
+	margin-top: 1em;
+}
+
+.editor .change_email {
+	font-size: 0.8em;
+}
+
+.editor .dob select {
+	width: 8.5em;
+}
+
+.editor .dob select option {
+	padding-right: 1.5em;
+}
+
+.editor .country select {
+	width: 12.8em;
+}
+
+.editor .zip input {
+	width: 8.4em;
+}
+
+.editor .msg {
+	padding-left: 8em;
+}
+
+.editor .timespan p {
+	margin: 0 0 0.2em;
+}
+
+.editor .timespan select {
+	width: 5.5em;
+}
+
+.editor .timespan select.month {
+	width: 5.4em;
+}
+
+.editor .timespan select option {
+}
+
+.editor .timespan span {
+	text-align: left;
+	padding: 2px;
+}
+
+.editor .timespan strong {
+	font-size: 1.1em;
+}
+
+.editor ul.bar-admin li {
+	float: right;
+	margin-left: 1em;
+}
+
+.editor ul.bar-admin li .btn {
+	width: 6em;
+}
+
+.editor .institution small.label {
+	clear: both;
+	display: block;
+	font-size: 9px;
+}
+
+div.logo {
+	padding: 0.5em 0;
+}
+
+div.headline {
+	background: #FCFCFC;
+	border-bottom: 1px solid #D8DFEA;
+	border-top: 1px solid #CCC;
+	font-size: 13px;
+	color: #C96;
+	padding: 0.5em 0;
+	text-align: center;
+}
+
+.portrait h4 {
+	padding-top: 0.25em;
+}
+
+.portrait div.column-right,
+.portrait div.upload-column {
+	float: left;
+	width: 28em;
+}
+
+.portrait div.column-right {
+	width: 20em;
+}
+
+.portrait div.column-right div {
+	padding-left: 2em;
+}
+
+.portrait div.column-right img {
+	float: left;
+	margin-right: 1em;
+	width: 10em;
+}
+
+.portrait div.upload-column {
+	line-height: 1.7em;
+}
+
+.portrait input.btn {
+	padding: 1px;
+}
+
+/* @end */
+
+/** @group Group Feature */
+
+div#profile-group .wall-list dt,
+div#profile-group .wall-list dd {
+	height: 13em;
+}
+
+/* @end */

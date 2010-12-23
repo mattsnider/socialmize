@@ -1,0 +1,281 @@
+div#filter .options .group,
+div#filter.contact .options,
+div#filter.group .options .user {
+	display: none;
+}
+
+div#filter.group .options .group {
+	display: block;
+}
+
+#resultFilter {
+	clear: both;
+}
+
+#resultFilter .squareTop {
+	border-top: 1px solid #7687B8;
+}
+
+div.tabs {
+	padding-top:0.5em;
+}
+
+ul.new {
+	background: #FCFCFC;
+}
+
+ul.search-results li.result {
+	width: auto;
+	margin-bottom: 0.25em;
+}
+
+#searchList .name,
+#searchList .name a {
+	font-size: 12pt;
+}
+
+#searchList .date {
+	font-size: 9pt;
+}
+
+div.forward {
+	float: right;
+}
+
+div.forward,
+div.back {
+	padding-top: 1em;
+}
+
+/* @group General search related styles */
+
+#filterandsearch {
+	background: #f7f7f7;
+}
+
+#filterandsearch table {
+	float: left;
+	display: inline;
+	margin: 0.25em 0.75em 2px;
+	width: auto;
+}
+
+#filterandsearch table select {
+	margin-left: 1em;
+}
+
+#searchwithin {
+	float: right;
+	display: inline;
+	text-align: left;
+	width: 13.5em;
+	margin: 0.25em 0.75em 0.25em 0;
+}
+
+#filterandsearch #searchwithin input {
+	width: 11em;
+}
+
+
+/* @group Search List */
+
+.searchList {
+	background: #F7F7F7;
+	margin: 0;
+	padding: 0.75em;
+}
+
+.result {
+	background: #FFF none repeat scroll 0%;
+	border: 1px solid #CCC;
+	margin-bottom: 0.5em;
+	padding: 1em 0 1em 1em;
+	width: 67em;
+}
+
+.filters-action .result {
+	width: 44.6em;
+}
+
+.result div.image {
+	float: left;
+	padding-right: 1em;
+	text-align: left;
+	width: 10em;
+}
+
+.result div.info {
+	clear: none;
+	float: left;
+	margin: 0;
+	padding-right: 0;
+	width: 39em;
+}
+
+.filters-action .result div.info {
+	width: 22.7em;
+}
+
+/* @group Result dl */
+
+.result div.info dl {
+	font-size: 10pt;
+	line-height: 1.4em;
+    margin-top: 0;
+}
+
+.result div.info dl div.star {
+	font-size: 1.4545em;
+}
+
+.result div.info dl dt {
+	clear: both;
+	color: #666;
+	float: left;
+	width: 5.5em;
+}
+
+.filters-action .result div.info dl dt {
+	width: 5.5em;
+}
+
+.result div.info dl dd {
+	color: #333;
+	display: inline;
+	float: left;
+    margin-left: 0;
+    width: 20.5em;
+}
+
+.filters-action .result div.info dl dd {
+	width: 14.4em;
+}
+
+.filters-action .result div.info dl dd.name {
+	font-weight: bold;
+}
+
+/* @end Result dl */
+
+.result ul.actions {
+	float: left;
+	width: 12em;
+}
+
+.result ul.actions li {
+	border-bottom: solid 1px #EADFD8;
+}
+
+.result ul.actions a {
+	background: transparent none repeat scroll 0%;
+	display: block;
+	margin: 0;
+	padding: 0.2em 0.3em;
+	text-decoration: none;
+}
+
+.filters-action .result ul.actions {
+	width: 10em;
+}
+
+.filters-action .result ul.actions a {
+	font-size: 10pt;
+}
+
+.result ul.actions a:hover {
+	background: #040A83;
+	color: #FFF;
+	text-decoration: none;
+}
+
+.empty_search_row {
+	background-color: #FFFAFA;
+	padding: 10em 1em 10em 1em;
+	text-align: center;
+}
+
+.empty_search_row span {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+/* @end */
+
+
+/* @group Filter */
+
+form.filter fieldset div.options {
+    float: right;
+}
+
+form.filter fieldset label {
+    margin-right: 0.5em;
+}
+
+form.filter fieldset input.input-search {
+    margin-right: 0.5em;
+    width: 12em;
+}
+
+form.filter fieldset select {
+    margin-bottom: 0;
+    margin-right: 1em;
+}
+
+/* @end Filter */
+
+
+/* @group Search List */
+
+#filters {
+	display: none;
+}
+
+#createGroup {
+	float: left;
+	padding	: 1em 2em;
+	text-align: left;
+	width: 20em;
+}
+
+#browseGroup {
+	float: right;
+	padding: 1em 0 1em 2em;
+	text-align: center;
+	width: 36em;
+}
+
+#browseGroup .title,
+#createGroup .title {
+	border-bottom: 1px solid #EADFD8;
+	margin	: 0;
+	padding	: 0 0 0.4em;
+	text-align: left;
+}
+
+#createGroup p {
+	font-size: 11px;
+	margin: 1em 0;
+}
+
+#browseGroup #groupTypes {
+	margin: 1em 0;
+}
+
+#browseGroup #groupTypes td {
+	padding: 0.3em 3em 0.3em 0;
+}
+
+#browseGroup #groupTypes td a {
+	font-size: 11px;
+}
+
+#browseGroup form {
+	text-align: left;
+}
+
+#browseGroup form input.input-search {
+    width: 15em;
+}
+
+/* @end */

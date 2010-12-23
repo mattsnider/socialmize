@@ -1,0 +1,1 @@
+<%@ taglib uri="/WEB-INF/tld/phase-core.tld" prefix="c" %><response><c:import url="${importPage}" /></response>

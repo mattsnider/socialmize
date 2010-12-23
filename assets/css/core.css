@@ -1,0 +1,941 @@
+
+/**
+ * Copyright (c) 2007, Matt Snider, LLC. All rights reserved.
+ * version: 1.0.0
+ */
+
+/* remove default element padding */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+/* default color scheme */
+html body {
+	background: #fff;
+	color: #000;
+}
+
+/* remove borders and possible underlining */
+a, img, a img, iframe, form, fieldset, abbr, acronym, object, applet {
+	border: none;
+	font-variant: normal;
+}
+
+/* remove stylized font-variations */
+address, caption, cite, code, dfn, em, strong, th, var, i, b {
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* table and center elements should always be top left aligned */
+caption, th, td, center {
+	text-align: left;
+	vertical-align: top;
+}
+
+q:before, q:after {
+	content: '';
+}
+
+/* remove cellpadding and cellspacing */
+table {
+	border: none;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* clear possible list-styles; should override in design */
+ul, ol, dir, menu, li {
+	list-style: none;
+}
+
+/* clear possible heading styles; should override in design */
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+/* prevent default browser coloring of links */
+a { color: inherit; }
+
+/* reset position of sup and sub */
+sup, sub {
+	vertical-align: text-top;
+}
+
+/* clear form field font settings */
+input, textarea, select {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+}
+/**
+ * Copyright (c) 2007, Matt Snider, LLC. All rights reserved.
+ * version: 1.0.0
+ */
+
+html {
+	font-size: 100.01%;
+}
+
+html body {
+	/**
+	 *	Browser font-heirarcy:
+	 *		1) Mozilla, Opera on PC - arial
+	 *		2) IE verdana
+ 	 *		3) Other browsers
+	 */
+	font: 62.5% arial, verdana, sans-serif;
+	line-height: 1.6em;
+	text-align: left;
+}
+
+h1 {
+	font-size: 14pt;
+}
+
+h2 {
+	font-size: 12pt;
+}
+
+h3 {
+	font-size: 11pt;
+}
+
+h1, h2 {
+	margin: 1em 0;
+}
+
+h4 {
+	font-size: 10pt;
+}
+
+h5 {
+	font-size: 10pt;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+	font-weight: bold;
+}
+
+abbr, acronym {
+	border-bottom: 1px dotted #000;
+	cursor: help;
+}
+
+em {
+	font-style: italic;
+}
+
+blockquote, ul, ol, dl {
+	margin: 1em;
+}
+
+ol, ul, dl {
+	margin-left: 2em;
+}
+
+ol li {
+	list-style: decimal outside;
+}
+
+ul li {
+	list-style: disc outside;
+}
+
+dl dd {
+	margin-left: 1em;
+}
+
+th, td {
+	/*border: 1px solid #000;*/
+	padding: .5em;
+}
+
+th {
+	font-weight: bold;
+	text-align: center;
+}
+
+caption {
+	margin-bottom: .5em;
+	text-align: center;
+}
+
+p, fieldset, table {
+	margin-bottom: 1em;
+}
+
+p, a, label {
+	font-size: 10pt;
+}
+
+sub {
+	vertical-align: text-bottom;
+}
+
+.clear {
+	clear: both;
+}
+
+/* (en) clearfix method for clearing floats */
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+/* (en) essential for Safari browser !! */
+.clearfix {
+	display: block;
+}
+
+/**
+ * @group Forms 
+ */
+
+input {
+	font-size: 11pt;
+	padding: 0.1em;
+}
+
+input.text {
+}
+
+/**
+ * @end Forms 
+ *//* @group General Layout */
+
+#doc {
+	background: #EFEFEF url(../images/bg/elastic.gif) 21em 10 repeat-y;
+	margin: 0.5em auto;
+	overflow: hidden;
+	width: 90em;
+}
+
+#header {
+	border-bottom: 1px solid #333;
+	height: 3.6em;
+}
+
+#main {
+	clear: left;
+	float: right;
+	width: 68em;
+}
+
+#sidebar {
+	float: left;
+	width: 20em;
+}
+
+#footer {
+	background-color: #FFF;
+	border-top: solid 1px #000;
+	clear: both;
+	margin-bottom: -1.5em;
+	padding-top: 1em;
+}
+
+h1 {
+	background: #FFF;
+	color: #040A83;
+	float: left;
+	font-size: 200%;
+	font-weight: bold;
+	margin: 0;
+	padding: 0.5em;
+	text-align: left;
+	width: 22em;
+}
+
+h2 {
+	background: #FFF;
+	border-bottom: #EFEFEF solid 1px;
+	clear: both;
+	color: #040A83;
+	font-weight: bold;
+	line-height: 2.1em;
+	margin: 0em;
+	padding-left: 1.1em;
+	text-align: left;
+}
+
+h3 {
+	clear: both;
+	color: #040A83;
+	font-size: 11pt;
+	font-weight: bold;
+	margin: 0em;
+	padding: 0.5em 1em;
+	text-align: left;
+}
+
+h2 ul {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+/* @end */
+
+
+/* @group Header */
+
+#header a#homelink {
+	display: block;
+	background-image: url(../images/bg/icon.gif);
+	background-repeat: repeat-y;
+	float: left;
+	width: 17.5em;
+	height: 2.66em;
+}
+
+#header ul#gnav {
+	text-align: right;
+	float: right;
+	list-style: none;
+	width: 20em;
+	margin: 0;
+	padding: 0;
+}
+
+#header ul#gnav li {
+	display: inline;
+}
+
+#header ul#gnav a {
+	font-size: 1.4em;
+	font-variant: small-caps;
+	font-weight: bold;
+	margin: auto 0;
+	padding: 0.2em 0.5em;
+}
+
+/* @end */
+
+
+/* @group Footer */
+
+#footer a {
+	padding: 0.25em;
+}
+
+#footer p {
+	text-align: center;
+}
+
+/* @end */
+
+
+/* @group Sidebar */
+
+#sidebar form#qsearch {
+	padding-top: 1em;
+}
+
+#sidebar form h3 {
+	padding: 0.5em 0;
+}
+
+#sidebar form h3 a {
+    border-bottom: solid 1px #009;
+    color: inherit;
+    font-size: inherit;
+    text-decoration: none;
+}
+
+#sidebar form fieldset {
+	margin: 0;
+}
+
+/* @group Navigation */
+
+#snav {
+	margin: 0 0 1em;
+	padding: 0;
+}
+
+#snav li {
+    clear: left;
+    list-style-type: none;
+}
+
+#snav li a.indent {
+    display: none;
+}
+
+#snav li.open a.indent {
+    display: block;
+}
+
+#snav li a {
+	clear: both;
+	display: block;
+	float: left;
+	font-size: 12pt;
+	font-variant: small-caps;
+	margin: 0.625em 0 0 1em;
+	padding: 0.25em;
+	width: 10em;
+}
+
+#snav li a.hasedit {
+	width: 5em;
+}
+
+#snav li a.selected,
+#snav li a:hover {
+	background: #009;
+	color: #EEE;
+    text-decoration: none;
+}
+
+#snav li a.edit {
+	clear: none;
+	margin-left: 0;
+	width: 2em;
+}
+
+#snav li a.edit i {
+	font-style: normal;
+}
+
+/* @end Navigation */
+
+#squicklogin {
+	margin: 1.5em 0 0.75em;
+	padding-right: 2em;
+}
+
+#squicklogin form {
+	display: block;
+	width: 12em;
+	margin: 0em auto;
+}
+
+#squicklogin label {
+	display: block;
+	padding: 0 0 0.2em;
+	margin: 0;
+	color: gray;
+	font-weight: bold;
+}
+
+#squicklogin .txt {
+	width: 11em;
+}
+
+#qsearch {
+	padding-left: 2em;
+}
+
+#qsearch input {
+	width: 11.4em !important;
+}
+
+/* @end */
+
+
+/* @group Layer */
+
+body.masked select {
+	visibility: hidden;
+}
+
+#mask {
+	background-color: #111;
+	left: 0;
+	opacity: 0.5;
+	position: absolute;
+	top: 0;
+}
+
+#layer {
+	height: 0;
+	left: 0;
+	overflow: visible;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+}
+
+#layer div.layer {
+    position: absolute;
+}
+
+/* @end */
+
+/* @group Filter */
+
+form.filter fieldset {
+    background-color: #F9F9F9;
+    border: solid #DDD 1px;
+    margin: 0 1em;
+    padding: 1em;
+}
+
+/* @end Filter *//** @group Customizable */
+
+label {
+	color: #666;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.project a {
+	color: #009;
+}
+
+/** @end */
+
+
+/* @group Clearfix */
+
+.clearfix:after { /* (en) clearfix method for clearing floats */
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix { /* (en) essential for Safari browser !! */
+    clear: both;
+    display: block;
+}
+
+div.spacer {
+    clear: both;
+    height: 0.5em;
+    width: 100%;
+}
+
+/* @end */
+
+
+/** @group Actions */
+
+#footer a:hover,
+#snav a:hover,
+#gnav a:hover {
+	background-color: #009;
+	color: #FFF;
+}
+
+ul.actions {
+	margin: 0;
+	padding: 0;
+}
+
+ul.actions li,
+ul.actions {
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+}
+
+ul.actions a {
+	background: transparent none repeat scroll 0%;
+	display: block;
+	font-variant: small-caps;
+	padding: 0.2em 0.3em;
+}
+
+/** @end */
+
+
+/** @group Messages */
+
+.error {
+	background-color: #FC0;
+	border: #FC0 2px ridge;
+}
+
+.message {
+	background: #CFEBF7 url(../images/bg/notice.gif) no-repeat scroll 1em 50%;
+	border: #2580B2 1px solid;
+}
+
+p.message,
+p.error {
+	font-size: larger;
+	font-weight: bold;
+	margin: 0.5em;
+	padding: 0.5em 0.5em 0.5em 2.5em;
+}
+
+/** @end */
+
+
+/** @group Error Pages */
+
+.errorPage h1 {
+    float: none;
+    width: auto;
+}
+
+.errorPage p {
+    padding: 1em;
+}
+
+/** @end */
+
+
+/** @group Misc */
+
+.column {
+	float: left;
+}
+
+.column-two .column-left,
+.column-two .column-right {
+	float: left;
+}
+
+.fontSize10,
+td.data,
+td.label,
+dt.label {
+	font-size: 10pt;
+}
+
+.noresults {
+	text-align: center;
+}
+
+img.portrait,
+a img.portrait {
+    border: 1px solid #111111;
+    padding: 1px;
+}
+
+.indent {
+    padding-left: 1.75em!important;
+}
+
+.none {
+    display: none;
+}
+
+ul li.result {
+    list-style: none;
+}
+
+/** @end */
+
+/** @group ColorPicker */
+
+div#layer_ColorPicker {
+    background: #FFF;
+    border: 1px solid #666;
+    padding-bottom: 0.5em;
+    width: 35em;
+}
+
+div#container_ColorPicker div.yui-picker-controls {
+    width: 15em;
+}
+
+div#container_ColorPicker a#yui-picker-controls-label {
+    padding-bottom: 0.5em;
+}
+
+div#layer_ColorPicker div.buttons {
+    height: 2.5em;
+    margin-top: 20em;
+}
+
+div#layer_ColorPicker div.buttons input {
+    float: right;
+}
+
+/** @end *//* @group Form */
+
+div.buttons {
+    clear: both;
+}
+
+form fieldset {
+}
+
+form fieldset p {
+	padding-left: 2em;
+}
+
+form fieldset div.buttons {
+	text-align: right;
+}
+
+textarea,
+.txt,
+input[type="text"],
+input[type="password"],
+input[type~="text"],
+input[type~="password"] {
+	border: 1px solid #444;
+	font-family: Verdana, Tahoma, Arial, sans-serif;
+	font-size: 10pt;
+	line-height: normal;
+	padding: 0.2em;
+}
+
+.readonly {
+	background-color: #CCC;
+	color: #333;
+}
+
+/* Prefered action of a button group */
+input.action {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.btn,
+input[type="submit"],
+input[type="button"],
+input[type~="submit"],
+input[type~="button"] {
+	border: 2px solid #999;
+	border-bottom-color: #5B1F0E;
+	border-right-color: #5B1F0E;
+	background-color: #040A83;
+	color: #FFF;
+	font: 10pt verdana;
+	margin-right: 0.5em;
+	padding: 0.1em 0.25em;
+    text-align: center;
+}
+
+input.btn:hover {
+	background-color: #000;
+	border: 2px solid #CB773D;
+	border-top-color: #FFF;
+	border-left-color: #FFF;
+}
+
+.btn:active {
+	border: 2px solid #E4E4E4;
+	background-color: #BBB;
+	border-top-color: #333;
+	border-left-color: #333;
+}
+
+input[type~="radio"],
+.chk {
+	border: 0;
+}
+
+.hddn {
+	border: none !important;
+	height: 0 !important;
+	padding: 0 !important;
+	visibility: hidden !important;
+	width: 0 !important;
+}
+
+.input-search {
+	background: white url(images/magglass.png) no-repeat 0.3em 0.4em !important;
+	color: #999;
+	padding-left: 1.7em !important;
+}
+
+select {
+	border: solid 1px #444;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+	font-size: 10pt;
+    padding: 0.303em;
+}
+select option {
+	padding-right: 0.5em;
+}
+
+input.disabled,
+input.disabled:hover {
+	background:#EEE;
+	border: 2px solid #C7C7C7;
+	color: #AAA;
+	cursor: default;
+}
+
+/* @group Form Table */
+
+.frm-tbl {
+	margin: 0 auto;
+}
+
+.frm-tbl td {
+	border: none;
+	margin: 0;
+	padding: 0.3em 1px;
+}
+
+.frm-tbl td.label {
+	color: #999;
+	font-weight: bold;
+	padding-right: 1em;
+}
+
+.frm-tbl tr.tallrow {
+	vertical-align: top;
+}
+
+.frm-btn {
+	clear: both;
+	padding: 2em 0 0;
+	text-align: center;
+}
+
+.frm-btn .btn {
+	margin: 0.2em 0.4em;
+}
+
+/* @end Form Table */
+
+/* @Group Form List */
+
+form fieldset ol li,
+form fieldset ul li {
+	list-style-type: none;
+    padding-top: 0.5em;
+}
+
+form fieldset li label {
+	display: block;
+}
+
+form fieldset li input.txt {
+	width: 15em;
+}
+
+/* @end Form Table */
+
+/* @group Form definition list */
+
+form dl {
+	width: 48em;
+}
+
+form dl dt {
+    clear: left;
+    float: left;
+	padding: 0 1em 0 0em;
+	text-align: right;
+	width: 6.5em;
+}
+
+form dl dt label {
+	display: block;
+	padding-top: 0.5em;
+}
+
+form dl dd {
+	float: left;
+	margin: 0 0 1em;
+	width: 39em;
+}
+
+form dl dd.divider {
+    border-top: solid 1px #ccc;
+}
+
+form dl dd select {
+    margin-right: 0.5em;
+	width: 28.3em;
+}
+
+form dd input.txt,
+form dd textarea {
+	overflow: hidden;
+	padding: 0.4em 0 0.4em 0.2em;
+	width: 28em;
+}
+
+form dl dd.buttons {
+	text-align: left;
+}
+
+/* @end Form definition list */
+
+/* @group Profile Form */
+
+form.profile-edit {
+    background-color: #F9F9F9;
+    border: 1px solid #DDDDDD;
+	padding: 3em 0pt 1em 7em;
+}
+
+form.profile-edit dl {
+    width: 50em;
+}
+
+form.profile-edit dl dt {
+	width: 10em;
+}
+
+form.profile-edit dl dt label {
+    padding-top: 0.2em;
+}
+
+form.profile-edit fieldset dl p {
+    font-size: 1.2em;
+    padding-left: 0;
+}
+
+form.profile-edit dl dt label small {
+    display: block;
+    margin-top: -0.4em;
+}
+
+form.profile-edit dl dd.multi input {
+	margin-bottom: 0.2em;
+}
+
+form.profile-edit dl dd.gender select,
+form.profile-edit dl dd.date select {
+	width: 20%;
+}
+
+form.profile-edit div.buttons input.btn {
+	width: 5em;
+}
+
+form.profile-edit div.buttons input.action {
+    margin-right: 7.5em;
+    width: 7em;
+}
+
+form.profile-edit dl dd.eduName input.txt {
+    width: 22.6em;
+}
+
+form.profile-edit dl dd.eduName select {
+    width: 5em;
+}
+
+form.portrait fieldset dl dd {
+    font-size: 1.2em;
+    width: 34.1667em;
+}
+
+form.portrait fieldset h3 {
+    padding-left: 0;
+}
+
+form.portrait fieldset dl dd img {
+    float: left;
+    margin-right: 1em;
+}
+
+form.portrait fieldset div.buttons input.action {
+    float: right;
+    margin-right: 1em;
+    margin-top: -3em;
+}
+
+/* @end Profile Form */
+
+/* @end Form */

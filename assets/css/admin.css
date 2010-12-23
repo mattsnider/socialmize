@@ -1,0 +1,644 @@
+form .panel ol {
+	padding-top: 0;
+}
+
+div.autocomplete {
+	width: 26.8em;
+}
+
+.bar-admin ul {
+	background-color: #999;
+	color: #FFF;
+	float: left;
+	width: 100%;
+}
+
+.bar-admin ul li {
+	display: inline;
+}
+
+.bar-admin ul li a {
+	padding: 0.5em 1em;
+	background-color: #999;
+	color: #359;
+	text-decoration: none;
+	float: left;
+	border-right: 1px solid #fff;
+}
+
+.bar-admin ul li a:hover {
+	background-color: #900;
+	color: #C96;
+	text-decoration: none;
+}
+
+.bar-admin ul li#active a {
+	background-color: #900;
+	color: #C96;
+}
+
+form .panel ol li {
+	height: 2.5em;
+}
+
+form .panel ol li select {
+	width: 22.9em;
+}
+
+form .panel ol li textarea,
+form .panel ol li input.input-txt {
+	width: 20em;
+}
+
+form .panel div.autocomplete ul li {
+	list-style: none;
+}
+
+form.singleTextarea textarea {
+	width: 46em;
+}
+
+#form-news #form-news-filter {
+	width: 34.8em;
+}
+
+/* @group group organizer */
+
+#form-groupOrganizer dl {
+	width: 58em;
+}
+
+#form-groupOrganizer dt label {
+	color: #000;
+	text-align: left;
+	width: 15em;
+}
+
+#form-groupOrganizer dd label {
+	margin-left: 0.2em;
+	margin-right: 0.5em;
+}
+
+#form-groupOrganizer div.buttons {
+	margin-left: 1.8em;
+	text-align: left;
+}
+
+/* @end group organizer */
+
+/* @Group Article Tab */
+
+#form-news ol {
+	margin-left: 1em;
+}
+
+#form-news ol li {
+	height: auto;
+}
+
+#form-news ol li.line {
+	clear: none;
+	float: left;
+	margin-right: 1em;
+	width: 25%;
+}
+
+#form-news ol li.line input,
+#form-news ol li.line select {
+	width: 100%;
+}
+
+#form-news ol li label {
+	display: block;
+	float: none;
+	width: auto;
+}
+
+#form-news-list {
+	width: 48.5em;
+}
+
+#form-news-list ul li label {
+	display: inline;
+}
+
+#form-news ol .txt,
+#form-news ol .textarea {
+	width: 36em;
+}
+
+#form-news ol .select {
+	width: 36.5em;
+}
+
+#form-news ol li select {
+	width: 20.5em;
+}
+
+#form-news div.buttons {
+	padding-right: 12.5em;
+	padding-top: 0;
+}
+
+/* @end */
+
+/* @Group general */
+
+#form-pending li {
+	border-bottom: 1px dashed #CCC;
+}
+
+#form-pending li span,
+#form-pending li a {
+	float: right;
+}
+
+#form-pending li span {
+	padding: 0 0.5em;
+}
+
+#form-pending li a.action-profile {
+	float: none;
+}
+
+/* @end */
+
+/* @Group Custom Tab */
+
+#form-custom-color .panel ol li input.txt {
+	width: 23em;
+}
+
+#form-custom-color a.paintIcon {
+}
+
+#form-custom-color a.paintIcon img {
+	margin-bottom: -0.5em;
+	width: 2em;
+}
+
+#form-custom-color strong.swatch {
+	background: #FFF;
+	border: 1px solid #333;
+	cursor: default;
+	margin: 0 0.5em;
+	padding: 0.3em 1em;
+}
+
+form#form-history fieldset ol li {
+	list-style: upper-roman outside;
+	margin-left: 1em;
+	padding-left: 0.5em;
+}
+
+form#form-custom-logo li.ckbx {
+	height: 4.5em;
+}
+
+form#form-custom-logo li.ckbx input {
+	margin-left: 0;
+}
+
+form#form-custom-logo li.ckbx span {
+	float: none;
+}
+
+form#form-custom-logo li.ckbx label {
+	float: none;
+	margin-bottom: -0.5em;
+}
+
+/* @end */
+
+/* @Group Properties Tab */
+
+form#form-configuration .panel span.label {
+	display: block;
+}
+
+form#form-configuration .panel li.input input {
+	width: 25em;
+}
+
+form#form-configuration .panel li.input {
+	height: 6.5em;
+	padding-left: 1em;
+}
+
+form#form-configuration .panel li.input small {
+	padding-left: 0.25em;
+}
+
+form#form-configuration .panel ol li {
+	height: 4.5em;
+}
+
+form#form-rename .panel ol li {
+	height: auto;
+}
+
+form#form-rename .panel ol li label {
+	float: none;
+	text-align: left;
+	width: 16em;
+}
+
+form#form-configuration .panel ol li label,
+form#form-features .panel ol li label {
+	float: left;
+}
+
+form#form-configuration .panel ol li label small,
+form#form-features .panel ol li label b {
+	padding-left: 0.5em;
+}
+
+form#form-configuration .panel ol li label span {
+	float: none;
+	padding-left: 0.25em;
+}
+
+form#form-features .panel ol li.sub label {
+	padding-left: 2em;
+}
+
+form#form-features .panel ol li small,
+form#form-configuration .panel ol li small {
+	clear: both;
+	color: #333;
+	display: block;
+	line-height: 1.3em;
+	padding: 0.5em 0;
+}
+
+form#form-configuration .panel ol li small {
+	padding: 0 0 0 1.25em;
+}
+
+/* @end */
+
+/* @Group Email Tab */
+
+form#form-email .panel fieldset {
+	padding-top: 1em;
+}
+
+form#form-email .panel label {
+	margin-top: -1em;
+}
+
+form#form-email .panel select {
+	float: right;
+	height: 1.9em;
+	margin-bottom: -1px;
+	margin-right: -1px;
+	margin-top: 1.12em;
+}
+
+form#form-email .panel input.txt {
+	width: 70%;
+}
+
+form#form-email .panel textarea {
+	clear: both;
+	width: 99%;
+}
+
+/* @end */
+
+/* @Group Field Tab */
+
+p.portrait-msg {
+	padding-left: 0;
+	width: 35em;
+}
+
+form#form-field .panel dl.accordion ul {
+
+}
+
+div#form-field-filter {
+	margin-left: 2.75em;
+}
+
+div#form-field-filter label {
+	padding-left: 0.25em;
+	padding-right: 0.75em;
+}
+
+form#form-field.profileWidgetField .panel fieldset ul {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+form#form-field.profileWidgetField .panel fieldset ul li a.help {
+	font-size: 11pt;
+	margin-left: 1em;
+}
+
+form#form-field .panel ul li input.chkbox {
+	margin-left: 0.25em;
+	margin-right: 1em;
+}
+
+form#form-field .panel ul li.chkbox label {
+	display: inline;
+}
+
+form#form-field.standalone .panel h5 {
+	border-bottom: 1px solid #CCC;
+	margin-left: 2.5em;
+	margin-right: 2.5em;
+}
+
+form#form-field.standalone .panel ul.accordion-tabs {
+	margin-top: 0;
+}
+
+form#form-field .panel ul li strong {
+	font-size: 12pt;
+}
+
+body.project form#form-field .panel button,
+body.project a.button {
+	-moz-border-radius-bottomleft: 0.5em;
+	-moz-border-radius-bottomright: 0.5em;
+	-moz-border-radius-topleft: 0.5em;
+	-moz-border-radius-topright: 0.5em;
+	background: #333;
+	border: 1px solid #666;
+	color: #FFF;
+	cursor: pointer;
+	float: left;
+	font-weight: bold;
+	line-height: 1.4em;
+	margin-left: 0;
+	margin-right: 0.4em;
+	padding: 0.4em 0.8em 0.3em;
+	text-align: center;
+	text-indent: 0;
+	text-decoration: none;
+	width: 6em;
+}
+
+body.project form#form-field .panel button:hover,
+body.project a.button:hover {
+	border-color: #009;
+}
+
+body.project form#form-field .panel button {
+	font-size: 10pt;
+	padding-bottom: 0.4em;
+	width: 8em;
+}
+
+body.project form#form-field .panel button.main {
+	width: 10em;
+}
+
+form#form-field .panel dl.accordion dt a.com_orderWidget {
+	background: transparent url(../images/bg/pw_arrows.gif) top left no-repeat;
+	float: right;
+	height: 20px;
+	margin-right: 1em;
+	margin-top: 0.4em;
+	text-indent: -2000;
+	width: 17px;
+}
+
+form#form-field .panel dl.accordion dt a.down {
+	background: transparent url(../images/bg/pw_arrows.gif) -42px 0 no-repeat;
+}
+
+form#form-field .panel dl.accordion dd.template a.com_animSlide,
+form#form-field .panel dl.accordion dd.template a.com_deleteWidget,
+form#form-field .panel dl.accordion dt.template a.up,
+form#form-field .panel dl.accordion dt.template a.down,
+form#form-field .panel dl.accordion dt.first a.up,
+form#form-field .panel dl.accordion dt.last a.down {
+	display: none;
+}
+
+form#form-field .panel dl.accordion a.button {
+	float: left;
+	margin-top: 0.5em;
+}
+
+form#form-field .panel dl.accordion a.button:hover {
+	border-color: #999;
+}
+
+form#form-field .panel dl.accordion div.errorWrap {
+	clear: both;
+	width: 48em;
+}
+
+form#form-field .panel dl.accordion div.errorWrap div.error {
+	font-size: 10pt;
+	margin-left: 2.5em;
+	padding: 0.2em;
+}
+
+form#form-field .panel dl.accordion div.buttons {
+	float: left;
+	margin-left: 35em;
+	margin-top: -27em;
+	width: 10em;
+}
+
+form#form-field .panel dl.accordion div.buttons a.disabled {
+	background-color: #999;
+	border-color: #999;
+}
+
+ul.hideDisclosure li.disclose {
+	display: none;
+}
+
+.disclosure a.disclosure {
+	background: transparent url(../images/icons/filterset_off.gif) center right no-repeat;
+	padding-right: 1em;
+}
+
+.disclosure a.disclose {
+	background-image: url(../images/icons/filterset_on.gif) !important;
+}
+
+/* @end */
+
+/* @Group Accordion & Accordion Tabs */
+
+.accordion {
+	color: #033;
+	width: auto;
+}
+
+.accordion dt {
+	border: 2px solid #9AC1C9;
+	cursor: pointer;
+	display: block;
+	font-size: inherit;
+	line-height: 1.6em;
+	margin-top: 0.5em;
+	padding: 0;
+	text-align: left;
+	width: 100%;
+}
+
+.accordion dt a {
+	background: transparent url(../images/bg/accordion_header.gif) repeat scroll;
+	color: #033;
+	display: block;
+	text-decoration: none;
+}
+
+.accordion dt a span {
+	display: block;
+	font-weight: bold;
+	font-size: 11pt;
+	padding: 0.5em;
+}
+
+.accordion dd {
+	display: block;
+	height: 0;
+	overflow: hidden;
+	width: 100%;
+}
+
+.accordion dd h3 {
+	width: 80%;
+}
+
+.accordion dd div.firstChild {
+	background-color: #FFF;
+	border: 2px solid #9AC1C9;
+	border-top: medium none;
+	padding: 15px;
+}
+
+/* @end */
+
+/* @Group Pane Widget */
+
+.widget-pane {
+	overflow: hidden;
+	width: auto;
+}
+
+.widget-pane div.widget-pane-slide {
+/* Make this the width of all your panes combined */
+}
+
+.widget-pane .panel-slide {
+}
+
+.widget-pane .open .panel-slide {
+}
+
+/* @end */
+
+/* @Group Pane Widget */
+
+form#form-field .panel dl.accordion {
+	width: 57em;
+}
+
+form#form-field .panel .widget-pane {
+}
+
+form#form-field .panel .widget-pane div.widget-pane-slide {
+	width: 174em;
+}
+
+form#form-field .panel .widget-pane .panel-slide {
+	float: left;
+	overflow: hidden;
+	width: 57em;
+}
+
+form#form-field .panel dd.open .widget-pane .open .panel-slide {
+	height: auto;
+}
+
+form#form-field .panel div.subpane div.buttons {
+	clear: both;
+	margin: 0.5em 0;
+	width: 40em;
+}
+
+form#form-field .panel div.subpane select {
+	width: 20em;
+}
+
+form#form-field .panel p.lbl {
+	color: #333;
+	font-weight: bold;
+	margin: 0;
+	padding-left: 0;
+	padding-top: 0.75em;
+}
+
+form#form-field .panel div.subpane input {
+	width: 17.75em;
+}
+
+form#form-field .panel div.subpane input.chkbox {
+	margin: 0 0.5em;
+	width: auto;
+}
+
+form#form-field .panel div.subpane div#widget-pane-inner-field {
+	min-height: 10em;
+}
+
+form#form-field .panel dl.accordion ul.accordion-tabs {
+	margin: 0;
+	padding: 0 0 0 0.5em;
+}
+
+form#form-field .unmodify a.com_fieldWidget,
+form#form-field .unmodify a.com_deleteWidget {
+	visibility: hidden;
+}
+
+.panel ul li.sValue {
+	padding-left: 2em;
+}
+
+.panel ul li.sValue strong {
+	color: #666;
+	font-weight: normal;
+	padding-right: 0.5em;
+}
+
+/* @end */
+
+/* @group Network */
+
+form#form-network a.edit {
+	font-size: 10pt;
+	font-variant: small-caps;
+	padding: 0 0.1em;
+}
+
+/* @end */
+
+/* @group Network */
+
+form#form-registration table.form {
+	font-size: 10pt;
+}
+
+.form .incrementer a {
+	font-size: 11pt;
+	font-weight: bold;
+	padding: 0 0.5em;
+}
+
+.form .last .incrementer a.increment,
+.form .first .incrementer a.decrement {
+	visibility: hidden;
+}
+
+/* @end */

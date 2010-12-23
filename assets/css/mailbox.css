@@ -1,0 +1,201 @@
+/* @group Filter */
+
+form.filter {
+    padding-bottom: 1em;
+}
+
+form.filter .actions {
+	float: left;
+	padding: 0.4em 0.6em 0em 0em;
+}
+
+form.filter .actions a {
+	background-color: inherit;
+	padding-left: 0.2em;
+}
+
+form.filter .actions a:hover {
+	color: #000;
+}
+
+form.filter .actions {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+form.filter select {
+	float: left;
+	margin-right: 0.6em;
+	font-weight: normal;
+	margin-left: 0.5em;
+}
+
+form.filter input.txt {
+	padding-right: 1em;
+	padding-top: 0.2em;
+	width: 15em;
+}
+
+form.filter input.btn {
+	float: right;
+	margin: 0.25em 0 0;
+}
+
+/* @end */
+
+
+/* @group Mailbox */
+
+table#message-list {
+}
+
+table#message-list col.mailboxTableColState {
+	width: 1.5em;
+}
+
+table#message-list col.mailboxTableColChkbx {
+	width: 2em;
+}
+
+table#message-list col.mailboxTableColThumb {
+	width: 6.7em;
+}
+
+table#message-list col.mailboxTableColFrom {
+	width: 15em;
+}
+
+table#message-list col.mailboxTableColSubject {
+	width: 40em;
+}
+
+table#message-list col.mailboxTableColAction {
+	width: 2.5em;
+}
+
+table#message-list tbody td,
+table#message-list thead th {
+	border-bottom: 1px solid #DBDCE3;
+	padding: 0.4em 0.8em;
+	text-align: left;
+}
+
+table#message-list thead th {
+	background: #E9F9FF none repeat scroll 0%;
+	font-weight: normal;
+	white-space: nowrap;
+}
+
+table#message-list tbody tr td.mailboxTableColState {
+	background-position: 0.5em 0.5em;
+	background-repeat: no-repeat;
+}
+
+table#message-list tbody tr.read td.mailboxTableColState {
+	background-image: url('../images/icons/mail_read.gif');
+}
+
+table#message-list tbody tr.replied td.mailboxTableColState {
+	background-image: url('../images/icons/mail_replied.gif');
+}
+
+table#message-list tbody tr.unread td.mailboxTableColState {
+	background-image: url('../images/icons/mail_unread.gif');
+}
+
+table#message-list .border-left {
+	border-left: 1px solid #DBDCE3;
+}
+
+table#message-list td.mailboxTableColAction {
+	vertical-align: middle;
+}
+
+table#message-list td.mailboxTableColAction a {
+	color: #666;
+	display: block;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+}
+
+table#message-list td.mailboxTableColAction a:hover {
+	background-color: #0066A7;
+	color: #FFF;
+}
+
+table#message-list  tr.checked {
+	background-color: #F9F9F9;
+}
+
+/*
+div.mailbox table {
+	margin-bottom: -0.1em;
+	margin-top: 0.5em;
+}
+
+div.mailbox table thead th {
+	background: #F7F7F7;
+	border-bottom: 1px solid #EADFD8;
+	color: gray;
+	font-size: 0.9em;
+	padding: 1px 0;
+	text-align: left;
+}
+
+div.mailbox table tbody td {
+	border-bottom: 1px solid #EEE;
+	padding: 0.4em 0em;
+	vertical-align: top;
+}
+
+div.mailbox table .flag {
+	padding: 0.3em 0.6em 0;
+}
+
+div.mailbox table .selector {
+	padding-right: 0.4em;
+	width: 3.3%;
+}
+
+div.mailbox table .portrait {
+	width: 9.2%;
+}
+
+div.mailbox table .from {
+	width: 23%;
+}
+
+div.mailbox table .subject {
+	padding: 0.6em 1.5em;
+	width: 46%;
+}
+
+div.mailbox table .actions {
+	width: 18%;
+}
+
+div.mailbox table .date {
+	font-size: 9pt;
+}
+
+div.mailbox .message-subject {
+	font-size: 1.1em;
+	margin-right: 0.4em;
+}
+
+div.mailbox .message-body {
+	color: #CF9C81;
+	font-size: 1.1em;
+}
+
+div.mailbox table tbody tr.result td.actions span,
+div.mailbox table tbody tr.result td.actions a {
+	display: block;
+	float: left;
+	font-size: 11px;
+	padding-right: 0.5em;
+}
+*/
+
+/* @end */

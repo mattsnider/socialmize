@@ -1,0 +1,330 @@
+<%@ taglib uri = "/WEB-INF/tld/studs-html.tld" prefix = "html" %>
+<%@ taglib uri = "/WEB-INF/tld/studs-template.tld" prefix = "template" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>${projectNameUC}:
+		<template:get name="title"/>
+	</title>
+	<link href="<html:rewrite page="
+	/assets/css/library.css"/>?r=${revision}" rel="stylesheet" type="text/css" />
+	<link href="<html:rewrite page="
+	/assets/css/custom/custom.css"/>?r=${revision}" rel="stylesheet" type="text/css" />
+
+	<c:forEach items="${styles}" var="style">
+		<link href="<html:rewrite page="
+		/assets/css/"/>${style}.css?r=${revision}" rel="stylesheet" type="text/css" />
+	</c:forEach>
+
+	<!--[if lt IE 8]>
+	<link rel="stylesheet" type="text/css" href="<html:rewrite page="/assets/css/iehacks.css"/>?r=${revision}" />
+	<![endif]-->
+
+	<link href="<html:rewrite page="
+	/assets"/>/images/generated/favicon/icon.ico?r=${revision}" rel="icon" type="image/x-icon "/>
+	<link href="<html:rewrite page="
+	/assets"/>/images/generated/favicon/icon.ico?r=${revision}" rel="shortcut icon" type="image/x-icon" />
+</head>
+
+<body id="project" class="project ${projectName} default ${pagename}">
+
+<? /*<c:if test="${aUser.isSiteAdmin}"><div id="control-admin">
+	<ul class="nav">
+		<li><a href="#">Turn Off Controls</a></li>
+		<li><a href="#">Show Page Admin Controls</a></li>
+	</ul>
+</div></c:if>
+*/ ?>
+
+<div id="layer">
+	<div class="layer displayNone" id="mask">&nbsp;</div>
+	<div class="layer roundBottom displayNone" id="xhr-loading">Loading...</div>
+</div>
+
+<div id="doc">
+
+<div id="header" class="${bannerClass}">
+
+	<c:if test="${! empty aUser}">
+		<div id="header-wrap">
+
+			<ul id="gnav">
+				<li><a class="dark" href="/account.action" title="your account and privacy">${aUser.name}'s account</a></li>
+				<c:if test="${! isAdminInvite || aUser.isSiteAdmin}">
+					<li><a class="dark" href="/invite.action" title="invite new users">invite</a></li>
+				</c:if>
+				<li><a class="dark logout" href="/logout.action" title="log yourself out">log out</a></li>
+			</ul>
+
+		</div>
+	</c:if>
+
+	<a href="/home.action" id="homelink" style="cursor: pointer;"><img alt="home" src="/assets/images/bg/icon.gif"/></a>
+
+	<div class="clear">&nbsp;</div>
+
+</div>
+
+<div id="main" class="clearfix">
+
+<div id="content">
+	<div id="icontent">
+
+	<?
+	if ($pageContext->evaluateTemplateText('${alertn}')) {
+		$alerts = $pageContext->findAttribute('alerts', true);
+
+		foreach ($alerts as $o) {
+			echo '<p class="warning">';
+			echo '<span class="date">' . $o->getDateAgo() . '</span> - <strong>' . $o->getTitle() . '</strong>';
+			echo '<br/>' . $o->getBodyBr();
+			echo '</p>';
+		}
+	}
+	?>
+
+		<div id="main-header">
+			<h1 class="primary">
+				<template:get name="header"/>
+			</h1>
+		<? if (phase_pages_tmpl_core_tpl::template_get_2(ref(null), $pageContext)) { ?>
+			<h2 class="secondary">
+				<template:get name="subheader"/>
+			</h2>
+		<? } ?>
+		</div>
+
+		<div id="main-message"><?
+		$cls = '';
+		$msg = '';
+
+		if (c('ERROR')) {
+			$cls = 'error';
+			$msg = c('ERROR');
+			def('ERROR', '');
+		}
+
+		if (c('MESSAGE')) {
+			$cls = 'message';
+			$msg = c('MESSAGE');
+			def('MESSAGE', '');
+		}
+
+		if ($cls && $msg) {
+			echo '<p class="' . $cls . '">' . $msg . '</p>';
+		}
+		?></div>
+
+		<template:get name="other"/>
+
+		<div id="main-content">
+			<template:get name="content"/>
+		</div>
+		<div id="main-footer">
+			<template:get name="footer"/>
+		</div>
+
+	</div>
+</div>
+
+<div id="sidebar">
+
+	<c:if test="${! empty aUser}">
+
+		<form action="searchResult.action" id="qsearch" method="get" name="qsearch">
+
+			<fieldset>
+				<label for="query">Search Names and Keywords:</label>
+				<input class="btn btn-round" type="submit" value="Go"/>
+				<input class="txt input-search" id="query" name="<? echo(c('QUERY_KEY_QUERY')); ?>"
+					   placeholder="Quick Search" size="15" title="Enter a user or group name and press enter." type="text"/>
+			</fieldset>
+
+		</form>
+
+		<hr/>
+
+		<ul id="snav">
+		<?
+		$aUserKey = $pageContext->evaluateTemplateText('${aUser.key}');
+		$isAdmin = $pageContext->evaluateTemplateText('${aUser.isSiteAdmin}');
+		$wasAdmin = $pageContext->evaluateTemplateText('${aUser.wasAdmin}');
+		$url = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_URL') . '}');
+		$url .= '?' . $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_SEARCH') . '}');
+
+		$pagename = $pageContext->evaluateTemplateText('${' . c('MN_PAGENAME') . '}');
+		$page = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_PAGE') . '}');
+		$task = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_TASK') . '}');
+		$messageCount = $pageContext->evaluateTemplateText('${' . c('MN_MESSAGEN') . '}');
+		$qkey = $pageContext->evaluateTemplateText('${' . c('MN_PARAM_KEY') . '}');
+		$nameMembers = $pageContext->evaluateTemplateText('${nameMembers}');
+
+		// my
+		$clsFriend = $pagename == 'friends' ? 'selected' : '';
+		$clsHome = $pagename == 'home' || $pagename == 'account' || $pagename == 'privacy' ? 'selected' : '';
+		$clsProfile = $pagename == 'profile' ? 'selected' : '';
+
+		// messages
+		$clsMessage = $pagename == 'message' || $pagename == 'inbox' || $pagename == 'outbox' ? 'selected' : '';
+		$clsCreateMessage = $pagename == 'writeMessage' ? 'selected' : '';
+
+		// search
+		$clsSearch = $pagename == 'search' || $pagename == 'searchResult' ? 'selected' : '';
+
+		$types = Searchable::getValidTypes();
+		foreach ($types as $type) {
+			if ($pagename == $type . 's') {
+				$clsSearch = 'selected';
+			}
+		}
+
+		// admin
+		$clsAdminConfig = $pagename == 'admin' && ('config' == $page || !$page) ? 'selected' : '';
+		$clsAdminContent = $pagename == 'admin' && 'content' == $page ? 'selected' : '';
+		$clsAdminCustom = $pagename == 'admin' && 'custom' == $page ? 'selected' : '';
+		$clsAdminMessage = $pagename == 'admin' && 'message' == $page ? 'selected' : '';
+		$clsAdminSearchable = $pagename == 'admin' && 'searchable' == $page ? 'selected' : '';
+		$clsAdminDash = $pagename == 'admin' && 'dash' == $page ? 'selected' : '';
+
+		if (!$wasAdmin) {
+			$clsAdminSearchable .= ' admin';
+		}
+		?>
+
+			<li class="<? echo($clsHome); ?>">
+				<a href="/home.action" title="Your Home">Your ${projectNameUC}</a>
+			</li>
+
+			<li class="<? echo($clsProfile); ?>">
+				<a href="/profile.action" title="Your Profile">Your Profile</a>
+			</li>
+
+			<li class="<? echo($clsFriend); ?>">
+				<a href="/friends.action" title="Your ${nameFriends}">See ${nameFriends}</a>
+			</li>
+
+		<?
+		$searchableTypes = Searchable::getValidTypes();
+		foreach ($searchableTypes as $type) {
+			$name = $pageContext->evaluateTemplateText('${name' . ucfirst($type) . 's}');
+
+			if ($pageContext->evaluateTemplateText('${has' . $type . '}')) {
+				echo '<li class="';
+				if ('my' . $type . 's' == $pagename) {
+					echo 'selected';
+				}
+				echo '"><a href="/my' . $type . 's.action" title="Your ' . $name . '">See ' . $name . '</a></li>';
+			}
+		}
+		?>
+
+			<li class="<? echo($clsSearch); ?>">
+				<a href="/search.action" title="Search Basic">Search ${projectNameUC}</a>
+			</li>
+
+			<li class="<? echo($clsMessage); ?>">
+				<a href="/mailbox.action" title="${nameMessages}">Your ${nameMessages} (<? echo($messageCount); ?>)</a>
+			</li>
+
+			<li class="<? echo($clsCreateMessage); ?>">
+				<a href="/writeMessage.action?<? echo(c('QUERY_KEY_KEY') . '=' . $aUserKey . '&' . c('QK_TYPE') . '=' . Searchable::$TYPE_USER); ?>"
+				   title="Write ${nameMessage}">Write ${nameMessage}</a>
+			</li>
+
+		<? if ($isAdmin) { ?>
+
+			<li class="admin"><h3 class="secondary">Administration Pages</h3></li>
+
+			<li class="<? echo($clsAdminDash); ?>">
+				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=dash" title="Dashboard Tab">Dashboard</a>
+			</li>
+
+			<li class="<? echo($clsAdminConfig); ?>">
+				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=config" title="Articles Tab">Configuration</a>
+			</li>
+
+			<li class="<? echo($clsAdminContent); ?>">
+				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=content" title="Update Emails">Site Content</a>
+			</li>
+
+			<li class="<? echo($clsAdminCustom); ?>">
+				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=custom" title="Customization Tab">Customizations</a>
+			</li>
+
+			<li class="<? echo($clsAdminMessage); ?>">
+				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=message" title="Message Tab">Message Center</a>
+			</li>
+
+			<li class="<? echo($clsAdminSearchable); ?>">
+				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=searchable" title="Profile Fields Tab">Member Manager</a>
+			</li>
+
+		<? } else if ($wasAdmin) { ?>
+			<li>
+				<a href="adminSubmit.action?<? echo(c('QUERY_KEY_TASK')); ?>=revert" class="admin"
+				   title="Restores Administrator">Revert Admin</a>
+			</li>
+		<? } ?>
+
+		</ul>
+
+	</c:if>
+
+</div>
+
+</div>
+
+<div id="footer">
+
+	<p>
+		<a href="/about.action">About</a>
+		<a href="mailto:${contactEmail}">Contact</a>
+		<a href="/faq.action">FAQ</a>
+		<a href="${helpHref}">Help</a>
+		<a href="/home.action">Home</a>
+		<a href="/privacy.action">Privacy</a>
+		<a href="/registration_view_tos.action?isRead=T">Terms</a>
+	</p>
+
+	<p>
+		<a href="http://www.mattsnider.com" target="_blank">Matt Snider, LLC</a> 2006-2010<br/>
+		<c:set var="welcomePageViewCount" value="${applicationScope.welcomePageViewCount + 1}" scope="application"/>
+		<small>
+			<fmt:message key="pageviews.message" arg0="${applicationScope.welcomePageViewCount}"/>
+		</small>
+	</p>
+
+</div>
+
+</div>
+<!-- END PAGE -->
+
+<? /*
+<script src="<html:rewrite page="/assets/js/library.js"/>?r=${revision}" type="text/javascript"></script>
+ */ ?>
+<script src="http://yui.yahooapis.com/3.1.2/build/yui/yui.js" type="text/javascript"></script>
+<!--<script src="http://core.localhost/assets/js/yahoo-3/yui/yui.js" type="text/javascript"></script>-->
+<script src="/assets/js/project.js?r=${revision}" type="text/javascript"></script>
+
+
+<c:if test="${! empty aUser}">
+	<script type="text/javascript">
+		var $USER = {
+			name: '${aUser.name}',
+			key: '${aUser.key}',
+			token: '${aUser.token}'
+		};
+	</script>
+</c:if>
+
+<c:forEach items="${scripts}" var="script">
+	<script src="/assets/js/${script}.js?r=${revision}" type="text/javascript"></script>
+</c:forEach>
+
+<!--
+<script src = "https://ssl.google-analytics.com/urchin.js" type = "text/javascript" ></script>
+<script type="text/javascript">_uacct = "UA-2557957-1"; urchinTracker();</script>
+-->
+
+</body>
+</html>

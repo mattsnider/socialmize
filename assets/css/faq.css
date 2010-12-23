@@ -1,0 +1,19 @@
+body.faq div.content dl.definition {
+}
+
+body.faq div.content dl.definition dt {
+    margin-top: 1em;
+}
+
+body.faq div.content dl.definition dt strong {
+    font-size: 11pt;
+}
+
+body.faq div.content dl.definition dd {
+    width: auto;
+}
+
+body.faq div.content dl.definition dd p {
+    text-align: justify;
+    padding-right: 1em;
+}

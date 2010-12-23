@@ -1,0 +1,3 @@
+Administration Response To Request
+Your request for the new ${TYPE} ${NAME} was denied.<br />
+If you feel this is in error, please contact <a href="mailto:webmaster@cameleon.localhost">webmaster@cameleon.localhost</a>.

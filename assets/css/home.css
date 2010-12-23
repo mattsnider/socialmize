@@ -1,0 +1,199 @@
+/*
+Copyright (c) 2008, Matt Snider, LLC. All rights reserved.
+version: 1.0
+*/
+
+div.panel div.content ul.actions {
+	width: 15em;
+}
+
+div.panel div.content ul.square li {
+	font-size: 1.2em;
+	line-height: 1.8em;
+	list-style: square inside;
+	padding-left: 0.5em;
+}
+
+div.panel div.content ul.square li div {
+	padding-left: 1.5em;
+}
+
+img.portrait {
+	width: 100px;
+}
+
+
+/* @group Account */
+
+div#account.panel {
+	float: left;
+	min-height: 22em;
+	width: 46%;
+}
+
+div#account.panel div.column {
+	margin: 1em 0 0 0.5em;
+}
+
+div#account.panel div#profile-actions {
+	padding-left: 1.2em;
+}
+
+/* @end Account */
+
+
+/* @group News */
+
+div#news {
+	clear: both;
+}
+
+div#news.panel div.content {
+}
+
+ul#news-list {
+	margin-left: 0;
+	margin-top: 0;
+}
+
+ul#news-list li.result {
+	border: 0px;
+	border-bottom: 1px #900 dashed;
+	width: 63em;
+}
+
+ul#news-list li.seminar img {
+	background-position: 0 18px;
+}
+
+ul#news-list li.event img {
+	background-position: 0;
+}
+
+ul#news-list li img {
+	background: #FFF url(../images/icons/article-icons.png);
+	height: 18px;
+	margin-bottom: -4px;
+	width: 18px;
+}
+
+ul#news-list li h5 {
+	color: #090;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+ul#news-list li span.snippet {
+	border-left: 1px #CCC solid;
+	margin-left: 0.25em;
+	padding-left: 0.25em;
+}
+
+ul#news-list li .copy {
+	font-size: 10pt;
+	margin: 0.2em 0 0 0.5em;
+}
+
+ul#news-list li .date {
+	float: right;
+}
+
+ul#news-list li.seminar h5 {
+	color: #990;
+}
+
+ul#news-list li.event h5 {
+	color: #009;
+}
+
+div#news div.content .result {
+	padding: 1em 0px;
+}
+
+/* @end News */
+
+
+/* @group Notifications */
+
+.notification {
+	font-size: 10pt;
+}
+
+.notification h3 {
+	margin: 0.5em 0;
+}
+
+.notification ul {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.notification li {
+	border-bottom: 1px solid #DDD;
+}
+
+.notification .date {
+	margin-top: -0.75em;
+}
+
+.notification .accept {
+	font-weight: bold;
+}
+
+.notification .delete {
+	opacity: 0.8;
+	filter: alpha(opacity = 80);	
+}
+
+/* @end */
+
+
+/* @group Mail */
+
+div#mail.panel {
+	float: right;
+	min-height: 22em;
+	width: 40%;
+}
+
+div#mail p {
+	clear: both;
+	padding: 0 0.5em;
+}
+
+div#mail div.content {
+	background: #FFF url(../images/icons/letter.png) 1em 1em no-repeat;
+}
+
+div#mail div.content a {
+	display: block;
+	float: left;
+}
+
+div#mail div.content a.read {
+	margin-top: 1.75em;
+}
+
+div#mail div.content a.icon {
+	height: 5em;
+	width: 6em;
+}
+
+div#mail div.content a.icon,
+div#mail div.content a.icon:hover {
+	text-decoration: none;
+}
+
+div#mail div.content div {
+	float: left;
+	margin-left: 1em;
+	padding-top: 1em;
+}
+
+/* @end Mail */
+
+form#form-sitename .panel ol li label {
+	float: left;
+	text-align: right;
+	width: 20em;
+}

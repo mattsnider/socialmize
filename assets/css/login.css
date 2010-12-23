@@ -1,0 +1,135 @@
+h2 {
+	font-size: 1.2em;
+	line-height: 1.4em;
+	font-weight: bold;
+}
+
+p {
+	font-size: 1.2em;
+	margin-bottom: 1em;
+	margin-top: 1em;
+}
+
+ul {
+	padding-left: 1.5em;
+	padding-bottom: 2em;
+}
+
+ul li {
+	font-size: 1.2em;
+	line-height: 1.2em;
+}
+
+div.tabs {
+	padding-top:0.5em;
+}
+
+div.tabs ul
+{
+	margin-left: 0;
+	padding-left: 0.5em;
+}
+
+div.tabs ul li a
+{
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+}
+
+div.tabs ul li.last a
+{
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+form
+{
+	display: none;
+}
+
+body.recoverPassword form,
+form.selected
+{
+	display: block;
+}
+
+form fieldset
+{
+	background-color:#F9F9F9;
+	border:1px solid #DDD;
+	border-top:none;
+	padding:1em 5.25em;
+}
+
+form fieldset h3
+{
+	font-size: 14pt;
+	padding: 0.25em 0;
+}
+
+form fieldset ul
+{
+	margin:0;
+	padding:0;
+	width:21.5em;
+}
+
+form fieldset div.copy
+{
+	float:right;
+	width:30em;
+}
+
+form fieldset div.copy p
+{
+	margin-top:0;
+	padding-left: 2.25em;
+	text-align:justify;
+}
+
+form fieldset div.buttons
+{
+	float:left;
+	padding-top:1em;
+	width:21.5em;
+}
+
+.center {
+	margin: 0 40% 0 40%;
+	width :8em;
+}
+.center input {
+	width: 5em;
+}
+
+#content {
+	padding-left: 1em;
+	padding-bottom: 20em;
+}
+
+#sidebar
+{
+	display: none;
+}
+
+#main #content
+{
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	width: 67em;
+}
+
+body.project #doc #main
+{
+	background: #FFF;
+}
+
+form#form-signup fieldset li.tall small {
+	clear: both;
+	display: block;
+}
+
+div#main-content .squareTop {
+	border-top: 1px solid #7687B8;
+}

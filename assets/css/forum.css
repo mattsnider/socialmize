@@ -1,0 +1,42 @@
+/* CSS Document */
+
+#content .content {
+padding				: 0;
+}
+
+.forum-list .bar-tab {
+padding				: 1.5em 1em 0;
+}
+
+.forum-list .bar-filter {
+background			: #F7F7F7 none repeat scroll 0%;
+border-bottom		: 1px solid #EADFD8;
+color				: #999;
+padding				: 1em 1em 0.8em 0;
+}
+
+.forum-list .bar-filter label {
+display				: block;
+float				: left;
+font-weight			: bold;
+padding-left		: 1em;
+}
+
+.forum-list .bar-filter select {
+font-weight			: normal;
+margin-left			: 0.5em;
+}
+
+.forum-list .filter-actions {
+float				: right;
+padding				: 4px 0pt;
+}
+
+.forum-list .empty {
+background			: #F7F7F7 none repeat scroll 0%;
+border				: 1px solid #DDDDDD;
+clear				: both;
+color				: #999;
+margin				: 1em;
+padding				: 10em 2em;
+}
