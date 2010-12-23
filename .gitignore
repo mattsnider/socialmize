@@ -1,7 +1,7 @@
 project.properties
 Profanity.php
 SelectOptions.php
-log/project-*.log
+log/*.log
 WEB-INF/struts-config.xml
 .htaccess
 *.idea
