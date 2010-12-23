@@ -15,14 +15,15 @@ html #content .content {
 
 .friend-tbl div.image {
     margin: 0.25em 0.8em 0 0;
+	width: 6.4em;
 }
 
 .friend-tbl img {
-    width: 4.5em;
+    width: 100%;
 }
 
 .friend-tbl div.text {
-    width: 5em;
+    width: auto;
 }
 
 /* @end Friend Table */
