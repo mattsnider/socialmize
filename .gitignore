@@ -1,2 +1,7 @@
+project.properties
+Profanity.php
+SelectOptions.php
+log/project-*.log
 *.idea
 *.iml
+WEB-INF/work/
