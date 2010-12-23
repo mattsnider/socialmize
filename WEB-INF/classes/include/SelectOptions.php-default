@@ -895,6 +895,13 @@ def('division_name', array(
 
 /* --end-- */
 
+/* --gender-- */
 
+def('gender', array(
+	1652 => 'female',
+	1651 => 'male'
+));
+
+/* --end-- */
 
 ?>
