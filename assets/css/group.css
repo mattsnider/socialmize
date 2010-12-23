@@ -15,7 +15,11 @@ html #content .content {
 
 .friend-tbl div.image {
     margin: 0.25em 0.8em 0 0;
-	width: 6.4em;
+	width: 6.524em;
+}
+
+div.friend-tbl div.last {
+	margin-right: 0;
 }
 
 .friend-tbl img {

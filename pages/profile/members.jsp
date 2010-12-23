@@ -40,7 +40,10 @@
 			$key = $m->getKey();
 			$name = $m->getName();
 
-			echo '<div id="friend-' . $key . '" class="image">';
+			$kls = 'image';
+			if (5 == $i) {$kls .= ' last';}
+
+			echo '<div id="friend-' . $key . '" class="'. $kls . '">';
 			echo $m->getThumbnailHTML();
 			echo '<div class="text">';
 			echo '<a href="profile.action?' . c('QUERY_KEY_KEY') . '=' . $key . '">' . $name . '</a>';

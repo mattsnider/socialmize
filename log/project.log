@@ -137,3 +137,542 @@ SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_a
 [WARN] 22 Dec 2010 23:57:43 horizon.sql.drivers.MySQLPreparedStatement - 
 SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
 [INFO] 22 Dec 2010 23:57:43 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:57:43
+[INFO] 23 Dec 2010 01:15:07 project.action.ControllerProfileView - $pagename=profile
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`type`, `S`.`id` FROM `searchable` AS `S` WHERE `key` = '03a7d3e888dba399814adaa1f09193fa' 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.*, `group`.* FROM `searchable` AS `S` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` WHERE `id` = '191' 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  admin, sadmin FROM `searchable_searchable` WHERE `searchable_searchable`.`searchableA_id` = 191 AND `searchable_searchable`.`searchableB_id` = 13 AND `searchable_searchable`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 23 Dec 2010 01:15:07 project.action.ControllerProfileView - =====>>>>>>>> Entering executeActually (GET) @2010-12-23 01:15:07
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`searchable_type_bit` & 2 ORDER BY `PW`.`order`
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,7,2,22,13,5) AND (`PWF`.`status` = 'active') ORDER BY `PWF`.`order`
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=87)
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=77) UNION (SELECT `ikey`, `related_id` as `value`, "1" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=85)
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=35) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_datetime` WHERE `searchable_id`=191 AND `profile_widget_field_id`=37) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=38) UNION (SELECT `ikey`, `value`, "3" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=39) UNION (SELECT `ikey`, `value`, "4" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=73) UNION (SELECT `ikey`, `value`, "5" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=74) UNION (SELECT `ikey`, `related_id` as `value`, "6" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=96)
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=9) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=11) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=93)
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=95)
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=72)
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=33) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=34)
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND (`S`.`type` = 'group' OR `S`.`type` = 'network' OR `S`.`type` = 'user') AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,16,34,213,214,215,216,223,229,280,282,297) 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `searchable_searchable`.`admin`, `searchable_searchable`.`sadmin` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_searchable`.`admin` = 'true' AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16,223) 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `SW`.`body`, `SW`.`created`, `SW`.`id`, `SW`.`poster_id`, `SW`.`searchable_id` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' ORDER BY `SW`.`created` DESC
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 212 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (212) 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `message_board`.* FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' ORDER BY `modified` DESC LIMIT 5
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:15:07 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
+[INFO] 23 Dec 2010 01:15:07 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-23 01:15:07
+[ERROR] 23 Dec 2010 01:15:07 phase.support.VariableResolver - An error occured resolving the EL variable "hasWall": Use of undefined constant i - assumed 'i'.
+horizon.lang.RootException: Use of undefined constant i - assumed 'i'
+	at horizon.lang.RootException.RootException(RootException.php:69)
+	at [PHP].handle_exception(init.php:138)
+	at [PHP].printMembers(members.php:30)
+	at .c_if_9(profile.php:449)
+	at .c_if_0(profile.php:414)
+	at .template_put_2(profile.php:43)
+	at .template_insert_0(profile.php:13)
+	at [PHP].include(profile.php:1)
+	at phase.servlet.PhaseServletWrapper.service(PhaseServletWrapper.php:80)
+	at phase.servlet.PhaseServlet.servicePhaseFile(PhaseServlet.php:112)
+	at phase.servlet.PhaseServlet.service(PhaseServlet.php:75)
+	at stratus.core.ApplicationDispatcher.invoke(ApplicationDispatcher.php:206)
+	at stratus.core.ApplicationDispatcher.doForward(ApplicationDispatcher.php:190)
+	at studs.action.RequestProcessor.doForward(RequestProcessor.php:576)
+	at studs.action.RequestProcessor.processActionForward(RequestProcessor.php:553)
+	at studs.action.RequestProcessor.process(RequestProcessor.php:153)
+	at studs.action.ActionServlet.process(ActionServlet.php:683)
+	at studs.action.ActionServlet.doGet(ActionServlet.php:280)
+	at stratus.servlets.HttpServlet.service(HttpServlet.php:202)
+	at stratus.core.StandardContext.invoke(StandardContext.php:646)
+	at stratus.connector.HttpProcessor.run(HttpProcessor.php:90)
+	at [PHP].main(index.php:18)
+
+[INFO] 23 Dec 2010 01:15:50 project.action.ControllerProfileView - $pagename=profile
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`type`, `S`.`id` FROM `searchable` AS `S` WHERE `key` = '03a7d3e888dba399814adaa1f09193fa' 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.*, `group`.* FROM `searchable` AS `S` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` WHERE `id` = '191' 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  admin, sadmin FROM `searchable_searchable` WHERE `searchable_searchable`.`searchableA_id` = 191 AND `searchable_searchable`.`searchableB_id` = 13 AND `searchable_searchable`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 23 Dec 2010 01:15:50 project.action.ControllerProfileView - =====>>>>>>>> Entering executeActually (GET) @2010-12-23 01:15:50
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`searchable_type_bit` & 2 ORDER BY `PW`.`order`
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,7,2,22,13,5) AND (`PWF`.`status` = 'active') ORDER BY `PWF`.`order`
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=87)
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=77) UNION (SELECT `ikey`, `related_id` as `value`, "1" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=85)
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=35) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_datetime` WHERE `searchable_id`=191 AND `profile_widget_field_id`=37) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=38) UNION (SELECT `ikey`, `value`, "3" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=39) UNION (SELECT `ikey`, `value`, "4" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=73) UNION (SELECT `ikey`, `value`, "5" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=74) UNION (SELECT `ikey`, `related_id` as `value`, "6" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=96)
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=9) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=11) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=93)
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=95)
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=72)
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=33) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=34)
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND (`S`.`type` = 'group' OR `S`.`type` = 'network' OR `S`.`type` = 'user') AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,16,34,213,214,215,216,223,229,280,282,297) 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `searchable_searchable`.`admin`, `searchable_searchable`.`sadmin` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_searchable`.`admin` = 'true' AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16,223) 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `SW`.`body`, `SW`.`created`, `SW`.`id`, `SW`.`poster_id`, `SW`.`searchable_id` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' ORDER BY `SW`.`created` DESC
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 212 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (212) 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:15:50 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `message_board`.* FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' ORDER BY `modified` DESC LIMIT 5
+[WARN] 23 Dec 2010 01:15:51 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:15:51 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:15:51 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
+[INFO] 23 Dec 2010 01:15:51 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0.001 seconds, rendering view @2010-12-23 01:15:51
+[ERROR] 23 Dec 2010 01:15:51 phase.support.VariableResolver - An error occured resolving the EL variable "hasWall": Use of undefined constant i - assumed 'i'.
+horizon.lang.RootException: Use of undefined constant i - assumed 'i'
+	at horizon.lang.RootException.RootException(RootException.php:69)
+	at [PHP].handle_exception(init.php:138)
+	at [PHP].printMembers(members.php:30)
+	at .c_if_9(profile.php:449)
+	at .c_if_0(profile.php:414)
+	at .template_put_2(profile.php:43)
+	at .template_insert_0(profile.php:13)
+	at [PHP].include(profile.php:1)
+	at phase.servlet.PhaseServletWrapper.service(PhaseServletWrapper.php:80)
+	at phase.servlet.PhaseServlet.servicePhaseFile(PhaseServlet.php:112)
+	at phase.servlet.PhaseServlet.service(PhaseServlet.php:75)
+	at stratus.core.ApplicationDispatcher.invoke(ApplicationDispatcher.php:206)
+	at stratus.core.ApplicationDispatcher.doForward(ApplicationDispatcher.php:190)
+	at studs.action.RequestProcessor.doForward(RequestProcessor.php:576)
+	at studs.action.RequestProcessor.processActionForward(RequestProcessor.php:553)
+	at studs.action.RequestProcessor.process(RequestProcessor.php:153)
+	at studs.action.ActionServlet.process(ActionServlet.php:683)
+	at studs.action.ActionServlet.doGet(ActionServlet.php:280)
+	at stratus.servlets.HttpServlet.service(HttpServlet.php:202)
+	at stratus.core.StandardContext.invoke(StandardContext.php:646)
+	at stratus.connector.HttpProcessor.run(HttpProcessor.php:90)
+	at [PHP].main(index.php:18)
+
+[INFO] 23 Dec 2010 01:15:56 project.action.ControllerProfileView - $pagename=profile
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`type`, `S`.`id` FROM `searchable` AS `S` WHERE `key` = '03a7d3e888dba399814adaa1f09193fa' 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.*, `group`.* FROM `searchable` AS `S` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` WHERE `id` = '191' 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  admin, sadmin FROM `searchable_searchable` WHERE `searchable_searchable`.`searchableA_id` = 191 AND `searchable_searchable`.`searchableB_id` = 13 AND `searchable_searchable`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 23 Dec 2010 01:15:56 project.action.ControllerProfileView - =====>>>>>>>> Entering executeActually (GET) @2010-12-23 01:15:56
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`searchable_type_bit` & 2 ORDER BY `PW`.`order`
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,7,2,22,13,5) AND (`PWF`.`status` = 'active') ORDER BY `PWF`.`order`
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=87)
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=77) UNION (SELECT `ikey`, `related_id` as `value`, "1" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=85)
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=35) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_datetime` WHERE `searchable_id`=191 AND `profile_widget_field_id`=37) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=38) UNION (SELECT `ikey`, `value`, "3" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=39) UNION (SELECT `ikey`, `value`, "4" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=73) UNION (SELECT `ikey`, `value`, "5" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=74) UNION (SELECT `ikey`, `related_id` as `value`, "6" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=96)
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=9) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=11) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=93)
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=95)
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=72)
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=33) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=34)
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND (`S`.`type` = 'group' OR `S`.`type` = 'network' OR `S`.`type` = 'user') AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,16,34,213,214,215,216,223,229,280,282,297) 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `searchable_searchable`.`admin`, `searchable_searchable`.`sadmin` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_searchable`.`admin` = 'true' AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16,223) 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `SW`.`body`, `SW`.`created`, `SW`.`id`, `SW`.`poster_id`, `SW`.`searchable_id` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' ORDER BY `SW`.`created` DESC
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 212 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (212) 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `message_board`.* FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' ORDER BY `modified` DESC LIMIT 5
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:15:56 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
+[INFO] 23 Dec 2010 01:15:56 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-23 01:15:56
+[ERROR] 23 Dec 2010 01:15:56 phase.support.VariableResolver - An error occured resolving the EL variable "hasWall": Use of undefined constant i - assumed 'i'.
+horizon.lang.RootException: Use of undefined constant i - assumed 'i'
+	at horizon.lang.RootException.RootException(RootException.php:69)
+	at [PHP].handle_exception(init.php:138)
+	at [PHP].printMembers(members.php:30)
+	at .c_if_9(profile.php:449)
+	at .c_if_0(profile.php:414)
+	at .template_put_2(profile.php:43)
+	at .template_insert_0(profile.php:13)
+	at [PHP].include(profile.php:1)
+	at phase.servlet.PhaseServletWrapper.service(PhaseServletWrapper.php:80)
+	at phase.servlet.PhaseServlet.servicePhaseFile(PhaseServlet.php:112)
+	at phase.servlet.PhaseServlet.service(PhaseServlet.php:75)
+	at stratus.core.ApplicationDispatcher.invoke(ApplicationDispatcher.php:206)
+	at stratus.core.ApplicationDispatcher.doForward(ApplicationDispatcher.php:190)
+	at studs.action.RequestProcessor.doForward(RequestProcessor.php:576)
+	at studs.action.RequestProcessor.processActionForward(RequestProcessor.php:553)
+	at studs.action.RequestProcessor.process(RequestProcessor.php:153)
+	at studs.action.ActionServlet.process(ActionServlet.php:683)
+	at studs.action.ActionServlet.doGet(ActionServlet.php:280)
+	at stratus.servlets.HttpServlet.service(HttpServlet.php:202)
+	at stratus.core.StandardContext.invoke(StandardContext.php:646)
+	at stratus.connector.HttpProcessor.run(HttpProcessor.php:90)
+	at [PHP].main(index.php:18)
+
+[INFO] 23 Dec 2010 01:16:23 project.action.ControllerProfileView - $pagename=profile
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`type`, `S`.`id` FROM `searchable` AS `S` WHERE `key` = '03a7d3e888dba399814adaa1f09193fa' 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.*, `group`.* FROM `searchable` AS `S` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` WHERE `id` = '191' 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  admin, sadmin FROM `searchable_searchable` WHERE `searchable_searchable`.`searchableA_id` = 191 AND `searchable_searchable`.`searchableB_id` = 13 AND `searchable_searchable`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 23 Dec 2010 01:16:23 project.action.ControllerProfileView - =====>>>>>>>> Entering executeActually (GET) @2010-12-23 01:16:23
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`searchable_type_bit` & 2 ORDER BY `PW`.`order`
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,7,2,22,13,5) AND (`PWF`.`status` = 'active') ORDER BY `PWF`.`order`
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=87)
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=77) UNION (SELECT `ikey`, `related_id` as `value`, "1" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=85)
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=35) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_datetime` WHERE `searchable_id`=191 AND `profile_widget_field_id`=37) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=38) UNION (SELECT `ikey`, `value`, "3" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=39) UNION (SELECT `ikey`, `value`, "4" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=73) UNION (SELECT `ikey`, `value`, "5" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=74) UNION (SELECT `ikey`, `related_id` as `value`, "6" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=96)
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=9) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=11) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=93)
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=95)
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=72)
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=33) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=34)
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND (`S`.`type` = 'group' OR `S`.`type` = 'network' OR `S`.`type` = 'user') AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,16,34,213,214,215,216,223,229,280,282,297) 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `searchable_searchable`.`admin`, `searchable_searchable`.`sadmin` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_searchable`.`admin` = 'true' AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16,223) 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `SW`.`body`, `SW`.`created`, `SW`.`id`, `SW`.`poster_id`, `SW`.`searchable_id` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' ORDER BY `SW`.`created` DESC
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 212 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (212) 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `message_board`.* FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' ORDER BY `modified` DESC LIMIT 5
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:16:23 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
+[INFO] 23 Dec 2010 01:16:23 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-23 01:16:23
+[INFO] 23 Dec 2010 01:17:19 project.action.ControllerProfileView - $pagename=profile
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`type`, `S`.`id` FROM `searchable` AS `S` WHERE `key` = '03a7d3e888dba399814adaa1f09193fa' 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.*, `group`.* FROM `searchable` AS `S` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` WHERE `id` = '191' 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  admin, sadmin FROM `searchable_searchable` WHERE `searchable_searchable`.`searchableA_id` = 191 AND `searchable_searchable`.`searchableB_id` = 13 AND `searchable_searchable`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 23 Dec 2010 01:17:19 project.action.ControllerProfileView - =====>>>>>>>> Entering executeActually (GET) @2010-12-23 01:17:19
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`searchable_type_bit` & 2 ORDER BY `PW`.`order`
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,7,2,22,13,5) AND (`PWF`.`status` = 'active') ORDER BY `PWF`.`order`
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=87)
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=77) UNION (SELECT `ikey`, `related_id` as `value`, "1" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=85)
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=35) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_datetime` WHERE `searchable_id`=191 AND `profile_widget_field_id`=37) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=38) UNION (SELECT `ikey`, `value`, "3" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=39) UNION (SELECT `ikey`, `value`, "4" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=73) UNION (SELECT `ikey`, `value`, "5" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=74) UNION (SELECT `ikey`, `related_id` as `value`, "6" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=96)
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=9) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=11) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=93)
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=95)
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=72)
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=33) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=34)
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND (`S`.`type` = 'group' OR `S`.`type` = 'network' OR `S`.`type` = 'user') AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,16,34,213,214,215,216,223,229,280,282,297) 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `searchable_searchable`.`admin`, `searchable_searchable`.`sadmin` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_searchable`.`admin` = 'true' AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16,223) 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `SW`.`body`, `SW`.`created`, `SW`.`id`, `SW`.`poster_id`, `SW`.`searchable_id` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' ORDER BY `SW`.`created` DESC
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 212 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (212) 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `message_board`.* FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' ORDER BY `modified` DESC LIMIT 5
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:17:19 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
+[INFO] 23 Dec 2010 01:17:19 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-23 01:17:19
+[INFO] 23 Dec 2010 01:17:34 project.action.ControllerProfileView - $pagename=profile
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`type`, `S`.`id` FROM `searchable` AS `S` WHERE `key` = '03a7d3e888dba399814adaa1f09193fa' 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.*, `group`.* FROM `searchable` AS `S` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` WHERE `id` = '191' 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  admin, sadmin FROM `searchable_searchable` WHERE `searchable_searchable`.`searchableA_id` = 191 AND `searchable_searchable`.`searchableB_id` = 13 AND `searchable_searchable`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 23 Dec 2010 01:17:34 project.action.ControllerProfileView - =====>>>>>>>> Entering executeActually (GET) @2010-12-23 01:17:34
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`searchable_type_bit` & 2 ORDER BY `PW`.`order`
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,7,2,22,13,5) AND (`PWF`.`status` = 'active') ORDER BY `PWF`.`order`
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=87)
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=77) UNION (SELECT `ikey`, `related_id` as `value`, "1" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=85)
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=35) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_datetime` WHERE `searchable_id`=191 AND `profile_widget_field_id`=37) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=38) UNION (SELECT `ikey`, `value`, "3" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=39) UNION (SELECT `ikey`, `value`, "4" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=73) UNION (SELECT `ikey`, `value`, "5" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=74) UNION (SELECT `ikey`, `related_id` as `value`, "6" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=96)
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=9) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=11) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=93)
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=95)
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=72)
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=33) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=34)
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND (`S`.`type` = 'group' OR `S`.`type` = 'network' OR `S`.`type` = 'user') AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,16,34,213,214,215,216,223,229,280,282,297) 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `searchable_searchable`.`admin`, `searchable_searchable`.`sadmin` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_searchable`.`admin` = 'true' AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16,223) 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `SW`.`body`, `SW`.`created`, `SW`.`id`, `SW`.`poster_id`, `SW`.`searchable_id` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' ORDER BY `SW`.`created` DESC
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 212 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (212) 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `message_board`.* FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' ORDER BY `modified` DESC LIMIT 5
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:17:34 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
+[INFO] 23 Dec 2010 01:17:34 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-23 01:17:34
+[INFO] 23 Dec 2010 01:17:39 project.action.ControllerProfileView - $pagename=profile
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`type`, `S`.`id` FROM `searchable` AS `S` WHERE `key` = '03a7d3e888dba399814adaa1f09193fa' 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.*, `group`.* FROM `searchable` AS `S` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` WHERE `id` = '191' 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  admin, sadmin FROM `searchable_searchable` WHERE `searchable_searchable`.`searchableA_id` = 191 AND `searchable_searchable`.`searchableB_id` = 13 AND `searchable_searchable`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 23 Dec 2010 01:17:39 project.action.ControllerProfileView - =====>>>>>>>> Entering executeActually (GET) @2010-12-23 01:17:39
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`searchable_type_bit` & 2 ORDER BY `PW`.`order`
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,7,2,22,13,5) AND (`PWF`.`status` = 'active') ORDER BY `PWF`.`order`
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=87)
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=77) UNION (SELECT `ikey`, `related_id` as `value`, "1" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=85)
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=35) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_datetime` WHERE `searchable_id`=191 AND `profile_widget_field_id`=37) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=38) UNION (SELECT `ikey`, `value`, "3" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=39) UNION (SELECT `ikey`, `value`, "4" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=73) UNION (SELECT `ikey`, `value`, "5" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=74) UNION (SELECT `ikey`, `related_id` as `value`, "6" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=96)
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=9) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=11) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=93)
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=95)
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=72)
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=33) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=34)
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND (`S`.`type` = 'group' OR `S`.`type` = 'network' OR `S`.`type` = 'user') AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,16,34,213,214,215,216,223,229,280,282,297) 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `searchable_searchable`.`admin`, `searchable_searchable`.`sadmin` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_searchable`.`admin` = 'true' AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16,223) 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `SW`.`body`, `SW`.`created`, `SW`.`id`, `SW`.`poster_id`, `SW`.`searchable_id` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' ORDER BY `SW`.`created` DESC
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 212 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (212) 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `message_board`.* FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' ORDER BY `modified` DESC LIMIT 5
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:17:39 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
+[INFO] 23 Dec 2010 01:17:39 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-23 01:17:39
+[INFO] 23 Dec 2010 01:17:46 project.action.ControllerProfileView - $pagename=profile
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`type`, `S`.`id` FROM `searchable` AS `S` WHERE `key` = '03a7d3e888dba399814adaa1f09193fa' 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.*, `group`.* FROM `searchable` AS `S` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` WHERE `id` = '191' 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  admin, sadmin FROM `searchable_searchable` WHERE `searchable_searchable`.`searchableA_id` = 191 AND `searchable_searchable`.`searchableB_id` = 13 AND `searchable_searchable`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 23 Dec 2010 01:17:46 project.action.ControllerProfileView - =====>>>>>>>> Entering executeActually (GET) @2010-12-23 01:17:46
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`searchable_type_bit` & 2 ORDER BY `PW`.`order`
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,7,2,22,13,5) AND (`PWF`.`status` = 'active') ORDER BY `PWF`.`order`
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=87)
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=77) UNION (SELECT `ikey`, `related_id` as `value`, "1" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=85)
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=35) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_datetime` WHERE `searchable_id`=191 AND `profile_widget_field_id`=37) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=38) UNION (SELECT `ikey`, `value`, "3" AS `index` FROM `profile_widget_field_textarea` WHERE `searchable_id`=191 AND `profile_widget_field_id`=39) UNION (SELECT `ikey`, `value`, "4" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=73) UNION (SELECT `ikey`, `value`, "5" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=74) UNION (SELECT `ikey`, `related_id` as `value`, "6" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=96)
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=9) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=11) UNION (SELECT `ikey`, `value`, "2" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=93)
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=95)
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `related_id` as `value`, "0" AS `index` FROM `profile_widget_field_select` WHERE `searchable_id`=191 AND `profile_widget_field_id`=72)
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+(SELECT `ikey`, `value`, "0" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=33) UNION (SELECT `ikey`, `value`, "1" AS `index` FROM `profile_widget_field_text` WHERE `searchable_id`=191 AND `profile_widget_field_id`=34)
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND (`S`.`type` = 'group' OR `S`.`type` = 'network' OR `S`.`type` = 'user') AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,16,34,213,214,215,216,223,229,280,282,297) 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `searchable_searchable`.`admin`, `searchable_searchable`.`sadmin` FROM `searchable` AS `S` LEFT JOIN `searchable_searchable` ON `searchable_searchable`.`searchableB_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_searchable`.`admin` = 'true' AND `searchable_searchable`.`status` = 'active' AND `searchable_searchable`.`searchableA_id` = 191 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16,223) 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `SW`.`body`, `SW`.`created`, `SW`.`id`, `SW`.`poster_id`, `SW`.`searchable_id` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' ORDER BY `SW`.`created` DESC
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 212 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (212) 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `searchable_wall` AS `SW` LEFT JOIN `searchable` AS `S` ON `SW`.`searchable_id` = `S`.`id` WHERE `searchable_id` = 191 AND `S`.`status` = 'active' 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `message_board`.* FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' ORDER BY `modified` DESC LIMIT 5
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' AND `S`.`id` = 16 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (16) 
+[WARN] 23 Dec 2010 01:17:46 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message_board` LEFT JOIN `searchable` AS `S` ON `message_board`.`creator_searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `searchable_id` = 191 AND `message_board`.`status`='active' 
+[INFO] 23 Dec 2010 01:17:46 project.action.ControllerProfileView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-23 01:17:46
