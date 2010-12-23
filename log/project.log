@@ -1,0 +1,62 @@
+[INFO] 22 Dec 2010 23:23:28 project.action.ControllerAdminView - $pagename=admin
+[WARN] 22 Dec 2010 23:23:28 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 22 Dec 2010 23:23:29 project.action.ControllerAdminView - =====>>>>>>>> Entering executeActually (GET) @2010-12-22 23:23:29
+[WARN] 22 Dec 2010 23:23:29 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PW`.`created`, `PW`.`fieldn`, `PW`.`id`, `PW`.`modified`, `PW`.`multi`, `PW`.`name`, `PW`.`name_tab`, `PW`.`order`, `PW`.`searchable_type_bit`, `PW`.`status` FROM `profile_widget` AS `PW` WHERE `PW`.`status` IN ("active","inactive") ORDER BY `PW`.`order`
+[WARN] 22 Dec 2010 23:23:29 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `PWF`.`created`, `PWF`.`data_table`, `PWF`.`default_value`, `PWF`.`id`, `PWF`.`label`, `PWF`.`modified`,
+	`PWF`.`maxlength`, `PWF`.`name`, `PWF`.`order`, `PWF`.`private`, `PWF`.`profile_widget_id`, `PWF`.`required`, `PWF`.`status`, `PWF`.`type`, `PWF`.`update_searchable` FROM `profile_widget_field` AS `PWF` WHERE `PWF`.`profile_widget_id` IN (18,15,1,7,16,19,9,2,3,4,17,22,13,5,12) AND (`PWF`.`status` = 'active' OR `PWF`.`status` = 'inactive') ORDER BY `PWF`.`order`
+[INFO] 22 Dec 2010 23:23:29 project.action.ControllerAdminView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:23:29
+[INFO] 22 Dec 2010 23:32:17 project.action.ControllerAdminView - $pagename=admin
+[WARN] 22 Dec 2010 23:32:17 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 22 Dec 2010 23:32:17 project.action.ControllerAdminView - =====>>>>>>>> Entering executeActually (GET) @2010-12-22 23:32:17
+[INFO] 22 Dec 2010 23:32:17 project.action.ControllerAdminView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:32:17
+[INFO] 22 Dec 2010 23:32:25 project.action.ControllerAdminView - $pagename=admin
+[WARN] 22 Dec 2010 23:32:25 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 22 Dec 2010 23:32:25 project.action.ControllerAdminView - =====>>>>>>>> Entering executeActually (GET) @2010-12-22 23:32:25
+[WARN] 22 Dec 2010 23:32:25 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `user`.`last_login` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `S`.`type` = 'user' ORDER BY `last_login` DESC
+[WARN] 22 Dec 2010 23:32:25 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (13,212,16) 
+[WARN] 22 Dec 2010 23:32:25 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id` FROM `searchable` AS `S` WHERE `S`.`status` = 'active' ORDER BY `modified` DESC
+[WARN] 22 Dec 2010 23:32:25 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (297,240,295) 
+[WARN] 22 Dec 2010 23:32:25 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `user`.`last_login` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `S`.`type` = 'user' 
+[WARN] 22 Dec 2010 23:32:25 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`access`, `S`.`created`, `S`.`email`, `S`.`features`, `S`.`feature_access`, `S`.`id`, `S`.`isAdmin`, `S`.`key`, `S`.`modified`, `S`.`name`, `S`.`notify`, `S`.`pending_bit`, `S`.`status`, `S`.`type`, `S`.`uri_image`, `S`.`uri_thumb`, `user`.`last_login`, `user`.`login_count`, `user`.`searchable_id`, `user`.`terms`, `group`.`category_id`, `group`.`company_id`, `group`.`searchable_id`, `network`.`searchable_id` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` LEFT JOIN `group` ON `group`.`searchable_id` = `S`.`id` LEFT JOIN `network` ON `network`.`searchable_id` = `S`.`id` WHERE `S`.`id` IN (1) 
+[WARN] 22 Dec 2010 23:32:25 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  `S`.`id`, `user`.`last_login` FROM `searchable` AS `S` LEFT JOIN `user` ON `user`.`searchable_id` = `S`.`id` WHERE `S`.`status` = 'active' AND `S`.`type` = 'user' AND last_login > '2010-12-08 23:32:25' 
+[INFO] 22 Dec 2010 23:32:25 project.action.ControllerAdminView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:32:25
+[INFO] 22 Dec 2010 23:32:27 project.action.ControllerAdminView - $pagename=admin
+[WARN] 22 Dec 2010 23:32:27 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 22 Dec 2010 23:32:27 project.action.ControllerAdminView - =====>>>>>>>> Entering executeActually (GET) @2010-12-22 23:32:27
+[INFO] 22 Dec 2010 23:32:27 project.action.ControllerAdminView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:32:27
+[INFO] 22 Dec 2010 23:32:31 project.action.ControllerAdminSubmit - $pagename=adminSubmit
+[INFO] 22 Dec 2010 23:32:31 project.action.ControllerAdminSubmit - =====>>>>>>>> Entering executeActually (POST) @2010-12-22 23:32:31
+[INFO] 22 Dec 2010 23:38:31 project.action.ControllerAdminSubmit - $pagename=adminSubmit
+[INFO] 22 Dec 2010 23:38:31 project.action.ControllerAdminSubmit - =====>>>>>>>> Entering executeActually (POST) @2010-12-22 23:38:31
+[INFO] 22 Dec 2010 23:38:31 project.action.ControllerAdminSubmit - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:38:31
+[INFO] 22 Dec 2010 23:38:31 project.action.ControllerAdminView - $pagename=admin
+[WARN] 22 Dec 2010 23:38:31 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 22 Dec 2010 23:38:31 project.action.ControllerAdminView - =====>>>>>>>> Entering executeActually (GET) @2010-12-22 23:38:31
+[INFO] 22 Dec 2010 23:38:31 project.action.ControllerAdminView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:38:31
+[INFO] 22 Dec 2010 23:38:37 project.action.ControllerAdminSubmit - $pagename=adminSubmit
+[INFO] 22 Dec 2010 23:38:38 project.action.ControllerAdminSubmit - =====>>>>>>>> Entering executeActually (POST) @2010-12-22 23:38:38
+[INFO] 22 Dec 2010 23:38:38 project.action.ControllerAdminSubmit - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:38:38
+[INFO] 22 Dec 2010 23:38:38 project.action.ControllerAdminView - $pagename=admin
+[WARN] 22 Dec 2010 23:38:38 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 22 Dec 2010 23:38:38 project.action.ControllerAdminView - =====>>>>>>>> Entering executeActually (GET) @2010-12-22 23:38:38
+[INFO] 22 Dec 2010 23:38:38 project.action.ControllerAdminView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:38:38
+[INFO] 22 Dec 2010 23:39:20 project.action.ControllerAdminView - $pagename=admin
+[WARN] 22 Dec 2010 23:39:20 horizon.sql.drivers.MySQLPreparedStatement - 
+SELECT  COUNT(*) AS `count` FROM `message` AS `M` LEFT JOIN `message_searchable` AS `MS` ON `MS`.`message_id` = `M`.`id` LEFT JOIN `message_searchable` AS `MS2` ON `MS2`.`message_id` = `MS`.`message_id` AND `MS2`.`is_sender` <> `MS`.`is_sender` LEFT JOIN `searchable` AS `S` ON `S`.`id` = `MS2`.`searchable_id` WHERE ((`MS`.`is_sender`='false' AND `MS`.`searchable_id`=13) || (`MS2`.`is_sender`='true' AND `MS2`.`searchable_id`<>13)) AND (`MS`.`searchable_id`=13 OR `MS2`.`searchable_id`=13) AND `MS`.`status` = 'unread' AND `S`.`status` = "active" 
+[INFO] 22 Dec 2010 23:39:20 project.action.ControllerAdminView - =====>>>>>>>> Entering executeActually (GET) @2010-12-22 23:39:20
+[INFO] 22 Dec 2010 23:39:20 project.action.ControllerAdminView - =====>>>>>>>> Leaving execute took 0 seconds, rendering view @2010-12-22 23:39:20

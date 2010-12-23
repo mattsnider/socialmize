@@ -57,7 +57,9 @@ echo '<p class="empty">This section is incomplete.</p>';
 		<div id="profile-information" class="panel">
 
 			<h3>Information
-				<div class="edit">[ <a class="profile-edit" href="editprofile.action?key=${o.key}">edit</a> ]</div>
+				<c:if test="${o.isAdmin}">
+					<div class="edit">[ <a class="profile-edit" href="editprofile.action?key=${o.key}">edit</a> ]</div>
+				</c:if>
 			</h3>
 
 			<div class="content">
