@@ -211,6 +211,8 @@ class ControllerAdminSubmit extends ControllerAdmin {
 				$pwfId = 0;
 				$task = 'field';
 
+				list($man) = $this->_getServices($request, 'ServiceProfileWidget');
+
 				switch ($subtask) {
 					case 'pw':
 						if ($isDelete) {
