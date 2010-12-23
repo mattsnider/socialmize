@@ -32,6 +32,7 @@ $fieldName = '';
 $fieldDefault = '';
 $isActive = true;
 $isHidden = false;
+$isPrivate = false;
 
 echo '<ul class="accordion-tabs ' . ($jsEnabled ? 'disclosure hideDisclosure' : '') . '">';
 // editing field
