@@ -58,10 +58,10 @@ class ControllerJoinSubmit extends ControllerModuleSubmitBase {
 					else {
 						$o = Member::createSimple($aUser, $s);
 						$o->setStatus(Searchable::$STATUS_PENDING);
+						array_push($privateMembers, '<q>' . $s->getName() . '</q>');
+						array_push($privateTypes, $s->getType());
 					}
 
-					array_push($privateMembers, '<q>' . $s->getName() . '</q>');
-					array_push($privateTypes, $s->getType());
 					$man->createMember($o);
 				}
 			}
