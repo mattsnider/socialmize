@@ -35,7 +35,7 @@ FormElement = {
 	 * @static
 	 */
 	isChanged: function(element) {
-		var fld = Y.get(element);
+		var fld = Y.one(element);
 		if (! fld) {return false;}
 
 		if (FormElement.isCheckable(fld)) {

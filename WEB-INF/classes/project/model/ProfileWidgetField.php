@@ -47,6 +47,9 @@ class ProfileWidgetField extends ModelBase {
 
 	public function getDisplayValue() {
 		switch ($this->_type) {
+			case ProfileWidgetField::$TYPE_BOOLEAN:
+				return 'true' == $this->_value ? 'Yes' : 'No';
+
 			case ProfileWidgetField::$TYPE_DATETIME:
 				return convertDatetimeToDate($this->_value);
 
@@ -166,6 +169,7 @@ class ProfileWidgetField extends ModelBase {
 				$this->_dataTable = ProfileWidgetField::$TYPE_SELECT;
 				break;
 
+			case ProfileWidgetField::$TYPE_BOOLEAN:
 			case ProfileWidgetField::$TYPE_DATETIME:
 			case ProfileWidgetField::$TYPE_DATE_RANGE:
 				$this->_dataTable = $this->_type;
@@ -450,6 +454,17 @@ class ProfileWidgetField extends ModelBase {
 	public static $TYPE_AUTOCOMPLETE = 'autocomplete';
 
 	/**
+	 * The boolean type of profile widget fields.
+	 * @property $TYPE_BOOLEAN
+	 * @var {String} A profile_widget_field type.
+	 * @access Public
+	 * @since Release 1.0
+	 * @const
+	 * @static
+	 */
+	public static $TYPE_BOOLEAN = 'boolean';
+
+	/**
 	 * A date type of profile widget fields.
 	 * @property TYPE_DATETIME
 	 * @var {String} A profile_widget_field type.
@@ -549,7 +564,7 @@ class ProfileWidgetField extends ModelBase {
 	 * @static
 	 */
 	public static function getTypes() {
-		return array(ProfileWidgetField::$TYPE_AUTOCOMPLETE, ProfileWidgetField::$TYPE_DATETIME,
+		return array(ProfileWidgetField::$TYPE_AUTOCOMPLETE, ProfileWidgetField::$TYPE_DATETIME, ProfileWidgetField::$TYPE_BOOLEAN,
 					 ProfileWidgetField::$TYPE_DATE_RANGE, ProfileWidgetField::$TYPE_IMAGE, ProfileWidgetField::$TYPE_LIST,
 					 ProfileWidgetField::$TYPE_PORTRAIT, ProfileWidgetField::$TYPE_SELECT, ProfileWidgetField::$TYPE_TEXT,
 					 ProfileWidgetField::$TYPE_TEXT_AREA);
@@ -567,6 +582,7 @@ class ProfileWidgetField extends ModelBase {
 	public static function isValidType($type) {
 		switch ($type) {
 			case ProfileWidgetField::$TYPE_AUTOCOMPLETE:
+			case ProfileWidgetField::$TYPE_BOOLEAN:
 			case ProfileWidgetField::$TYPE_DATETIME:
 			case ProfileWidgetField::$TYPE_DATE_RANGE:
 			case ProfileWidgetField::$TYPE_IMAGE:

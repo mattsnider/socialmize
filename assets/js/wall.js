@@ -12,9 +12,9 @@
 YUI($YO).use('node', 'yui3-ext', 'gallery-node-input', function(Y) {
 
 	// DOM namespace
-var	_domForm = Y.get('#wall-form'),
-	_domList = Y.get('#wall-list'),
-	_domText = Y.get('#wall-text'),
+var	_domForm = Y.one('#wall-form'),
+	_domList = Y.one('#wall-list'),
+	_domText = Y.one('#wall-text'),
 
 	_nodeInputText,
 

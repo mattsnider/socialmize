@@ -80,9 +80,9 @@ var base = '/assets/js/';
 var $VERSION = '.js?r=75',
 	//var $VERSION = '.js?r=' + Math.random(),
 		$YO = {
-//			base: 'http://core.localhost/assets/js/yahoo-3/',
+			base: 'http://yui.localhost/yui3/build/',
 			filter: 'raw',
-			combine: true,
+//			combine: true,
 			timeout: 10000,
 			useBrowserConsole: true,
 			logLevel: 'warn',

@@ -127,8 +127,8 @@ Y.mix(TabManager, {
 	 * @protected
 	 */
 	validateTabObject: function(o) {
-		if (LANG.isString(o.container)) {o.container = Y.get(o.container);}
-		if (LANG.isString(o.tab)) {o.tab = Y.get(o.tab);}
+		if (LANG.isString(o.container)) {o.container = Y.one(o.container);}
+		if (LANG.isString(o.tab)) {o.tab = Y.one(o.tab);}
 		return LANG.isObject(o) && o.container && o.tab;
 	}
 });

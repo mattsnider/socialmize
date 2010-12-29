@@ -105,7 +105,7 @@ YUI($YO).use('yui3-ext', 'matt_form', 'collection', 'gallery-node-input', 'matt_
 		if (elNetwork) {
 			// viewing a network profile
 			elCheckbox = new Y.CheckboxList({boundingBox: elNetwork, maxHeight: '21em'});
-			oDs = new Y.DataSource.IO({source:"/readSearchables.action?member=true&key=" + Y.get('#updateSearchableMembers-key').get('value') + '&'});
+			oDs = new Y.DataSource.IO({source:"/readSearchables.action?member=true&key=" + Y.one('#updateSearchableMembers-key').get('value') + '&'});
 
 
 			oDs.plug({fn: Y.Plugin.DataSourceJSONSchema, cfg: {

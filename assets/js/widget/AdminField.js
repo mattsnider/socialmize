@@ -72,7 +72,7 @@ Y.mix(AdminField, {
 		 */
 		dt: {
 			setter: function(value) {
-				return Y.get(value);
+				return Y.one(value);
 			},
 			writeOnce: true
 		},
@@ -84,7 +84,7 @@ Y.mix(AdminField, {
 		 */
 		dd: {
 			setter: function(value) {
-				return Y.get(value);
+				return Y.one(value);
 			},
 			writeOnce: true
 		},
@@ -290,11 +290,11 @@ Y.extend(AdminField, Y.Base, {
 		var xml = o.responseXML,
 			pwfId = xml.getElementsByTagName(NAME_PWF_ID)[0].getAttribute('value'),
 			pwId = xml.getElementsByTagName(NAME_PW_ID)[0].getAttribute('value'),
-			pwf = Y.get('#' + CLS_ACCORDION_TAB + '-' + pwfId + '-' + pwId),
-			n_npt = Y.get('#' + NAME_PW_NAME);
+			pwf = Y.one('#' + CLS_ACCORDION_TAB + '-' + pwfId + '-' + pwId),
+			n_npt = Y.one('#' + NAME_PW_NAME);
 
 		if (! pwf) {
-			var tmpl = Y.get('#' + CLS_ACCORDION_TAB + '-0-' + pwId).get('parentNode');
+			var tmpl = Y.one('#' + CLS_ACCORDION_TAB + '-0-' + pwId).get('parentNode');
 			pwf = tmpl.get('parentNode').insertBefore(tmpl.cloneNode(true), tmpl);
 
 			var pwfIdRx = new RegExp('(' + NAME_PWF_ID + '=)\\d+');
@@ -317,7 +317,7 @@ Y.extend(AdminField, Y.Base, {
 		if (confirm(TEXT_DELETE_FIELD)) {
 			var href = targ.get('href'),
 				pwfId = Y.String.getQueryValue(targ.get('href'), NAME_PWF_ID),
-				pwf = Y.get('#' + CLS_ACCORDION_TAB + '-' + pwfId);
+				pwf = Y.one('#' + CLS_ACCORDION_TAB + '-' + pwfId);
 
 			Y.io(href.replace(/\?.*/, ''), {data: href.replace(/.*?\?/, '') + AJAX_APPENDER, context: this});
 
@@ -667,14 +667,14 @@ Y.extend(AdminField, Y.Base, {
 		_this._clearFieldChanges();
 
 		// dynamic content is the non-button part of the third pane
-		_this._dynamicContent = Y.get('#panel-slide-field-content-' + widgetId);
+		_this._dynamicContent = Y.one('#panel-slide-field-content-' + widgetId);
 
 		// find buttons
-		_this._buttonFieldSave = Y.get('#panel-slide-field-save-' + widgetId);
-		_this._buttonFieldDelete = Y.get('#panel-slide-field-delete-' + widgetId);
-		_this._buttonWidgetSave = Y.get('#panel-slide-widget-save-' + widgetId);
-		_this._buttonWidgetDelete = Y.get('#panel-slide-widget-delete-' + widgetId);
-		_this._buttonWidgetField = Y.get('#panel-slide-widget-field-' + widgetId);
+		_this._buttonFieldSave = Y.one('#panel-slide-field-save-' + widgetId);
+		_this._buttonFieldDelete = Y.one('#panel-slide-field-delete-' + widgetId);
+		_this._buttonWidgetSave = Y.one('#panel-slide-widget-save-' + widgetId);
+		_this._buttonWidgetDelete = Y.one('#panel-slide-widget-delete-' + widgetId);
+		_this._buttonWidgetField = Y.one('#panel-slide-widget-field-' + widgetId);
 
 		_this._animSlide.on('triggerSlide', function(link) {
 			_this._clearFieldChanges();

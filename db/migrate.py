@@ -47,7 +47,7 @@ fileset = []
 sortset = []
 filemap = {}
 
-for filename in glob.glob( os.path.join(PATH, '*.sql') ):
+for filename in glob.glob( os.path.join(BASE_DIR, PATH, '*.sql') ):
 	key = _get_number(filename)
 
 	if int(key) > last_script_num:
@@ -60,15 +60,16 @@ sortset.sort()
 rx = re.compile(r'\n(.*?);', re.DOTALL)
 
 try:
-#iterate over the files after the last migration script run
+	#iterate over the files after the last migration script run
 	for key in sortset:
 		filename = filemap[key]
 		# execute queries from file
-		file = open(filename, "r")
+		file = open(filename,"r")
+		filename = filename[len(os.path.join(BASE_DIR, PATH)) + 1:]
 		print filename
 		sql = file.read()
 		file.close()
-		#	print sql
+	#	print sql
 
 		stmts = rx.findall(sql)
 
@@ -78,11 +79,11 @@ try:
 		cursor.close()
 		# notify database that migration was run
 		cursor = conn.cursor()
-		#		print "INSERT INTO `%s` (`script_name`) VALUES ('%s')" % (TABLE_NAME, filename)
+#		print "INSERT INTO `%s` (`script_name`) VALUES ('%s')" % (TABLE_NAME, filename)
 		cursor.execute( "INSERT INTO `%s`.`%s` (`script_name`) VALUES ('%s');" % (DATABASE, TABLE_NAME, filename) )
 		cursor.execute("commit")
 except Exception as e:
-	sys.stderr.write('%s' % e)
+	sys.stderr.write('%s\n' % e)
 	exit()
 
 cursor.close()

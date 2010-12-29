@@ -36,6 +36,10 @@ class ControllerJoinSubmit extends ControllerModuleSubmitBase {
 
 			list($searchables) = $man->readSearchables(array('sId' => $aCheckedSearchables));
 
+			$msg = '';
+			$privateMembers = array();
+			$privateTypes = array();
+
 			foreach ($searchables as $s) {
 				if ($s->isUser()) {
 					$o = Member::createSimple($aUser, $s);
@@ -43,6 +47,9 @@ class ControllerJoinSubmit extends ControllerModuleSubmitBase {
 					$man->createMember($o);
 					$nm = $this->_getNotificationManager($request);
 					$nm->notifyUser($man, $s, $aUser);
+
+					array_push($privateMembers, '<q>' . $s->getName() . '</q>');
+					array_push($privateTypes, $s->getType());
 				}
 				else {
 					if ($s->isOpen()) {
@@ -53,8 +60,16 @@ class ControllerJoinSubmit extends ControllerModuleSubmitBase {
 						$o->setStatus(Searchable::$STATUS_PENDING);
 					}
 
+					array_push($privateMembers, '<q>' . $s->getName() . '</q>');
+					array_push($privateTypes, $s->getType());
 					$man->createMember($o);
 				}
+			}
+
+			if (sizeof($privateMembers)) {
+				array_unique($privateTypes);
+				$msg = rimplode(', ', $privateMembers, ' and ') .
+					   ' have restricted privacy settings. They must confirm your connection before it shows up on your pages.';
 			}
 
 //			if (sizeof($addActiveSearchables)) {
@@ -63,6 +78,10 @@ class ControllerJoinSubmit extends ControllerModuleSubmitBase {
 //			else {
 //				$man->updateSearchableMembers($aUser, $addPendingSearchables, array(), Searchable::$STATUS_PENDING);
 //			}
+
+			if ($msg) {
+				$this->_parseMessage($request, $msg);
+			}
 
 			if ($aUser->getRegistrationTask()) {
 				$this->_updateNextTask($request, $aUser->getRegistrationTask()->getId());

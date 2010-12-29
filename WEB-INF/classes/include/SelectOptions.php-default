@@ -22,6 +22,15 @@
  * @since	  File available since release 1.0
  */
 
+/* --__boolean__-- */
+
+def('__boolean__', array(
+	'true' => 'Yes',
+	'false' => 'No'
+));
+
+/* --end-- */
+
 /* --article-type-- */
 
 def('article-type', array(

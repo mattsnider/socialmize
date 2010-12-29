@@ -32,7 +32,7 @@ CheckboxListFilter.ATTRS = {
 	// The filter node for this widget.
 	filter: {
 		setter: function(node) {
-			var n = Y.get(node);
+			var n = Y.one(node);
 			if (!n) {
 				Y.fail('CheckboxList: Invalid filter provided: ' + node);
 			}
@@ -52,7 +52,7 @@ CheckboxListFilter.ATTRS = {
 	// The filter btn node for this widget.
 	filterTrigger: {
 		setter: function(node) {
-			var n = Y.get(node);
+			var n = Y.one(node);
 			if (!n) {
 				Y.fail('CheckboxList: Invalid filter provided: ' + node);
 			}
@@ -69,7 +69,7 @@ CheckboxListFilter.ATTRS = {
 
 	limitNode: {
 		setter: function(node) {
-			var n = Y.get(node);
+			var n = Y.one(node);
 			if (!n) {
 				Y.fail('CheckboxList: Invalid filter provided: ' + node);
 			}
@@ -80,7 +80,7 @@ CheckboxListFilter.ATTRS = {
 	// The next link node for this widget.
 	linkNext: {
 		setter: function(node) {
-			var n = Y.get(node);
+			var n = Y.one(node);
 			if (!n) {
 				Y.fail('CheckboxList: Invalid next link provided: ' + node);
 			}
@@ -91,7 +91,7 @@ CheckboxListFilter.ATTRS = {
 	// The previous link node for this widget.
 	linkPrevious: {
 		setter: function(node) {
-			var n = Y.get(node);
+			var n = Y.one(node);
 			if (!n) {
 				Y.fail('CheckboxList: Invalid previous link provided: ' + node);
 			}
@@ -108,7 +108,7 @@ CheckboxListFilter.ATTRS = {
 
 	offsetNode: {
 		setter: function(node) {
-			var n = Y.get(node);
+			var n = Y.one(node);
 			if (!n) {
 				Y.fail('CheckboxList: Invalid filter provided: ' + node);
 			}

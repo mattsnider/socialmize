@@ -257,6 +257,18 @@ function import_jsp($name) {
 	}
 }
 
+function rimplode($glue, $pieces, $lastGlue) {
+	$n = sizeof($pieces);
+
+
+	if (1 < $n) {
+		$top = array_pop($pieces);
+		$pieces = array(implode($glue, $pieces), $top);
+	}
+
+	return implode($pieces, $lastGlue);
+}
+
 /**
  * Get the current unix time in milliseconds
  */

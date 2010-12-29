@@ -177,6 +177,11 @@ echo(HtmlHelper::selectTag(c($field->getName()), $field->getValue(), array('cls'
 }
 break;
 
+case ProfileWidgetField::$TYPE_BOOLEAN:
+	echo(HtmlHelper::selectTag(c('__' . $field->getType() . '__'), $field->getValue(), array('cls' => 'select', 'id' => $field->getName(),
+		'name' => $field->getName() . $bkt)));
+break;
+
 case ProfileWidgetField::$TYPE_AUTOCOMPLETE:
 echo '<input class="txt autocomplete" id="' . $type . '-npt-' . $aI . '" maxlength="' . $field->getMaxlength() . '" name="' .
 $field->getName() . $bkt . '" type="text" value="' . $field->getValue() . '" />';

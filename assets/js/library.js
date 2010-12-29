@@ -20744,10 +20744,10 @@ Y.mix(AnimBlind, {
 		trigger: {
 			value: null,
 			setter: function(val) {
-				return Y.get(val);
+				return Y.one(val);
 			},
 			validator: function(val) {
-				return Y.get(val);
+				return Y.one(val);
 			}
 		}
 	}

@@ -751,27 +751,23 @@ h2 {
 	padding-left: 1em;
 }
 
-#snav li a.hasedit {
-	float: left;
-	width: 5em;
+#snav li a:hover {
+	text-decoration: underline;
 }
 
 #snav li a.indent {
 	padding-left: 1.5em!important;
 }
 
-#snav li a.selected,
-#snav li a:hover {
+#snav li.profile:hover a.edit {
+	visibility: visible;
 }
 
 #snav li a.edit {
-	float: left;
-	margin-left: 0;
-	width: 2em;
-}
-
-#snav li a.edit i {
-	font-style: normal;
+	float: right;
+	margin-bottom: -1.4em;
+	padding-right: 1em;
+	visibility: hidden;
 }
 
 
