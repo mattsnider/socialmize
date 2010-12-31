@@ -2403,13 +2403,13 @@ class BaseManager extends Object {
 		// if status is null, then we don't check it
 		if ($status) {
 			$tableName = str_replace('`', '', $tableName);
-			$whereclaus = $tableName ? str_replace('`S`', '`' . $tableName . '`', Searchable::$SQL_WHERE_STATUS) : Searchable::$SQL_WHERE_STATUS;
+			$whereClause = $tableName ? str_replace('`S`', '`' . $tableName . '`', Searchable::$SQL_WHERE_STATUS) : Searchable::$SQL_WHERE_STATUS;
 
 			if (is_array($status)) {
-				array_push($wheres, str_replace('= ?', 'IN ("' . implode('","', $status) . '")', $whereclaus));
+				array_push($wheres, str_replace('= ?', 'IN ("' . implode('","', $status) . '")', $whereClause));
 			}
 			else {
-				array_push($wheres, $whereclaus);
+				array_push($wheres, $whereClause);
 				array_push($values, $status);
 			}
 		}

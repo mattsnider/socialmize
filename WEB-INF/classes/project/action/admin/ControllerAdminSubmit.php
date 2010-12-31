@@ -43,8 +43,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 		}
 
 		// validate page forward
-		switch ($page)
-		{
+		switch ($page) {
 			case 'config':
 			case 'content':
 			case 'custom':
@@ -57,8 +56,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 		}
 
 		// do task
-		switch ($task)
-		{
+		switch ($task) {
 
 			// become another user
 			case 'become':
@@ -73,8 +71,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 					$this->_parseMessage($request, 'M:You have become user "{0}".', $user->getName());
 					return ref('home'); // do not move this, as user may not be an admin
 				}
-				else
-				{
+				else {
 					$error = 'User change did not work.';
 				}
 
@@ -124,6 +121,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 				$stask = $this->_getParameterAsString($request, 'contents');
 				$content = "\n" . $this->_getParameterAsString($request, 'content', '', c('PARANOID_ALLOWED_EMAIL')) . "\n"; // required for regex
 				$content = preg_replace('/(\n+[^0-9\s].*?(?=\n+))/', '<p>$1</p>', $content);
+				
 				if (c('QUERY_KEY_TERMS') === $stask) {
 					$content = preg_replace('/(\d+\.\s.*?(?=\<p\>))/', '<h3>$1</h3>', $content);
 				}
@@ -136,17 +134,16 @@ class ControllerAdminSubmit extends ControllerAdmin {
 					if (file_put_contents($file, $content)) {
 						$message = 'Content successfully updated.';
 					}
-					else
-					{
+					else {
 						$l->error("Content `$stask` did not save successfully.");
 						$error = 'Content did not update, could not write. Please notify contact your system administrator.';
 					}
 				}
-				else
-				{
+				else {
 					$l->error("Content `$file` is missing.");
 					$error = 'Content did not update, missing the file. Please notify contact your sales rep.';
 				}
+				
 				break;
 
 			// customize project experience
@@ -990,7 +987,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 		$pwf->setOrder($order);
 		$pwf->setStatus($status);
 
-		if (!$man->isProfileWidgetFieldNameAvailable($pwId, $name, $pwfId)) {
+		if (! $man->isProfileWidgetFieldNameAvailable($name)) {
 			return array('That name is already in use.');
 		}
 

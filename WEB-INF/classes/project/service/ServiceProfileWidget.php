@@ -498,26 +498,26 @@ class ServiceProfileWidget extends BaseManager {
 	}
 
 	/**
-	 * Tests if the provided name is availabe on the provided profile widget.
+	 * Tests if the provided name is available on the provided profile widget.
 	 * @method isProfileWidgetFieldNameAvailable
-	 * @param  integer|ProfileWidget $o Required. The DB PK or instance.
 	 * @param  string $name Required. The name to evaluate.
 	 * @param  integer $pwfId Optional. The profile widget field id.
 	 * @return boolean The name is available.
 	 * @since  version 1.0
 	 * @access public
 	 */
-	public function isProfileWidgetFieldNameAvailable($o, $name, $pwfId = null) {
-		$pw = $this->_getPW($o);
-		$fields = $pw->getFields();
+	public function isProfileWidgetFieldNameAvailable($name, $pwfId=null) {
+		$values = array($name);
+		$wheres = array($this->_DB_WHERE_NAME);
 
-		foreach ($fields as $k => $v) {
-			if ($pwfId !== $v->getId() && $name == $v->getName()) {
-				return false;
-			}
+		$this->_setupSearchableStatus($wheres, $values, array(Searchable::$STATUS_ACTIVE,Searchable::$STATUS_INACTIVE), 'PWF');
+
+		if ($pwfId) {
+			array_push($values, $pwfId);
+			array_push($wheres, '`id` != ?');
 		}
 
-		return true;
+		return ! $this->_getCount(array(ProfileWidgetField::$SQL_TABLE), $values, $wheres);
 	}
 
 	/**

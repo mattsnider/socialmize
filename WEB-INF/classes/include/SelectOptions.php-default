@@ -50,16 +50,6 @@ def('attend', array(
 
 /* --end-- */
 
-/* --attend-- */
-
-def('category', array(
-	1 => 'Recreational',
-	2 => 'Advanced',
-	3 => 'Premier'
-));
-
-/* --end-- */
-
 /* --country-- */
 
 def('country', array(
@@ -544,37 +534,12 @@ def('monthAbr', array(
 
 /* --end-- */
 
-/* --network-- */
-
-def('network', array(
-	0 => 'Everyone',
-	1 => 'Student',
-	2 => 'Faculty',
-	3 => 'Staff',
-	66 => 'Corporate Forum',
-	99 => 'Admin'
-));
-
-/* --end-- */
-
 /* --profileFeatures-- */
 
 def('profileFeatures', array(
 	1 => 'related',
 	2 => 'board',
 	3 => 'wall'
-));
-
-/* --end-- */
-
-/* --size-- */
-
-def('size', array(
-	1 => 'less than 10',
-	2 => 'less than 100',
-	3 => 'less than 1,000',
-	4 => 'less than 10,000',
-	5 => 'more than 10,000'
 ));
 
 /* --end-- */
@@ -636,16 +601,6 @@ def('state', array(
 ));
 
 /* --end-- */
-/* --status-- */
-
-def('status', array(
-	1 => 'Private, for profit',
-	2 => 'public',
-	3 => 'Non-profit',
-	4 => 'NGO'
-));
-
-/* --end-- */
 
 /* --title-- */
 
@@ -659,247 +614,6 @@ def('title', array(
 	7 => 'Staff',
 	8 => 'Undergraduate',
 	9 => 'Admin Associate'
-));
-
-/* --end-- */
-
-/* --select-- */
-
-def('select', array(
-	1 => 'value1',
-	4 => 'value4',
-	5 => 'value5a',
-	6 => 'value6'
-));
-
-/* --end-- */
-
-
-
-/* --play_coed-- */
-
-def('play_coed', array(
-	1 => 'Yes',
-	2 => 'No'
-));
-
-/* --end-- */
-
-/* --position_i_play_2-- */
-
-def('position_i_play_2', array(
-	1 => 'Defense',
-	2 => 'Midfield',
-	3 => 'Forward',
-	4 => 'Keeper'
-));
-
-/* --end-- */
-
-/* --i_play-- */
-
-def('i_play', array(
-	1 => 'Forward',
-	2 => 'Midi',
-	3 => 'Defense anywhere',
-	4 => 'Sweeper',
-	5 => 'Keeper',
-	6 => 'Other'
-));
-
-/* --end-- */
-
-/* --preferred_postions-- */
-
-def('preferred_postions', array(
-	1 => 'Forward',
-	2 => 'Midi',
-	3 => 'Midi outside',
-	4 => 'Defense',
-	5 => 'Sweeper',
-	6 => 'Keeper',
-	7 => 'Anywhere but Keeper',
-	8 => 'Anywhere'
-));
-
-/* --end-- */
-
-/* --level-- */
-
-def('level', array(
-	42 => 'Premier'
-));
-/* --end-- */
-
-/* --will_sub-- */
-
-def('will_sub', array(
-	1 => 'Yes',
-	2 => 'No',
-	3 => 'It depends pls contact me'
-));
-
-/* --end-- */
-
-/* --free_agent-- */
-
-def('free_agent', array(
-	1 => 'Yes',
-	2 => 'No',
-	3 => 'Maybe'
-));
-
-/* --end-- */
-
-/* --available_days-- */
-
-def('available_days', array(
-	1 => 'Monday',
-	2 => 'Tuesday',
-	3 => 'Wednesday',
-	4 => 'Thursday',
-	5 => 'Friday',
-	6 => 'Weeknights only',
-	7 => 'Variable: Please contact me',
-	8 => 'Saturday',
-	9 => 'Sunday'
-));
-
-/* --end-- */
-
-/* --league-- */
-
-def('league', array(
-	1 => 'Coed',
-	2 => 'Mens',
-	3 => 'Sunday Womens',
-	4 => 'Men over 50',
-	5 => 'Summer Coed',
-	6 => 'No League Yet'
-));
-
-/* --end-- */
-
-/* --main_website-- */
-
-def('main_website', array(
-	1 => 'http://siliconvalleysoccer.com'
-));
-
-/* --end-- */
-
-/* --fields-- */
-
-def('fields', array(
-	1 => 'http://siliconvalleysoccer.com/fields.php',
-	2 => 'http://siliconvalleysoccer.com/fields.php?field_id=mayfield'
-));
-
-/* --end-- */
-
-/* --current_status-- */
-
-def('current_status', array(
-	1 => 'Active',
-	2 => 'Temporarily Inactive',
-	3 => 'Injured',
-	4 => 'Alumnus'
-));
-
-/* --end-- */
-
-/* --test_field_1-- */
-
-def('test_field_1', array(
-	1 => 'test',
-	2 => 'test 1',
-	3 => 'test 2',
-	4 => 'test 3'
-));
-
-/* --end-- */
-
-/* --group_status-- */
-
-def('group_status', array(
-	1 => 'Active',
-	2 => 'Temporarily Inactive',
-	4 => 'Alumnus'
-));
-
-/* --end-- */
-
-/* --category-- */
-
-def('category', array(
-	1 => 'Team',
-	2 => 'Group',
-	3 => 'Other'
-));
-
-
-/* --age_validation-- */
-
-def('age_validation', array(
-
-));
-
-/* --end-- */
-
-/* --age_during_2010-- */
-
-def('age_during_2010', array(
-
-));
-
-/* --end-- */
-
-/* --i_confirm_i_am_over_18-- */
-
-def('i_confirm_i_am_over_18', array(
-
-));
-
-/* --end-- */
-
-/* --i_am_over_18-- */
-
-def('i_am_over_18', array(
-	1 => 'Yes',
-	2 => 'No'
-));
-
-/* --end-- */
-
-/* --skill_level-- */
-
-def('skill_level', array(
-	2850 => 'Advanced',
-	2847 => 'Beginner',
-	2848 => 'Intermediate',
-	2849 => 'Intermediate to Advanced',
-	2817 => 'Premier'
-));
-
-/* --end-- */
-
-/* --league_name-- */
-
-def('league_name', array(
-	2920 => 'COED',
-	2922 => 'Men over 50',
-	2921 => 'Womens'
-));
-
-/* --end-- */
-
-/* --division_name-- */
-
-def('division_name', array(
-	2924 => '1B',
-	2925 => '2B',
-	2923 => 'Premier',
-	2926 => 'Premier 1B and 2B'
 ));
 
 /* --end-- */

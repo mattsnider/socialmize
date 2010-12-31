@@ -293,18 +293,23 @@ Y.extend(AdminField, Y.Base, {
 			pwf = Y.one('#' + CLS_ACCORDION_TAB + '-' + pwfId + '-' + pwId),
 			n_npt = Y.one('#' + NAME_PW_NAME);
 
-		if (! pwf) {
-			var tmpl = Y.one('#' + CLS_ACCORDION_TAB + '-0-' + pwId).get('parentNode');
-			pwf = tmpl.get('parentNode').insertBefore(tmpl.cloneNode(true), tmpl);
-
-			var pwfIdRx = new RegExp('(' + NAME_PWF_ID + '=)\\d+');
-			pwf = pwf.first();
-			pwf.set('id', pwf.get('id').replace(/\d+/, pwfId));
-			pwf.set('href', pwf.get('href').replace(pwfIdRx, '$1' + pwfId));
+		if ('0' == pwfId) {
+			alert('A Field by that name already exists. Please try another');
 		}
+		else {
+			if (! pwf) {
+				var tmpl = Y.one('#' + CLS_ACCORDION_TAB + '-0-' + pwId).get('parentNode');
+				pwf = tmpl.get('parentNode').insertBefore(tmpl.cloneNode(true), tmpl);
 
-		if (n_npt) {pwf.set('innerHTML', n_npt.get('value') + '&nbsp;&raquo;');}
-		this._reqUpdateField(pwf);
+				var pwfIdRx = new RegExp('(' + NAME_PWF_ID + '=)\\d+');
+				pwf = pwf.first();
+				pwf.set('id', pwf.get('id').replace(/\d+/, pwfId));
+				pwf.set('href', pwf.get('href').replace(pwfIdRx, '$1' + pwfId));
+			}
+
+			if (n_npt) {pwf.set('innerHTML', n_npt.get('value') + '&nbsp;&raquo;');}
+			this._reqUpdateField(pwf);
+		}
 	},
 
 	/**

@@ -235,8 +235,8 @@
 
 			$pwf2 = $this->_man->getProfileWidgetFieldById($pwf->getId());
 
-			$false = $this->_man->isProfileWidgetFieldNameAvailable($pw2, 'test_' . ProfileWidgetField::$TYPE_TEXT);
-			$true = $this->_man->isProfileWidgetFieldNameAvailable($pw2, 'test_asdfad');
+			$false = $this->_man->isProfileWidgetFieldNameAvailable('test_' . ProfileWidgetField::$TYPE_TEXT);
+			$true = $this->_man->isProfileWidgetFieldNameAvailable('test_asdfad');
 
 			$this->assertEqual(false, $false);
 			$this->assertEqual(true, $true);
