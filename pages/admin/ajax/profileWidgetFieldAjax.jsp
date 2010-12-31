@@ -60,10 +60,15 @@ $types = ProfileWidgetField::getTypes();
 $options = array('<option>-- Select A Type --</option>');
 
 foreach ($types as $type) {
-if (ProfileWidgetField::$TYPE_PORTRAIT !== $type) {
-$arr = array('value' => $type);
-array_push($options, HtmlHelper::createOptionTag($arr, $type));
-}
+	if (ProfileWidgetField::$TYPE_PORTRAIT != $type) {
+		$arr = array('value' => $type);
+
+		if (ProfileWidgetField::$TYPE_BOOLEAN == $type) {
+			$type = 'yes or no question';
+		}
+
+		array_push($options, HtmlHelper::createOptionTag($arr, $type));
+	}
 }
 
 $arr = array('id' => $name, 'name' => $name);
