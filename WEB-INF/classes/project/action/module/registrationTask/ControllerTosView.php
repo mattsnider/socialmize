@@ -4,7 +4,7 @@ import('project.action.module.ControllerModuleViewBase');
 /**
  * @package project.action.page
  */
-class ControllerTermsView extends ControllerModuleViewBase {
+class ControllerTosView extends ControllerModuleViewBase {
 
 	/**
 	 * @Override

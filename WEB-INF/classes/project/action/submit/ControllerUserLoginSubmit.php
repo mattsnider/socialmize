@@ -114,7 +114,7 @@ class ControllerUserLoginSubmit extends ControllerBase {
 				$user->setStatus($status);
 				$man->createUser($user);
 
-				$this->loginUser($request, $response, $user);
+				$this->loginUser($request, $response, $user, true);
 				$log->info($user->getName() . ' loggin in @ ' . getDatetime(time()));
 
 				if ($isAdminInvite) {
@@ -175,14 +175,16 @@ class ControllerUserLoginSubmit extends ControllerBase {
 	 * @param  $request {HttpServletRequest} Required. The http request.
 	 * @param  $response {HttpServletRequest} Required. The http response.
 	 * @param  $oUser {Searchable} A User DBO representing user to login.
+	 * @param  $isCreate {Boolean} Creating a new user; defaults to false.
 	 * @access Private
 	 * @since  Release 1.0
 	 */
-	private function loginUser($request, &$response, $oUser) {
+	private function loginUser($request, &$response, $oUser, $isCreate=false) {
+		$userId = $oUser->getId();
 		list($man) = $this->_getServices($request, 'UserManager');
 		$conn = $man->ds->getConnection();
 		$stmt = $conn->prepareStatement('UPDATE ' . $this->managerUser->_DB_TABLE_USER . ' SET `login_count`=`login_count`+1, `last_login`=NOW() WHERE `searchable_id`=?');
-		$stmt->setInt(1, $oUser->getId());
+		$stmt->setInt(1, $userId);
 		$stmt->executeQuery();
 		$oUser->setLoginCount($oUser->getLoginCount() + 1);
 		$conn->close();
@@ -192,12 +194,15 @@ class ControllerUserLoginSubmit extends ControllerBase {
 		$session = $request->getSession();
 
 		$regMan = new ServiceRegistration($this->getDataSource($request));
-		$oNextUserRegTask = $regMan->readNextSearchableRegistrationTask($oUser->getId());
+		if (! $isCreate) {
+			$regMan->updateRegistrationTasksOnLogin($userId);
+		}
+		$oNextUserRegTask = $regMan->readNextSearchableRegistrationTask($userId);
 		$oUser->setRegistrationTask($oNextUserRegTask);
 
 		// user is inactive, so re-activate them
 		if (Searchable::$STATUS_INACTIVE == $oUser->getStatus()) {
-			$man->updateSearchableStatus($oUser->getId(), Searchable::$STATUS_ACTIVE, $oUser->getAccess());
+			$man->updateSearchableStatus($userId, Searchable::$STATUS_ACTIVE, $oUser->getAccess());
 		}
 
 		$oUser->setIsMember(array(false, true, true));

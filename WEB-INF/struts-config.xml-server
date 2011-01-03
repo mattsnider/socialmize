@@ -318,11 +318,11 @@
 
 		<!-- Start RegistrationTask Actions -->
 
-		<action path="/registration_view_tos" type="project.action.module.registrationTask.ControllerTermsView">
+		<action path="/registration_view_tos" type="project.action.module.registrationTask.ControllerTosView">
 			<forward name="success" path="/pages/module/registrationTask/tos.jsp"/>
 		</action>
 
-		<action path="/registration_update_tos" type="project.action.module.registrationTask.ControllerTermsSubmit"/>
+		<action path="/registration_update_tos" type="project.action.module.registrationTask.ControllerTosSubmit"/>
 
 		<action path="/registration_view_required" type="project.action.module.registrationTask.ControllerRequiredView">
 			<forward name="success" path="/pages/module/registrationTask/required.jsp"/>

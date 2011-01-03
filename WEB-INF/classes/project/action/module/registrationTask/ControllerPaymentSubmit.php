@@ -8,6 +8,10 @@ import('project.service.ServiceRegistration');
  */
 class ControllerPaymentSubmit extends ControllerModuleSubmitBase {
 
+	public static function loginEvaluation($man, $userId) {
+		return false;
+	}
+
 	/**
 	 * @Override
 	 */

@@ -8,6 +8,10 @@ import('project.service.ServiceRegistration');
  */
 class ControllerJoinSubmit extends ControllerModuleSubmitBase {
 
+	public static function loginEvaluation($man, $userId) {
+		return false;
+	}
+
 	/**
 	 * @Override
 	 */

@@ -987,7 +987,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 		$pwf->setOrder($order);
 		$pwf->setStatus($status);
 
-		if (! $man->isProfileWidgetFieldNameAvailable($name)) {
+		if (! $man->isProfileWidgetFieldNameAvailable($name, $pwfId)) {
 			return array('That name is already in use.');
 		}
 

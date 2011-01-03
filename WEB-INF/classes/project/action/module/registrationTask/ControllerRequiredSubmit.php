@@ -8,6 +8,20 @@ import('project.service.ServiceRegistration');
  */
 class ControllerRequiredSubmit extends ControllerModuleSubmitBase {
 
+	public static function loginEvaluation($man, $userId) {
+		$man = new ServiceProfileWidget($man->ds);
+		$aFields = $man->getRequiredProfileWidgetFields($userId, Searchable::$TYPE_USER);
+		list($aFields) = $man->readProfileWidgetFieldValues($aFields, $userId);
+
+		foreach ($aFields as $oField) {
+			if (! $oField->getValue()) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
 	/**
 	 * @Override
 	 */

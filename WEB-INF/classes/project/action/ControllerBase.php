@@ -86,8 +86,8 @@ class ControllerBase extends Action {
 		$request->setAttribute(c('MN_PROJECT_NAME_UC'), $this->props->getProperty('project.nameUC'));
 
 		if ($aUser) {
-			//			dlog('User is logged in');
-			//			dlog($this->_requiresRegistration);
+			//dlog('User is logged in');
+			//dlog($this->_requiresRegistration);
 
 			// set the authorized user attribute
 			$type = $this->_getParameterAsString($request, c('QK_TYPE'), 'user');
@@ -108,7 +108,7 @@ class ControllerBase extends Action {
 				}
 			}
 		} else {
-			//			dlog('User is not logged in');
+			//dlog('User is not logged in');
 
 			// not executing a login controller, forward to login
 			if ($this->_requiresLogin) {
@@ -134,12 +134,12 @@ class ControllerBase extends Action {
 			//dlog('Second login required check');
 			$button = trim(strtolower($this->_getParameterAsString($request, c('QUERY_KEY_BUTTON'))));
 			$noCache = $this->_getParameterAsBoolean($request, c('QUERY_KEY_NO_CACHE'));
-			$hasMessageBoard = 'true' === $this->props->getProperty('project.features.messageBoard');
-			$hasWall = 'true' === $this->props->getProperty('project.features.wall');
-			$hasRelated = 'true' === $this->props->getProperty('project.features.related');
+			$hasMessageBoard = 'true' == $this->props->getProperty('project.features.messageBoard');
+			$hasWall = 'true' == $this->props->getProperty('project.features.wall');
+			$hasRelated = 'true' == $this->props->getProperty('project.features.related');
 
 			// action was cancelled
-			if ($button === 'cancel' || $button === 'no') {
+			if ($button == 'cancel' || $button == 'no') {
 				//dlog('Server-side cancel');
 				$response->sendRedirect('/index.php' . $this->getHistory($request, 1));
 				return $mapping->findForward(ref('redirect'));
@@ -168,7 +168,7 @@ class ControllerBase extends Action {
 
 			// user exists
 			if ($aUser) {
-				//				dlog('Active user exists');
+				//dlog('Active user exists');
 				$S = $this->_getContext($request, $key, $pagename, $aUser);
 
 				// user is not authorized to view content
@@ -177,7 +177,7 @@ class ControllerBase extends Action {
 					return $mapping->findForward(ref('unauthorized'));
 				}
 					// non-post request, fetch some data
-				else if ('get' === strtolower($request->getMethod())) {
+				else if ('get' == strtolower($request->getMethod())) {
 					//dlog('Not a post request');
 					$aUserId = $aUser->getId();
 					$messagen = $uMan->getMessageCount($aUserId, false, 'unread');
@@ -195,9 +195,9 @@ class ControllerBase extends Action {
 				$hasWall = $hasWall && ($S->isMember() || $S->isAdmin() || $S->isWallPublic());
 				$type = $S->getType();
 
-				$hasMessageBoard = $hasMessageBoard && 'true' === $this->props->getProperty('project.features.messageBoard.' . $type);
-				$hasRelated = $hasRelated && 'true' === $this->props->getProperty('project.features.related.' . $type);
-				$hasWall = $hasWall && 'true' === $this->props->getProperty('project.features.wall.' . $type);
+				$hasMessageBoard = $hasMessageBoard && 'true' == $this->props->getProperty('project.features.messageBoard.' . $type);
+				$hasRelated = $hasRelated && 'true' == $this->props->getProperty('project.features.related.' . $type);
+				$hasWall = $hasWall && 'true' == $this->props->getProperty('project.features.wall.' . $type);
 
 				// set project properties
 				$request->setAttribute(c('QK_HAS_MESSAGE_BOARD'), $hasMessageBoard);

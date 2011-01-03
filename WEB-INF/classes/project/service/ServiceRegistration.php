@@ -55,6 +55,22 @@ class ServiceRegistration extends BaseManager {
 		return $results;
 	}
 
+	public function updateRegistrationTasksOnLogin($userId) {
+		$rs = $this->_select(array(RegistrationTask::$SQL_TABLE), array(RegistrationTask::$SQL_SELECT), array(Searchable::$STATUS_ACTIVE));
+
+		while ($rs->next()) {
+			$type = $rs->getString('type');
+			$regTaskId = $rs->getString('id');
+
+			$className = 'Controller' . ucfirst($type) . 'Submit';
+			import('project.action.module.registrationTask.' . $className);
+
+			if (call_user_func(array($className, 'loginEvaluation'), $this, $userId)) {
+				$this->_delete('registration_task_searchable', array($regTaskId, $userId), array('registration_task_id=?', 'searchable_id=?'));
+			}
+		}
+	}
+
 	/**
 	 * Read the next uncompleted RegistrationTask from the DB, for a searchable.
 	 * @method readNextSearchableRegistrationTask

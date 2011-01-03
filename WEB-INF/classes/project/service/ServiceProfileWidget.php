@@ -421,7 +421,7 @@ class ServiceProfileWidget extends BaseManager {
 		$pw->setFields($fieldsNew);
 	}
 
-	private function readProfileWidgetFieldValues($aFields, $sId) {
+	public function readProfileWidgetFieldValues($aFields, $sId) {
 		$hasValue = false;
 
 		$union = array();
@@ -513,6 +513,7 @@ class ServiceProfileWidget extends BaseManager {
 		$this->_setupSearchableStatus($wheres, $values, array(Searchable::$STATUS_ACTIVE,Searchable::$STATUS_INACTIVE), 'PWF');
 
 		if ($pwfId) {
+			dlog('wtf');
 			array_push($values, $pwfId);
 			array_push($wheres, '`id` != ?');
 		}

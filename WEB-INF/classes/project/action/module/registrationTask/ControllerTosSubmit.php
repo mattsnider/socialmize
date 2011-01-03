@@ -6,7 +6,12 @@ import('project.service.ServiceRegistration');
 /**
  * @package project.action.user
  */
-class ControllerTermsSubmit extends ControllerModuleSubmitBase {
+class ControllerTosSubmit extends ControllerModuleSubmitBase {
+
+	public static function loginEvaluation($man, $userId) {
+		// TODO: need a way to indicate that the TOS has changed
+		return false;
+	}
 
 	/**
 	 * @Override
