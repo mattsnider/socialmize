@@ -9,30 +9,6 @@
 
 	<template:put name="content" direct="true">
 
-        <div class="tabs tabs-round tabs-hasSub clearfix" id="tabs-admin"><ul>
-
-            <?
-                // Update the selected tab
-                $page = $pageContext->evaluateTemplateText('${' . c('MN_PAGE') . '}');
-                $clsDash = $page === 'dash' || ! $page ? 'selected' : '';
-                $clsConfig = $page === 'config' || ! $page ? 'selected' : '';
-                $clsCustom = $page === 'custom' ? 'selected' : '';
-                $clsContent = $page === 'content' ? 'selected' : '';
-                $clsMessage = $page === 'message' ? 'selected' : '';
-                $clsGroup = $page === 'group' ? 'selected' : '';
-                $clsSearchable = $page === 'searchable' ? 'selected' : '';
-                $taburl = 'admin.action?' . c('QUERY_KEY_PAGE') . '=';
-            ?>
-
-            <li class="first <? echo($clsDash); ?>"><a href="<? echo($taburl); ?>dash">Dashboard</a></li>
-            <li class="<? echo($clsConfig); ?>"><a href="<? echo($taburl); ?>config">Configuration</a></li>
-            <li class="<? echo($clsContent); ?>"><a href="<? echo($taburl); ?>content">Content</a></li>
-            <li class="<? echo($clsCustom); ?>"><a href="<? echo($taburl); ?>custom">Customize</a></li>
-            <li class="<? echo($clsMessage); ?>"><a href="<? echo($taburl); ?>message">Message Center</a></li>
-            <li class="last <? echo($clsSearchable); ?>"><a href="<? echo($taburl); ?>searchable">Member Manager</a></li>
-            
-        </ul></div>
-
 		<c:choose>
 
 			<c:when test="${'dash' == page}"><c:import url="tab-dashboard.jsp" /></c:when>
