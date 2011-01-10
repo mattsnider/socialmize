@@ -94,6 +94,7 @@ class ControllerBase extends Action {
 			$request->setAttribute(c('MN_AUTHORIZED_USER'), $aUser);
 			$request->setAttribute(c('MN_AUTHORIZED_TYPE'), $this->_getType($type));
 			$request->setAttribute('jsEnabled', $session->getAttribute('jsEnabled'));
+			$request->setAttribute('isAdminView', ref($aUser->isSiteAdmin() && $session->getAttribute('isAdminView')));
 
 			if ($this->_requiresRegistration) {
 				// this page requires that the user is registered

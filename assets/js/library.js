@@ -20526,12 +20526,12 @@ var DEFAULT_TIMEOUT = 30000,
 
 var base = '/assets/js/';
 //var base = '../';
-var $VERSION = '.js?r=72',
+var $VERSION = '.js?r=75',
 	//var $VERSION = '.js?r=' + Math.random(),
 		$YO = {
-			//	base: 'http://core.localhost/assets/js/yahoo-3/',
+			base: 'http://yui.localhost/yui3/build/',
 			filter: 'raw',
-			combine: true,
+//			combine: true,
 			timeout: 10000,
 			useBrowserConsole: true,
 			logLevel: 'warn',
@@ -20621,6 +20621,13 @@ var $VERSION = '.js?r=72',
 					supersedes: []
 				},
 
+				'matt_searchableListOfCheckboxes': {
+					fullpath: base + 'widget/SearchableListOfCheckboxes' + $VERSION,
+					requires: ['widget', 'datasource', 'json', 'yui3-ext', 'matt_form'],
+					optional: [],
+					supersedes: []
+				},
+
 				'matt_form': {
 					fullpath: base + 'util/form' + $VERSION,
 					requires: ['base', 'collection'],
@@ -20637,7 +20644,7 @@ var $VERSION = '.js?r=72',
 
 				'yui3-ext': {
 					fullpath: base + 'widget/YUI3-Ext' + $VERSION,
-					requires: ['base', 'node', 'anim', 'collection'],
+					requires: ['base', 'widget', 'node', 'anim', 'collection'],
 					optional: [],
 					supersedes: []
 				}

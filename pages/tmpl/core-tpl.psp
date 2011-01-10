@@ -131,6 +131,104 @@
 
 	<c:if test="${! empty aUser}">
 
+		<?
+			$aUserKey = $pageContext->evaluateTemplateText('${aUser.key}');
+			$wasAdmin = $pageContext->evaluateTemplateText('${aUser.wasAdmin}');
+			$isSiteAdmin = $pageContext->evaluateTemplateText('${aUser.isSiteAdmin}');
+			$url = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_URL') . '}');
+			$url .= '?' . $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_SEARCH') . '}');
+
+			$pagename = $pageContext->evaluateTemplateText('${' . c('MN_PAGENAME') . '}');
+			$page = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_PAGE') . '}');
+			$task = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_TASK') . '}');
+			$messageCount = $pageContext->evaluateTemplateText('${' . c('MN_MESSAGEN') . '}');
+			$qkey = $pageContext->evaluateTemplateText('${' . c('MN_PARAM_KEY') . '}');
+			$nameMembers = $pageContext->evaluateTemplateText('${nameMembers}');
+			$isAdmin = $pageContext->evaluateTemplateText('${isAdminView}');
+
+			if ($isAdmin) {
+
+			// admin
+			$clsAdminConfig = $pagename == 'admin' && ('config' == $page || !$page) ? 'selected' : '';
+			$clsAdminContent = $pagename == 'admin' && 'content' == $page ? 'selected' : '';
+			$clsAdminCustom = $pagename == 'admin' && 'custom' == $page ? 'selected' : '';
+			$clsAdminMessage = $pagename == 'admin' && 'message' == $page ? 'selected' : '';
+			$clsAdminSearchable = $pagename == 'admin' && 'searchable' == $page ? 'selected' : '';
+			$clsAdminDash = $pagename == 'admin' && 'dash' == $page ? 'selected' : '';
+
+			$adminLinks = array(
+				'Overview' => array(
+					'Statistics' => array('dash', 'stats'),
+					'More to come&hellip;' => array('dash', 'more')
+				),
+				'Configure Site' => array(
+					'Project Name' => array('config', 'nameProject'), // merge this with the next page
+					'General' => array('config', 'configuration'),
+					'Features' => array('config', 'modules'),
+					'Feature Names' => array('config', 'nameModules'),
+					'Profanity Filter' => array('config', 'profanity'),
+					'Registration' => array('content', 'registration')
+				),
+				'Manage Content' => array(
+					'Emails' => array('content', 'email'),
+					'Site Copy' => array('content', 'content'),
+					'Profile Fields' => array('content', 'field')
+				),
+				'Customize Site' => array(
+					'Fonts &amp; Colors' => array('custom', 'fonts'),
+					'Logos &amp; Icons' => array('custom', 'logos'),
+					'Themes &amp; Backgrounds' => array('custom', 'themes'),
+					'Advanced' => array('custom', 'adv')
+				),
+				'Message' => array(
+					'Message Users' => array('message', 'message'),
+					'Site News	' => array('message', 'news')
+				),
+				'Message' => array(
+					'Pending Approvals' => array('searchable', 'pending'),
+					'Registration Configuration' => array('searchable', 'configurationSignup'),
+					'Manage Users' => array('searchable', 'user'),
+					'Manage Groups' => array('searchable', 'group'),
+					'Manage Networks' => array('searchable', 'network')
+				)
+			);
+
+		?>
+
+		<ul id="snav">
+
+			<?
+				foreach ($adminLinks as $hd => $pages) {
+					echo '<li>';
+					echo '<a href="javascript://open">' . $hd . '</a>';
+					echo '<ul>';
+
+					$i = 1;
+					$n = sizeof($pages);
+
+					foreach ($pages as $s => $params) {
+						$href = '/admin.action?' . c('QUERY_KEY_PAGE') . '=' . $params[0] . '&' . c('QUERY_KEY_TASK') . '=' . $params[1];
+						$cls = $page == $params[0] && $task == $params[1] ? 'selected' : '';
+						if ($i == $n) {$cls .= ' last';}
+						echo '<li class="'.$cls.'"><a href="'.$href.'">' . $s . '</a></li>';
+						$i += 1;
+					}
+
+					echo '</ul></li>';
+				}
+
+			?>
+
+			<li>&nbsp;</li>
+			<li><a class="secondary" href="/unmakeAdmin.action">Back To Product</a></li>
+
+		</ul>
+
+		<?
+			}
+			else {
+		?>
+
 		<form action="searchResult.action" id="qsearch" method="get" name="qsearch">
 
 			<fieldset>
@@ -146,18 +244,6 @@
 
 		<ul id="snav">
 		<?
-		$aUserKey = $pageContext->evaluateTemplateText('${aUser.key}');
-		$isAdmin = $pageContext->evaluateTemplateText('${aUser.isSiteAdmin}');
-		$wasAdmin = $pageContext->evaluateTemplateText('${aUser.wasAdmin}');
-		$url = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_URL') . '}');
-		$url .= '?' . $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_SEARCH') . '}');
-
-		$pagename = $pageContext->evaluateTemplateText('${' . c('MN_PAGENAME') . '}');
-		$page = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_PAGE') . '}');
-		$task = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_TASK') . '}');
-		$messageCount = $pageContext->evaluateTemplateText('${' . c('MN_MESSAGEN') . '}');
-		$qkey = $pageContext->evaluateTemplateText('${' . c('MN_PARAM_KEY') . '}');
-		$nameMembers = $pageContext->evaluateTemplateText('${nameMembers}');
 
 		// my
 		$clsFriend = $pagename == 'friends' ? 'selected' : '';
@@ -176,18 +262,6 @@
 			if ($pagename == $type . 's') {
 				$clsSearch = 'selected';
 			}
-		}
-
-		// admin
-		$clsAdminConfig = $pagename == 'admin' && ('config' == $page || !$page) ? 'selected' : '';
-		$clsAdminContent = $pagename == 'admin' && 'content' == $page ? 'selected' : '';
-		$clsAdminCustom = $pagename == 'admin' && 'custom' == $page ? 'selected' : '';
-		$clsAdminMessage = $pagename == 'admin' && 'message' == $page ? 'selected' : '';
-		$clsAdminSearchable = $pagename == 'admin' && 'searchable' == $page ? 'selected' : '';
-		$clsAdminDash = $pagename == 'admin' && 'dash' == $page ? 'selected' : '';
-
-		if (!$wasAdmin) {
-			$clsAdminSearchable .= ' admin';
 		}
 		?>
 
@@ -232,42 +306,22 @@
 				   title="Write ${nameMessage}">Write ${nameMessage}</a>
 			</li>
 
-		<? if ($isAdmin) { ?>
-
-			<li class="admin"><h3 class="secondary">Administration Pages</h3></li>
-
-			<li class="<? echo($clsAdminDash); ?>">
-				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=dash" title="Dashboard Tab">Dashboard</a>
-			</li>
-
-			<li class="<? echo($clsAdminConfig); ?>">
-				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=config" title="Articles Tab">Configuration</a>
-			</li>
-
-			<li class="<? echo($clsAdminContent); ?>">
-				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=content" title="Update Emails">Site Content</a>
-			</li>
-
-			<li class="<? echo($clsAdminCustom); ?>">
-				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=custom" title="Customization Tab">Customizations</a>
-			</li>
-
-			<li class="<? echo($clsAdminMessage); ?>">
-				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=message" title="Message Tab">Message Center</a>
-			</li>
-
-			<li class="<? echo($clsAdminSearchable); ?>">
-				<a href="/admin.action?<? echo(c('QUERY_KEY_PAGE')); ?>=searchable" title="Profile Fields Tab">Member Manager</a>
-			</li>
-
-		<? } else if ($wasAdmin) { ?>
-			<li>
+		<?
+			if ($wasAdmin) { 
+			?><li>
 				<a href="adminSubmit.action?<? echo(c('QUERY_KEY_TASK')); ?>=revert" class="admin"
 				   title="Restores Administrator">Revert Admin</a>
-			</li>
-		<? } ?>
+			</li><?
+			}
+			else if ($isSiteAdmin) {
+				echo '<li>&nbsp;</li>';
+				echo '<li><a class="secondary" href="/makeAdmin.action">Site Admin</a></li>';
+			}
+		?>
 
 		</ul>
+
+		<? } ?>
 
 	</c:if>
 

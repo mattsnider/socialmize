@@ -315,6 +315,9 @@
 			<forward name="invalid" path="/pages/login.jsp"/>
 		</action>
 
+		<action path="/makeAdmin" type="project.action.admin.ControllerMakeAdmin"/>
+		<action path="/unmakeAdmin" type="project.action.admin.ControllerUnmakeAdmin"/>
+
 
 		<!-- Start RegistrationTask Actions -->
 

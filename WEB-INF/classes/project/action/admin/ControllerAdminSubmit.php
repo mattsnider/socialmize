@@ -63,6 +63,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 				$user = $man->getUsersByExactName($username);
 
 				if ($user) {
+					$request->getSession()->setAttribute('isAdminView', ref(false));
 					$request->getSession()->setAttribute('oUser', $aUser);
 					$user->setWasAdmin(true);
 					$aUser =& $user;
@@ -549,6 +550,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 				$request->getSession()->removeAttribute('oUser');
 
 				if ($user) {
+					$request->getSession()->setAttribute('isAdminView', ref(true));
 					$user->setWasAdmin(false);
 					$aUser =& $user;
 					$request->getSession()->setAttribute('User', $aUser);

@@ -245,8 +245,15 @@ h2 {
 }
 
 #snav .secondary {
-	font-size: 13pt;
-	padding-top:1em;
+	border-bottom: none;
+}
+
+#snav li ul {
+	margin-right: 0;
+}
+
+#snav li.last {
+	border-bottom: none;
 }
 
 #snav li.admin {

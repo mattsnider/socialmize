@@ -85,6 +85,17 @@ class ControllerAdminView extends ControllerAdmin {
 				$request->setAttribute(c('MN_CUSTOMIZATION_HISTORY'), $history);
 				$request->setAttribute(c('MN_CUSTOMIZATION_HISTORY_LENGTH'), sizeof($history));
 				$request->setAttribute('checkedUseBanner', $this->getCheckedState('project.useBannerLayout'));
+
+				switch ($task) {
+					case 'fonts':
+					case 'logos':
+					case 'themes':
+					case 'adv':
+						break;
+
+					default:
+						$task = 'fonts';
+				}
 				break;
 
 			case 'content':
