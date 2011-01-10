@@ -1,16 +1,3 @@
-<div class="tabs tabs-sub tabs-round clearfix" id="tabs-config"><ul><?
-
-	// Update the selected tab
-	$subpage = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_TASK') . '}');
-	$clsStats = $subpage === 'stats' || ! $subpage ? 'selected' : '';
-	$clsMore = $subpage === 'more' ? 'selected' : '';
-	$subtabURL = 'admin.action?' . c('QUERY_KEY_PAGE') . '=dash&amp;' . c('QUERY_KEY_TASK') . '=';
-
-	echo '<li class="first '.$clsStats.'"><a href="'.$subtabURL.'stats">Statistics</a></li>';
-	echo '<li class="'.$clsMore.'"><a href="'.$subtabURL.'more">More to come&hellip;</a></li>';
-
-?></ul></div>
-
 <c:if test="${'stats' == task}">
 <form action="adminSubmit.action" id="form-stats" method="post"><fieldset class="panel squareTop">
 

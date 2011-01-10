@@ -1,22 +1,3 @@
-<div class="tabs tabs-sub tabs-round clearfix" id="tabs-config"><ul><?
-
-	// Update the selected tab
-	$subpage = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_TASK') . '}');
-	$clsProfanity = $subpage === 'profanity' || ! $subpage ? 'selected' : '';
-	$clsConfig = $subpage === 'configuration' ? 'selected' : '';
-	$clsName = $subpage === 'nameProject' ? 'selected' : '';
-	$clsModules = $subpage === 'modules' ? 'selected' : '';
-	$clsModuleNames = $subpage === 'nameModules' ? 'selected' : '';
-	$subtabURL = 'admin.action?' . c('QUERY_KEY_PAGE') . '=config&amp;' . c('QUERY_KEY_TASK') . '=';
-
-	echo '<li class="first '.$clsName.'"><a href="'.$subtabURL.'nameProject">Project Name</a></li>';
-	echo '<li class="'.$clsConfig.'"><a href="'.$subtabURL.'configuration">Configuration</a></li>';
-	echo '<li class="'.$clsModules.'"><a href="'.$subtabURL.'modules">Features</a></li>';
-	echo '<li class="'.$clsModuleNames.'"><a href="'.$subtabURL.'nameModules">Feature Names</a></li>';
-	echo '<li class="last '.$clsProfanity.'"><a href="'.$subtabURL.'profanity">Profanity Filter</a></li>';
-
-?></ul></div>
-
 <c:if test="${'profanity' == task}">
 <form action="adminSubmit.action" id="form-profanity" method="post"><fieldset class="panel squareTop">
 

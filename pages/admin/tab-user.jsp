@@ -1,26 +1,3 @@
-<div class="tabs tabs-sub tabs-round clearfix" id="tabs-config"><ul><?
-
-	// Update the selected tab
-	$subpage = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_TASK') . '}');
-	$clsConfig = $subpage === 'configurationSignup' || ! $subpage ? 'selected' : '';
-	$clsGeneral = $subpage === 'user' ? 'selected' : '';
-	$clsGroup = $subpage === 'group' ? 'selected' : '';
-	$clsPending = $subpage === 'pending' ? 'selected' : '';
-	$clsNetwork = $subpage === 'network' ? 'selected' : '';
-	$subtabURL = 'admin.action?' . c('QUERY_KEY_PAGE') . '=searchable&amp;' . c('QUERY_KEY_TASK') . '=';
-
-	$nameUser = $pageContext->evaluateTemplateText('${nameUser}');
-	$nameGroup = $pageContext->evaluateTemplateText('${nameGroup}');
-	$nameNetwork = $pageContext->evaluateTemplateText('${nameNetwork}');
-
-	echo '<li class="last '.$clsPending.'"><a href="'.$subtabURL.'pending">Pending Approval</a></li>';
-	echo '<li class="'.$clsConfig.'"><a href="'.$subtabURL.'configurationSignup">Sign Up Config</a></li>';
-	echo '<li class="'.$clsGeneral.'"><a href="'.$subtabURL.'user">Users</a></li>';
-	echo '<li class="'.$clsGroup.'"><a href="'.$subtabURL.'group">Groups</a></li>';
-	echo '<li class="first '.$clsNetwork.'"><a href="'.$subtabURL.'network">Networks</a></li>';
-
-?></ul></div>
-
 <c:if test="${'configurationSignup' == task}">
 <form action="adminSubmit.action" id="form-configuration" method="post"><fieldset class="panel squareTop">
 

@@ -1,21 +1,3 @@
-<div class="tabs tabs-sub tabs-round clearfix" id="tabs-customizations"><ul><?
-
-	// Update the selected tab
-	$subpage = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_TASK') . '}');
-	$clsFont = $subpage === 'fonts' || ! $subpage ? 'selected' : '';
-	$clsLogo = $subpage === 'logos' ? 'selected' : '';
-	$clsThemes = $subpage === 'themes' ? 'selected' : '';
-	$clsAdvanced = $subpage === 'adv' ? 'selected' : '';
-	$clsProperties = $subpage === 'props' ? 'selected' : '';
-	$subtabURL = 'admin.action?' . c('QUERY_KEY_PAGE') . '=custom&amp;' . c('QUERY_KEY_TASK') . '=';
-
-	echo '<li class="first '.$clsFont.'"><a href="'.$subtabURL.'fonts">Fonts &amp; Colors</a></li>';
-	echo '<li class="first '.$clsLogo.'"><a href="'.$subtabURL.'logos">Logos &amp; Icons</a></li>';
-	echo '<li class="first '.$clsThemes.'"><a href="'.$subtabURL.'themes">Themes &amp; Backgrounds</a></li>';
-	echo '<li class="first '.$clsAdvanced.'"><a href="'.$subtabURL.'adv">Advanced</a></li>';
-
-?></ul></div>
-
 <c:if test="${0 < customizationHistoryLength && task == 'adv'}">
 <form action="adminSubmit.action" id="form-history" method="post"><fieldset class="panel squareTop">
 

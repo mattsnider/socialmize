@@ -1,29 +1,3 @@
-<div class="tabs tabs-sub tabs-round clearfix" id="tabs-content">
-	<ul><?
-	// Update the selected tab
-	$subpage = $pageContext->evaluateTemplateText('${' . c('QUERY_KEY_TASK') . '}');
-		$clsEmail = $subpage === 'email' || ! $subpage ? 'selected' : '';
-		$clsContent = $subpage === 'content' ? 'selected' : '';
-		$clsField = $subpage === 'field' ? 'selected' : '';
-		$clsRegistration = $subpage === 'registration' ? 'selected' : '';
-		$subtabURL = 'admin.action?' . c('QUERY_KEY_PAGE') . '=content&amp;' . c('QUERY_KEY_TASK') . '=';
-
-		echo '
-		<li class="first '.$clsEmail.'"><a href="'.$subtabURL.'email">Edit Emails</a></li>
-		';
-		echo '
-		<li class="'.$clsContent.'"><a href="'.$subtabURL.'content">Edit Site Copy</a></li>
-		';
-		echo '
-		<li class="first '.$clsRegistration.'"><a href="'.$subtabURL.'registration">Edit Registration</a></li>
-		';
-		echo '
-		<li class="last '.$clsField.'"><a href="'.$subtabURL.'field">Profile Fields</a></li>
-		';
-		?>
-	</ul>
-</div>
-
 <c:if test="${'registration' == task}">
 	<form action="updateRegistrationTask.action" id="form-registration" method="post">
 		<fieldset class="panel squareTop">
