@@ -268,7 +268,7 @@ class ServiceProfileWidget extends BaseManager {
 	 * @since  version 1.0
 	 * @access public
 	 */
-	public function getProfileWidgetsBySearchableType($type = null, $status = null, $fieldStatus = null) {
+	public function getProfileWidgetsBySearchableType($type = null, $status = '', $fieldStatus = '') {
 		$widgets = array();
 		$wheres = array();
 		$values = array();
