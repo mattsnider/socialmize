@@ -14,7 +14,7 @@ class ControllerMessageUpdate extends ControllerBase {
 		$l = $this->getLog();
 
 		// retrieve managers and create active user references
-		list($man) = $this->_getServices($request, 'BaseManager');
+		list($man) = $this->_getServices($request, 'UserManager');
 
 		$pageName = $this->getPagename($request);
 
@@ -82,6 +82,11 @@ class ControllerMessageUpdate extends ControllerBase {
 
 				if (! sizeof($users)) {
 					return array('You must select a recipient.', null);
+				}
+
+				$sb = array();
+				foreach ($users as $user) {
+					array_push($sb, $user->getName());
 				}
 
 				$man->saveMessageBatch($m, $users);

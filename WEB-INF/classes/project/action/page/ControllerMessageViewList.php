@@ -17,7 +17,7 @@ class ControllerMessageViewList extends ControllerPage {
 		$out =& $this->_getParameterAsBoolean($request, c('QUERY_KEY_OUT'));
 
 		// retrieve managers and create active user references
-		list($man) = $this->_getServices($request, 'BaseManager');
+		list($man) = $this->_getServices($request, 'UserManager');
 		$aUserId = $aUser->getId();
 		
 		$messages = $man->getMessages($aUserId, $out);

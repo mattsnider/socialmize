@@ -13,7 +13,7 @@ class ControllerMessageView extends ControllerPage {
 		$log = $this->getLog();
 
 		// retrieve managers and create active user references
-		list($man) = $this->_getServices($request, 'BaseManager');
+		list($man) = $this->_getServices($request, 'UserManager');
 		$aUserId = $aUser->getId();
 		
 		$messageId = $this->_getParameterAsInteger($request, c('QUERY_KEY_MESSAGE_ID'));
@@ -99,7 +99,7 @@ class ControllerMessageView extends ControllerPage {
 	protected function _isAuthorized($S, $request, $aUser) {
 		$messageId = $this->_getParameterAsInteger($request, c('QUERY_KEY_MESSAGE_ID'));
 		$aUserId = $aUser->getId();
-		list($man) = $this->_getServices($request, 'BaseManager');
+		list($man) = $this->_getServices($request, 'UserManager');
 		$m = $man->getMessageById($messageId, $aUserId);
 
 		if ($m) {

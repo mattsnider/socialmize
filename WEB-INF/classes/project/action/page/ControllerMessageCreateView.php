@@ -15,7 +15,7 @@ class ControllerMessageCreateView extends ControllerPage {
 		$log = $this->getLog();
 
 		// retrieve managers and create active user references
-		list($man) = $this->_getServices($request, 'BaseManager');
+		list($man) = $this->_getServices($request, 'UserManager');
 		
 		$recipientKey = $this->_getParameterAsString($request, c('QUERY_KEY_KEY') . 'to');
 		$recipient = $man->getSearchableByKey($recipientKey);
