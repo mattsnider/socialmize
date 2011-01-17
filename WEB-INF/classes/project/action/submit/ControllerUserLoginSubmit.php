@@ -183,7 +183,7 @@ class ControllerUserLoginSubmit extends ControllerBase {
 		$userId = $oUser->getId();
 		list($man) = $this->_getServices($request, 'UserManager');
 		$conn = $man->ds->getConnection();
-		$stmt = $conn->prepareStatement('UPDATE ' . $this->managerUser->_DB_TABLE_USER . ' SET `login_count`=`login_count`+1, `last_login`=NOW() WHERE `searchable_id`=?');
+		$stmt = $conn->prepareStatement('UPDATE `user` SET `login_count`=`login_count`+1, `last_login`=NOW() WHERE `searchable_id`=?');
 		$stmt->setInt(1, $userId);
 		$stmt->executeQuery();
 		$oUser->setLoginCount($oUser->getLoginCount() + 1);
