@@ -13,3 +13,11 @@
 #main #content {
 	width: 100%;
 }
+
+form {
+	padding: 1em;
+}
+
+form input {
+	border: none;
+}

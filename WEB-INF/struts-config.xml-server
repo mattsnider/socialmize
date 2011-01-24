@@ -345,6 +345,12 @@
 
 		<action path="/registration_update_join" type="project.action.module.registrationTask.ControllerJoinSubmit"/>
 
+		<action path="/paypalCancel" type="project.action.module.ControllerModulePaypalCancel">
+			<forward name="success" path="/pages/module/paymentCancel.jsp"/>
+		</action>
+
+		<action path="/paypalConfirm" type="project.action.module.ControllerModulePaypalConfirm"/>
+
 		<!-- End RegistrationTask Actions -->
 
 		<!-- sample input and input submit actions

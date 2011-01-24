@@ -49,9 +49,11 @@
 		<div id="header-wrap">
 
 			<ul id="gnav">
+				<c:if test="${! hideSidebar}">
 				<li><a class="dark" href="/account.action" title="your account and privacy">${aUser.name}'s account</a></li>
 				<c:if test="${! isAdminInvite || aUser.isSiteAdmin}">
 					<li><a class="dark" href="/invite.action" title="invite new users">invite</a></li>
+				</c:if>
 				</c:if>
 				<li><a class="dark logout" href="/logout.action" title="log yourself out">log out</a></li>
 			</ul>
@@ -127,7 +129,7 @@
 	</div>
 </div>
 
-<div id="sidebar">
+<c:if test="${! hideSidebar}"><div id="sidebar">
 
 	<c:if test="${! empty aUser}">
 
@@ -325,7 +327,7 @@
 
 	</c:if>
 
-</div>
+</div></c:if>
 
 </div>
 

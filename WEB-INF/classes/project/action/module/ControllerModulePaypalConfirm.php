@@ -6,7 +6,7 @@ import('project.service.ServiceRegistration');
 /**
  * @package project.action.user
  */
-class ControllerPaymentSubmit extends ControllerModuleSubmitBase {
+class ControllerModulePaypalConfirm extends ControllerModuleSubmitBase {
 
 	public static function loginEvaluation($man, $userId) {
 		return false;
@@ -19,6 +19,8 @@ class ControllerPaymentSubmit extends ControllerModuleSubmitBase {
 		list($man) = $this->_getServices($request, 'BaseManager');
 
 		$isValid = true;
+
+		dlog($request->$parameters);
 
 		$uri = $isValid ? '/home.action' : '/registration_view_payment.action';
 
