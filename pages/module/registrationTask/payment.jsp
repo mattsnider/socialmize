@@ -30,6 +30,10 @@
 
 		</div>
 
+		<form action="/registration_update_payment.action" method="post">
+			<button type="submit">Skip for now!</button>
+		</form>
+
 
 	</template:put>
 </template:insert>
