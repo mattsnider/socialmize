@@ -16,7 +16,7 @@ class ControllerUserSubmit extends ControllerBase {
 		$task = $this->_getParameterAsString($request, c('QUERY_KEY_TASK'));
 
 		// retrieve managers and create active user references
-		list($man) = $this->_getServices($request, 'BaseManager');
+		list($man, $manUser) = $this->_getServices($request, 'BaseManager', 'UserManager');
 		$aUserId = $aUser->getId();
 
 		switch ($task) {
@@ -77,7 +77,7 @@ class ControllerUserSubmit extends ControllerBase {
 				$commaDelimitedMessageIds = $this->_getParameterAsString($request, c('QUERY_KEY_MESSAGE_ID'), '', array(','));
 				$messageIdArray = $commaDelimitedMessageIds? explode(',', $commaDelimitedMessageIds): array();
                 $response->sendRedirect('/mailbox.action?out=' . $out);
-				return ref($this->_handleMailboxActions($aUserId, $man, $task, $messageIdArray));
+				return ref($this->_handleMailboxActions($aUserId, $manUser, $task, $messageIdArray));
 				break;
 
 			case 'psearch':
