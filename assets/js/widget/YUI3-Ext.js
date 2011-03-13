@@ -3,7 +3,7 @@
  * Version: 1.00
  */
 
-YUI().add('yui3-ext', function(Y) {
+YUI.add('yui3-ext', function(Y) {
 
 	var Lang = Y.Lang,
 			Dom = Y.DOM,
@@ -44,6 +44,10 @@ YUI().add('yui3-ext', function(Y) {
 
 	Y.Event.off = function(e) {
 		if (e) {e.detach();}
+	};
+
+	Y.Lang.isPositiveNumber = function(o) {
+		return Y.Lang.isNumber(o) && 0 <= o;
 	};
 
 
@@ -91,9 +95,7 @@ YUI().add('yui3-ext', function(Y) {
 		}
 	});
 
-
-	if (! Y.String) {Y.String = {};}
-	Y.mix(Y.String, {
+	Y.mix(Y.namespace('String'), {
 
 		/**
 		 * Retrieves value for the given key out of the url query string.
@@ -162,18 +164,48 @@ YUI().add('yui3-ext', function(Y) {
 	Y.mix(Y.Array, {
 
 		/**
+		 * Evaluates if the value is in the array.
+		 * @method has
+		 * @param aHaystack {Array} Required. The array to search.
+		 * @param oNeedle {Mixed} Required. The value to evaluate.
+		 * @return {Boolean} The needle is in the haystack.
+		 * @public
+		 */
+    has: function(aHaystack, oNeedle) {
+      return -1 < Y.Array.indexOf(aHaystack, oNeedle);
+    },
+
+		/**
 		 * Remove the member at index (i) in the array; does not modify the original array.
 		 * @method removeIndex
-		 * @param arr {Array} Required. The array to modify.
-		 * @param n {Number} Required. The index to remove.
+		 * @param aHaystack {Array} Required. The array to modify.
+		 * @param nIndex {Number} Required. The index to remove.
 		 * @return {Object} The new Array or Original.
 		 * @public
 		 */
-		removeIndex: function(arr, n) {
-			if (0 > n || n >= this.length) {return this;} // invalid index
-			var aResp = this.slice(0, n),
-					aRest = this.slice(n + 1);
+		removeIndex: function(aHaystack, nIndex) {
+			if (0 > nIndex || nIndex >= aHaystack.length) {return this;} // invalid index
+			var aResp = aHaystack.slice(0, nIndex),
+					aRest = aHaystack.slice(nIndex + 1);
 			return aResp.concat(aRest);
+		},
+
+		/**
+		 * Removes the provided value from the array, by leveraging the indexOf function to find the index and passing that to removeIndex.
+		 * @method removeValue
+		 * @param aHaystack {Array} Required. The array to modify.
+		 * @param oNeedle {Mixed} Required. The value to remove.
+		 * @return {Object} The new Array or Original.
+		 * @public
+		 */
+		removeValue: function(aHaystack, oNeedle) {
+			var nIndex = Y.Array.indexOf(aHaystack, oNeedle);
+
+			if (-1 < nIndex) {
+				return Y.Array.removeIndex(aHaystack, nIndex);
+			}
+
+			return aHaystack;
 		}
 	});
 
@@ -376,6 +408,10 @@ YUI().add('yui3-ext', function(Y) {
 		}
 	};
 
+	Y.Base.prototype.sfx = function(fnConstructor, funcName, args) {
+		fnConstructor.superclass[funcName].apply(this, args || []);
+	};
+
 	Y.mix(Y.Widget.prototype, {
 		_idPrefix: null,
 
@@ -421,6 +457,139 @@ YUI().add('yui3-ext', function(Y) {
 			this[bIsVisible ? 'show' : 'hide']();
 		}
 	}, true);
+
+	Socialmize = YUI.namespace('Env.Socialmize');
+
+	if (Socialmize.Dispatcher) {
+		Y.Dispatcher = Socialmize.Dispatcher;
+	}
+	else {
+		function is_cmd_class(sClass, sName) {
+			return sClass && 0 === sClass.indexOf('cmd-' + (sName ? sName : ''));
+		}
+
+		function parse_class(sClass) {
+			var sValue = sClass.substr(4),
+				options = sValue.replace(/\w+\[(.*)\]/, '$1'),
+				sName = sValue.replace(/(\w+)(\[.*)?/, '$1');
+
+			return [sName, options]
+		}
+
+		////
+		// Dispatch logic
+		////
+		Y.on('click', function(e) {
+			var elTarg = e.target,
+				that = this,
+				elNode;
+
+			while (elTarg && (elNode = elTarg.ancestor('*[class^=cmd-]', true))) {
+				Y.each(elNode.get('className').split(/\s+/), function(sClass) {
+					if (is_cmd_class(sClass)) {
+						var aData = parse_class(sClass);
+
+						Y.each(Socialmize.Dispatcher.data[aData[0]], function(fx) {
+							fx.call(that, elNode, e, aData[1].split(','));
+						});
+					}
+				});
+
+				elTarg = elNode.parent();
+			}
+		}, document);
+
+		Y.Dispatcher = Socialmize.Dispatcher = {
+			data: {},
+
+			register: function(sName, fxCallback) {
+				if (! Socialmize.Dispatcher.data[sName]) {
+					Socialmize.Dispatcher.data[sName] = [];
+				}
+
+				Socialmize.Dispatcher.data[sName].push(fxCallback);
+			},
+
+			unregister: function(sName, fxCallback) {
+				if (Socialmize.Dispatcher.data[sName]) {
+					var functions = [];
+
+					Y.each(Socialmize.Dispatcher.data[sName], function(fx) {
+						if (fx !== fxCallback) {
+							functions.push(fx);
+						}
+					});
+
+					Socialmize.Dispatcher.data[sName] = functions;
+				}
+			}
+		};
+
+		Socialmize.Dispatcher.register('dismiss', function(elTarg, e, aOptions) {
+			var elAncestor = elTarg.ancestor('.parentOfClose', true),
+				sUri = '/' + aOptions.join('/') + '/',
+				oAnim;
+
+			Y.io(sUri, {
+				method: 'POST'
+			});
+
+			elAncestor.setStyle('overflow', 'hidden');
+
+			oAnim = new Y.Anim({
+				easing: Y.Easing.easeOut,
+				to: {height: 0},
+				node: elAncestor
+			});
+
+			oAnim.on('end', Y.bind(elAncestor.remove, elAncestor));
+
+			oAnim.run();
+		});
+
+		Socialmize.Dispatcher.register('close', function(elTarg) {
+			var oWidget = Y.Widget.getByNode(elTarg);
+
+			if (oWidget) {
+				oWidget.hide();
+			}
+		});
+
+		Socialmize.Dispatcher.register('more', function(elTarg, e, aOptions) {
+			Y.one(aOptions[0]).setStyle('height', 'auto');
+			elTarg.addClass('dnone');
+		});
+
+		Socialmize.Dispatcher.register('tab', function(elTarg, e, aOptions) {
+			e.halt();
+
+			if (! elTarg.hasClass('selected')) {
+				// iterate on each tab
+				elTarg.parent().get('children').each(function(el) {
+					el.removeClass('selected');
+
+					// iterate on each tab class and look for tab commans
+					Y.each(el.get('className').split(/\s+/), function(sClass) {
+						if (is_cmd_class(sClass, 'tab')) {
+							var aData = parse_class(sClass);
+							Y.one(aData[1]).hide();
+						}
+					});
+				});
+
+				elTarg.addClass('selected');
+				Y.one(aOptions[0]).show();
+			}
+		});
+
+
+		oImg = new Image();
+		oImg.src = Socialmize.STATIC_URL + 'images/loader-32.gif';
+
+		Y.replaceWithLoader = function(el) {
+			el.replace(oImg);
+		}
+	}
 
 	/**
 	 * Creates the Matt namespace.

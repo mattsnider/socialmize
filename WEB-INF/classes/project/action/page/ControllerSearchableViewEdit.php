@@ -3,6 +3,7 @@ import('project.action.page.ControllerPage');
 import('project.model.ProfileWidget');
 import('project.model.ProfileWidgetField');
 import('project.util.CheckboxUtils');
+import('project.util.SearchableCheckboxUtils');
 
 /**
  * @package project.action.page
@@ -22,7 +23,7 @@ class ControllerSearchableViewEdit extends ControllerPage {
 			$task = 'manage';
 		}
 
-		$styles = array('profileEdit', 'widget/searchableListOfCheckboxes');
+		$styles = array('profileEdit');
 
 		// retrieve managers and create active user references
 		list($man, $servMember) = $this->_getServices($request, 'BaseManager', 'ServiceMember');
@@ -31,6 +32,11 @@ class ControllerSearchableViewEdit extends ControllerPage {
 
 		$aCheckedMap = array();
 		$aDisabledMap = array();
+
+		// fetch query parameter names
+		$nameLimitParam = c('QUERY_KEY_LIMIT');
+		$nameQueryParam = c('QUERY_KEY_QUERY');
+		$nameOffsetParam = c('QUERY_KEY_OFFSET');
 
 		switch ($task) {
 			case c('QUERY_KEY_ACCESS'):
@@ -41,87 +47,15 @@ class ControllerSearchableViewEdit extends ControllerPage {
 
 			case 'member':
 				$name = $this->_getFeatureCustomName('member', true, true);
-
-				// fetch query parameter names
-				$nameLimitParam = c('QUERY_KEY_LIMIT');
-				$nameQueryParam = c('QUERY_KEY_QUERY');
-				$nameOffsetParam = c('QUERY_KEY_OFFSET');
-
-				// fetch parameters
-				$offset = $this->_getParameterAsInteger($request, $nameOffsetParam);
-				$searchCopy = $this->_getParameterAsString($request, $nameQueryParam, '', c('PARANOID_ALLOWED_AUTOCOMPLETE'));
-
-				$useSearch = true;
-				$listBoxId = 'memberList';
-
-				$params = array();
-/*
-				$params = array(
-					$nameOffsetParam => $offset,
-					$nameLimitParam => -1,
-					'nsId' => $sId,
-					$nameQueryParam => $searchCopy
-				);
-*/
+				SearchableCheckboxUtils::setupList($this, $request, $S, $aUser);
+				
 				if ($S->isNetwork()) {
 					list($snetworks, $members, $submembers, $pnetworks) = $servMember->readNetworksAndMembers($sId);
-
-					// create the member network map
-					foreach ($members as $s) {
-						$aCheckedMap[$s->getId()] = $s;
-						if ($s->isSuperAdmin()) {
-							$aDisabledMap[$s->getId()] = $s;
-						}
-					}
-					// disable these subnetworks
-					foreach ($submembers as $s) {
-						$aCheckedMap[$s->getId()] = $s;
-						$aDisabledMap[$s->getId()] = $s;
-					}
-					// disable these parent networks
-					foreach ($pnetworks as $s) {
-						$aDisabledMap[$s->getId()] = $s;
-					}
 
 					$request->setAttribute('snetworkn', sizeof($snetworks));
 					$request->setAttribute('snetworks', $snetworks);
 					$request->setAttribute('pnetworkn', sizeof($pnetworks));
 					$request->setAttribute('pnetworks', $pnetworks);
-
-					$typeOfSearch = 'networkCheckMembers';
-
-					$request->setAttribute('listFilters', Searchable::getValidTypes());
-				}
-				else {
-					$params[c('QK_TYPE')] = Searchable::$TYPE_USER;
-
-					if ($S->isAdmin()) {
-						$typeOfSearch = 'usersCheckMembers';
-					}
-						// when not-admin, you may only invite your friends
-					else {
-						$params['ownerId'] = $aUser->getId();
-						$params['memberStatus'] = Searchable::$STATUS_ACTIVE;
-						$typeOfSearch = 'friendsCheckMembers';
-					}
-
-					// find available users
-					list($members) = $servMember->readMembers($S->getId());
-					foreach ($members as $s) {
-						$aCheckedMap[$s->getId()] = $s;
-
-						// admins can not be removed as members, nor can non-admins remove members
-						if ($s->isAdmin() || !$S->isAdmin()) {
-							$aDisabledMap[$s->getId()] = $s;
-						}
-					}
-
-					// find pending users
-					list($members) = $servMember->readMembers($S->getId(), array('memberStatus' => Searchable::$STATUS_PENDING));
-					foreach ($members as $s) {
-						$aCheckedMap[$s->getId()] = $s;
-						$aDisabledMap[$s->getId()] = $s;
-					}
 				}
 
 				if (! $S->isUser() && $S->isClosed()) {
@@ -133,27 +67,6 @@ class ControllerSearchableViewEdit extends ControllerPage {
 					$request->setAttribute('pendingSearchables', $pendingSearchables);
 					$request->setAttribute('pendingSearchablen', $pendingSearchablen);
 				}
-
-				list($searchables, $searchablen) = $man->readSearchables($params);
-				list($checkboxes, $searchablenIds) = CheckboxUtils::_createCheckboxes($searchables, $aCheckedMap, $aDisabledMap);
-
-				// create a parameter map for params unique to this checkbox list
-				$aViewParams = array(
-					c('QUERY_KEY_KEY') => $S->getKey(),
-					'typeOfSearch' => $typeOfSearch,
-					c('QUERY_KEY_TASK') => 'member'
-				);
-
-				$request->setAttribute($nameLimitParam, $searchablen);
-				$request->setAttribute($nameQueryParam, $searchCopy);
-				$request->setAttribute(c('QUERY_KEY_ID') . 's', implode(',', $searchablenIds));
-				$request->setAttribute('listCheckboxes', $checkboxes);
-				$request->setAttribute('listCheckboxSize', $searchablen);
-
-				$request->setAttribute('listUseSearch', $useSearch);
-				$request->setAttribute('listBoxId', $listBoxId);
-
-				$request->setAttribute('params', $aViewParams);
 			break;
 
 			case 'manage':

@@ -4251,43 +4251,50 @@ c.on(d,f,e.dispatcher)
 },registerOnce:function(f,g){if(!(a[f]||a[f][g.id])){register(f,g)
 }}}
 }());
-(function(){var a=document;
-if(!a.ELEMENT_NODE){a.ELEMENT_NODE=1;
-a.ATTRIBUTE_NODE=2;
-a.TEXT_NODE=3;
-a.CDATA_SECTION_NODE=4;
-a.ENTITY_REFERENCE_NODE=5;
-a.ENTITY_NODE=6;
-a.PROCESSING_INSTRUCTION_NODE=7;
-a.COMMENT_NODE=8;
-a.DOCUMENT_NODE=9;
-a.DOCUMENT_TYPE_NODE=10;
-a.DOCUMENT_FRAGMENT_NODE=11;
-a.NOTATION_NODE=12
-}}());
-var base="/assets/js/";
-var $VERSION=".js?r=75",$YO={base:"http://yui.localhost/yui3/build/",filter:"raw",timeout:10000,useBrowserConsole:true,logLevel:"warn",debug:true,modules:{"ac-plugin-local":{fullpath:base+"widget/ac-plugin-min"+$VERSION,requires:["node","plugin","value-change","event-key"],optional:["event-custom"],supersedes:[]},"ac-widget-local":{fullpath:base+"widget/ac-widget-min"+$VERSION,requires:["widget","ac-plugin"],optional:[],supersedes:[]},"cameleon-notification":{fullpath:base+"widget/Notification"+$VERSION,requires:["node","widget","yui3-ext","io"],optional:[],supersedes:[]},checkboxList:{fullpath:base+"widget/CheckboxList"+$VERSION,requires:["widget"],optional:[],supersedes:[]},checkboxListFilter:{fullpath:base+"widget/CheckboxListFilter"+$VERSION,requires:["plugin","datasource","checkboxList"],optional:[],supersedes:[]},"gallery-admin-field":{fullpath:base+"widget/AdminField"+$VERSION,requires:["gallery-anim-blind","gallery-anim-slide","collection"],optional:[],supersedes:[]},"gallery-anim-blind":{fullpath:base+"widget/AnimBlind"+$VERSION,requires:["anim","widget"],optional:[],supersedes:[]},"gallery-anim-slide":{fullpath:base+"widget/AnimSlide"+$VERSION,requires:["anim","widget"],optional:[],supersedes:[]},"gallery-node-field":{fullpath:base+"widget/NodeField"+$VERSION,requires:["base","node"],optional:[],supersedes:[]},"gallery-node-form":{fullpath:base+"widget/NodeForm"+$VERSION,requires:["base","node","gallery-node-field"],optional:[],supersedes:[]},"gallery-node-input":{fullpath:base+"widget/NodeInput"+$VERSION,requires:["base","node"],optional:[],supersedes:[]},"gallery-tab-manager":{fullpath:base+"widget/TabManager"+$VERSION,requires:["widget","yui3-ext"],optional:[],supersedes:[]},matt_searchableListOfCheckboxes:{fullpath:base+"widget/SearchableListOfCheckboxes"+$VERSION,requires:["widget","datasource","json","yui3-ext","matt_form"],optional:[],supersedes:[]},matt_form:{fullpath:base+"util/form"+$VERSION,requires:["base","collection"],optional:[],supersedes:[]},searchableFilter:{fullpath:base+"widget/SearchableFilter"+$VERSION,requires:["io-base","checkboxList","gallery-node-form","gallery-node-field"],optional:[],supersedes:[]},"yui3-ext":{fullpath:base+"widget/YUI3-Ext"+$VERSION,requires:["base","widget","node","anim","collection"],optional:[],supersedes:[]}}};
-YUI($YO).use("yui3-ext","gallery-node-input","node","io-base",function(g){var e=g.one("#xhr-loading"),f,d,c=function(){if(d){d.cancel()
-}},b=function(){if(0<=f){f=null;
-a(false);
-c()
+(function(){var c=document;
+if(!c.ELEMENT_NODE){c.ELEMENT_NODE=1;
+c.ATTRIBUTE_NODE=2;
+c.TEXT_NODE=3;
+c.CDATA_SECTION_NODE=4;
+c.ENTITY_REFERENCE_NODE=5;
+c.ENTITY_NODE=6;
+c.PROCESSING_INSTRUCTION_NODE=7;
+c.COMMENT_NODE=8;
+c.DOCUMENT_NODE=9;
+c.DOCUMENT_TYPE_NODE=10;
+c.DOCUMENT_FRAGMENT_NODE=11;
+c.NOTATION_NODE=12
+}var a,d="/assets/js/",b=".js?r=3";
+window.$YO={filter:"raw",combine:true,timeout:10000,useBrowserConsole:true,logLevel:"warn",debug:true,modules:{"cameleon-notification":{fullpath:d+"widget/Notification"+b,requires:["node","widget","yui3-ext","io"],optional:[],supersedes:[]},core:{fullpath:d+"js/upvote"+b,requires:["node","dom","event","io","anim","widget","container"]},"gallery-admin-field":{fullpath:d+"widget/AdminField"+b,requires:["gallery-anim-blind","gallery-anim-slide","collection"],optional:[],supersedes:[]},"gallery-anim-blind":{fullpath:d+"widget/AnimBlind"+b,requires:["anim","widget"],optional:[],supersedes:[]},"gallery-anim-slide":{fullpath:d+"widget/AnimSlide"+b,requires:["anim","widget"],optional:[],supersedes:[]},"gallery-node-field":{fullpath:d+"widget/NodeField"+b,requires:["base","node"],optional:[],supersedes:[]},"gallery-node-form":{fullpath:d+"widget/NodeForm"+b,requires:["base","node","gallery-node-field"],optional:[],supersedes:[]},"gallery-node-input":{fullpath:d+"widget/NodeInput"+b,requires:["base","node"],optional:[],supersedes:[]},"gallery-tab-manager":{fullpath:d+"widget/TabManager"+b,requires:["widget","yui3-ext"],optional:[],supersedes:[]},searchable_checkboxes:{fullpath:d+"widget/SearchableCheckboxes"+b,requires:["widget","datasource-io","datasource-jsonschema","datasource-cache","json","substitute","yui3-ext","matt_form"],optional:[],supersedes:[]},matt_form:{fullpath:d+"util/form"+b,requires:["base","collection"],optional:[],supersedes:[]},searchableFilter:{fullpath:d+"widget/SearchableFilter"+b,requires:["io-base","checkboxList","gallery-node-form","gallery-node-field"],optional:[],supersedes:[]},"yui3-ext":{fullpath:d+"widget/YUI3-Ext"+b,requires:["base","widget","node","anim","collection"],optional:[],supersedes:[]}}};
+YUI($YO).use("yui3-ext","gallery-node-input","node","io-base",function(l){var j=l.one("#xhr-loading"),k,h,g=function(){if(h){h.cancel()
+}},f=function(){if(0<=k){k=null;
+e(false);
+g()
 }};
-function a(k,j){var m=j?"saving...":"loading...",l,h;
-e.set("innerHTML",m);
-e.toggleDisplay(k);
-l=e.get("region");
-h=e.get("viewportRegion");
-e.setXY([(h.width/2)-(l.width/2),0])
-}window._initIO=function(h){h.on("io:start",function(j){f=j;
-a(true);
-c();
-d=h.later(2500,this,b)
+function e(o,n){var q=n?"saving...":"loading...",p,m;
+j.set("innerHTML",q);
+j.toggleDisplay(o);
+p=j.get("region");
+m=j.get("viewportRegion");
+j.setXY([(m.width/2)-(p.width/2),0])
+}window._initIO=function(m){m.on("io:start",function(n){k=n;
+e(true);
+g();
+h=m.later(2500,this,f)
 });
-h.on("io:complete",b)
+m.on("io:complete",f)
 };
-g.on("domready",function(){document.getElementById("project").onclick=null
+l.on("domready",function(){document.getElementById("project").onclick=null
 })
 });
+a=YUI.namespace("Env.Socialmize");
+a.STATIC_URL=d;
+a.FB={fb_cmd_queue:[],exec:function(f,e){if(!window.FB){this.fb_cmd_queue.push(arguments)
+}},exec_actual:function(f,e){FB[f].apply(FB,e)
+}};
+a.trackGA=function(e){if(window._gaq){_gaq.push(["_trackPageview",e])
+}}
+}());
 YUI($YO).add("gallery-anim-blind",function(c){var a="isOpen";
 function b(){b.superclass.constructor.apply(this,arguments);
 this._clickHandler=null;
@@ -4332,56 +4339,6 @@ if(f){e.setStyle("height",d+"px")
 }});
 c.AnimBlind=b
 },"@VERSION@",{requires:["anim","widget"]});
-YUI().add("checkboxList",function(d){var c=d.Lang,a="boundingBox",e='<li><input id="{id}" name="{name}" type="checkbox" value={value} {checked}/><label for="{id}">{label}</label></li>',b=function(f){b.superclass.constructor.apply(this,arguments)
-};
-b.ATTRS={json:{lazyAdd:false,setter:function(f){if(!c.isArray(f)){d.fail("CheckboxList: Invalid json provided: "+typeof f)
-}return f
-},value:[]},maxHeight:{value:"100px"},name:{value:"checkboxListValue[]"},templateItem:{value:""}};
-b.NAME="checkboxList";
-b.CE_BEFORE_ONCHECKED="before_onchecked";
-b.CE_ONCHECKED="onchecked";
-d.extend(b,d.Widget,{_dispatchClick:function(g){var f=g.target;
-if("input"==f.get("tagName").toLowerCase()){this.fire(b.CE_ONCHECKED,g)
-}},_renderItem:function(l,g,j,k,f){var h=this.get("templateItem").replace(/\{id\}/g,l).replace(/\{label\}/g,g).replace(/\{value\}/g,j).replace("{checked}",k?'checked="checked"':"");
-return f?h.replace(/\<li\>/,'<li class="disabled">').replace(/\/\>/,'disabled="disabled" />'):h
-},bindUI:function(){var f=this;
-f._nodeClickHandle=f.get(a).on("click",d.bind(f._dispatchClick,f))
-},checkAll:function(f){d.each(this.get(a).all("input[type=checkbox]"),function(g){g.set("checked",f)
-})
-},clear:function(){this.hide();
-this.get(a).set("innerHTML","")
-},destructor:function(){this.clear();
-if(this._nodeClickHandle){this._nodeClickHandle.detach()
-}},hide:function(){this.get(a).toggleDisplay(false)
-},initializer:function(f){this.set("templateItem",e.replace(/\{name\}/g,this.get("name")))
-},renderUI:function(){},serialize:function(){var g=[],f=this.get(a).all("input");
-f.each(function(j,h){if(j.get("checked")){g.push(j.get("name")+"="+j.get("value"))
-}});
-return g.join("&")
-},show:function(){this.get(a).toggleDisplay(true)
-},syncUI:function(){var p=this,k=p.get("json"),h=0,m,g=k.length,n=["<ul>"],l=p.get(a),f;
-if(k.length){for(;
-h<g;
-h+=1){m=k[h];
-n[h+1]=p._renderItem(m.id,m.label,m.value,m.isChecked,m.isDisabled)
-}n[h+1]="</ul>";
-l.set("innerHTML",n.join(""));
-if(p.get("maxHeight").replace(/\[\d\.]+/,"")<l.getStyle("height").replace(/\[\d\.]+/,"")){l.setStyle("height",p.get("maxHeight"))
-}p.show()
-}else{f=l.all("input[type=checkbox]");
-if(f.size()){k=[];
-f.each(function(j){k.push({disabled:j.get("disabled"),id:j.get("id"),isChecked:j.get("checked"),label:j.next().get("innerHTML"),value:j.get("value")})
-});
-p.set("json",k);
-p.show()
-}else{p.hide()
-}}},toggleItems:function(f){d.each(this.get(a).all("label"),function(h){var g=f(h.get("innerHTML"));
-h.get("parentNode").toggleDisplay(g);
-if(!g){h.previous().set("checked",false)
-}})
-}});
-d.CheckboxList=b
-},"1.0.0",{requires:["widget"],use:[]});
 YUI($YO).use("gallery-node-input",function(c){var b=c.one("#group-footer-search"),a=b?"group name or email":"user name or email";
 new c.NodeInput({input:"#q",blurText:a});
 if(b){new c.NodeInput({input:b,blurText:a})

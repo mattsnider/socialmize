@@ -10,7 +10,7 @@
 	<p class="copy">Use this feature to update all users about news related to ${projectName}. There are currently 3 types of articles: news,
 		events, and alerts.</p>
 
-	<ol>
+	<div class="content white"><ol>
 
 		<?
 		$news = $pageContext->findAttribute(c('MN_ARTICLE'), true);
@@ -33,28 +33,10 @@
 		$allUserName = $pageContext->evaluateTemplateText('${nameUsers}');
 		$typeSelected = '';
 
-		echo '<li><label for="form-news-types">To:</label>';
-		echo '<select autocomplete="off" class="select" id="form-news-types" name="message'.c('QK_TYPE').'">';
-			echo '<option value="all"'.($typeSelected?'':' selected="selected"').'>All '.$allUserName.'</option>';
-
-			$searchableTypes = Searchable::getValidTypes();
-
-			foreach ($searchableTypes as $type) {
-				$typeNames = $name = $pageContext->evaluateTemplateText('${name'.ucfirst($type).'s}');
-				if (Searchable::$TYPE_USER == $type) {
-					$typeNames = $allUserName;
-				}
-				else {
-					echo '<option value="'.$type.'admin"'.($type.'admin' == $typeSelected?' selected="selected"':'').'>Choose '.$typeNames.' Admins</option>';
-				}
-				echo '<option value="'.$type.'"'.($type == $typeSelected?' selected="selected"':'').'>Choose '.$typeNames.'</option>';
-			}
-		echo '</select></li>';
-		echo '<li class="displayNone" id="form-news-container">
-			<input class="ckkbox" id="form-news-chkbox" type="checkbox"/>
-			<input autocomplete="off" class="txt" id="form-news-filter" type="text"/>
-			<div class="select-list displayNone" id="form-news-list"></div>
-		</li>';
+		if (! $body) {
+			echo '<li><label for="form-news-types">To:</label>';
+			echo '<div id="id_slist_news"></div>';
+		}
 
 		?>
 
@@ -89,6 +71,7 @@
 	<? echo'<input name="'.c('QUERY_KEY_MESSAGE_ID').'" type="hidden" value="'.$id.'" />'; ?>
 
 	<div class="buttons"><input class="btn btn-round" type="submit" value="Post News!" /></div>
+	</div>
 
 </fieldset></form>
 

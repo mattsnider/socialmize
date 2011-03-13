@@ -408,7 +408,7 @@ var CLS_DISABLED = 'disabled',
 		}
 	};
 
-	Y.Matt.Form = Form;
-	Y.Matt.FormField = FormField;
-	Y.Matt.FormFieldSerializers = FormFieldSerializers;
+	Y.Form = Form;
+	Y.FormField = FormField;
+	Y.FormFieldSerializers = FormFieldSerializers;
 }, '', {requires: ['node', 'collection']});

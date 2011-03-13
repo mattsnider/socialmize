@@ -20448,52 +20448,9 @@ var DEFAULT_TIMEOUT = 30000,
         }
     };
 }());/*
- * Copyright (c) 2009, Matt Snider, LLC. All rights reserved.
+ * Copyright (c) 2010, Matt Snider, LLC. All rights reserved.
  * Version: 1.0.00
  */
-
-//(function() {
-//	// constant
-//var YU = YAHOO.util,
-//	FE = YU.Form.Element,
-//	$ = YU.Dom.get,
-//
-//	// local namespace
-//	_domQuery = $('query');
-//
-///**
-// * The JavaScript namespace used to store some 'unsensitive' information about the current user.
-// * @property USER
-// * @type String
-// * @static
-// */
-//Core.USER = {
-//
-//    /**
-//     * The authorized user's key.
-//     * @property USER.key
-//     * @type String
-//     * @static
-//     */
-//    key: '',
-//
-//    /**
-//     * The authorized user's name.
-//     * @property USER.name
-//     * @type String
-//     * @static
-//     */
-//    name: ''
-//};
-//
-//if (! window.$) {
-//    window.$ = $;
-//}
-//
-//FE.attachFocusAndBlur(_domQuery, 'search by name or keyword');
-//
-//}());
-
 
 (function() {
 	var DOC = document;
@@ -20522,134 +20479,119 @@ var DEFAULT_TIMEOUT = 30000,
 		 */
 		DOC.NOTATION_NODE = 12;
 	}
-}());
 
-var base = '/assets/js/';
+var Socialmize,
+__STATIC_URL = '/assets/js/',
 //var base = '../';
-var $VERSION = '.js?r=75',
-	//var $VERSION = '.js?r=' + Math.random(),
-		$YO = {
-			base: 'http://yui.localhost/yui3/build/',
-			filter: 'raw',
-//			combine: true,
-			timeout: 10000,
-			useBrowserConsole: true,
-			logLevel: 'warn',
-			debug: true,
-			modules: {
-				'ac-plugin-local': {
-					fullpath: base + 'widget/ac-plugin-min' + $VERSION,
-					requires: ['node', 'plugin', 'value-change', 'event-key'],
-					optional: ['event-custom'],
-					supersedes: []
-				},
+$VERSION = '.js?r=3';
+//var $VERSION = '.js?r=' + Math.random(),
+window.$YO = {
+//		base: 'http://yui.localhost/yui3/build/',
+	filter: 'raw',
+	combine: true,
+	timeout: 10000,
+	useBrowserConsole: true,
+	logLevel: 'warn',
+	debug: true,
+	modules: {
 
-				'ac-widget-local': {
-					fullpath: base + 'widget/ac-widget-min' + $VERSION,
-					requires: ['widget','ac-plugin'],
-					optional: [],
-					supersedes: []
-				},
+		'cameleon-notification': {
+			fullpath: __STATIC_URL + 'widget/Notification' + $VERSION,
+			requires: ['node', 'widget', 'yui3-ext', 'io'],
+			optional: [],
+			supersedes: []
+		},
 
-				'cameleon-notification': {
-					fullpath: base + 'widget/Notification' + $VERSION,
-					requires: ['node', 'widget', 'yui3-ext', 'io'],
-					optional: [],
-					supersedes: []
-				},
+		'core': {
+			fullpath: __STATIC_URL + 'js/upvote' + $VERSION,
+			requires: ['node', 'dom', 'event', 'io', 'anim', 'widget', 'container']
+		},
 
-				'checkboxList': {
-					fullpath: base + 'widget/CheckboxList' + $VERSION,
-					requires: ['widget'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-admin-field': {
+			fullpath: __STATIC_URL + 'widget/AdminField' + $VERSION,
+			requires: ['gallery-anim-blind', 'gallery-anim-slide', 'collection'],
+			optional: [],
+			supersedes: []
+		},
 
-				'checkboxListFilter': {
-					fullpath: base + 'widget/CheckboxListFilter' + $VERSION,
-					requires: ['plugin', 'datasource', 'checkboxList'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-anim-blind': {
+			fullpath: __STATIC_URL + 'widget/AnimBlind' + $VERSION,
+			requires: ['anim', 'widget'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-admin-field': {
-					fullpath: base + 'widget/AdminField' + $VERSION,
-					requires: ['gallery-anim-blind', 'gallery-anim-slide', 'collection'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-anim-slide': {
+			fullpath: __STATIC_URL + 'widget/AnimSlide' + $VERSION,
+			requires: ['anim', 'widget'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-anim-blind': {
-					fullpath: base + 'widget/AnimBlind' + $VERSION,
-					requires: ['anim', 'widget'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-node-field': {
+			fullpath: __STATIC_URL + 'widget/NodeField' + $VERSION,
+			requires: ['base', 'node'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-anim-slide': {
-					fullpath: base + 'widget/AnimSlide' + $VERSION,
-					requires: ['anim', 'widget'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-node-form': {
+			fullpath: __STATIC_URL + 'widget/NodeForm' + $VERSION,
+			requires: ['base', 'node', 'gallery-node-field'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-node-field': {
-					fullpath: base + 'widget/NodeField' + $VERSION,
-					requires: ['base', 'node'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-node-input': {
+			fullpath: __STATIC_URL + 'widget/NodeInput' + $VERSION,
+			requires: ['base', 'node'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-node-form': {
-					fullpath: base + 'widget/NodeForm' + $VERSION,
-					requires: ['base', 'node', 'gallery-node-field'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-tab-manager': {
+			fullpath: __STATIC_URL + 'widget/TabManager' + $VERSION,
+			requires: ['widget', 'yui3-ext'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-node-input': {
-					fullpath: base + 'widget/NodeInput' + $VERSION,
-					requires: ['base', 'node'],
-					optional: [],
-					supersedes: []
-				},
+//		'matt_searchableListOfCheckboxes': {
+//			fullpath: __STATIC_URL + 'widget/SearchableListOfCheckboxes' + $VERSION,
+//			requires: ['widget', 'datasource', 'json', 'yui3-ext', 'matt_form'],
+//			optional: [],
+//			supersedes: []
+//		},
 
-				'gallery-tab-manager': {
-					fullpath: base + 'widget/TabManager' + $VERSION,
-					requires: ['widget', 'yui3-ext'],
-					optional: [],
-					supersedes: []
-				},
+		'searchable_checkboxes': {
+			fullpath: __STATIC_URL + 'widget/SearchableCheckboxes' + $VERSION,
+			requires: ['widget', 'datasource-io', 'datasource-jsonschema', 'datasource-cache', 'json', 'substitute', 'yui3-ext', 'matt_form'],
+			optional: [],
+			supersedes: []
+		},
 
-				'matt_searchableListOfCheckboxes': {
-					fullpath: base + 'widget/SearchableListOfCheckboxes' + $VERSION,
-					requires: ['widget', 'datasource', 'json', 'yui3-ext', 'matt_form'],
-					optional: [],
-					supersedes: []
-				},
+		'matt_form': {
+			fullpath: __STATIC_URL + 'util/form' + $VERSION,
+			requires: ['base', 'collection'],
+			optional: [],
+			supersedes: []
+		},
 
-				'matt_form': {
-					fullpath: base + 'util/form' + $VERSION,
-					requires: ['base', 'collection'],
-					optional: [],
-					supersedes: []
-				},
+		'searchableFilter': {
+			fullpath: __STATIC_URL + 'widget/SearchableFilter' + $VERSION,
+			requires: ['io-base', 'checkboxList', 'gallery-node-form', 'gallery-node-field'],
+			optional: [],
+			supersedes: []
+		},
 
-				'searchableFilter': {
-					fullpath: base + 'widget/SearchableFilter' + $VERSION,
-					requires: ['io-base', 'checkboxList', 'gallery-node-form', 'gallery-node-field'],
-					optional: [],
-					supersedes: []
-				},
-
-				'yui3-ext': {
-					fullpath: base + 'widget/YUI3-Ext' + $VERSION,
-					requires: ['base', 'widget', 'node', 'anim', 'collection'],
-					optional: [],
-					supersedes: []
-				}
-			}
-		};
+		'yui3-ext': {
+			fullpath: __STATIC_URL + 'widget/YUI3-Ext' + $VERSION,
+			requires: ['base', 'widget', 'node', 'anim', 'collection'],
+			optional: [],
+			supersedes: []
+		}
+	}
+};
 
 YUI($YO).use('yui3-ext', 'gallery-node-input', 'node', 'io-base', function(Y) {
 
@@ -20697,7 +20639,33 @@ YUI($YO).use('yui3-ext', 'gallery-node-input', 'node', 'io-base', function(Y) {
 		document.getElementById('project').onclick = null;
 	});
 
-});/**
+});
+
+Socialmize = YUI.namespace('Env.Socialmize');
+
+Socialmize.STATIC_URL = __STATIC_URL;
+
+// create Global namespace variables
+Socialmize.FB = {
+	fb_cmd_queue: [],
+
+	exec: function(sFuncName, args) {
+		if (! window.FB) {
+			this.fb_cmd_queue.push(arguments)
+		}
+	},
+
+	exec_actual: function(sFuncName, args) {
+		FB[sFuncName].apply(FB, args);
+	}
+};
+
+Socialmize.trackGA = function(sPageName) {
+	if (window._gaq) {
+		_gaq.push(['_trackPageview', sPageName]);
+	}
+};
+}());/**
  * Copyright (c) 2010, Matt Snider, LLC. All rights reserved.
  * Version: 1
  */
@@ -20912,280 +20880,7 @@ Y.extend(AnimBlind, Y.Widget, {
 
 Y.AnimBlind = AnimBlind;
 
-}, "@VERSION@", {requires: ['anim', 'widget']});/*
- * Copyright (c) 2009, Matt Snider, LLC. All rights reserved.
- * Version: 1.0.01
- */
-
-/**
- * The CheckboxList classes manages a scrollable list of checkboxes that is rendered via JavaScript.
- * @namespace Core.Widget
- * @class CheckboxList
- */
-YUI().add('checkboxList', function(Y) {
-	// constants
-var Lang = Y.Lang,
-	ATTR_BOUNDING_BOX = 'boundingBox',
-	ITEM_TMPL = '<li><input id="{id}" name="{name}" type="checkbox" value={value} {checked}/><label for="{id}">{label}</label></li>',
-
-    /**
-     * The CheckboxList constructor.
-     * @method CheckboxList
-	 * @param conf {Object} Optional. Configuration parameters.
-	 * @constructor
-     * @public
-     */
-	CheckboxList = function(conf) {
-		CheckboxList.superclass.constructor.apply(this, arguments);
-	};
-
-	CheckboxList.ATTRS = {
-		// the json for rendering
-		json: {
-			lazyAdd: false,
-			setter: function(v) {
-				if (! Lang.isArray(v)) {
-					Y.fail('CheckboxList: Invalid json provided: ' + typeof v);
-				}
-				return v;
-			},
-			value: []
-		},
-
-		// the maximum height to make the list
-		maxHeight: {
-			value: '100px'
-		},
-
-		// name to apply to each checkbox
-		name: {
-			value: 'checkboxListValue[]'
-		},
-
-		// the template item
-		templateItem: {
-			value: ''
-		}
-	};
-
-	CheckboxList.NAME = "checkboxList";
-
-	CheckboxList.CE_BEFORE_ONCHECKED = 'before_onchecked';
-	CheckboxList.CE_ONCHECKED = 'onchecked';
-
-
-	Y.extend(CheckboxList, Y.Widget, {
-
-		/**
-		 * Callback function for clicking inside the wdiget node.
-		 * @method _dispatchClick
-		 * @param e {Event} Required. The triggered `click` JavaScript event.
-		 * @private
-		 */
-		_dispatchClick: function(e) {
-			var targ = e.target;
-
-			if ('input' == targ.get('tagName').toLowerCase()) {
-				/*
-				not working the same in YUI 3 as in YUI 2
-				if (this.fire(CheckboxList.CE_BEFORE_ONCHECKED, e)) {
-					e.halt();
-					return;
-				}
-				*/
-				this.fire(CheckboxList.CE_ONCHECKED, e);
-			}
-		},
-
-		/**
-		 * Renders a list item from the template.
-		 * @method _renderItem
-		 * @param id {String} Required. The checkbox ID.
-		 * @param label {String} Required. The checkbox label.
-		 * @param value {String} Required. The checkbox value.
-		 * @param isChecked {Boolean} Optional. Check the checkbox.
-		 * @param isDisabled {Boolean} Optional. Disable the checkbox.
-		 * @return {String} The HTML for list item to render.
-		 * @protected
-		 */
-		_renderItem: function(id, label, value, isChecked, isDisabled) {
-			var html = this.get('templateItem').replace(/\{id\}/g, id).replace(/\{label\}/g, label).replace(/\{value\}/g, value)
-							 .replace('{checked}', isChecked ? 'checked="checked"' : '');
-
-			return isDisabled ? html.replace(/\<li\>/, '<li class="disabled">').replace(/\/\>/, 'disabled="disabled" />') : html;
-		},
-
-		/**
-		 * Bind events to the widget.
-		 * @method bindUI
-		 * @public
-		 */
-		bindUI: function() {
-			var _this = this;
-			_this._nodeClickHandle = _this.get(ATTR_BOUNDING_BOX).on("click", Y.bind(_this._dispatchClick, _this));
-		},
-
-		/**
-		 * Update the checked state of all the inputs.
-		 * @method checkAll
-		 * @param bool {Boolean} Required. The checked state.
-		 * @public
-		 */
-		checkAll: function(bool) {
-			Y.each(this.get(ATTR_BOUNDING_BOX).all('input[type=checkbox]'), function(npt) {
-				npt.set('checked', bool);
-			});
-		},
-
-		/**
-		 * Hides the node and removes its content.
-		 * @method clear
-		 * @public
-		 */
-		clear: function() {
-			this.hide();
-			this.get(ATTR_BOUNDING_BOX).set('innerHTML', '');
-		},
-
-		/**
-		 * Destroys the widget.
-		 * @method destructor
-		 * @public
-		 */
-		destructor: function() {
-			this.clear();
-
-			if (this._nodeClickHandle) {
-				this._nodeClickHandle.detach();
-			}
-		},
-
-		/**
-		 * Hides the node.
-		 * @method hide
-		 * @public
-		 */
-		hide: function() {
-			this.get(ATTR_BOUNDING_BOX).toggleDisplay(false);
-		},
-
-		/**
-		 * Initialize the widget.
-		 * @method initializer
-		 * @param config {Object} Required. The initialization configuration.
-		 * @public
-		 */
-		initializer: function(config) {
-			this.set('templateItem', ITEM_TMPL.replace(/\{name\}/g, this.get('name')));
-		},
-
-		/**
-		 * Renders the checklist DOM inside of the block-level node.
-		 * @method renderUI
-		 * @public
-		 */
-		renderUI: function() {
-		},
-
-		/**
-		 * Serializes the root node for an AJAX request.
-		 * @method serialize
-		 * @return {String} The parameterized form.
-		 * @public
-		 */
-		serialize: function() {
-			var sb = [],
-				npts = this.get(ATTR_BOUNDING_BOX).all('input');
-
-			npts.each(function(npt, i) {
-				if (npt.get('checked')) {
-					sb.push(npt.get('name') + '=' + npt.get('value'));
-				}
-			});
-
-			return sb.join('&');
-		},
-
-		/**
-		 * Shows the node.
-		 * @method show
-		 * @public
-		 */
-		show: function() {
-			this.get(ATTR_BOUNDING_BOX).toggleDisplay(true);
-		},
-
-		/**
-		 * Sync events to the widget.
-		 * @method syncUI
-		 * @public
-		 */
-		syncUI: function() {
-			var _this = this,
-				json = _this.get('json'),
-				i = 0, o,
-				j = json.length,
-				sb = ['<ul>'],
-				node = _this.get(ATTR_BOUNDING_BOX),
-				inputs;
-
-			// initialize from data set
-			if (json.length) {
-
-				for (; i < j; i += 1) {
-					o = json[i];
-					sb[i + 1] = _this._renderItem(o.id, o.label, o.value, o.isChecked, o.isDisabled);
-				}
-
-				sb[i + 1] = '</ul>';
-				node.set('innerHTML', sb.join(''));
-
-				if (_this.get('maxHeight').replace(/\[\d\.]+/, '') < node.getStyle('height').replace(/\[\d\.]+/, '')) {
-					node.setStyle('height', _this.get('maxHeight'));
-				}
-				
-				_this.show();
-			} else { // initialize from DOM
-				inputs = node.all('input[type=checkbox]');
-
-				if (inputs.size()) {
-					json = [];
-
-					inputs.each(function(npt) {
-						json.push({
-							disabled: npt.get('disabled'),
-							id: npt.get('id'),
-							isChecked: npt.get('checked'),
-							label: npt.next().get('innerHTML'),
-							value: npt.get('value')
-						});
-					});
-
-					_this.set('json', json);
-					_this.show();
-				} else {
-					_this.hide();
-				}
-			}
-		},
-
-		/**
-		 * Toggles the items in the list on and off based on the criteria.
-		 * @method toggleItems
-		 * @param fn {Function} Required. The callback function.
-		 * @public
-		 */
-		toggleItems: function(fn) {
-			Y.each(this.get(ATTR_BOUNDING_BOX).all('label'), function(lbl) {
-				var isDisplayed = fn(lbl.get('innerHTML'));
-				lbl.get('parentNode').toggleDisplay(isDisplayed);
-				if (! isDisplayed) {lbl.previous().set('checked', false);}
-			});
-		}
-	});
-
-Y.CheckboxList = CheckboxList;
-}, '1.0.0' ,{requires:['widget'], use: []});/**
+}, "@VERSION@", {requires: ['anim', 'widget']});/**
  *	Copyright (c) 2009, Matt Snider, LLC. All rights reserved.
  *	Version: 1.0
  */

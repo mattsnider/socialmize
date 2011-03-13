@@ -105,6 +105,7 @@
 				<srcfiles dir="${cssdir}" includes="widget/core.css"/>
 				<srcfiles dir="${cssdir}" includes="widget/tab.css"/>
 				<srcfiles dir="${cssdir}" includes="widget/pagination.css"/>
+				<srcfiles dir="${cssdir}" includes="widget/searchableListOfCheckboxes.css"/>
 			</uptodate>
 		</condition>
 	</target>
@@ -124,6 +125,7 @@
 				<file name="widget/autocomplete.css"/>
 				<file name="widget/tab.css"/>
 				<file name="widget/pagination.css"/>
+				<file name="widget/searchableListOfCheckboxes.css"/>
 			</filelist>
 		</concat>
 

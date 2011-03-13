@@ -1,6 +1,7 @@
 <?php
 
 import('project.action.ControllerBase');
+import('project.util.SearchableCheckboxUtils');
 
 /**
  * @package project.action.user
@@ -384,36 +385,7 @@ class ControllerSearchableUpdate extends ControllerBase {
 	 * @since  Release 1.0
 	 */
 	private function _handleUpdateSearchableAdmins($request, $man, $S, $aUser) {
-		$aSearchables = explode(',', $request->getParameter(c('QUERY_KEY_ID') . 's'));
-		$aCheckedSearchables = $request->getParameterValues('checkboxes');
-
-		$aSearchablesToAdd = array();
-		$aSearchablesToRemove = array();
-
-		$oCheckedIds = array();
-
-		/*
-		if (!sizeof($aCheckedSearchables)) {
-			return 'At least one member must remain the administrator of ' . $S->getType() . '.';
-		}
-		*/
-
-		// find searchables that are checked
-		foreach ($aCheckedSearchables as $id) {
-			$oCheckedIds[$id] = true;
-		}
-
-//		dlog(implode(',', $aCheckedSearchables));
-
-		// iterate on all shown searchables and create a list of searchables to and/remove as admin
-		foreach ($aSearchables as $id) {
-			if (array_key_exists($id, $oCheckedIds)) {
-				array_push($aSearchablesToAdd, $id);
-			}
-			else {
-				array_push($aSearchablesToRemove, $id);
-			}
-		}
+		list($aSearchablesToAdd, $aSearchablesToRemove) = SearchableCheckboxUtils::processSearchableCheckbox($request);
 
 		// this request will prevent superadmins from being unchecked (super admins are disabled)
 		$man->updateSearchableAdmins($S->getId(), $aSearchablesToAdd, $aSearchablesToRemove);
@@ -489,40 +461,25 @@ class ControllerSearchableUpdate extends ControllerBase {
 		$nm = $this->_getNotificationManager($request);
 		$sId = $S->getId();
 
-		$aSearchables = explode(',', $request->getParameter(c('QUERY_KEY_ID') . 's'));
-		$aCheckedSearchables = $request->getParameterValues('checkboxes');
+		list($aSearchablesToAdd, $aSearchablesToRemove) = SearchableCheckboxUtils::processSearchableCheckbox($request);
+
+		dlog('==============');
+		dlog('$aSearchablesToAdd='.implode(',', $aSearchablesToAdd));
+		dlog('$aSearchablesToAdd='.var_dump($aSearchablesToAdd, true));
+		dlog('$aSearchablesToRemove='.var_dump($aSearchablesToRemove, true));
+		dlog('==============');
 
 		list($members) = $man->readMembers($S->getId(), array('memberStatus' => Searchable::$STATUS_ACTIVE));
 
-		$aSearchablesToAdd = array();
-		$aSearchablesToRemove = array();
 		$aSearchablesMembers = array();
 
-		$oCheckedIds = array();
-
-		foreach ($members as $s) {
-			if (!$s->isAdmin()) {
-				array_push($aSearchablesMembers, $s->getId());
-			}
-		}
-
 		// find searchables that are checked
-		foreach ($aCheckedSearchables as $id) {
-			$oCheckedIds[$id] = true;
-		}
-
-		// iterate on all shown searchables and create a list of searchables to and/remove as admin
-		foreach ($aSearchables as $id) {
-			if (array_key_exists($id, $oCheckedIds)) {
-				array_push($aSearchablesToAdd, $id);
-			}
-			else {
-				array_push($aSearchablesToRemove, $id);
-			}
+		foreach ($members as $o) {
+			array_push($aSearchablesMembers, $o->getId());
 		}
 
 		// only add non-existing members
-		$aSearchablesToAdd = array_diff($aSearchablesToAdd, $aSearchablesMembers);
+		$aSearchablesToAdd = $S->isAdmin() ? array_diff($aSearchablesToAdd, $aSearchablesMembers) : array();
 
 		// only remove existing members; only admins have the rights to remove members
 		$aSearchablesToRemove = $S->isAdmin() ? array_intersect($aSearchablesToRemove, $aSearchablesMembers) : array();

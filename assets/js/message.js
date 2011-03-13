@@ -1,4 +1,4 @@
-YUI($YO).use('node', 'dom', 'yui3-ext', 'searchableFilter', 'gallery-node-input', 'dataschema-json', 'gallery-node-form', function(Y) {
+YUI($YO).use('node', 'dom', 'yui3-ext', 'matt_searchableListOfCheckboxes', 'gallery-node-input', 'dataschema-json', 'gallery-node-form', function(Y) {
 		// constants
 	var Get = Y.one,
 

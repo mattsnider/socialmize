@@ -2,6 +2,7 @@
 
 import('project.action.module.ControllerModuleSubmitBase');
 import('project.service.ServiceRegistration');
+import('project.util.SearchableCheckboxUtils');
 
 /**
  * @package project.action.user
@@ -18,80 +19,59 @@ class ControllerJoinSubmit extends ControllerModuleSubmitBase {
 	public function executeActually(&$form, &$request, &$response, &$aUser, $S) {
 		list($man) = $this->_getServices($request, 'ServiceMember');
 
-		$aCheckedSearchables = $request->getParameterValues('checkboxes');
-		$isGroupAndUser = $this->_getParameterAsString($request, 'more');
-		$isSkip = $this->_getParameterAsString($request, 'skip');
+		list($searchables_to_add) = SearchableCheckboxUtils::processSearchableCheckbox($request);
 
-		$isValid = sizeof($aCheckedSearchables) || $isSkip;
-//		$isValid = false; // debug code to force failure
+		$uri = '/home.action';
 
-		$uri = $isValid ? '/home.action' : '/registration_view_join.action';
+		// ensure always a member of the root network
+		if (! in_array(c('ROOT_NETWORK'), $searchables_to_add)) {
+			array_push($searchables_to_add, c('ROOT_NETWORK'));
+		}
 
-		// allGroupsAndUsers, allNetworks
+		list($searchables) = $man->readSearchables(array('sId' => $searchables_to_add));
 
-		if ($isValid) {
-//			$addActiveSearchables = array();
-//			$addPendingSearchables = array();
+		$msg = '';
+		$privateMembers = array();
+		$privateTypes = array();
 
-			if ($isGroupAndUser) {
-				$request->getSession()->setAttribute('listIsGroupAndUser', $aUser->getRegistrationTask());
-				$uri = '/registration_view_join.action';
+		foreach ($searchables as $s) {
+			if ($s->isUser()) {
+				$o = Member::createSimple($aUser, $s);
+				$o->setStatus(Searchable::$STATUS_PENDING);
+				$man->createMember($o);
+				$nm = $this->_getNotificationManager($request);
+				$nm->notifyUser($man, $s, $aUser);
+
+				array_push($privateMembers, '<q>' . $s->getName() . '</q>');
+				array_push($privateTypes, $s->getType());
 			}
-
-			list($searchables) = $man->readSearchables(array('sId' => $aCheckedSearchables));
-
-			$msg = '';
-			$privateMembers = array();
-			$privateTypes = array();
-
-			foreach ($searchables as $s) {
-				if ($s->isUser()) {
+			else {
+				if ($s->isOpen()) {
+					$o = Member::createSimple($s, $aUser);
+				}
+				else {
 					$o = Member::createSimple($aUser, $s);
 					$o->setStatus(Searchable::$STATUS_PENDING);
-					$man->createMember($o);
-					$nm = $this->_getNotificationManager($request);
-					$nm->notifyUser($man, $s, $aUser);
-
 					array_push($privateMembers, '<q>' . $s->getName() . '</q>');
 					array_push($privateTypes, $s->getType());
 				}
-				else {
-					if ($s->isOpen()) {
-						$o = Member::createSimple($s, $aUser);
-					}
-					else {
-						$o = Member::createSimple($aUser, $s);
-						$o->setStatus(Searchable::$STATUS_PENDING);
-						array_push($privateMembers, '<q>' . $s->getName() . '</q>');
-						array_push($privateTypes, $s->getType());
-					}
 
-					$man->createMember($o);
-				}
+				$man->createMember($o);
 			}
+		}
 
-			if (sizeof($privateMembers)) {
-				array_unique($privateTypes);
-				$msg = rimplode(', ', $privateMembers, ' and ') .
-					   ' have restricted privacy settings. They must confirm your connection before it shows up on your pages.';
-			}
+		if (sizeof($privateMembers)) {
+			array_unique($privateTypes);
+			$msg = rimplode(', ', $privateMembers, ' and ') . (1 == sizeof($privateMembers) ? ' has' : ' have') .
+				   ' restricted privacy settings. They must confirm your connection before it shows up on your pages.';
+		}
 
-//			if (sizeof($addActiveSearchables)) {
-//				$man->updateSearchableMembers($aUser, $addActiveSearchables, array(), Searchable::$STATUS_ACTIVE);
-//			}
-//			else {
-//				$man->updateSearchableMembers($aUser, $addPendingSearchables, array(), Searchable::$STATUS_PENDING);
-//			}
+		if ($msg) {
+			$this->_parseMessage($request, $msg);
+		}
 
-			if ($msg) {
-				$this->_parseMessage($request, $msg);
-			}
-
-			if ($aUser->getRegistrationTask()) {
-				$this->_updateNextTask($request, $aUser->getRegistrationTask()->getId());
-			}
-		} else {
-			$this->_parseMessage($request, 'You must join at least 1 network. Please choose one from the list below.');
+		if ($aUser->getRegistrationTask()) {
+			$this->_updateNextTask($request, $aUser->getRegistrationTask()->getId());
 		}
 
 		$response->sendRedirect($uri);

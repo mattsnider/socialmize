@@ -186,7 +186,7 @@
 					'Message Users' => array('message', 'message'),
 					'Site News	' => array('message', 'news')
 				),
-				'Message' => array(
+				'Members' => array(
 					'Pending Approvals' => array('searchable', 'pending'),
 					'Registration Configuration' => array('searchable', 'configurationSignup'),
 					'Manage Users' => array('searchable', 'user'),
@@ -366,11 +366,29 @@
 
 <c:if test="${! empty aUser}">
 	<script type="text/javascript">
-		var $USER = {
-			name: '${aUser.name}',
-			key: '${aUser.key}',
-			token: '${aUser.token}'
-		};
+		(function() {
+			Socialmize = YUI.namespace('Env.Socialmize');
+
+			<? if (class_exists('SearchableCheckboxUtils')) {
+				echo "Socialmize.CHECKED_TYPES = ['" . implode("','", SearchableCheckboxUtils::$CHECKED_TYPES) . "'];";
+				echo "Socialmize.SEARCH_TYPES = ['" . implode("','", SearchableCheckboxUtils::$SEARCH_TYPES). "'];";
+			}?>
+
+			Socialmize.NAMES = {
+				friend: '${nameFriend}',
+				group: '${nameGroup}',
+				network: '${nameNetwork}',
+				user: '${nameUser}'
+			};
+
+			Socialmize.user = {
+				name: '${aUser.name}',
+				key: '${aUser.key}',
+				token: '${aUser.token}'
+			};
+			
+			Socialmize.TYPES = ['<? echo implode("','", Searchable::getValidTypes()); ?>'];
+		}());
 	</script>
 </c:if>
 

@@ -1783,6 +1783,7 @@ if (strcmp(phpversion(), '4.2.0') < 0) {
 
 def('ADMIN_KEY', 'asdf1234');
 def('ADMIN_ID', 1);
+def('ROOT_NETWORK', 239);
 
 // todo: deprecate these
 def('QUERY_KEY_ACTION', 'action');

@@ -43,7 +43,7 @@ class CheckboxUtils extends Object {
 		);
 	}
 
-	public static function _createCheckboxes($searchables, $aCheckedMap, $aDisabledMap) {
+	public static function _createCheckboxes($searchables, $aCheckedMap=array(), $aDisabledMap=array()) {
 		$checkboxes = array();
 		$searchablenIds = array();
 

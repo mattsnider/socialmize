@@ -1,5 +1,6 @@
 <?php
 import('project.action.module.ControllerModuleViewBase');
+import('project.util.SearchableCheckboxUtils');
 import('project.util.CheckboxUtils');
 
 /**
@@ -19,7 +20,7 @@ class ControllerJoinView extends ControllerModuleViewBase {
 			$aUser->setRegistrationTask($isGroupAndUser);
 		}
 
-		$this->setupVariables($request, RegistrationTask::$TYPE_JOIN_NETWORK, array(), array('widget/searchableListOfCheckboxes'));
+		$this->setupVariables($request, RegistrationTask::$TYPE_JOIN_NETWORK, array(), array());
 
 		// restore auth user's registration task
 		if ($isGroupAndUser) {
@@ -104,6 +105,7 @@ class ControllerJoinView extends ControllerModuleViewBase {
 
 		$request->setAttribute('listSubmitCopy', ref('OR CONTINUE'));
 		$request->setAttribute('listButtons', $buttons);
+		$request->setAttribute('isNetwork', ref(! $isGroupAndUser));
 		$page = 'success';
 
 		return ref('success');

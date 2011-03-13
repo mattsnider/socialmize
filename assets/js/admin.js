@@ -3,7 +3,7 @@
  * @class Admin
  * @dependencies library
  */
-YUI($YO).use('node', 'yui3-ext', 'searchableFilter', 'checkboxList', 'datatype-xml', 'gallery-node-input', 'datasource', 'gallery-admin-field',
+YUI($YO).use('node', 'yui3-ext', 'searchable_checkboxes', 'datatype-xml', 'gallery-node-input', 'datasource', 'gallery-admin-field',
 			 'gallery-node-form'/*, 'ac-plugin-local', 'ac-widget-local'*/, function(Y) {
 	_initIO(Y);
 
@@ -34,7 +34,7 @@ YUI($YO).use('node', 'yui3-ext', 'searchableFilter', 'checkboxList', 'datatype-x
 			_domFormFeature = One('#form-features'),
 			_domFormFields = One('#form-field'),
 			_domFormFieldsFilter = One('#form-field-filter'),
-			_domFormNews = One('#form-news'),
+			_domListNews = One('#id_slist_news'),
 			_domFormPending = One('#form-pending'),
 			_domFormProfanity = One('#form-profanity'),
 			_domInputBecome = One("#admin-become-input"),
@@ -317,9 +317,9 @@ YUI($YO).use('node', 'yui3-ext', 'searchableFilter', 'checkboxList', 'datatype-x
 		});
 	}
 
-	if (_domFormNews) {
-		var searchableFilter = new Y.SearchableFilter({boundingBox: _domFormNews});
-		searchableFilter.render();
+	if (_domListNews) {
+		var searchableCheckboxes = new Y.SearchableCheckboxes({boundingBox: _domListNews, typeToCheck: 'all', hasButton: false});
+		searchableCheckboxes.render();
 	}
 
 	// pending form

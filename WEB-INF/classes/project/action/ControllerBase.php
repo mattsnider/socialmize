@@ -216,6 +216,10 @@ class ControllerBase extends Action {
 			$uMan->shutdown();
 			$etime = time();
 			$log->info('=====>>>>>>>> Leaving execute took ' . ($etime - $stime) / 1000 . ' seconds, rendering view @' . getDatetime($etime));
+
+			if ($request->getParameter('is_ajax')) {
+				$forward = 'xml';
+			}
 		}
 		else {
 			if (!$key) {
@@ -485,9 +489,9 @@ class ControllerBase extends Action {
 	 * @param  string $argX Optional. Any number of additional service class names.
 	 * @return array List of services.
 	 * @since  version 1.0
-	 * @access protected
+	 * @access public
 	 */
-	protected function _getServices($request) {
+	public function _getServices($request) {
 		$aServices = array();
 		$args = func_get_args();
 		array_shift($args);
@@ -506,10 +510,10 @@ class ControllerBase extends Action {
 	 * @param object {array} collection of Objects
 	 * @param id {Integer} DB PK
 	 * @return {Object} an instance of Object in collection
-	 * @access Protected
+	 * @access public
 	 * @since Release 1.0
 	 */
-	protected function &getObjectFromArrayById($object, $id) {
+	public function &getObjectFromArrayById($object, $id) {
 		foreach ($object as $v) {
 			if ($id == $v->getId()) {
 				return ref($v);
@@ -526,10 +530,10 @@ class ControllerBase extends Action {
 	 * @param req {HttpServletRequest} Servlet HTTP request object
 	 * @param key {string} the parameter hash key
 	 * @return {boolean} the parameter as a valid boolean
-	 * @access Protected
+	 * @access public
 	 * @since Release 1.0
 	 */
-	protected function _getParameterAsBoolean($request, $key) {
+	public function _getParameterAsBoolean($request, $key) {
 		return getValidatedBoolean($request->getParameter($key));
 	}
 
@@ -542,10 +546,10 @@ class ControllerBase extends Action {
 	 * @param key {string} the parameter hash key
 	 * @param dfl {Integer} the default integer value; default is ZERO
 	 * @return {Integer} OPTIONAL: the parameter as a valid integer
-	 * @access Protected
+	 * @access public
 	 * @since Release 1.0
 	 */
-	protected function _getParameterAsInteger($request, $key, $dfl = 0) {
+	public function _getParameterAsInteger($request, $key, $dfl = 0) {
 		return getDBSafeInteger($request->getParameter($key), $dfl);
 	}
 
@@ -559,10 +563,10 @@ class ControllerBase extends Action {
 	 * @param dfl {string} OPTIONAL: the default string value; default is empty String
 	 * @param arr {array} OPTIONAL: array of characters to allow; default is empty Array
 	 * @return {string} the parameter as a valid string
-	 * @access Protected
+	 * @access public
 	 * @since Release 1.0
 	 */
-	protected function _getParameterAsString($request, $key, $dfl = '', $arr = array()) {
+	public function _getParameterAsString($request, $key, $dfl = '', $arr = array()) {
 //		return getDBSafeString(urldecode($request->getParameter($key)), $dfl, $arr);
 		return getDBSafeString($request->getParameter($key), $dfl, $arr);
 	}
@@ -576,10 +580,10 @@ class ControllerBase extends Action {
 	 * @param key {string} the parameter hash key
 	 * @param dfl {string} OPTIONAL: the default string value; default is empty String
 	 * @return {string} the parameter as a valid string
-	 * @access Protected
+	 * @access public
 	 * @since Release 1.0
 	 */
-	protected function _getParameterAsHTMLFreeString($request, $key, $dfl = '') {
+	public function _getParameterAsHTMLFreeString($request, $key, $dfl = '') {
 //		$value = Sanitize::html(urldecode($request->getParameter($key)), true);
 		$value = Sanitize::html($request->getParameter($key), true);
 		return $value ? $value : $dfl;
@@ -592,10 +596,10 @@ class ControllerBase extends Action {
 	 * @param suffix {String} Optional. The parameter name suffix (use when sending multiple access from client).
 	 * @param default {String} Optional. The value to set the access to, if it isn't value.
 	 * @return {String} The access.
-	 * @access Protected
+	 * @access public
 	 * @since Release 1.0
 	 */
-	protected function _getRequestAccess($request, $suffix = '', $default = '') {
+	public function _getRequestAccess($request, $suffix = '', $default = '') {
 		$access = $this->_getParameterAsString($request, c('QUERY_KEY_ACCESS') . $suffix);
 		return Searchable::getValidAccess($access, $default);
 	}
@@ -607,10 +611,10 @@ class ControllerBase extends Action {
 	 * @param  $S {Searchable} Required. The active user.
 	 * @param  $man {BaseManager} Required. The database communication object.
 	 * @return {String} The access.
-	 * @access Protected
+	 * @access public
 	 * @since  Release 1.0
 	 */
-	protected function _getUsersFromCheckboxes($request, $S, $man) {
+	public function _getUsersFromCheckboxes($request, $S, $man) {
 		$messageType = $this->_getParameterAsString($request, 'message' . c('QK_TYPE'));
 
 		$checkedSearchables = $request->getParameterValues('searchables');

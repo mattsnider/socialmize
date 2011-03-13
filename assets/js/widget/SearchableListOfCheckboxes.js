@@ -266,7 +266,7 @@ YUI().add('matt_searchableListOfCheckboxes', function(Y) {
 							sOffset = that._elOffsetInput.get('value'),
 							sQuery = that._elSearchInput.get('value'),
 							sParams = that._elParamsInput.get('value'),
-							sType = that._elSearchType ? Y.Matt.Form.serialize(that._elSearchType) : '';
+							sType = that._elSearchType ? Y.Form.serialize(that._elSearchType) : '';
 
 					// don't perform searches on values we already have
 					if (that._lastSearchValue != sSearchValue) {
@@ -293,7 +293,7 @@ YUI().add('matt_searchableListOfCheckboxes', function(Y) {
 				 * @public
 				 */
 				serialize: function() {
-					return Y.Matt.Form.serialize(this.get(ATTR_BOUNDING_BOX));
+					return Y.Form.serialize(this.get(ATTR_BOUNDING_BOX));
 				},
 
 				/**

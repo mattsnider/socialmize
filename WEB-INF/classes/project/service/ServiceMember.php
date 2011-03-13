@@ -235,10 +235,7 @@ class ServiceMember extends BaseManager {
 	 * @access public
 	 */
 	public function readNetworksAndMembers($sId) {
-		$childrenNetworkIds = array();
-		$networks = null;
-
-		list($oTypeMap, $oIdMap) = $this->readDescendents($sId, $childrenNetworkIds);
+		list($oTypeMap, $oIdMap) = $this->readDescendents($sId);
 		$ancestorNetworks = $this->readAncestors($sId, true);
 
 		$networkMembers = array();
@@ -252,6 +249,8 @@ class ServiceMember extends BaseManager {
 				array_push($networkSubmembers, $s);
 			}
 		}
+
+		$networks = $oTypeMap[Searchable::$TYPE_NETWORK];
 
 		return array($networks, $networkMembers, $networkSubmembers, $ancestorNetworks);
 	}
@@ -313,7 +312,7 @@ class ServiceMember extends BaseManager {
 	 * @access private
 	 */
 	private function _readDescendents($params, &$oIdMap, &$oTypeMap) {
-		list($searchables) = $this->readSearchables($params);
+		list($searchables, $searchablen, $memberAdminState) = $this->readSearchables($params, true);
 		$ownerId = $params['ownerId'];
 		$ownerIds = array();
 
@@ -321,6 +320,8 @@ class ServiceMember extends BaseManager {
 			$sId = $s->getId();
 			$type = $s->getType();
 
+			// todo: check to see if admin on each level
+			// todo: automatically check all users from sublevels
 			if (!array_key_exists($sId, $oIdMap)) {
 				array_push($oTypeMap[$type], $s);
 				$oIdMap[$sId] = $s;
@@ -329,6 +330,9 @@ class ServiceMember extends BaseManager {
 				if (!$s->isUser()) {
 					array_push($ownerIds, $s->getId());
 				}
+
+//				dlog($s->getId() . ' - ' . implode(',', $memberAdminState[$s->getId()]));
+				$s->setIsMember($memberAdminState[$s->getId()]);
 			}
 		}
 

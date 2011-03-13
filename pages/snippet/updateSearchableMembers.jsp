@@ -49,7 +49,10 @@ $sName = $S->getName();
 		}
 
 		?>
-		<c:import url="../snippet/searchableListOfCheckboxes.jsp"/>
+
+		<div class="content white">
+			<div id="id_slist_members"></div>
+		</div>
 
 	</fieldset>
 </form>

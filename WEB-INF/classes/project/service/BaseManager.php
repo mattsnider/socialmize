@@ -150,11 +150,11 @@ class BaseManager extends Object {
 	 * Creates a news DB instance from News DBO.
 	 * @method createNews
 	 * @param  $o {Message} Required. A News DBO.
-	 * @param  $aUsers {Array} Optional. The users to receive this article.
+	 * @param  $aUserIds {Array} Optional. The users to receive this article.
 	 * @access Public
 	 * @since  Release 1.0
 	 */
-	public function createNews(&$o, $aUsers = array()) {
+	public function createNews(&$o, $aUserIds=array()) {
 		if ($o->getId()) {
 			call_user_func_array(array($this, '_update'), News::generateUpdateSQL($o));
 		}
@@ -167,11 +167,9 @@ class BaseManager extends Object {
 			$i = sizeof($params);
 
 			// iterate on each user and create an insert statement
-			foreach ($aUsers as $oUser) {
-				if (c('ADMIN_ID') !== $oUser->getId()) {
-					$params[$i] = array($date, $newsId, $oUser->getId());
-					$i += 1;
-				}
+			foreach ($aUserIds as $sId) {
+				$params[$i] = array($date, $newsId, $sId);
+				$i += 1;
 			}
 
 			call_user_func_array(array(&$this, "_insert"), $params);

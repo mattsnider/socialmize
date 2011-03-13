@@ -1,50 +1,7 @@
 /*
- * Copyright (c) 2009, Matt Snider, LLC. All rights reserved.
+ * Copyright (c) 2010, Matt Snider, LLC. All rights reserved.
  * Version: 1.0.00
  */
-
-//(function() {
-//	// constant
-//var YU = YAHOO.util,
-//	FE = YU.Form.Element,
-//	$ = YU.Dom.get,
-//
-//	// local namespace
-//	_domQuery = $('query');
-//
-///**
-// * The JavaScript namespace used to store some 'unsensitive' information about the current user.
-// * @property USER
-// * @type String
-// * @static
-// */
-//Core.USER = {
-//
-//    /**
-//     * The authorized user's key.
-//     * @property USER.key
-//     * @type String
-//     * @static
-//     */
-//    key: '',
-//
-//    /**
-//     * The authorized user's name.
-//     * @property USER.name
-//     * @type String
-//     * @static
-//     */
-//    name: ''
-//};
-//
-//if (! window.$) {
-//    window.$ = $;
-//}
-//
-//FE.attachFocusAndBlur(_domQuery, 'search by name or keyword');
-//
-//}());
-
 
 (function() {
 	var DOC = document;
@@ -73,134 +30,119 @@
 		 */
 		DOC.NOTATION_NODE = 12;
 	}
-}());
 
-var base = '/assets/js/';
+var Socialmize,
+__STATIC_URL = '/assets/js/',
 //var base = '../';
-var $VERSION = '.js?r=75',
-	//var $VERSION = '.js?r=' + Math.random(),
-		$YO = {
-//			base: 'http://yui.localhost/yui3/build/',
-			filter: 'raw',
-			combine: true,
-			timeout: 10000,
-			useBrowserConsole: true,
-			logLevel: 'warn',
-			debug: true,
-			modules: {
-				'ac-plugin-local': {
-					fullpath: base + 'widget/ac-plugin-min' + $VERSION,
-					requires: ['node', 'plugin', 'value-change', 'event-key'],
-					optional: ['event-custom'],
-					supersedes: []
-				},
+$VERSION = '.js?r=3';
+//var $VERSION = '.js?r=' + Math.random(),
+window.$YO = {
+//		base: 'http://yui.localhost/yui3/build/',
+	filter: 'raw',
+	combine: true,
+	timeout: 10000,
+	useBrowserConsole: true,
+	logLevel: 'warn',
+	debug: true,
+	modules: {
 
-				'ac-widget-local': {
-					fullpath: base + 'widget/ac-widget-min' + $VERSION,
-					requires: ['widget','ac-plugin'],
-					optional: [],
-					supersedes: []
-				},
+		'cameleon-notification': {
+			fullpath: __STATIC_URL + 'widget/Notification' + $VERSION,
+			requires: ['node', 'widget', 'yui3-ext', 'io'],
+			optional: [],
+			supersedes: []
+		},
 
-				'cameleon-notification': {
-					fullpath: base + 'widget/Notification' + $VERSION,
-					requires: ['node', 'widget', 'yui3-ext', 'io'],
-					optional: [],
-					supersedes: []
-				},
+		'core': {
+			fullpath: __STATIC_URL + 'js/upvote' + $VERSION,
+			requires: ['node', 'dom', 'event', 'io', 'anim', 'widget', 'container']
+		},
 
-				'checkboxList': {
-					fullpath: base + 'widget/CheckboxList' + $VERSION,
-					requires: ['widget'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-admin-field': {
+			fullpath: __STATIC_URL + 'widget/AdminField' + $VERSION,
+			requires: ['gallery-anim-blind', 'gallery-anim-slide', 'collection'],
+			optional: [],
+			supersedes: []
+		},
 
-				'checkboxListFilter': {
-					fullpath: base + 'widget/CheckboxListFilter' + $VERSION,
-					requires: ['plugin', 'datasource', 'checkboxList'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-anim-blind': {
+			fullpath: __STATIC_URL + 'widget/AnimBlind' + $VERSION,
+			requires: ['anim', 'widget'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-admin-field': {
-					fullpath: base + 'widget/AdminField' + $VERSION,
-					requires: ['gallery-anim-blind', 'gallery-anim-slide', 'collection'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-anim-slide': {
+			fullpath: __STATIC_URL + 'widget/AnimSlide' + $VERSION,
+			requires: ['anim', 'widget'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-anim-blind': {
-					fullpath: base + 'widget/AnimBlind' + $VERSION,
-					requires: ['anim', 'widget'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-node-field': {
+			fullpath: __STATIC_URL + 'widget/NodeField' + $VERSION,
+			requires: ['base', 'node'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-anim-slide': {
-					fullpath: base + 'widget/AnimSlide' + $VERSION,
-					requires: ['anim', 'widget'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-node-form': {
+			fullpath: __STATIC_URL + 'widget/NodeForm' + $VERSION,
+			requires: ['base', 'node', 'gallery-node-field'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-node-field': {
-					fullpath: base + 'widget/NodeField' + $VERSION,
-					requires: ['base', 'node'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-node-input': {
+			fullpath: __STATIC_URL + 'widget/NodeInput' + $VERSION,
+			requires: ['base', 'node'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-node-form': {
-					fullpath: base + 'widget/NodeForm' + $VERSION,
-					requires: ['base', 'node', 'gallery-node-field'],
-					optional: [],
-					supersedes: []
-				},
+		'gallery-tab-manager': {
+			fullpath: __STATIC_URL + 'widget/TabManager' + $VERSION,
+			requires: ['widget', 'yui3-ext'],
+			optional: [],
+			supersedes: []
+		},
 
-				'gallery-node-input': {
-					fullpath: base + 'widget/NodeInput' + $VERSION,
-					requires: ['base', 'node'],
-					optional: [],
-					supersedes: []
-				},
+//		'matt_searchableListOfCheckboxes': {
+//			fullpath: __STATIC_URL + 'widget/SearchableListOfCheckboxes' + $VERSION,
+//			requires: ['widget', 'datasource', 'json', 'yui3-ext', 'matt_form'],
+//			optional: [],
+//			supersedes: []
+//		},
 
-				'gallery-tab-manager': {
-					fullpath: base + 'widget/TabManager' + $VERSION,
-					requires: ['widget', 'yui3-ext'],
-					optional: [],
-					supersedes: []
-				},
+		'searchable_checkboxes': {
+			fullpath: __STATIC_URL + 'widget/SearchableCheckboxes' + $VERSION,
+			requires: ['widget', 'datasource-io', 'datasource-jsonschema', 'datasource-cache', 'json', 'substitute', 'yui3-ext', 'matt_form'],
+			optional: [],
+			supersedes: []
+		},
 
-				'matt_searchableListOfCheckboxes': {
-					fullpath: base + 'widget/SearchableListOfCheckboxes' + $VERSION,
-					requires: ['widget', 'datasource', 'json', 'yui3-ext', 'matt_form'],
-					optional: [],
-					supersedes: []
-				},
+		'matt_form': {
+			fullpath: __STATIC_URL + 'util/form' + $VERSION,
+			requires: ['base', 'collection'],
+			optional: [],
+			supersedes: []
+		},
 
-				'matt_form': {
-					fullpath: base + 'util/form' + $VERSION,
-					requires: ['base', 'collection'],
-					optional: [],
-					supersedes: []
-				},
+		'searchableFilter': {
+			fullpath: __STATIC_URL + 'widget/SearchableFilter' + $VERSION,
+			requires: ['io-base', 'checkboxList', 'gallery-node-form', 'gallery-node-field'],
+			optional: [],
+			supersedes: []
+		},
 
-				'searchableFilter': {
-					fullpath: base + 'widget/SearchableFilter' + $VERSION,
-					requires: ['io-base', 'checkboxList', 'gallery-node-form', 'gallery-node-field'],
-					optional: [],
-					supersedes: []
-				},
-
-				'yui3-ext': {
-					fullpath: base + 'widget/YUI3-Ext' + $VERSION,
-					requires: ['base', 'widget', 'node', 'anim', 'collection'],
-					optional: [],
-					supersedes: []
-				}
-			}
-		};
+		'yui3-ext': {
+			fullpath: __STATIC_URL + 'widget/YUI3-Ext' + $VERSION,
+			requires: ['base', 'widget', 'node', 'anim', 'collection'],
+			optional: [],
+			supersedes: []
+		}
+	}
+};
 
 YUI($YO).use('yui3-ext', 'gallery-node-input', 'node', 'io-base', function(Y) {
 
@@ -249,3 +191,29 @@ YUI($YO).use('yui3-ext', 'gallery-node-input', 'node', 'io-base', function(Y) {
 	});
 
 });
+
+Socialmize = YUI.namespace('Env.Socialmize');
+
+Socialmize.STATIC_URL = __STATIC_URL;
+
+// create Global namespace variables
+Socialmize.FB = {
+	fb_cmd_queue: [],
+
+	exec: function(sFuncName, args) {
+		if (! window.FB) {
+			this.fb_cmd_queue.push(arguments)
+		}
+	},
+
+	exec_actual: function(sFuncName, args) {
+		FB[sFuncName].apply(FB, args);
+	}
+};
+
+Socialmize.trackGA = function(sPageName) {
+	if (window._gaq) {
+		_gaq.push(['_trackPageview', sPageName]);
+	}
+};
+}());

@@ -685,7 +685,9 @@ h2 {
 
 #qsearch label {
 	color: #242E3B;
+	display: block;
 	font-size: 11pt;
+	padding-bottom: 0.6em;
 }
 
 #query {
@@ -1898,4 +1900,114 @@ ul.pagination li.selected {
 
 /* @end Footer */
 
-/* @end */
+/* @end *//** @group checkboxes */
+
+/**
+	when you clean up width styles for the default forms, ie. default forms shouldn't have any width...
+	then the 'width:auto' can be removed throughout this file
+*/
+
+.slist {
+}
+
+.slist .slistSearch td {
+	padding: 0;
+}
+
+.slist .slistSearch .col1 {
+	width: 100%;
+}
+
+.slist .slistSearch .col1 input {
+	width: 100%;
+}
+
+.slist .slistSearch .col2 {
+}
+
+.slist .slistSearch .col2 input {
+	margin-left: 1em;
+}
+
+.slist dl.hidden {
+	position: absolute;
+	right: 0;
+}
+
+.slist dl.slistFilter {
+	margin: 0;
+	width: auto;
+}
+
+.slist .slistFilter label {
+	padding: 0;
+	width: auto;
+}
+
+.slist .slistFilter dt {
+	clear: none;
+	padding-left: 0.5em;
+	text-align: left;
+	width: auto;
+}
+
+.slist .slistFilter dd {
+	width: 1em;
+}
+
+.slist .slistFilter input.txt {
+	margin-right: 2em;
+	width: 38em;
+}
+
+.slist .slistFilter label {
+	margin-right: 1em;
+	width: auto;
+}
+
+.slist .slistChkall {
+	border-bottom: 1px dashed #EEE;
+	border-left: 1px solid #333;
+	border-right: 1px solid #CCC;
+	border-top: 1px solid #CCC;
+	margin-bottom:-0.25em;
+	padding-top:0.25em;
+}
+
+.slist .slistContent ul {
+	border: 1px solid #333;
+	border-right: 1px solid #CCC;
+	border-top: none;
+	height: 21em;
+	margin: 0;
+	overflow: auto;
+}
+
+.slist .slistContent input {
+	margin-left: 0.5em;
+}
+
+.slist .slistContent label {
+	display: inline;
+	padding-left: 0.75em;
+}
+
+.slist .links {
+	height: 1.8em;
+	padding-top: 0;
+	width: 61.5em;
+}
+
+.slist .slistPagination .previous {
+	float: left;
+}
+
+.slist .slistPagination .next {
+	float: right;
+}
+
+.slist .buttons {
+	width: auto;
+}
+
+/** @end */

@@ -1,5 +1,6 @@
 <?php
 import('project.action.admin.ControllerAdmin');
+import('project.util.SearchableCheckboxUtils');
 
 /**
  * @package project.action.admin

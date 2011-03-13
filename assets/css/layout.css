@@ -196,7 +196,9 @@ h2 {
 
 #qsearch label {
 	color: #242E3B;
+	display: block;
 	font-size: 11pt;
+	padding-bottom: 0.6em;
 }
 
 #query {

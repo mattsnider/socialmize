@@ -35,7 +35,7 @@ $name = 'admin';
 	Unchecking any ${lc_nameUsers} will remove them as administrators.</p>
 
 <div class="content white">
-	<c:import url="../snippet/searchableListOfCheckboxes.jsp"/>
+	<div id="id_slist_admins"></div>
 </div>
 
 </fieldset></form><? } ?>

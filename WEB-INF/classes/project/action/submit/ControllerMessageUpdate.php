@@ -78,14 +78,17 @@ class ControllerMessageUpdate extends ControllerBase {
 
 				if ($thread) {$m->setThread($thread);}
 
-				$users = $this->_getUsersFromCheckboxes($request, $S, $man);
+				$aCheckedSearchables = $request->getParameterValues('checkboxes');
+				$users = array();
 
-				if (! sizeof($users)) {
+				if (! sizeof($aCheckedSearchables)) {
 					return array('You must select a recipient.', null);
 				}
 
 				$sb = array();
-				foreach ($users as $user) {
+				foreach ($aCheckedSearchables as $sCheckedSearchableId) {
+					$user = $man->getSearchableById($sCheckedSearchableId);
+					array_push($users, $user);
 					array_push($sb, $user->getName());
 				}
 

@@ -100,7 +100,7 @@ form.singleTextarea textarea {
 	clear: none;
 	float: left;
 	margin-right: 1em;
-	width: 25%;
+	width: 31.5%;
 }
 
 #form-news ol li.line input,
@@ -114,17 +114,13 @@ form.singleTextarea textarea {
 	width: auto;
 }
 
-#form-news-list {
-	width: 48.5em;
-}
-
 #form-news-list ul li label {
 	display: inline;
 }
 
 #form-news ol .txt,
 #form-news ol .textarea {
-	width: 36em;
+	width: 98%;
 }
 
 #form-news ol .select {
@@ -136,8 +132,11 @@ form.singleTextarea textarea {
 }
 
 #form-news div.buttons {
-	padding-right: 12.5em;
 	padding-top: 0;
+}
+
+#form-news #id_slist_news li label {
+	display: inline;
 }
 
 /* @end */

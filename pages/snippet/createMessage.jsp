@@ -34,31 +34,7 @@
 			echo'</dd>';
 		} else {
 			echo '<dt><label for="form-message-types">To:</label></dt>';
-			echo '<dd><select autocomplete="off" id="form-message-types" name="message'.c('QK_TYPE').'">';
-				echo '<option value="all"'.($typeSelected?'':' selected="selected"').'>All '.$allUserName.'</option>';
-
-
-				if (! $S || $S->isNetwork()) {
-					$searchableTypes = Searchable::getValidTypes();
-				}
-				else {
-					$searchableTypes = array(Searchable::$TYPE_USER);
-				}
-		
-				foreach ($searchableTypes as $type) {
-					$typeNames = $name = $pageContext->evaluateTemplateText('${name'.ucfirst($type).'s}');
-					if (Searchable::$TYPE_USER == $type) {
-						$typeNames = $allUserName;
-						if ($S && $S->isGroup()) {
-							echo '<option value="'.$type.'admin"'.($type.'admin' == $typeSelected?' selected="selected"':'').'>Choose Admin '.$typeNames.'</option>';
-						}
-					}
-					else {
-						echo '<option value="'.$type.'admin"'.($type.'admin' == $typeSelected?' selected="selected"':'').'>Choose '.$typeNames.' Admins</option>';
-					}
-					echo '<option value="'.$type.'"'.($type == $typeSelected?' selected="selected"':'').'>Choose '.$typeNames.'</option>';
-				}
-			echo '</select></dd>';
+			?><dd><c:import url="snippet/searchableListOfCheckboxes.jsp"/></dd><?
 			echo '<dt>&nbsp;</dt>';
 			echo '<dd class="displayNone" id="form-message-container">
 				<input class="ckkbox" id="form-message-chkbox" type="checkbox"/>

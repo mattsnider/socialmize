@@ -4,6 +4,7 @@ import('project.service.GroupManager');
 import('include.upload');
 import('include.XMLParser');
 import('horizon.io.FileWriter');
+import('project.util.SearchableCheckboxUtils');
 
 def('QUERY_KEY_USERNAME_A', 'usernameA');
 def('QUERY_KEY_USERNAME_B', 'usernameB');
@@ -448,13 +449,14 @@ class ControllerAdminSubmit extends ControllerAdmin {
 					if ($body && $title && isDateTime($date)) {
 						$article = null;
 						$isCreate = false;
-						$users = array();
 
 						if ($mid) {
 							$article = $man->getNewsById($mid);
+							$aSearchablesToAdd = array();
 						}
 						else {
-							$users = $this->_getUsersFromCheckboxes($request, $S, $man);
+
+							list($aSearchablesToAdd) = SearchableCheckboxUtils::processSearchableCheckbox($request);
 						}
 
 						if (!$article) {
@@ -467,7 +469,7 @@ class ControllerAdminSubmit extends ControllerAdmin {
 						$article->setExpires($expires);
 						$article->setTitle($title);
 						$article->setType($type);
-						$man->createNews($article, $users);
+						$man->createNews($article, $aSearchablesToAdd);
 
 						if ($article->getId()) {
 							if ($isCreate && 'A' != $type) {
@@ -476,8 +478,8 @@ class ControllerAdminSubmit extends ControllerAdmin {
 								$o->setSearchableById(c('ADMIN_ID'));
 								$o->setType(c('NotificationTypeNews'));
 
-								foreach ($users as $s) {
-									$o->setSearchableToId($s->getId());
+								foreach ($aSearchablesToAdd as $sId) {
+									$o->setSearchableToId($sId);
 									$man->createNotification($o);
 								}
 							}

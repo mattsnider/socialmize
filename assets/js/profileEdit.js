@@ -64,83 +64,78 @@
  Core.Controller.ProfileEdit = _this;
  }());*/
 
-YUI($YO).use('yui3-ext', 'matt_form', 'collection', 'gallery-node-input', 'matt_searchableListOfCheckboxes', 'datasource', 'dataschema-json', function(Y) {
-	_initIO(Y);
+YUI($YO).use('yui3-ext', 'matt_form', 'collection', 'gallery-node-input', function(Y) {
+  _initIO(Y);
 
-	function _fnHandleFeatureClick(e) {
-		var elTarg = e.target,
-				elParent = elTarg.parent().next();
+  function _fnHandleFeatureClick(e) {
+    var elTarg = e.target,
+    elParent = elTarg.parent().next();
 
-		elParent.first().set('checked', elTarg.get('checked'));
-		elParent.toggleVisibility(elTarg.get('checked'));
-	}
+    elParent.first().set('checked', elTarg.get('checked'));
+    elParent.toggleVisibility(elTarg.get('checked'));
+  }
 
-	var elAdminList = Y.one('#adminList'),
-			elBoard = Y.one('#board'),
-			elForm = Y.one('#main-content form.profile-edit'),
-			elMemberList = Y.one('#memberList'),
-			elNetwork = Y.one('#network-list'),
-			elRelated = Y.one('#related'),
-			elWall = Y.one('#wall'),
-			rxQueryHasAnEmptyValue = /=(?![^&]+)/g,
-			elCheckbox, oDs, elFields;
+  var elAdminList = Y.one('#id_slist_admins'),
+  elBoard = Y.one('#board'),
+  elForm = Y.one('#main-content form.profile-edit'),
+  elMemberList = Y.one('#id_slist_members'),
+  elNetwork = Y.one('#network-list'),
+  elRelated = Y.one('#related'),
+  elWall = Y.one('#wall'),
+  rxQueryHasAnEmptyValue = /=(?![^&]+)/g,
+  elCheckbox, elFields, typeToCheck, opts;
 
-	if (elBoard) {elBoard.on('click', _fnHandleFeatureClick);}
-	if (elRelated) {elRelated.on('click', _fnHandleFeatureClick);}
-	if (elWall) {elWall.on('click', _fnHandleFeatureClick);}
+  if (elBoard) {elBoard.on('click', _fnHandleFeatureClick);}
+  if (elRelated) {elRelated.on('click', _fnHandleFeatureClick);}
+  if (elWall) {elWall.on('click', _fnHandleFeatureClick);}
 
-	if (elAdminList || elMemberList) {
-		oDs = new Y.DataSource.IO({
-			source: '/readSearchables.action?'
-		});
+  if (elAdminList || elMemberList) {
+    if (elAdminList) {
+      typeToCheck = 'admin'
+    }
+    else {
+      typeToCheck = 'member'
+    }
 
-		oDs.plug({fn: Y.Plugin.DataSourceJSONSchema, cfg: {
-			schema: Y.CheckboxList.SCHEMA
-		}});
+    opts = {
+      boundingBox: elAdminList || elMemberList,
+      maxHeight: '21em',
+      typeToCheck: typeToCheck
+    };
 
-		elCheckbox = new Y.CheckboxList({boundingBox: elAdminList || elMemberList, datasource: oDs, maxHeight: '21em'});
-		elCheckbox.render();
-	}
-	else {
-		if (elNetwork) {
-			// viewing a network profile
-			elCheckbox = new Y.CheckboxList({boundingBox: elNetwork, maxHeight: '21em'});
-			oDs = new Y.DataSource.IO({source:"/readSearchables.action?member=true&key=" + Y.one('#updateSearchableMembers-key').get('value') + '&'});
+    if (elAdminList) {
+      opts.hasFilter = false;
+      opts.types = ['user'];
+      opts.typeToSearch = 'member';
+    }
 
+    YUI($YO).use('searchable_checkboxes', function(Y) {
+      elCheckbox = new Y.SearchableCheckboxes(opts);
+      elCheckbox.render();
+    });
+  }
+  else {
+    if (elForm) {
+      elFields = elForm.all('dd.required');
 
-			oDs.plug({fn: Y.Plugin.DataSourceJSONSchema, cfg: {
-				schema: {
-					metaFields: {resultn:"resultn"},
-					resultListLocator: "results",
-					resultFields: ['id', 'isChecked', 'label', 'value']
-				}
-			}});
+      elForm.on('submit', function(e) {
+        var elIncompleteFld = elFields.find(function(elDd) {
+          return Y.Form.serialize(elDd).match(rxQueryHasAnEmptyValue);
+        });
 
-			elCheckbox.plug(Y.CheckboxListFilter, {filterSource: oDs});
-			elCheckbox.render();
-		} else {
-			if (elForm) {
-				elFields = elForm.all('dd.required');
+        if (elIncompleteFld) {
+          elIncompleteFld.addClass('error');
+          e.halt();
 
-				elForm.on('submit', function(e) {
-					var elIncompleteFld = elFields.find(function(elDd) {
-						return Y.Matt.Form.serialize(elDd).match(rxQueryHasAnEmptyValue);
-					});
+          Y.FormField.focus(elIncompleteFld);
 
-					if (elIncompleteFld) {
-						elIncompleteFld.addClass('error');
-						e.halt();
+          if (elForm.first().first().hasClass('error')) {
+            elForm.first().first().deleteNode();
+          }
 
-						Y.Matt.FormField.focus(elIncompleteFld);
-
-						if (elForm.first().first().hasClass('error')) {
-							elForm.first().first().deleteNode();
-						}
-
-						elForm.first().prepend(Y.Node.create('<p class="error">You must complete all required fields!</p>'));
-					}
-				});
-			}
-		}
-	}
+          elForm.first().prepend(Y.Node.create('<p class="error">You must complete all required fields!</p>'));
+        }
+      });
+    }
+  }
 });

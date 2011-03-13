@@ -1,5 +1,17 @@
 /* @Group Message */
 
+.list .filter input.txt {
+	width: 20.75em;
+}
+
+#memberListresults li {
+	line-height: 1.2em;
+}
+
+#memberListresults .buttons {
+	display: none;
+}
+
 #message {
 	padding: 0;
 }
