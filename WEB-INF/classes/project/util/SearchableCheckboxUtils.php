@@ -163,8 +163,8 @@ class SearchableCheckboxUtils extends Object {
 		$aSearchables = explode(',', $request->getParameter(c('QUERY_KEY_ID') . 's'));
 		$aCheckedSearchables = explode(',', $request->getParameter('checkboxes'));
 
-		dlog('$aSearchables='.implode(',', $aSearchables));
-		dlog('$aCheckedSearchables='.implode(',',$aCheckedSearchables));
+//		dlog('$aSearchables='.implode(',', $aSearchables));
+//		dlog('$aCheckedSearchables='.implode(',',$aCheckedSearchables));
 
 		$aSearchablesToAdd = array();
 		$aSearchablesToRemove = array();

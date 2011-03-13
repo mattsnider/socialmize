@@ -1,5 +1,7 @@
 <?php
 import('project.action.page.ControllerPage');
+import('project.util.SearchableCheckboxUtils');
+import('project.util.CheckboxUtils');
 
 /**
  * @package project.action.page

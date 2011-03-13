@@ -140,16 +140,6 @@ form.formMessage .select-list {
 	width:35em;
 }
 
-#message ul {
-	margin: 0;
-	padding: 0;
-}
-
-#message ul li {
-	clear: both;
-	margin-top: 1em;
-}
-
 #message a.msg-next,
 #message a.msg-prev {
 	font-size: 14pt;
@@ -162,6 +152,15 @@ form.formMessage .select-list {
 #message a.msg-next {
 	/*background: #FFF url(../images/buttons/arrowRight.gif);*/
 	float: right;
+}
+
+.read ul {
+	margin: 0;
+	padding: 0;
+}
+
+.read ul li {
+	margin-top : 1em;
 }
 
 #message a.msg-prev {

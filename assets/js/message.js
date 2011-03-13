@@ -3,13 +3,36 @@ YUI($YO).use('node', 'dom', 'yui3-ext', 'matt_searchableListOfCheckboxes', 'gall
 	var Get = Y.one,
 
 		// DOM nodes
+		el_message_to = Get('#id_slist_message_to'),
+		el_input_type_to_search = Get('#id_slist_type_to_search'),
+		el_input_type_to_search2 = Get('#id_slist_type_to_search2'),
 		_domFormMessage = Get('#form-message'),
 		_domFormMessageTo = Get('#form-message-to'),
 		_domFormMessageMsg = Get('#form-message-message'),
 		_domFormMessageSubject = Get('#form-message-subject'),
 		_domFormMessageError = Get('#form-message-error'),
 
-		searchableFilter;
+		searchableFilter,
+
+    searchable_checkboxes_conf;
+
+  if (el_message_to) {
+    searchable_checkboxes_conf = {
+      boundingBox: el_message_to._node, // is not of current Y.Node type, so we must find the actual node
+      hasButton: false,
+//      types: ['network'],
+      hasFilter: 'user' != el_input_type_to_search2.get('value'),
+      typeToCheck: 'none',
+      typeToSearch: el_input_type_to_search.get('value'),
+      types: el_input_type_to_search2.get('value').split(',')
+    },
+
+    YUI($YO).use('searchable_checkboxes', 'matt_form', function(Y) {
+      var bIsNetwork = true,
+      oSearchableCheckboxes = new Y.SearchableCheckboxes(searchable_checkboxes_conf);
+      oSearchableCheckboxes.render();
+    });
+  }
 
 	if (_domFormMessage) {
 		if (Y.DOM.byId('form-message-list')) {

@@ -98,7 +98,7 @@ YUI($YO).use('yui3-ext', 'matt_form', 'collection', 'gallery-node-input', functi
     }
 
     opts = {
-      boundingBox: elAdminList || elMemberList,
+      boundingBox: (elAdminList || elMemberList)._node,
       maxHeight: '21em',
       typeToCheck: typeToCheck
     };

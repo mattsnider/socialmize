@@ -26,21 +26,28 @@
 	?>
 
 	<dl>
-		<? if ($sendTo) {
-			echo '<dt><label for="form-message-to">To:</label></dt>';
+		<? echo '<dt><label for="form-message-to">To:</label></dt>';
+
+		$types = '';
+
+		if (! $S || ! $S->isNetwork()) {
+			$types = Searchable::$TYPE_USER;
+		}
+		else {
+			$types = Searchable::getValidTypes();
+		}
+
+		echo '<input id="id_slist_type_to_search" type="hidden" value="member"/>';
+		echo '<input id="id_slist_type_to_search2" type="hidden" value="'.$types.'"/>';
+
+		if ($sendTo) {
 			echo '<dd>';
 				echo '<input class="txt disabled" disabled="disabled" id="form-message-to" tabindex="1" name="to" readonly="true" type="text" value="'.$sendTo->getName().'"/>';
-				echo '<input name="searchables[]" type="hidden" value="'.$sendTo->getId().'"/>';
+				echo '<input name="checkboxes" type="hidden" value="'.$sendTo->getId().'"/>';
+				echo '<input name="ids" type="hidden" value="'.$sendTo->getId().'"/>';
 			echo'</dd>';
 		} else {
-			echo '<dt><label for="form-message-types">To:</label></dt>';
-			?><dd><c:import url="snippet/searchableListOfCheckboxes.jsp"/></dd><?
-			echo '<dt>&nbsp;</dt>';
-			echo '<dd class="displayNone" id="form-message-container">
-				<input class="ckkbox" id="form-message-chkbox" type="checkbox"/>
-				<input autocomplete="off" class="txt" id="form-message-filter" type="text"/>
-				<div class="select-list" id="form-message-list"></div>
-			</dd>';
+			echo '<dd><div class="content white"><div id="id_slist_message_to"></div></div></dd>';
 		} ?>
 		
 		<dt><label for="form-message-subject">Subject:</label></dt>

@@ -1,6 +1,6 @@
 <?php
 import('project.action.page.ControllerPage');
-import('project.util.CheckboxUtils');
+import('project.util.SearchableCheckboxUtils');
 
 /**
  * @package project.action.page
@@ -42,50 +42,6 @@ class ControllerMessageCreateView extends ControllerPage {
 		$request->setAttribute('subject', $subject);
 		$request->setAttribute(c('QK_TYPE'), $S->getType());
 		$request->setAttribute('title', ref('New ' . $nameMessage));
-
-		$searchCopy = $this->_getParameterAsString($request, c('QUERY_KEY_QUERY'), '', c('PARANOID_ALLOWED_AUTOCOMPLETE'));
-		$type = $this->_getParameterAsString($request, c('QK_TYPE'), '', Searchable::$TYPE_USER);
-		$aDisabledMap = array();
-
-		if ('network' == $type) {
-			$typeOfSearch = 'friendsCheckNone';
-			list($snetworks, $members, $submembers, $pnetworks) = $servMember->readNetworksAndMembers($S->getId());
-			$membern = sizeof($members);
-		}
-		else {
-			$params['ownerId'] = $aUser->getId();
-			$params['memberStatus'] = Searchable::$STATUS_ACTIVE;
-			$typeOfSearch = Searchable::$TYPE_USER == $type ? 'friendsCheckNone' : 'membersCheckNone';
-
-			// find pending users
-			list($members) = $servMember->readMembers($S->getId(), array('memberStatus' => Searchable::$STATUS_PENDING));
-			foreach ($members as $s) {
-				$aDisabledMap[$s->getId()] = $s;
-			}
-
-			// find available users
-			list($members, $membern) = $servMember->readMembers($S->getId());
-		}
-
-		list($checkboxes, $searchablenIds) = CheckboxUtils::_createCheckboxes($members, array(), $aDisabledMap);
-
-		// create a parameter map for params unique to this checkbox list
-		$aViewParams = array(
-			c('QUERY_KEY_KEY') => $S->getKey(),
-			'typeOfSearch' => $typeOfSearch,
-			c('QUERY_KEY_TASK') => 'member'
-		);
-
-		$request->setAttribute(c('QUERY_KEY_LIMIT'), $membern);
-		$request->setAttribute(c('QUERY_KEY_QUERY'), $searchCopy);
-		$request->setAttribute(c('QUERY_KEY_ID') . 's', implode(',', $searchablenIds));
-		$request->setAttribute('listCheckboxes', $checkboxes);
-		$request->setAttribute('listCheckboxSize', $membern);
-
-		$request->setAttribute('listUseSearch', ref(true));
-		$request->setAttribute('listBoxId', ref('memberList'));
-
-		$request->setAttribute('params', $aViewParams);
 
         $this->updateHeadAttributes($request, 'Compose a New ' . $nameMessage, array('message'), array('message'));
 

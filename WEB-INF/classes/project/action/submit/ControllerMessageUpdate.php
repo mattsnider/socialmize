@@ -1,6 +1,7 @@
 <?php
 
 import('project.action.ControllerBase');
+import('project.util.SearchableCheckboxUtils');
 
 /**
  * @package project.action.submit
@@ -22,7 +23,7 @@ class ControllerMessageUpdate extends ControllerBase {
 
 		switch ($pageName) {
 			case 'createMessage':
-				list($message, $sUrl) = $this->_handleCreateMessage($request, $man, $S, $aUser);
+				list($message, $sUrl) = $this->_handleCreateMessage($request, $S, $aUser);
 				if ($sUrl) {$url = $sUrl;}
 				break;
 
@@ -54,7 +55,9 @@ class ControllerMessageUpdate extends ControllerBase {
 	 * @access private
 	 * @since  Release 1.0
 	 */
-	private function _handleCreateMessage($request, $man, $S, $aUser) {
+	private function _handleCreateMessage($request, $S, $aUser) {
+		list($man, $serviceMember) = $this->_getServices($request, 'UserManager', 'ServiceMember');
+
 		$subject = $this->_getParameterAsString($request, c('QUERY_KEY_SUBJECT'), '', c('PARANOID_ALLOWED_AUTOCOMPLETE_PLUS'));
 		$body = $this->_getParameterAsHTMLFreeString($request, c('QUERY_KEY_BODY'));
 		$thread = $this->_getParameterAsString($request, c('QUERY_KEY_THREAD'));
@@ -78,7 +81,8 @@ class ControllerMessageUpdate extends ControllerBase {
 
 				if ($thread) {$m->setThread($thread);}
 
-				$aCheckedSearchables = $request->getParameterValues('checkboxes');
+				list($searchables_to_add) = SearchableCheckboxUtils::processSearchableCheckbox($request);
+				list($aCheckedSearchables) = $man->readSearchables(array('sId' => $searchables_to_add));
 				$users = array();
 
 				if (! sizeof($aCheckedSearchables)) {
@@ -86,10 +90,31 @@ class ControllerMessageUpdate extends ControllerBase {
 				}
 
 				$sb = array();
-				foreach ($aCheckedSearchables as $sCheckedSearchableId) {
-					$user = $man->getSearchableById($sCheckedSearchableId);
-					array_push($users, $user);
-					array_push($sb, $user->getName());
+				foreach ($aCheckedSearchables as $o) {
+					if ($o->isNetwork()) {
+						list($snetworks, $members, $submembers, $pnetworks) = $serviceMember->readNetworksAndMembers($o->getId());
+						$users = array_merge($users, $members, $submembers);
+					}
+					else if ($o->isGroup()) {
+						$members = $serviceMember->readMembers($o->getId());
+						$users = array_merge($users, $members);
+					}
+					else if ($o->isUser()) {
+						array_push($users, $o);
+					}
+					
+					array_push($sb, $o->getName());
+				}
+
+				foreach ($users as $user) {
+					dlog(gettype($user));
+					dlog($user->getName());
+				}
+
+				$users = array_unique($users);
+
+				foreach ($users as $user) {
+					dlog($user->getName());
 				}
 
 				$man->saveMessageBatch($m, $users);

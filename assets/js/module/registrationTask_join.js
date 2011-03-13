@@ -34,6 +34,7 @@ YUI($YO).use('node', function(Y) {
           elTitle.addClass('displayNone');
 
           oSearchableCheckboxes.set('types', ['user', 'group']);
+          oSearchableCheckboxes.set('hasFilter', true);
 
           bIsNetwork = false;
 

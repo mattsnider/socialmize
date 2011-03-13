@@ -58,7 +58,7 @@ YUI.add('searchable_checkboxes', function(Y) {
     <td class="col2"><input type="button" value="Search" id="{ID}_{NAME}Button" class="btn btn-round"/></td>\
   </tr></tbody></table>',
   HTML_FILTER = '<dl id="{ID}_{CLS}" class="{CLS} hidden clearfix">{FILTERS}</dl>',
-  HTML_FILTER_ENTRY = '<dd><input checked="checked" id="{ID}chk{TYPE}" name="{NAME}" type="checkbox" value="{TYPE}"/></dd><dt><label for="{ID}chk{TYPE}">{TYPE}</label></dt>',
+  HTML_FILTER_ENTRY = '<dd><input id="{ID}chk{TYPE}" name="{NAME}" type="checkbox" value="{TYPE}"/></dd><dt><label for="{ID}chk{TYPE}">{TYPE}</label></dt>',
   HTML_CONTENT = '{HIDDEN}<div id="{ID}_{CLS}" class="{CLS}"></div>',
   HTML_PAGINATION = '<div id="{ID}_{CLS}" class="{CLS} hidden"><a class="previous" href="#!previous" id="${ID}previous">Previous</a><a class="next" href="#!next" id="${ID}next">Next</a></div>',
   HTML_BUTTON = '<div id="{ID}_{CLS}" class="buttons {CLS}">{BUTTONS}</div>',
@@ -96,6 +96,8 @@ YUI.add('searchable_checkboxes', function(Y) {
 			if (this._elInputIds) {
 				this._elInputIds.set('value', val.join(','));
 			}
+
+      return val;
 		},
 		validator: Y.Lang.isArray,
 		value: []
@@ -106,6 +108,8 @@ YUI.add('searchable_checkboxes', function(Y) {
 			if (this._elInputChecked) {
 				this._elInputChecked.set('value', val.join(','));
 			}
+
+      return val;
 		},
 		validator: Y.Lang.isArray,
 		value: []
@@ -127,6 +131,13 @@ YUI.add('searchable_checkboxes', function(Y) {
 	};
 
 	ATTRS[ATTR_HAS_FILTER] = {
+    setter: function(val) {
+      if (this._elFilter) {
+        this._elFilter.toggleClass('hidden', ! val);
+      }
+
+      return val;
+    },
 		validator: Y.Lang.isBoolean,
 		value: true
 	};
@@ -190,12 +201,17 @@ YUI.add('searchable_checkboxes', function(Y) {
     setter: function(val) {
       var that = this;
 
-      if (that.get('rendered')) {
+      if (that._elFilter) {
         that._elFilter.all('input').each(function(el) {
-          el.set('checked', -1 < Y.Array.indexOf(val, el.get('value')));
+          var is_available = -1 < Y.Array.indexOf(val, el.get('value'));
+          el.set('checked', is_available);
+          el.parent().toggleDisplay(is_available);
+          el.parent().next().toggleDisplay(is_available);
         });
-        
-        that.syncUI();
+
+        if (that.get('rendered')) {
+          that.syncUI();
+        }
       }
 
       return val;
@@ -207,14 +223,14 @@ YUI.add('searchable_checkboxes', function(Y) {
 		validator: function(s) {
 			return -1 != Y.Array.indexOf(Socialmize.CHECKED_TYPES, s);
 		},
-		value: Socialmize.CHECKED_TYPES[0]
+		value: (Socialmize.CHECKED_TYPES || [])[0]
 	};
 
 	ATTRS[ATTR_TYPE_TO_SEARCH] = {
 		validator: function(s) {
 			return -1 != Y.Array.indexOf(Socialmize.SEARCH_TYPES, s);
 		},
-		value: Socialmize.SEARCH_TYPES[0]
+    value: (Socialmize.SEARCH_TYPES || [])[0]
 	};
 
 	/**
@@ -488,8 +504,6 @@ YUI.add('searchable_checkboxes', function(Y) {
 			elBb = that.get(ATTR_BOUNDING_BOX),
       elFilterChkboxs,
 
-      aActiveFilters = that.get(ATTR_TYPES),
-
 			nLimit = that.get(ATTR_LIMIT),
 			nOffset = that.get(ATTR_OFFSET),
 
@@ -498,6 +512,7 @@ YUI.add('searchable_checkboxes', function(Y) {
 			sNameChkbox = that.get(ATTR_NAME_CHKBOX),
 			sNameIds = that.get(ATTR_NAME_IDS),
 			sNameQuery = that.get(ATTR_NAME_QUERY),
+			sFilters = '',
 			sHtml = '',
       sValue = '',
 
@@ -514,7 +529,12 @@ YUI.add('searchable_checkboxes', function(Y) {
 				sHtml += Y.substitute(HTML_SEARCH, {QUERY: sQuery, CLS: CLS_SEARCH, NAME: sNameQuery});
 			}
 
-      sHtml += Y.substitute(HTML_FILTER, {CLS: CLS_FILTER, NAME: that.get(ATTR_NAME_FILTER)});
+      Y.each(Socialmize.TYPES, function(sType) {
+        sFilters += Y.substitute(HTML_FILTER_ENTRY, {TYPE: sType});
+      });
+
+      sFilters = Y.substitute(sFilters, {CLS: CLS_FILTER, NAME: that.get(ATTR_NAME_FILTER)});
+      sHtml += Y.substitute(HTML_FILTER, {FILTERS: sFilters, CLS: CLS_FILTER});
       sHtml += Y.substitute(HTML_CONTENT, {CLS: CLS_CONTENT, HIDDEN: aHiddenInputs.join('')});
       sHtml += Y.substitute(HTML_PAGINATION, {CLS: CLS_PAGINATION});
 
@@ -550,17 +570,10 @@ YUI.add('searchable_checkboxes', function(Y) {
 			that._elPagination = Y.one(POUND + sId + '_' + CLS_PAGINATION);
 
       if (that.get(ATTR_HAS_FILTER)) {
-        that._elFilter.removeClass('displayNone');
+        that._elFilter.removeClass('hidden');
       }
 
-      that._elFilter.all('input').each(function(el) {
-        if (Y.Array.has(aActiveFilters, el.get('value'))) {
-          el.set('checked', true);
-        }
-        else {
-          el.set('checked', false);
-        }
-      });
+      that.set(ATTR_TYPES, that.get(ATTR_TYPES));
 		},
 
 		/**
@@ -669,11 +682,6 @@ YUI.add('searchable_checkboxes', function(Y) {
 	}});
 
 	oDs.plug(Y.Plugin.DataSourceCache, {max: DS_CACHE_SIZE});
-
-	Y.each(Socialmize.TYPES, function(sType, i) {
-		sFilters += Y.substitute(HTML_FILTER_ENTRY, {TYPE: sType});
-	});
-	HTML_FILTER = Y.substitute(HTML_FILTER, {'FILTERS': sFilters});
 
 	Y.SearchableCheckboxes = SearchableCheckboxes;
 }, '1.0.0', {requires:['widget', 'datasource-io', 'datasource-jsonschema', 'datasource-cache', 'json', 'substitute', 'yui3-ext'], use: []});
