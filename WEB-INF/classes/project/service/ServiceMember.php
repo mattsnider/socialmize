@@ -172,7 +172,7 @@ class ServiceMember extends BaseManager {
 		$values = array($userIdA, $userIdB);
 		$this->_setupMemberStatus($wheres, $values, $status);
 
-		$rs = $this->_select(Member::$SQL_TABLE, array('admin', 'sadmin'), $values, $wheres);
+		$rs = $this->_select(Member::$SQL_TABLE, array('`admin`', '`sadmin`'), $values, $wheres);
 
 		$isMember = false;
 		$isAdmin = false;
@@ -180,8 +180,8 @@ class ServiceMember extends BaseManager {
 
 		if ($rs->next()) {
 			$isMember = true;
-			$isAdmin = $rs->getBoolean('admin');
 			$isSuperAdmin = $rs->getBoolean('sadmin');
+			$isAdmin = $isSuperAdmin || $rs->getBoolean('admin');
 		}
 
 		return array($isMember, $isAdmin, $isSuperAdmin);
