@@ -185,6 +185,9 @@ class ControllerAdminView extends ControllerAdmin {
 						$request->setAttribute(c('QK_TYPE'), ref('admin'));
 						$request->setAttribute(c('QUERY_KEY_KEY') . 'By', c('ADMIN_KEY'));
 
+						$S = $man->getSearchableById(c('ADMIN_ID'));
+						$request->setAttribute('S', $S);
+
 						$task = 'message';
 						array_push($styles, $task);
 						array_push($scripts, $task);

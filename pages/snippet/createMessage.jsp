@@ -10,34 +10,29 @@
 		$sendTo = $pageContext->findAttribute('sendTo', null);
 
 		$S = $pageContext->findAttribute('S', true);
-		$typeSelected = $pageContext->evaluateTemplateText('${typeSelected}');
 
 		if ($thread) {echo '<input name="'.c('QUERY_KEY_THREAD').'" type="hidden" value="'.$thread.'"/>';}
-
-		echo '<input id="form-message-key" name="'.c('QUERY_KEY_KEY').'" type="hidden" value="'.$sendBy.'"/>';
-		echo '<input name="'.c('QK_TYPE').'" type="hidden" value="'.$type.'"/>';
-
-		if ('admin' == $type) {
-			$allUserName = $pageContext->evaluateTemplateText('${nameUsers}');
-		}
-		else {
-			$allUserName = $pageContext->evaluateTemplateText($S && $S->isUser() ? '${nameFriends}' : '${nameMembers}');
-		}
 	?>
 
 	<dl>
 		<? echo '<dt><label for="form-message-to">To:</label></dt>';
 
 		$types = '';
+		$toSearch = 'member';
 
-		if (! $S || ! $S->isNetwork()) {
-			$types = Searchable::$TYPE_USER;
+		if ($S && $S->isNetwork()) {
+			$types = Searchable::getValidTypes();
 		}
 		else {
+			$types = Searchable::$TYPE_USER;
+		}
+
+		if ('admin' == $type) {
+			$toSearch = 'all';
 			$types = Searchable::getValidTypes();
 		}
 
-		echo '<input id="id_slist_type_to_search" type="hidden" value="member"/>';
+		echo '<input id="id_slist_type_to_search" type="hidden" value="'.$toSearch.'"/>';
 		echo '<input id="id_slist_type_to_search2" type="hidden" value="'.$types.'"/>';
 
 		if ($sendTo) {

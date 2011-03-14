@@ -63,7 +63,7 @@ class ControllerMessageUpdate extends ControllerBase {
 		$thread = $this->_getParameterAsString($request, c('QUERY_KEY_THREAD'));
 		$stype = $this->_getParameterAsString($request, c('QK_TYPE'));
 
-		$isSearchableAdmin = 'admin' == $stype;
+		$isSearchableAdmin = $S->getId() == c('ADMIN_ID');
 
 		if ('type your subject here' == $subject) {$subject = '';}
 		if ('type your message here' == $body) {$body = '';}
@@ -96,7 +96,7 @@ class ControllerMessageUpdate extends ControllerBase {
 						$users = array_merge($users, $members, $submembers);
 					}
 					else if ($o->isGroup()) {
-						$members = $serviceMember->readMembers($o->getId());
+						list($members) = $serviceMember->readMembers($o->getId());
 						$users = array_merge($users, $members);
 					}
 					else if ($o->isUser()) {
@@ -106,23 +106,23 @@ class ControllerMessageUpdate extends ControllerBase {
 					array_push($sb, $o->getName());
 				}
 
+				$map_users = array();
+				$new_users = array();
+
+				// make unique
 				foreach ($users as $user) {
-					dlog(gettype($user));
-					dlog($user->getName());
+					if (! array_key_exists($user->getId(), $map_users)) {
+						$map_users[$user->getId()] = 1;
+						array_push($new_users, $user);
+					}
 				}
 
-				$users = array_unique($users);
-
-				foreach ($users as $user) {
-					dlog($user->getName());
-				}
+				$users = $new_users;
 
 				$man->saveMessageBatch($m, $users);
 				$msg = 'M:Message sent to <q>'.implode('</q>,<q>',$sb).'</q>.';
 
 				$i = strrpos($msg, ',');
-
-				// todo: test if aUser is authorized to message this user
 
 				if ($i) {
 					$msg = substr($msg, 0, $i) . ', and' . substr($msg, $i + 1);

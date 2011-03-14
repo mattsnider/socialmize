@@ -30,6 +30,11 @@ YUI($YO).use('node', 'dom', 'yui3-ext', 'matt_searchableListOfCheckboxes', 'gall
     YUI($YO).use('searchable_checkboxes', 'matt_form', function(Y) {
       var bIsNetwork = true,
       oSearchableCheckboxes = new Y.SearchableCheckboxes(searchable_checkboxes_conf);
+
+      if (-1 < window.location.href.indexOf('/admin.action?page=message')) {
+        oSearchableCheckboxes.set('key', 'asdf1234');
+      }
+
       oSearchableCheckboxes.render();
     });
   }

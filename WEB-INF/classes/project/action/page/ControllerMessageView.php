@@ -75,14 +75,12 @@ class ControllerMessageView extends ControllerPage {
         $nameMessage = $request->getAttribute(c('MN_NAME_MESSAGE'));
 
 		$hd = 'Read ' . $nameMessage;
-		$sentBy = $aUser->getKey();
 
 		$request->setAttribute('hasReply', $hasReply);
 		$request->setAttribute('body', $body);
 		$request->setAttribute('isRead', ref(true));
 		$request->setAttribute('mAfterId', $mAfterId);
 		$request->setAttribute('mBeforeId', $mBeforeId);
-		$request->setAttribute(c('QUERY_KEY_KEY').'By', $sentBy);
 		$request->setAttribute(c('QUERY_KEY_PAGE'), ref('mailbox'));
 		$request->setAttribute('sendTo', ref($isSender ? $m->getRecipient() : $m->getSender()));
 		$request->setAttribute('subject', $subject);

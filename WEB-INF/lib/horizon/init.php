@@ -474,7 +474,6 @@ class Sanitize {
 }
 
 
-def('ADMIN_ID', 99);
 def('ERROR', '');
 def('MESSAGE', '');
 def('JS_HREF', 'javascript://');
