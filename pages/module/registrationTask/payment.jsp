@@ -18,22 +18,25 @@
 		<p>Dues help cover the costs of fields, referees, and other league maintenance.</p>
 
 		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post"><fieldset>
-			<input type="hidden" name="cmd" value="_s-xclick"/>
-			<input type="hidden" name="hosted_button_id" value="DZC878LDLZVBL"/>
-			<input type="hidden" name="target_id" value="${S.id}"/>
-			<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"/>
-			<img alt="" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
+			<INPUT TYPE="hidden" NAME="return" value="http://socialmize.mattsnider.com/registration_update_payment.action">
+			<INPUT TYPE="hidden" NAME="invoice" value="${S.id}">
+
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="J9D9ZM7U4TPSE">
+			<input type="image" src="https://www.sandbox.paypal.com/WEBSCR-640-20110306-1/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.sandbox.paypal.com/WEBSCR-640-20110306-1/en_US/i/scr/pixel.gif" width="1" height="1">
 		</fieldset></form>
 
 		<p>If you have already paid your dues or wish to pay through some other means, please contact somebody@somewhere.com.
 		Once they have confirmed your payment, you will be notified and may proceed to use ${projectNameUC}.</p>
 
 		</div>
-
+		
+<!--
 		<form action="/registration_update_payment.action" method="post">
 			<button type="submit">Skip for now!</button>
 		</form>
-
+-->
 
 	</template:put>
 </template:insert>

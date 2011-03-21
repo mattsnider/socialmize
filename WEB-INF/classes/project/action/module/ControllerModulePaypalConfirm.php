@@ -20,8 +20,6 @@ class ControllerModulePaypalConfirm extends ControllerModuleSubmitBase {
 
 		$isValid = true;
 
-		dlog($request->$parameters);
-
 		$uri = $isValid ? '/home.action' : '/registration_view_payment.action';
 
 		if ($isValid) {
