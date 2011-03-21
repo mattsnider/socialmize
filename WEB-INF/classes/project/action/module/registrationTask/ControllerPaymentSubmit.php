@@ -23,6 +23,8 @@ class ControllerPaymentSubmit extends ControllerModuleSubmitBase {
 		$uri = $isValid ? '/home.action' : '/registration_view_payment.action';
 
 		if ($isValid) {
+			$aUser->setStatus(Searchable::$STATUS_ACTIVE);
+			$request->getSession()->setAttribute('User', $aUser);
 			$this->_updateNextTask($request, $aUser->getRegistrationTask()->getId());
 		}
 		else {

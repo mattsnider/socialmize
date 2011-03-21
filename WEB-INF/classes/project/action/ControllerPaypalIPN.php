@@ -14,7 +14,7 @@ class ControllerPaypalIPN extends Action {
 		$payment_status = $request->getParameter('payment_status');
 		$invoice = $request->getParameter('invoice'); // should be the user id
 
-//		dlog(var_export($request->getParameterMap(), true));
+		dlog(var_export($request->getParameterMap(), true));
 
 		$man = new UserManager($this->getDataSource($request));
 

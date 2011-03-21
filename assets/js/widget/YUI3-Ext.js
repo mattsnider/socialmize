@@ -353,10 +353,6 @@ YUI.add('yui3-ext', function(Y) {
 			}
 		},
 
-		replace: function(html) {
-			this.set('innerHTML', html);
-		},
-
 		show: function() {
 			this.removeClass(CLS_DISPLAY_NONE);
 		},
@@ -581,15 +577,13 @@ YUI.add('yui3-ext', function(Y) {
 				Y.one(aOptions[0]).show();
 			}
 		});
-
-
-		oImg = new Image();
-		oImg.src = Socialmize.STATIC_URL + 'images/loader-32.gif';
-
-		Y.replaceWithLoader = function(el) {
-			el.replace(oImg);
-		}
 	}
+
+  Y.replaceWithLoader = function(el) {
+		var oImg = new Image();
+		oImg.src = Socialmize.STATIC_URL + 'images/loader_lg.gif';
+    el.replace(oImg);
+  };
 
 	/**
 	 * Creates the Matt namespace.

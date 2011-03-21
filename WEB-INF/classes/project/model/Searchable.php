@@ -463,6 +463,7 @@ class Searchable extends ModelBase {
 		$this->setName($S->getName());
 		$this->setNotify($S->hasNotify());
 		$this->setPendingBit($S->getPendingBit());
+		$this->setStatus($S->getStatus());
 		$this->setType($S->getType());
 		$this->setUriImage($S->getUriImage());
 		$this->setUriThumb($S->getUriThumb());

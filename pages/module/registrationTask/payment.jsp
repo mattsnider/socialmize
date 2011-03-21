@@ -17,8 +17,8 @@
 
 		<p>Dues help cover the costs of fields, referees, and other league maintenance.</p>
 
-		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post"><fieldset>
-			<INPUT TYPE="hidden" NAME="return" value="http://socialmize.mattsnider.com/registration_update_payment.action">
+		<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" id="id_form_paypal" method="post" target="_blank"><fieldset>
+			<!--<INPUT TYPE="hidden" NAME="return" value="http://socialmize.mattsnider.com/registration_update_payment.action">-->
 			<INPUT TYPE="hidden" NAME="invoice" value="${S.id}">
 
 			<input type="hidden" name="cmd" value="_s-xclick">

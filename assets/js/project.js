@@ -194,7 +194,7 @@ YUI($YO).use('yui3-ext', 'gallery-node-input', 'node', 'io-base', function(Y) {
 
 Socialmize = YUI.namespace('Env.Socialmize');
 
-Socialmize.STATIC_URL = __STATIC_URL;
+Socialmize.STATIC_URL = __STATIC_URL + '../';
 
 // create Global namespace variables
 Socialmize.FB = {

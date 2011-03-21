@@ -274,6 +274,7 @@
 
 		<!-- JSON Actions -->
 
+		<action path="/readSearchable" type="project.action.json.ControllerSearchableRead"/>
 		<action path="/readSearchables" type="project.action.json.ControllerSearchablesRead"/>
 
 

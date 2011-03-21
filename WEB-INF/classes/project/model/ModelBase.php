@@ -359,6 +359,43 @@ class ModelBase {
 		return implode('&', $sb);
 	}
 
+	/**
+	 * Returns a JSON representation of object.
+	 * @method toJson
+	 * @access Public
+	 * @since  Release 1.0
+	 */
+	public function toJson() {
+		$arr = get_object_vars($this);
+		$sb = array();
+		$i = 0;
+
+		// iterate on the members of 'this' object and create a key/value pair string
+		foreach ($arr as $k => $v) {
+			try {
+				$s = '"' . str_replace('_', '', $k) . '":';
+
+				if (is_int($v)) {
+					$s .= $v;
+				}
+				else if (is_bool($v)) {
+					$s .= $v ? 'true' : 'false';
+				}
+				else {
+					$s .= (is_object($v) && method_exists($v, 'toJson') ? $v->toJson() : '"'.$v.'"');
+				}
+
+				$sb[$i] = $s;
+				$i += 1;
+			}
+			catch (Exception $e) {
+				// do nothing
+			}
+		}
+
+		return implode(',', $sb);
+	}
+
 
 	// ********************** Simple Getter/Setter Methods ********************** //
 

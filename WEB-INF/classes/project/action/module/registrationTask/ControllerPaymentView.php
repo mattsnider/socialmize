@@ -13,10 +13,13 @@ class ControllerPaymentView extends ControllerModuleViewBase {
 		$this->setupVariables($request, RegistrationTask::$TYPE_PAYMENT);
 		$man = new BaseManager($this->getDataSource($request));
 
-		if ($S) {
-			$S->setStatus(Searchable::$STATUS_PENDING);
-			$man->updateSearchable($S);
+		if ($aUser) {
+			$aUser->setStatus(Searchable::$STATUS_PENDING);
+			$man->updateSearchable($aUser);
+			$request->getSession()->setAttribute('User', $aUser);
 		}
+
+		$request->setAttribute('S', $aUser);
 		
 		return ref('success');
 	}
