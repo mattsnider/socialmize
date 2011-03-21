@@ -321,6 +321,8 @@
 
 		<!-- Start RegistrationTask Actions -->
 
+		<action path="/paypal_ipn" type="project.action.ControllerPaypalIPN" />
+
 		<action path="/registration_view_tos" type="project.action.module.registrationTask.ControllerTosView">
 			<forward name="success" path="/pages/module/registrationTask/tos.jsp"/>
 		</action>
