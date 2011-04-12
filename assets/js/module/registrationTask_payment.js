@@ -1,5 +1,5 @@
 YUI($YO).use('node', 'datasource-io', 'datasource-polling', 'datasource-jsonschema', 'yui3-ext', function(Y) {
-  var oDs = new Y.DataSource.IO({source:'/readSearchable.action?key=' + Socialmize.user.key + '&r='}),
+  var oDs = new Y.DataSource.IO({source:'/readSearchable.action?key=' + Socialmize.user.key + '&force_auth=T&r='}),
   oRequest = {
     callback: {
       success: function(e, o) {

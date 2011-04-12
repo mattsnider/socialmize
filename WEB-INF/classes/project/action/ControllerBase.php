@@ -322,7 +322,7 @@ class ControllerBase extends Action {
 		$S = null;
 
 		// when authorized user is content owner, then both users in the context are authorized user; preg statement allows us to default to $aUser for certain pages
-		if ((!$key && preg_match('/profile|friends|home|account|my/', $pn)) || $key == $aUser->getKey()) {
+		if ((! $key && preg_match('/profile|friends|home|account|my/', $pn)) || ($key == $aUser->getKey() && ! $request->getParameter('force_auth'))) {
 			$S = new User();
 			$S->copySearchable($aUser);
 			$S->setIsMember(array(false, true, true));
