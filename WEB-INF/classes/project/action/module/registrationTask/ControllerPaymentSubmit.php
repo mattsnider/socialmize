@@ -8,6 +8,11 @@ import('project.service.ServiceRegistration');
  */
 class ControllerPaymentSubmit extends ControllerModuleSubmitBase {
 
+	function __construct() {
+		$this->_requiresRegistration = false;
+		$this->_requiredMethod = 'GET';
+	}
+
 	public static function loginEvaluation($man, $userId) {
 		return false;
 	}
