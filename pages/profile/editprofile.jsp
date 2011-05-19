@@ -27,8 +27,6 @@
 		if ('User' == $typeName) {$typeName = 'account';}
 		?>
 
-		<div id="id_test">My name is <var class="name">INSERT NAME HERE</var>. I enjoy <var class="activity">INSERT ACTIVITY HERE</var>. I like to play <var class="sport">INSERT SPORT HERE</var>.</div>
-
 		<div class="breadcrumb">
 			<a href="<? echo $profileurl; ?>">back to profile</a>
 		</div>
