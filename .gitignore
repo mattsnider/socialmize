@@ -7,3 +7,4 @@ WEB-INF/struts-config.xml
 *.idea
 *.iml
 WEB-INF/work/
+*.pyc

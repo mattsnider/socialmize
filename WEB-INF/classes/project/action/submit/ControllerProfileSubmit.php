@@ -368,7 +368,7 @@ class ControllerProfileSubmit extends ControllerBase {
 				}
 			}
 			else {
-				$r[0] = '';
+				$r[0] = $uploader->error;
 			}
 		}
 
