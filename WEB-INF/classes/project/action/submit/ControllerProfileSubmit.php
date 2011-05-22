@@ -326,6 +326,7 @@ class ControllerProfileSubmit extends ControllerBase {
 				$thumb->image_y = $img_thumb_y;
 				$thumb->image_convert = 'jpg';
 				$thumb->process($WWW_ROOT . 'thumbs/');
+				dlog($thumb->error);
 
 				$portrait = new upload($file);
 				$portrait->file_new_name_body = $name;
@@ -338,6 +339,7 @@ class ControllerProfileSubmit extends ControllerBase {
 				$portrait->image_x = $img_portrait_x;
 				$portrait->image_y = $img_portrait_y;
 				$portrait->process($WWW_ROOT . 'searchables/');
+				dlog($portrait->error);
 
 				$uploader->file_overwrite = true;
 				$uploader->image_ratio_no_zoom_in = false;
@@ -348,9 +350,11 @@ class ControllerProfileSubmit extends ControllerBase {
 				$r = array($img_loc_portrait, $img_loc_thumb);
 			}
 			else {
-				$r[0] = '/images/profile/' . $name . '.jpg';
+				$uploader->file_auto_rename = true;
 				$uploader->process($WWW_ROOT . 'profile/');
 				$isProcessed = $uploader->processed;
+				$r[0] = '/images/profile/' . $uploader->file_dst_name . '.jpg';
+				dlog($r[0]);
 			}
 		}
 
