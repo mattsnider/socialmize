@@ -32,7 +32,7 @@ def push():
 	"""
 	Pushes local changes to remote repositories on dreamhost.
 	"""
-	update_local_repo()
+#	update_local_repo()
 #	test()
 	push_repo_changes()
 	update_remote()
