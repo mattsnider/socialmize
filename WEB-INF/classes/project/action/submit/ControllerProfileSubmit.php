@@ -347,12 +347,12 @@ class ControllerProfileSubmit extends ControllerBase {
 				$r = array($img_loc_portrait, $img_loc_thumb);
 			}
 			else {
-				$uploader->file_overwrite = true;
+				$uploader->file_overwrite = false;
 				$uploader->file_auto_rename = true;
-				$uploader->image_ratio_y = true;
-				$uploader->image_resize = true;
-				$uploader->image_x = $img_thumb_x;
-				$uploader->image_y = $img_thumb_y;
+//				$uploader->image_ratio_y = true;
+//				$uploader->image_resize = true;
+//				$uploader->image_x = $img_thumb_x;
+//				$uploader->image_y = $img_thumb_y;
 				$uploader->process($WWW_ROOT . 'profile/');
 				$isProcessed = $uploader->processed;
 				$r[0] = '/images/profile/' . $uploader->file_dst_name;
