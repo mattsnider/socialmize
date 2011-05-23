@@ -278,9 +278,9 @@ dl.profile-dl dd p {
 	margin: 0;
 }
 
-dl.profile-dl img {
-	width: 100%;
-}
+/*dl.profile-dl img {*/
+	/*width: 100%;*/
+/*}*/
 
 .profile-tbl {
 	clear: both;
