@@ -347,7 +347,7 @@ class ControllerProfileSubmit extends ControllerBase {
 				$r = array($img_loc_portrait, $img_loc_thumb);
 			}
 			else {
-				$uploader->file_overwrite = false;
+				$uploader->file_overwrite = true;
 				$uploader->file_auto_rename = true;
 				$uploader->image_ratio_y = true;
 				$uploader->image_resize = true;
