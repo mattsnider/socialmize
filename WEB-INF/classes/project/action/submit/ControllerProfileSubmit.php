@@ -353,7 +353,7 @@ class ControllerProfileSubmit extends ControllerBase {
 				$uploader->file_auto_rename = true;
 				$uploader->process($WWW_ROOT . 'profile/');
 				$isProcessed = $uploader->processed;
-				$r[0] = '/images/profile/' . $uploader->file_dst_name . '.jpg';
+				$r[0] = '/images/profile/' . $uploader->file_dst_name;
 				dlog($r[0]);
 			}
 		}
