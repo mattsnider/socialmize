@@ -300,7 +300,6 @@ class ControllerProfileSubmit extends ControllerBase {
 		if ($file) {
 			$uploader = new upload($file);
 			$uploader->file_new_name_body = $name;
-			$uploader->file_overwrite = true;
 			$uploader->file_auto_rename = false;
 			$uploader->image_convert = 'jpg';
 
@@ -326,7 +325,6 @@ class ControllerProfileSubmit extends ControllerBase {
 				$thumb->image_y = $img_thumb_y;
 				$thumb->image_convert = 'jpg';
 				$thumb->process($WWW_ROOT . 'thumbs/');
-				dlog($thumb->error);
 
 				$portrait = new upload($file);
 				$portrait->file_new_name_body = $name;
@@ -339,7 +337,6 @@ class ControllerProfileSubmit extends ControllerBase {
 				$portrait->image_x = $img_portrait_x;
 				$portrait->image_y = $img_portrait_y;
 				$portrait->process($WWW_ROOT . 'searchables/');
-				dlog($portrait->error);
 
 				$uploader->file_overwrite = true;
 				$uploader->image_ratio_no_zoom_in = false;
@@ -350,11 +347,15 @@ class ControllerProfileSubmit extends ControllerBase {
 				$r = array($img_loc_portrait, $img_loc_thumb);
 			}
 			else {
+				$uploader->file_overwrite = false;
 				$uploader->file_auto_rename = true;
+				$uploader->image_ratio_y = true;
+				$uploader->image_resize = true;
+				$uploader->image_x = $img_thumb_x;
+				$uploader->image_y = $img_thumb_y;
 				$uploader->process($WWW_ROOT . 'profile/');
 				$isProcessed = $uploader->processed;
 				$r[0] = '/images/profile/' . $uploader->file_dst_name;
-				dlog($r[0]);
 			}
 		}
 
