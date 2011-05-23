@@ -302,6 +302,9 @@ class ControllerProfileSubmit extends ControllerBase {
 			$uploader->file_new_name_body = $name;
 			$uploader->file_auto_rename = false;
 			$uploader->image_convert = 'jpg';
+			
+			$img_thumb_x = 100;
+			$img_thumb_y = 125;//$img_thumb_x * (1 + pow(5,.5)) / 2;
 
 			if ($isPortrait) {
 				$img_loc_raw = '/images/raw/' . $name . '.jpg';
@@ -310,8 +313,6 @@ class ControllerProfileSubmit extends ControllerBase {
 
 				$img_portrait_x = 200;
 				$img_portrait_y = 250;//$img_portrait_x * (1 + pow(5,.5)) / 2;
-				$img_thumb_x = 100;
-				$img_thumb_y = 125;//$img_thumb_x * (1 + pow(5,.5)) / 2;
 
 				$thumb = new upload($file);
 				$thumb->file_new_name_body = $name;
@@ -349,10 +350,10 @@ class ControllerProfileSubmit extends ControllerBase {
 			else {
 				$uploader->file_overwrite = false;
 				$uploader->file_auto_rename = true;
-//				$uploader->image_ratio_y = true;
-//				$uploader->image_resize = true;
-//				$uploader->image_x = $img_thumb_x;
-//				$uploader->image_y = $img_thumb_y;
+				$uploader->image_ratio_y = true;
+				$uploader->image_resize = true;
+				$uploader->image_x = $img_thumb_x;
+				$uploader->image_y = $img_thumb_y;
 				$uploader->process($WWW_ROOT . 'profile/');
 				$isProcessed = $uploader->processed;
 				$r[0] = '/images/profile/' . $uploader->file_dst_name;
