@@ -285,7 +285,8 @@ class ControllerProfileSubmit extends ControllerBase {
 		$name = md5($S->getKey() . time());
 		$agree = $this->_getParameterAsBoolean($request, c('QK_AGREE')) || $request->getParameter(c('QK_REMOVE'));
 		$file = $_FILES[$key];
-		dlog(implode(',', $_FILES));
+		dlog(var_export($_FILES, true));
+		dlog($file);
 		$isProcessed = false;
 
 		//dlog($key);
