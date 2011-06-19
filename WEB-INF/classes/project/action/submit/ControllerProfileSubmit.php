@@ -304,7 +304,7 @@ class ControllerProfileSubmit extends ControllerBase {
 
 		dlog(var_export($file, true));
 
-		if (! $file && ! $required) {
+		if (! ($file and $file['name']) && ! $required) {
 			return array('');
 		}
 
