@@ -945,7 +945,7 @@ class upload {
                     $this->file_dst_name_body = $body . '_' . $cpt;
                     $this->file_dst_name = $this->file_dst_name_body . '.' . $this->file_dst_name_ext;
                     $cpt++;
-                    $this->file_dst_pathna_d = $this->file_dst_path . $this->file_dst_name;
+                    $this->file_dst_pathname = $this->file_dst_path . $this->file_dst_name;
                     $this->log .= '- auto_rename to ' . $this->file_dst_name . '<br />';
                 }               
             }
