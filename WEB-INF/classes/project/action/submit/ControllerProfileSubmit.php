@@ -365,6 +365,7 @@ class ControllerProfileSubmit extends ControllerBase {
 				$uploader->image_resize = true;
 				$uploader->image_x = $img_thumb_x;
 				$uploader->image_y = $img_thumb_y;
+				dlog(var_export($file, true));
 				$uploader->process($WWW_ROOT . 'profile/');
 				$isProcessed = $uploader->processed;
 				$r[0] = '/images/profile/' . $uploader->file_dst_name;
