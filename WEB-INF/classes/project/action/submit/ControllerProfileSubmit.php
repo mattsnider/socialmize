@@ -356,6 +356,7 @@ class ControllerProfileSubmit extends ControllerBase {
 //				$uploader->file_auto_rename = true;
 //				$uploader->process($WWW_ROOT . 'originals/');
 //				$isProcessed = $uploader->processed;
+				dlog(1);
 
 				$uploader = new upload($file);
 				$uploader->file_overwrite = false;
@@ -365,8 +366,9 @@ class ControllerProfileSubmit extends ControllerBase {
 				$uploader->image_x = $img_thumb_x;
 				$uploader->image_y = $img_thumb_y;
 				$uploader->process($WWW_ROOT . 'profile/');
-				$isProcessed = $isProcessed && $uploader->processed;
+				$isProcessed = $uploader->processed;
 				$r[0] = '/images/profile/' . $uploader->file_dst_name;
+				dlog(2);
 			}
 		}
 
