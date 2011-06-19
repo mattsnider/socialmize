@@ -114,8 +114,8 @@ $imageMap[$field->getName()] = 0;
 $n = $imageMap[$field->getName()];
 
 if ($field->getValue()) {
-echo ('<input checked="checked" name="' . $field->getName() . 'chkbox' . $n . '" type="checkbox" value="' . $field->getValue() . '"/>');
-echo ('<label>&nbsp;Keep the <a href="/assets' . $field->getValue() . '">current image</a>.</label>');
+echo ('<input checked="checked" name="' . $field->getName() . 'chkbox' . $n . '" id="' . $field->getName() . 'chkbox' . $n . $i . '" type="checkbox" value="' . $field->getValue() . '"/>');
+echo ('<label for="' . $field->getName() . 'chkbox' . $n . $i . '">&nbsp;Keep the <a href="/assets' . $field->getValue() . '">current image</a>.</label>');
 }
 echo ('<input class="input-file" name="' . $field->getName() . $n . '" size="30" type="file" />');
 
