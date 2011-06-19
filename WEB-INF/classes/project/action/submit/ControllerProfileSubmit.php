@@ -96,6 +96,8 @@ class ControllerProfileSubmit extends ControllerBase {
 			else if (ProfileWidgetField::$TYPE_IMAGE === $field->getType()) {
 				for ($i = 0; $i < $size; $i += 1) {
 					$currentUrl = $this->_getParameterAsString($request, $name . 'chkbox' . $i, '', array('/', '.'));
+					dlog('wtf');
+					dlog($currentUrl);
 
 					if ($currentUrl) {
 						dlog($i . '=' . $currentUrl);
