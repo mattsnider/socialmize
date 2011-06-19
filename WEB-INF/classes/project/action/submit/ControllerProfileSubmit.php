@@ -105,7 +105,7 @@ class ControllerProfileSubmit extends ControllerBase {
 					}
 					else {
 						dlog($i . '=uploading');
-						$images = $this->_uploadImage($request, $name . $i, false, $S);
+						$images = $this->_uploadImage($request, $name . $i, false, $S, false);
 						if (!$images || is_string($images)) {
 							return $images;
 						}
@@ -286,7 +286,7 @@ class ControllerProfileSubmit extends ControllerBase {
 	 * @access Private
 	 * @since Release 1.0
 	 */
-	protected function _uploadImage($request, $key, $isPortrait, $S, $required=False) {
+	protected function _uploadImage($request, $key, $isPortrait, $S, $required=true) {
 		$name = md5($S->getKey() . time());
 		$agree = $this->_getParameterAsBoolean($request, c('QK_AGREE')) || $request->getParameter(c('QK_REMOVE'));
 		$file = $_FILES[$key];
@@ -301,6 +301,8 @@ class ControllerProfileSubmit extends ControllerBase {
 
 		$WWW_ROOT = substr($_SERVER['SCRIPT_FILENAME'], 0, strpos($_SERVER['SCRIPT_FILENAME'], 'index.php')) . 'assets/images/';
 		$r = array();
+
+		dlog(var_export($file, true));
 
 		if (! $file && ! $required) {
 			return array('');
