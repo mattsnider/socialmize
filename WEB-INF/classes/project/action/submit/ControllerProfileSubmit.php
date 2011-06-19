@@ -352,10 +352,10 @@ class ControllerProfileSubmit extends ControllerBase {
 				$r = array($img_loc_portrait, $img_loc_thumb);
 			}
 			else {
-				$uploader->file_overwrite = false;
-				$uploader->file_auto_rename = true;
-				$uploader->process($WWW_ROOT . 'originals/');
-				$isProcessed = $uploader->processed;
+//				$uploader->file_overwrite = false;
+//				$uploader->file_auto_rename = true;
+//				$uploader->process($WWW_ROOT . 'originals/');
+//				$isProcessed = $uploader->processed;
 
 				$uploader = new upload($file);
 				$uploader->file_overwrite = false;
