@@ -282,10 +282,11 @@ class ControllerProfileSubmit extends ControllerBase {
 	 * @param key {String} Required. The parameter key.
 	 * @param isPortrait {String} Required. Special-case for the portrait upload.
 	 * @param S {Searchable} Required. The searchable.
+	 * @param $required {Searchable} Optional. The field is required.
 	 * @access Private
 	 * @since Release 1.0
 	 */
-	protected function _uploadImage($request, $key, $isPortrait, $S) {
+	protected function _uploadImage($request, $key, $isPortrait, $S, $required=False) {
 		$name = md5($S->getKey() . time());
 		$agree = $this->_getParameterAsBoolean($request, c('QK_AGREE')) || $request->getParameter(c('QK_REMOVE'));
 		$file = $_FILES[$key];
@@ -300,6 +301,10 @@ class ControllerProfileSubmit extends ControllerBase {
 
 		$WWW_ROOT = substr($_SERVER['SCRIPT_FILENAME'], 0, strpos($_SERVER['SCRIPT_FILENAME'], 'index.php')) . 'assets/images/';
 		$r = array();
+
+		if (! $file && ! $required) {
+			return array('');
+		}
 
 		if ($file) {
 			$uploader = new upload($file);
@@ -352,11 +357,10 @@ class ControllerProfileSubmit extends ControllerBase {
 				$r = array($img_loc_portrait, $img_loc_thumb);
 			}
 			else {
-//				$uploader->file_overwrite = false;
-//				$uploader->file_auto_rename = true;
-//				$uploader->process($WWW_ROOT . 'originals/');
-//				$isProcessed = $uploader->processed;
-				dlog(1);
+				$uploader->file_overwrite = false;
+				$uploader->file_auto_rename = true;
+				$uploader->process($WWW_ROOT . 'originals/');
+				$isProcessed = $uploader->processed;
 
 				$uploader = new upload($file);
 				$uploader->file_overwrite = false;
@@ -365,11 +369,9 @@ class ControllerProfileSubmit extends ControllerBase {
 				$uploader->image_resize = true;
 				$uploader->image_x = $img_thumb_x;
 				$uploader->image_y = $img_thumb_y;
-				dlog(var_export($file, true));
 				$uploader->process($WWW_ROOT . 'profile/');
 				$isProcessed = $uploader->processed;
 				$r[0] = '/images/profile/' . $uploader->file_dst_name;
-				dlog(2);
 			}
 		}
 
