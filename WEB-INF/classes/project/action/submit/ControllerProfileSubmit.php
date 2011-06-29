@@ -95,16 +95,12 @@ class ControllerProfileSubmit extends ControllerBase {
 			// image special-case
 			else if (ProfileWidgetField::$TYPE_IMAGE === $field->getType()) {
 				for ($i = 0; $i < $size; $i += 1) {
-					$currentUrl = $this->_getParameterAsString($request, $name . 'chkbox' . $i, '', array('/', '.'));
-					dlog('wtf');
-					dlog($currentUrl);
+					$currentUrl = $this->_getParameterAsString($request, $name . 'chkbox' . $i, '', c('PARANOID_ALLOWED_URI'));
 
 					if ($currentUrl) {
-						dlog($i . '=' . $currentUrl);
 						$values[$i] = $currentUrl;
 					}
 					else {
-						dlog($i . '=uploading');
 						$images = $this->_uploadImage($request, $name . $i, false, $S, false);
 						if (!$images || is_string($images)) {
 							return $images;
