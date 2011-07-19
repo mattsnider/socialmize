@@ -513,7 +513,6 @@ class ServiceProfileWidget extends BaseManager {
 		$this->_setupSearchableStatus($wheres, $values, array(Searchable::$STATUS_ACTIVE,Searchable::$STATUS_INACTIVE), 'PWF');
 
 		if ($pwfId) {
-			dlog('wtf');
 			array_push($values, $pwfId);
 			array_push($wheres, '`id` != ?');
 		}

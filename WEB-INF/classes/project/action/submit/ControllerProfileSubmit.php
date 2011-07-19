@@ -144,6 +144,7 @@ class ControllerProfileSubmit extends ControllerBase {
 			else {
 				$values = $request->getParameterValues($name);
 
+
 				// list special-case, normalize newlines and commas
 				if (ProfileWidgetField::$TYPE_LIST === $field->getType()) {
 					foreach ($values as $i => $v) {
@@ -297,8 +298,6 @@ class ControllerProfileSubmit extends ControllerBase {
 
 		$WWW_ROOT = substr($_SERVER['SCRIPT_FILENAME'], 0, strpos($_SERVER['SCRIPT_FILENAME'], 'index.php')) . 'assets/images/';
 		$r = array();
-
-		dlog(var_export($file, true));
 
 		if (! ($file and $file['name']) && ! $required) {
 			return array('');
